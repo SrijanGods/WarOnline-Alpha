@@ -1,0 +1,1401 @@
+fileFormatVersion: 2
+guid: d50e1c8cf44137b47b952a579545eb99
+timeCreated: 1501246049
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f000000400000004100000042000000430000004400000045000000460000004700000048000000490000004a0000004b0000004c0000004d0000004e0000004f000000500000005100000052000000530000005400000055000000560000005700000058000000590000005a0000005b0000005c0000005d0000005e0000005f000000600000006100000062000000630000006400000065000000660000006700000068000000690000006a0000006b0000006c0000006d0000006e0000006f000000700000007100000072000000730000007400000075000000760000007700000078000000790000007a0000007b0000007c0000007d0000007e0000007f000000800000008100000082000000830000008400000085000000860000008700000088000000890000008a0000008b0000008c0000008d0000008e0000008f000000900000009100000092000000930000009400000095000000960000009700000098000000990000009a0000009b0000009c0000009d0000009e0000009f000000a0000000a1000000a2000000a3000000a4000000a5000000a6000000a7000000a8000000a9000000aa000000ab000000ac000000ad000000ae000000af000000b0000000b1000000b2000000b3000000b4000000b5000000b6000000b7000000b8000000b9000000ba000000bb000000bc000000bd000000be000000bf000000c0000000c1000000c2000000c3000000c4000000c5000000c6000000c7000000c8000000c9000000ca000000cb000000cc000000cd000000ce000000cf000000d0000000d1000000d2000000d3000000d4000000d5000000d6000000d7000000d8000000d9000000da000000db000000dc000000dd000000de000000df000000e0000000e1000000e2000000e3000000e4000000e5000000e6000000e7000000e8000000e9000000ea000000eb000000ec000000ed000000ee000000ef000000f0000000f1000000f2000000f3000000f4000000f5000000f6000000f7000000f8000000f9000000fa000000fb000000fc000000fd000000fe000000ff000000000100000101000002010000030100000401000005010000060100000701000008010000090100000a0100000b0100000c0100000d0100000e0100000f010000100100001101000012010000130100001401000015010000160100001701000018010000190100001a0100001b0100001c0100001d0100001e0100001f010000200100002101000022010000230100002401000025010000260100002701000028010000290100002a0100002b0100002c0100002d0100002e0100002f010000300100003101000032010000330100003401000035010000360100003701000038010000390100003a0100003b0100003c0100003d0100003e0100003f010000400100004101000042010000430100004401000045010000460100004701000048010000490100004a0100004b0100004c0100004d0100004e0100004f010000500100005101000052010000530100005401000055010000560100005701000058010000590100005a0100005b0100005c0100005d0100005e0100005f010000600100006101000062010000630100006401000065010000660100006701000068010000690100006a0100006b0100006c0100006d0100006e0100006f010000700100007101000072010000730100007401000075010000760100007701000078010000790100007a0100007b0100007c0100007d0100007e0100007f010000800100008101000082010000830100008401000085010000860100008701000088010000890100008a0100008b0100008c0100008d0100008e0100008f010000900100009101000092010000930100009401000095010000960100009701000098010000990100009a0100009b0100009c0100009d0100009e0100009f010000a0010000a1010000a2010000a3010000a4010000a5010000a6010000a7010000a8010000a9010000aa010000ab010000ac010000ad010000ae010000af010000b0010000b1010000b2010000b3010000b4010000b5010000b6010000b7010000b8010000b9010000ba010000bb010000bc010000bd010000be010000bf010000c0010000c1010000c2010000c3010000c4010000c5010000c6010000c7010000c8010000c9010000ca010000cb010000cc010000cd010000ce010000cf010000d0010000d1010000d2010000d3010000d4010000d5010000d6010000d7010000d8010000d9010000da010000db010000dc010000dd010000de010000df010000e0010000e1010000e2010000e3010000e4010000e5010000e6010000e7010000e8010000e9010000ea010000eb010000ec010000ed010000ee010000ef010000f0010000f1010000f2010000f3010000f4010000f5010000f6010000f7010000f8010000f9010000fa010000fb010000fc010000fd010000fe010000ff010000000200000102000002020000030200000402000005020000060200000702000008020000090200000a0200000b0200000e0200000f020000100200001102000012020000130200001402000015020000160200001702000018020000190200001a0200001b0200001c0200001d0200001e0200001f020000200200002102000022020000230200002402000025020000260200002702000028020000290200002a0200002b0200002c0200002d0200002e0200002f020000300200003102000032020000330200003402000035020000360200003702000038020000390200003a0200003b0200003c0200003d0200003e0200003f020000400200004102000042020000430200004402000045020000460200004702000048020000490200004a0200004b0200004c0200004d0200004e0200004f020000500200005102000052020000530200005402000055020000560200005702000058020000590200005a0200005b0200005c0200005d0200005e0200005f020000600200006102000062020000630200006402000065020000660200006702000068020000690200006a0200006b0200006c0200006d0200006e0200006f020000700200007102000072020000
+  assetHash:
+    serializedVersion: 2
+    Hash: 37b7bd959ba6835fc311ae99daf99ac2
+  longitude: 54.488498
+  latitude: 24.421122
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 110.21378, y: 101.72222, z: 229.73094}
+      lookAt: {x: -8.2374115, y: -117.88299, z: -202.72087}
+      up: {x: -0.11619801, y: 0.8980705, z: -0.42422566}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Al-Maqtaa Fort - UAE
+    100002: arabic door
+    100004: arabic door 1
+    100006: arabic door 2
+    100008: arabic door 3
+    100010: arabic window
+    100012: arabic window 1
+    100014: arabic window 10
+    100016: arabic window 2
+    100018: arabic window 3
+    100020: arabic window 4
+    100022: arabic window 5
+    100024: arabic window 6
+    100026: arabic window 7
+    100028: arabic window 8
+    100030: arabic window 9
+    100032: Cedar tree
+    100034: Cedar tree 1
+    100036: Cedar tree 2
+    100038: Cedar tree 3
+    100040: cellar fence
+    100042: cellar fence 1
+    100044: cellar fence 2
+    100046: cellar fence 3
+    100048: cellar fence 4
+    100050: Component#1
+    100052: Component#10
+    100054: Component#11
+    100056: Component#11 1
+    100058: Component#11 10
+    100060: Component#11 2
+    100062: Component#11 3
+    100064: Component#11 4
+    100066: Component#11 5
+    100068: Component#11 6
+    100070: Component#11 7
+    100072: Component#11 8
+    100074: Component#11 9
+    100076: Component#12
+    100078: Component#12 1
+    100080: Component#12 10
+    100082: Component#12 100
+    100084: Component#12 101
+    100086: Component#12 102
+    100088: Component#12 103
+    100090: Component#12 104
+    100092: Component#12 105
+    100094: Component#12 106
+    100096: Component#12 107
+    100098: Component#12 108
+    100100: Component#12 109
+    100102: Component#12 11
+    100104: Component#12 110
+    100106: Component#12 111
+    100108: Component#12 112
+    100110: Component#12 113
+    100112: Component#12 114
+    100114: Component#12 115
+    100116: Component#12 12
+    100118: Component#12 13
+    100120: Component#12 14
+    100122: Component#12 15
+    100124: Component#12 16
+    100126: Component#12 17
+    100128: Component#12 18
+    100130: Component#12 19
+    100132: Component#12 2
+    100134: Component#12 20
+    100136: Component#12 21
+    100138: Component#12 22
+    100140: Component#12 23
+    100142: Component#12 24
+    100144: Component#12 25
+    100146: Component#12 26
+    100148: Component#12 27
+    100150: Component#12 28
+    100152: Component#12 29
+    100154: Component#12 3
+    100156: Component#12 30
+    100158: Component#12 31
+    100160: Component#12 32
+    100162: Component#12 33
+    100164: Component#12 34
+    100166: Component#12 35
+    100168: Component#12 36
+    100170: Component#12 37
+    100172: Component#12 38
+    100174: Component#12 39
+    100176: Component#12 4
+    100178: Component#12 40
+    100180: Component#12 41
+    100182: Component#12 42
+    100184: Component#12 43
+    100186: Component#12 44
+    100188: Component#12 45
+    100190: Component#12 46
+    100192: Component#12 47
+    100194: Component#12 48
+    100196: Component#12 49
+    100198: Component#12 5
+    100200: Component#12 50
+    100202: Component#12 51
+    100204: Component#12 52
+    100206: Component#12 53
+    100208: Component#12 54
+    100210: Component#12 55
+    100212: Component#12 56
+    100214: Component#12 57
+    100216: Component#12 58
+    100218: Component#12 59
+    100220: Component#12 6
+    100222: Component#12 60
+    100224: Component#12 61
+    100226: Component#12 62
+    100228: Component#12 63
+    100230: Component#12 64
+    100232: Component#12 65
+    100234: Component#12 66
+    100236: Component#12 67
+    100238: Component#12 68
+    100240: Component#12 69
+    100242: Component#12 7
+    100244: Component#12 70
+    100246: Component#12 71
+    100248: Component#12 72
+    100250: Component#12 73
+    100252: Component#12 74
+    100254: Component#12 75
+    100256: Component#12 76
+    100258: Component#12 77
+    100260: Component#12 78
+    100262: Component#12 79
+    100264: Component#12 8
+    100266: Component#12 80
+    100268: Component#12 81
+    100270: Component#12 82
+    100272: Component#12 83
+    100274: Component#12 84
+    100276: Component#12 85
+    100278: Component#12 86
+    100280: Component#12 87
+    100282: Component#12 88
+    100284: Component#12 89
+    100286: Component#12 9
+    100288: Component#12 90
+    100290: Component#12 91
+    100292: Component#12 92
+    100294: Component#12 93
+    100296: Component#12 94
+    100298: Component#12 95
+    100300: Component#12 96
+    100302: Component#12 97
+    100304: Component#12 98
+    100306: Component#12 99
+    100308: Component#13
+    100310: Component#14
+    100312: Component#16
+    100314: Component#2
+    100316: Component#3
+    100318: Component#3 1
+    100320: Component#3 2
+    100322: Component#3 3
+    100324: Component#3 4
+    100326: Component#3 5
+    100328: Component#4
+    100330: Component#4 1
+    100332: Component#4 2
+    100334: Component#4 3
+    100336: Component#4 4
+    100338: Component#4 5
+    100340: Component#4 6
+    100342: Component#4 7
+    100344: Component#4 8
+    100346: Component#4 9
+    100348: Component#5
+    100350: Component#5 1
+    100352: Component#5 2
+    100354: Component#5 3
+    100356: Component#5 4
+    100358: Component#5 5
+    100360: Component#6
+    100362: Component#6 1
+    100364: Component#6 2
+    100366: Component#6 3
+    100368: Component#6 4
+    100370: Component#6 5
+    100372: Component#6 6
+    100374: Component#7
+    100376: Component#8
+    100378: Component#8 1
+    100380: Component#8 2
+    100382: Component#8 3
+    100384: Component#8 4
+    100386: Component#8 5
+    100388: Component#8 6
+    100390: Component#8 7
+    100392: Component#9
+    100394: Component#9 1
+    100396: Component#9 2
+    100398: Component#9 3
+    100400: Component#9 4
+    100402: cupola
+    100404: cupola 1
+    100406: DESERT HANGOUT
+    100408: door frame
+    100410: door frame 1
+    100412: door frame 2
+    100414: door frame 3
+    100416: door handle
+    100418: door handle 1
+    100420: door handle 2
+    100422: door handle 3
+    100424: door itself
+    100426: door itself 1
+    100428: door itself 2
+    100430: door itself 3
+    100432: Group 529
+    100434: Group 532
+    100436: Group 535
+    100438: Group 538
+    100440: Group 541
+    100442: Group 544
+    100444: Group 547
+    100446: Group 550
+    100448: Group 553
+    100450: Group 556
+    100452: Group 559
+    100454: Group 562
+    100456: Group 565
+    100458: Group 568
+    100460: Group 571
+    100462: Group 574
+    100464: Group 577
+    100466: Group 580
+    100468: Group 583
+    100470: Group 593
+    100472: Group 597
+    100474: Group 601
+    100476: Group 605
+    100478: Group 609
+    100480: Group 613
+    100482: Group 617
+    100484: //RootNode
+    100486: log
+    100488: log 1
+    100490: log 2
+    100492: log 2 1
+    100494: log 2 1 1
+    100496: log 2 2
+    100498: log 2#1
+    100500: log 2#1 1
+    100502: log 2#1 2
+    100504: log 2#1 3
+    100506: log 3
+    100508: log 3 1
+    100510: log 3 1 1
+    100512: log 3 2
+    100514: log 3 3
+    100516: log 3 4
+    100518: log 3#1
+    100520: log 3#1 1
+    100522: log 3#1 2
+    100524: log 3#2
+    100526: log 3#2 1
+    100528: log 3#2 2
+    100530: log 3#2 3
+    100532: log 3#2 4
+    100534: log 3#2 5
+    100536: log 4
+    100538: log 4 1
+    100540: log 4 1 1
+    100542: log 4 2
+    100544: log 4 3
+    100546: log 4 4
+    100548: log 4 5
+    100550: log 4 6
+    100552: log 5
+    100554: log 5 1
+    100556: log 5 1 1
+    100558: log 5 2
+    100560: log 5 3
+    100562: log 5 4
+    100564: log 5 5
+    100566: log 5 6
+    100568: log 6
+    100570: MachineScrew_SlottedHexHead_Size .375
+    100572: MachineScrew_SlottedHexHead_Size .375 1
+    100574: MachineScrew_SlottedHexHead_Size .375 2
+    100576: MachineScrew_SlottedHexHead_Size .375 3
+    100578: MachineScrew_SlottedHexHead_Size .375 4
+    100580: net
+    100582: net 1
+    100584: net 2
+    100586: net 3
+    100588: Old Arabic Buildings
+    100590: Old Arabic house
+    100592: Piping_Camlock_1 in Female
+    100594: Piping_Camlock_1 in Female 1
+    100596: Piping_Camlock_1 in Female 10
+    100598: Piping_Camlock_1 in Female 11
+    100600: Piping_Camlock_1 in Female 12
+    100602: Piping_Camlock_1 in Female 13
+    100604: Piping_Camlock_1 in Female 14
+    100606: Piping_Camlock_1 in Female 2
+    100608: Piping_Camlock_1 in Female 3
+    100610: Piping_Camlock_1 in Female 4
+    100612: Piping_Camlock_1 in Female 5
+    100614: Piping_Camlock_1 in Female 6
+    100616: Piping_Camlock_1 in Female 7
+    100618: Piping_Camlock_1 in Female 8
+    100620: Piping_Camlock_1 in Female 9
+    100622: Piping_Camlock_1 in Female#1
+    100624: Piping_Camlock_1 in Female#1 1
+    100626: Piping_Camlock_1 in Female#1 2
+    100628: Piping_Camlock_1 in Female#1 3
+    100630: platform
+    100632: Socket_Head_CS_.875
+    100634: Socket_Head_CS_.875 1
+    100636: Step
+    100638: Step 1
+    100640: Step 2
+    100642: Valve_2in_Ball Valve
+    100644: Valve_2in_Ball Valve 1
+    100646: Vent
+    100648: Vent 1
+    100650: Vent 2
+    100652: Window#1
+    400000: Al-Maqtaa Fort - UAE
+    400002: arabic door
+    400004: arabic door 1
+    400006: arabic door 2
+    400008: arabic door 3
+    400010: arabic window
+    400012: arabic window 1
+    400014: arabic window 10
+    400016: arabic window 2
+    400018: arabic window 3
+    400020: arabic window 4
+    400022: arabic window 5
+    400024: arabic window 6
+    400026: arabic window 7
+    400028: arabic window 8
+    400030: arabic window 9
+    400032: Cedar tree
+    400034: Cedar tree 1
+    400036: Cedar tree 2
+    400038: Cedar tree 3
+    400040: cellar fence
+    400042: cellar fence 1
+    400044: cellar fence 2
+    400046: cellar fence 3
+    400048: cellar fence 4
+    400050: Component#1
+    400052: Component#10
+    400054: Component#11
+    400056: Component#11 1
+    400058: Component#11 10
+    400060: Component#11 2
+    400062: Component#11 3
+    400064: Component#11 4
+    400066: Component#11 5
+    400068: Component#11 6
+    400070: Component#11 7
+    400072: Component#11 8
+    400074: Component#11 9
+    400076: Component#12
+    400078: Component#12 1
+    400080: Component#12 10
+    400082: Component#12 100
+    400084: Component#12 101
+    400086: Component#12 102
+    400088: Component#12 103
+    400090: Component#12 104
+    400092: Component#12 105
+    400094: Component#12 106
+    400096: Component#12 107
+    400098: Component#12 108
+    400100: Component#12 109
+    400102: Component#12 11
+    400104: Component#12 110
+    400106: Component#12 111
+    400108: Component#12 112
+    400110: Component#12 113
+    400112: Component#12 114
+    400114: Component#12 115
+    400116: Component#12 12
+    400118: Component#12 13
+    400120: Component#12 14
+    400122: Component#12 15
+    400124: Component#12 16
+    400126: Component#12 17
+    400128: Component#12 18
+    400130: Component#12 19
+    400132: Component#12 2
+    400134: Component#12 20
+    400136: Component#12 21
+    400138: Component#12 22
+    400140: Component#12 23
+    400142: Component#12 24
+    400144: Component#12 25
+    400146: Component#12 26
+    400148: Component#12 27
+    400150: Component#12 28
+    400152: Component#12 29
+    400154: Component#12 3
+    400156: Component#12 30
+    400158: Component#12 31
+    400160: Component#12 32
+    400162: Component#12 33
+    400164: Component#12 34
+    400166: Component#12 35
+    400168: Component#12 36
+    400170: Component#12 37
+    400172: Component#12 38
+    400174: Component#12 39
+    400176: Component#12 4
+    400178: Component#12 40
+    400180: Component#12 41
+    400182: Component#12 42
+    400184: Component#12 43
+    400186: Component#12 44
+    400188: Component#12 45
+    400190: Component#12 46
+    400192: Component#12 47
+    400194: Component#12 48
+    400196: Component#12 49
+    400198: Component#12 5
+    400200: Component#12 50
+    400202: Component#12 51
+    400204: Component#12 52
+    400206: Component#12 53
+    400208: Component#12 54
+    400210: Component#12 55
+    400212: Component#12 56
+    400214: Component#12 57
+    400216: Component#12 58
+    400218: Component#12 59
+    400220: Component#12 6
+    400222: Component#12 60
+    400224: Component#12 61
+    400226: Component#12 62
+    400228: Component#12 63
+    400230: Component#12 64
+    400232: Component#12 65
+    400234: Component#12 66
+    400236: Component#12 67
+    400238: Component#12 68
+    400240: Component#12 69
+    400242: Component#12 7
+    400244: Component#12 70
+    400246: Component#12 71
+    400248: Component#12 72
+    400250: Component#12 73
+    400252: Component#12 74
+    400254: Component#12 75
+    400256: Component#12 76
+    400258: Component#12 77
+    400260: Component#12 78
+    400262: Component#12 79
+    400264: Component#12 8
+    400266: Component#12 80
+    400268: Component#12 81
+    400270: Component#12 82
+    400272: Component#12 83
+    400274: Component#12 84
+    400276: Component#12 85
+    400278: Component#12 86
+    400280: Component#12 87
+    400282: Component#12 88
+    400284: Component#12 89
+    400286: Component#12 9
+    400288: Component#12 90
+    400290: Component#12 91
+    400292: Component#12 92
+    400294: Component#12 93
+    400296: Component#12 94
+    400298: Component#12 95
+    400300: Component#12 96
+    400302: Component#12 97
+    400304: Component#12 98
+    400306: Component#12 99
+    400308: Component#13
+    400310: Component#14
+    400312: Component#16
+    400314: Component#2
+    400316: Component#3
+    400318: Component#3 1
+    400320: Component#3 2
+    400322: Component#3 3
+    400324: Component#3 4
+    400326: Component#3 5
+    400328: Component#4
+    400330: Component#4 1
+    400332: Component#4 2
+    400334: Component#4 3
+    400336: Component#4 4
+    400338: Component#4 5
+    400340: Component#4 6
+    400342: Component#4 7
+    400344: Component#4 8
+    400346: Component#4 9
+    400348: Component#5
+    400350: Component#5 1
+    400352: Component#5 2
+    400354: Component#5 3
+    400356: Component#5 4
+    400358: Component#5 5
+    400360: Component#6
+    400362: Component#6 1
+    400364: Component#6 2
+    400366: Component#6 3
+    400368: Component#6 4
+    400370: Component#6 5
+    400372: Component#6 6
+    400374: Component#7
+    400376: Component#8
+    400378: Component#8 1
+    400380: Component#8 2
+    400382: Component#8 3
+    400384: Component#8 4
+    400386: Component#8 5
+    400388: Component#8 6
+    400390: Component#8 7
+    400392: Component#9
+    400394: Component#9 1
+    400396: Component#9 2
+    400398: Component#9 3
+    400400: Component#9 4
+    400402: cupola
+    400404: cupola 1
+    400406: DESERT HANGOUT
+    400408: door frame
+    400410: door frame 1
+    400412: door frame 2
+    400414: door frame 3
+    400416: door handle
+    400418: door handle 1
+    400420: door handle 2
+    400422: door handle 3
+    400424: door itself
+    400426: door itself 1
+    400428: door itself 2
+    400430: door itself 3
+    400432: Group 529
+    400434: Group 532
+    400436: Group 535
+    400438: Group 538
+    400440: Group 541
+    400442: Group 544
+    400444: Group 547
+    400446: Group 550
+    400448: Group 553
+    400450: Group 556
+    400452: Group 559
+    400454: Group 562
+    400456: Group 565
+    400458: Group 568
+    400460: Group 571
+    400462: Group 574
+    400464: Group 577
+    400466: Group 580
+    400468: Group 583
+    400470: Group 593
+    400472: Group 597
+    400474: Group 601
+    400476: Group 605
+    400478: Group 609
+    400480: Group 613
+    400482: Group 617
+    400484: //RootNode
+    400486: log
+    400488: log 1
+    400490: log 2
+    400492: log 2 1
+    400494: log 2 1 1
+    400496: log 2 2
+    400498: log 2#1
+    400500: log 2#1 1
+    400502: log 2#1 2
+    400504: log 2#1 3
+    400506: log 3
+    400508: log 3 1
+    400510: log 3 1 1
+    400512: log 3 2
+    400514: log 3 3
+    400516: log 3 4
+    400518: log 3#1
+    400520: log 3#1 1
+    400522: log 3#1 2
+    400524: log 3#2
+    400526: log 3#2 1
+    400528: log 3#2 2
+    400530: log 3#2 3
+    400532: log 3#2 4
+    400534: log 3#2 5
+    400536: log 4
+    400538: log 4 1
+    400540: log 4 1 1
+    400542: log 4 2
+    400544: log 4 3
+    400546: log 4 4
+    400548: log 4 5
+    400550: log 4 6
+    400552: log 5
+    400554: log 5 1
+    400556: log 5 1 1
+    400558: log 5 2
+    400560: log 5 3
+    400562: log 5 4
+    400564: log 5 5
+    400566: log 5 6
+    400568: log 6
+    400570: MachineScrew_SlottedHexHead_Size .375
+    400572: MachineScrew_SlottedHexHead_Size .375 1
+    400574: MachineScrew_SlottedHexHead_Size .375 2
+    400576: MachineScrew_SlottedHexHead_Size .375 3
+    400578: MachineScrew_SlottedHexHead_Size .375 4
+    400580: net
+    400582: net 1
+    400584: net 2
+    400586: net 3
+    400588: Old Arabic Buildings
+    400590: Old Arabic house
+    400592: Piping_Camlock_1 in Female
+    400594: Piping_Camlock_1 in Female 1
+    400596: Piping_Camlock_1 in Female 10
+    400598: Piping_Camlock_1 in Female 11
+    400600: Piping_Camlock_1 in Female 12
+    400602: Piping_Camlock_1 in Female 13
+    400604: Piping_Camlock_1 in Female 14
+    400606: Piping_Camlock_1 in Female 2
+    400608: Piping_Camlock_1 in Female 3
+    400610: Piping_Camlock_1 in Female 4
+    400612: Piping_Camlock_1 in Female 5
+    400614: Piping_Camlock_1 in Female 6
+    400616: Piping_Camlock_1 in Female 7
+    400618: Piping_Camlock_1 in Female 8
+    400620: Piping_Camlock_1 in Female 9
+    400622: Piping_Camlock_1 in Female#1
+    400624: Piping_Camlock_1 in Female#1 1
+    400626: Piping_Camlock_1 in Female#1 2
+    400628: Piping_Camlock_1 in Female#1 3
+    400630: platform
+    400632: Socket_Head_CS_.875
+    400634: Socket_Head_CS_.875 1
+    400636: Step
+    400638: Step 1
+    400640: Step 2
+    400642: Valve_2in_Ball Valve
+    400644: Valve_2in_Ball Valve 1
+    400646: Vent
+    400648: Vent 1
+    400650: Vent 2
+    400652: Window#1
+    2300000: Al-Maqtaa Fort - UAE
+    2300002: arabic window
+    2300004: arabic window 1
+    2300006: arabic window 10
+    2300008: arabic window 2
+    2300010: arabic window 3
+    2300012: arabic window 4
+    2300014: arabic window 5
+    2300016: arabic window 6
+    2300018: arabic window 7
+    2300020: arabic window 8
+    2300022: arabic window 9
+    2300024: cellar fence
+    2300026: cellar fence 1
+    2300028: cellar fence 2
+    2300030: cellar fence 3
+    2300032: cellar fence 4
+    2300034: Component#1
+    2300036: Component#10
+    2300038: Component#11
+    2300040: Component#11 1
+    2300042: Component#11 10
+    2300044: Component#11 2
+    2300046: Component#11 3
+    2300048: Component#11 4
+    2300050: Component#11 5
+    2300052: Component#11 6
+    2300054: Component#11 7
+    2300056: Component#11 8
+    2300058: Component#11 9
+    2300060: Component#12
+    2300062: Component#12 1
+    2300064: Component#12 10
+    2300066: Component#12 100
+    2300068: Component#12 101
+    2300070: Component#12 102
+    2300072: Component#12 103
+    2300074: Component#12 104
+    2300076: Component#12 105
+    2300078: Component#12 106
+    2300080: Component#12 107
+    2300082: Component#12 108
+    2300084: Component#12 109
+    2300086: Component#12 11
+    2300088: Component#12 110
+    2300090: Component#12 111
+    2300092: Component#12 112
+    2300094: Component#12 113
+    2300096: Component#12 114
+    2300098: Component#12 115
+    2300100: Component#12 12
+    2300102: Component#12 13
+    2300104: Component#12 14
+    2300106: Component#12 15
+    2300108: Component#12 16
+    2300110: Component#12 17
+    2300112: Component#12 18
+    2300114: Component#12 19
+    2300116: Component#12 2
+    2300118: Component#12 20
+    2300120: Component#12 21
+    2300122: Component#12 22
+    2300124: Component#12 23
+    2300126: Component#12 24
+    2300128: Component#12 25
+    2300130: Component#12 26
+    2300132: Component#12 27
+    2300134: Component#12 28
+    2300136: Component#12 29
+    2300138: Component#12 3
+    2300140: Component#12 30
+    2300142: Component#12 31
+    2300144: Component#12 32
+    2300146: Component#12 33
+    2300148: Component#12 34
+    2300150: Component#12 35
+    2300152: Component#12 36
+    2300154: Component#12 37
+    2300156: Component#12 38
+    2300158: Component#12 39
+    2300160: Component#12 4
+    2300162: Component#12 40
+    2300164: Component#12 41
+    2300166: Component#12 42
+    2300168: Component#12 43
+    2300170: Component#12 44
+    2300172: Component#12 45
+    2300174: Component#12 46
+    2300176: Component#12 47
+    2300178: Component#12 48
+    2300180: Component#12 49
+    2300182: Component#12 5
+    2300184: Component#12 50
+    2300186: Component#12 51
+    2300188: Component#12 52
+    2300190: Component#12 53
+    2300192: Component#12 54
+    2300194: Component#12 55
+    2300196: Component#12 56
+    2300198: Component#12 57
+    2300200: Component#12 58
+    2300202: Component#12 59
+    2300204: Component#12 6
+    2300206: Component#12 60
+    2300208: Component#12 61
+    2300210: Component#12 62
+    2300212: Component#12 63
+    2300214: Component#12 64
+    2300216: Component#12 65
+    2300218: Component#12 66
+    2300220: Component#12 67
+    2300222: Component#12 68
+    2300224: Component#12 69
+    2300226: Component#12 7
+    2300228: Component#12 70
+    2300230: Component#12 71
+    2300232: Component#12 72
+    2300234: Component#12 73
+    2300236: Component#12 74
+    2300238: Component#12 75
+    2300240: Component#12 76
+    2300242: Component#12 77
+    2300244: Component#12 78
+    2300246: Component#12 79
+    2300248: Component#12 8
+    2300250: Component#12 80
+    2300252: Component#12 81
+    2300254: Component#12 82
+    2300256: Component#12 83
+    2300258: Component#12 84
+    2300260: Component#12 85
+    2300262: Component#12 86
+    2300264: Component#12 87
+    2300266: Component#12 88
+    2300268: Component#12 89
+    2300270: Component#12 9
+    2300272: Component#12 90
+    2300274: Component#12 91
+    2300276: Component#12 92
+    2300278: Component#12 93
+    2300280: Component#12 94
+    2300282: Component#12 95
+    2300284: Component#12 96
+    2300286: Component#12 97
+    2300288: Component#12 98
+    2300290: Component#12 99
+    2300292: Component#13
+    2300294: Component#14
+    2300296: Component#16
+    2300298: Component#2
+    2300300: Component#3
+    2300302: Component#3 1
+    2300304: Component#3 2
+    2300306: Component#3 3
+    2300308: Component#3 4
+    2300310: Component#3 5
+    2300312: Component#4
+    2300314: Component#4 1
+    2300316: Component#4 2
+    2300318: Component#4 3
+    2300320: Component#4 4
+    2300322: Component#4 5
+    2300324: Component#4 6
+    2300326: Component#4 7
+    2300328: Component#4 8
+    2300330: Component#4 9
+    2300332: Component#5
+    2300334: Component#5 1
+    2300336: Component#5 2
+    2300338: Component#5 3
+    2300340: Component#5 4
+    2300342: Component#5 5
+    2300344: Component#6
+    2300346: Component#6 1
+    2300348: Component#6 2
+    2300350: Component#6 3
+    2300352: Component#6 4
+    2300354: Component#6 5
+    2300356: Component#6 6
+    2300358: Component#7
+    2300360: Component#8
+    2300362: Component#8 1
+    2300364: Component#8 2
+    2300366: Component#8 3
+    2300368: Component#8 4
+    2300370: Component#8 5
+    2300372: Component#8 6
+    2300374: Component#8 7
+    2300376: Component#9
+    2300378: Component#9 1
+    2300380: Component#9 2
+    2300382: Component#9 3
+    2300384: Component#9 4
+    2300386: cupola
+    2300388: cupola 1
+    2300390: DESERT HANGOUT
+    2300392: door frame
+    2300394: door frame 1
+    2300396: door frame 2
+    2300398: door frame 3
+    2300400: door handle
+    2300402: door handle 1
+    2300404: door handle 2
+    2300406: door handle 3
+    2300408: door itself
+    2300410: door itself 1
+    2300412: door itself 2
+    2300414: door itself 3
+    2300416: Group 529
+    2300418: Group 532
+    2300420: Group 535
+    2300422: Group 538
+    2300424: Group 541
+    2300426: Group 544
+    2300428: Group 547
+    2300430: Group 550
+    2300432: Group 553
+    2300434: Group 556
+    2300436: Group 559
+    2300438: Group 562
+    2300440: Group 565
+    2300442: Group 568
+    2300444: Group 571
+    2300446: Group 574
+    2300448: Group 577
+    2300450: Group 580
+    2300452: Group 583
+    2300454: Group 593
+    2300456: Group 597
+    2300458: Group 601
+    2300460: Group 605
+    2300462: Group 609
+    2300464: Group 613
+    2300466: Group 617
+    2300468: log
+    2300470: log 1
+    2300472: log 2
+    2300474: log 2 1
+    2300476: log 2 1 1
+    2300478: log 2 2
+    2300480: log 2#1
+    2300482: log 2#1 1
+    2300484: log 2#1 2
+    2300486: log 2#1 3
+    2300488: log 3
+    2300490: log 3 1
+    2300492: log 3 1 1
+    2300494: log 3 2
+    2300496: log 3 3
+    2300498: log 3 4
+    2300500: log 3#1
+    2300502: log 3#1 1
+    2300504: log 3#1 2
+    2300506: log 3#2
+    2300508: log 3#2 1
+    2300510: log 3#2 2
+    2300512: log 3#2 3
+    2300514: log 3#2 4
+    2300516: log 3#2 5
+    2300518: log 4
+    2300520: log 4 1
+    2300522: log 4 1 1
+    2300524: log 4 2
+    2300526: log 4 3
+    2300528: log 4 4
+    2300530: log 4 5
+    2300532: log 4 6
+    2300534: log 5
+    2300536: log 5 1
+    2300538: log 5 1 1
+    2300540: log 5 2
+    2300542: log 5 3
+    2300544: log 5 4
+    2300546: log 5 5
+    2300548: log 5 6
+    2300550: log 6
+    2300552: MachineScrew_SlottedHexHead_Size .375
+    2300554: MachineScrew_SlottedHexHead_Size .375 1
+    2300556: MachineScrew_SlottedHexHead_Size .375 2
+    2300558: MachineScrew_SlottedHexHead_Size .375 3
+    2300560: MachineScrew_SlottedHexHead_Size .375 4
+    2300562: net
+    2300564: net 1
+    2300566: net 2
+    2300568: net 3
+    2300570: Old Arabic house
+    2300572: platform
+    2300574: Socket_Head_CS_.875
+    2300576: Socket_Head_CS_.875 1
+    2300578: Step
+    2300580: Step 1
+    2300582: Step 2
+    2300584: Valve_2in_Ball Valve
+    2300586: Valve_2in_Ball Valve 1
+    2300588: Vent
+    2300590: Vent 1
+    2300592: Vent 2
+    2300594: Window#1
+    3300000: Al-Maqtaa Fort - UAE
+    3300002: arabic window
+    3300004: arabic window 1
+    3300006: arabic window 10
+    3300008: arabic window 2
+    3300010: arabic window 3
+    3300012: arabic window 4
+    3300014: arabic window 5
+    3300016: arabic window 6
+    3300018: arabic window 7
+    3300020: arabic window 8
+    3300022: arabic window 9
+    3300024: cellar fence
+    3300026: cellar fence 1
+    3300028: cellar fence 2
+    3300030: cellar fence 3
+    3300032: cellar fence 4
+    3300034: Component#1
+    3300036: Component#10
+    3300038: Component#11
+    3300040: Component#11 1
+    3300042: Component#11 10
+    3300044: Component#11 2
+    3300046: Component#11 3
+    3300048: Component#11 4
+    3300050: Component#11 5
+    3300052: Component#11 6
+    3300054: Component#11 7
+    3300056: Component#11 8
+    3300058: Component#11 9
+    3300060: Component#12
+    3300062: Component#12 1
+    3300064: Component#12 10
+    3300066: Component#12 100
+    3300068: Component#12 101
+    3300070: Component#12 102
+    3300072: Component#12 103
+    3300074: Component#12 104
+    3300076: Component#12 105
+    3300078: Component#12 106
+    3300080: Component#12 107
+    3300082: Component#12 108
+    3300084: Component#12 109
+    3300086: Component#12 11
+    3300088: Component#12 110
+    3300090: Component#12 111
+    3300092: Component#12 112
+    3300094: Component#12 113
+    3300096: Component#12 114
+    3300098: Component#12 115
+    3300100: Component#12 12
+    3300102: Component#12 13
+    3300104: Component#12 14
+    3300106: Component#12 15
+    3300108: Component#12 16
+    3300110: Component#12 17
+    3300112: Component#12 18
+    3300114: Component#12 19
+    3300116: Component#12 2
+    3300118: Component#12 20
+    3300120: Component#12 21
+    3300122: Component#12 22
+    3300124: Component#12 23
+    3300126: Component#12 24
+    3300128: Component#12 25
+    3300130: Component#12 26
+    3300132: Component#12 27
+    3300134: Component#12 28
+    3300136: Component#12 29
+    3300138: Component#12 3
+    3300140: Component#12 30
+    3300142: Component#12 31
+    3300144: Component#12 32
+    3300146: Component#12 33
+    3300148: Component#12 34
+    3300150: Component#12 35
+    3300152: Component#12 36
+    3300154: Component#12 37
+    3300156: Component#12 38
+    3300158: Component#12 39
+    3300160: Component#12 4
+    3300162: Component#12 40
+    3300164: Component#12 41
+    3300166: Component#12 42
+    3300168: Component#12 43
+    3300170: Component#12 44
+    3300172: Component#12 45
+    3300174: Component#12 46
+    3300176: Component#12 47
+    3300178: Component#12 48
+    3300180: Component#12 49
+    3300182: Component#12 5
+    3300184: Component#12 50
+    3300186: Component#12 51
+    3300188: Component#12 52
+    3300190: Component#12 53
+    3300192: Component#12 54
+    3300194: Component#12 55
+    3300196: Component#12 56
+    3300198: Component#12 57
+    3300200: Component#12 58
+    3300202: Component#12 59
+    3300204: Component#12 6
+    3300206: Component#12 60
+    3300208: Component#12 61
+    3300210: Component#12 62
+    3300212: Component#12 63
+    3300214: Component#12 64
+    3300216: Component#12 65
+    3300218: Component#12 66
+    3300220: Component#12 67
+    3300222: Component#12 68
+    3300224: Component#12 69
+    3300226: Component#12 7
+    3300228: Component#12 70
+    3300230: Component#12 71
+    3300232: Component#12 72
+    3300234: Component#12 73
+    3300236: Component#12 74
+    3300238: Component#12 75
+    3300240: Component#12 76
+    3300242: Component#12 77
+    3300244: Component#12 78
+    3300246: Component#12 79
+    3300248: Component#12 8
+    3300250: Component#12 80
+    3300252: Component#12 81
+    3300254: Component#12 82
+    3300256: Component#12 83
+    3300258: Component#12 84
+    3300260: Component#12 85
+    3300262: Component#12 86
+    3300264: Component#12 87
+    3300266: Component#12 88
+    3300268: Component#12 89
+    3300270: Component#12 9
+    3300272: Component#12 90
+    3300274: Component#12 91
+    3300276: Component#12 92
+    3300278: Component#12 93
+    3300280: Component#12 94
+    3300282: Component#12 95
+    3300284: Component#12 96
+    3300286: Component#12 97
+    3300288: Component#12 98
+    3300290: Component#12 99
+    3300292: Component#13
+    3300294: Component#14
+    3300296: Component#16
+    3300298: Component#2
+    3300300: Component#3
+    3300302: Component#3 1
+    3300304: Component#3 2
+    3300306: Component#3 3
+    3300308: Component#3 4
+    3300310: Component#3 5
+    3300312: Component#4
+    3300314: Component#4 1
+    3300316: Component#4 2
+    3300318: Component#4 3
+    3300320: Component#4 4
+    3300322: Component#4 5
+    3300324: Component#4 6
+    3300326: Component#4 7
+    3300328: Component#4 8
+    3300330: Component#4 9
+    3300332: Component#5
+    3300334: Component#5 1
+    3300336: Component#5 2
+    3300338: Component#5 3
+    3300340: Component#5 4
+    3300342: Component#5 5
+    3300344: Component#6
+    3300346: Component#6 1
+    3300348: Component#6 2
+    3300350: Component#6 3
+    3300352: Component#6 4
+    3300354: Component#6 5
+    3300356: Component#6 6
+    3300358: Component#7
+    3300360: Component#8
+    3300362: Component#8 1
+    3300364: Component#8 2
+    3300366: Component#8 3
+    3300368: Component#8 4
+    3300370: Component#8 5
+    3300372: Component#8 6
+    3300374: Component#8 7
+    3300376: Component#9
+    3300378: Component#9 1
+    3300380: Component#9 2
+    3300382: Component#9 3
+    3300384: Component#9 4
+    3300386: cupola
+    3300388: cupola 1
+    3300390: DESERT HANGOUT
+    3300392: door frame
+    3300394: door frame 1
+    3300396: door frame 2
+    3300398: door frame 3
+    3300400: door handle
+    3300402: door handle 1
+    3300404: door handle 2
+    3300406: door handle 3
+    3300408: door itself
+    3300410: door itself 1
+    3300412: door itself 2
+    3300414: door itself 3
+    3300416: Group 529
+    3300418: Group 532
+    3300420: Group 535
+    3300422: Group 538
+    3300424: Group 541
+    3300426: Group 544
+    3300428: Group 547
+    3300430: Group 550
+    3300432: Group 553
+    3300434: Group 556
+    3300436: Group 559
+    3300438: Group 562
+    3300440: Group 565
+    3300442: Group 568
+    3300444: Group 571
+    3300446: Group 574
+    3300448: Group 577
+    3300450: Group 580
+    3300452: Group 583
+    3300454: Group 593
+    3300456: Group 597
+    3300458: Group 601
+    3300460: Group 605
+    3300462: Group 609
+    3300464: Group 613
+    3300466: Group 617
+    3300468: log
+    3300470: log 1
+    3300472: log 2
+    3300474: log 2 1
+    3300476: log 2 1 1
+    3300478: log 2 2
+    3300480: log 2#1
+    3300482: log 2#1 1
+    3300484: log 2#1 2
+    3300486: log 2#1 3
+    3300488: log 3
+    3300490: log 3 1
+    3300492: log 3 1 1
+    3300494: log 3 2
+    3300496: log 3 3
+    3300498: log 3 4
+    3300500: log 3#1
+    3300502: log 3#1 1
+    3300504: log 3#1 2
+    3300506: log 3#2
+    3300508: log 3#2 1
+    3300510: log 3#2 2
+    3300512: log 3#2 3
+    3300514: log 3#2 4
+    3300516: log 3#2 5
+    3300518: log 4
+    3300520: log 4 1
+    3300522: log 4 1 1
+    3300524: log 4 2
+    3300526: log 4 3
+    3300528: log 4 4
+    3300530: log 4 5
+    3300532: log 4 6
+    3300534: log 5
+    3300536: log 5 1
+    3300538: log 5 1 1
+    3300540: log 5 2
+    3300542: log 5 3
+    3300544: log 5 4
+    3300546: log 5 5
+    3300548: log 5 6
+    3300550: log 6
+    3300552: MachineScrew_SlottedHexHead_Size .375
+    3300554: MachineScrew_SlottedHexHead_Size .375 1
+    3300556: MachineScrew_SlottedHexHead_Size .375 2
+    3300558: MachineScrew_SlottedHexHead_Size .375 3
+    3300560: MachineScrew_SlottedHexHead_Size .375 4
+    3300562: net
+    3300564: net 1
+    3300566: net 2
+    3300568: net 3
+    3300570: Old Arabic house
+    3300572: platform
+    3300574: Socket_Head_CS_.875
+    3300576: Socket_Head_CS_.875 1
+    3300578: Step
+    3300580: Step 1
+    3300582: Step 2
+    3300584: Valve_2in_Ball Valve
+    3300586: Valve_2in_Ball Valve 1
+    3300588: Vent
+    3300590: Vent 1
+    3300592: Vent 2
+    3300594: Window#1
+    4300000: Mesh Old Arabic house
+    4300002: Mesh log
+    4300004: Mesh log
+    4300006: Mesh log 2
+    4300008: Mesh log 2#1
+    4300010: Mesh log 2
+    4300012: Mesh log 3#2
+    4300014: Mesh log 4
+    4300016: Mesh log 4
+    4300018: Mesh log 3
+    4300020: Mesh log 3#1
+    4300022: Mesh log 5
+    4300024: Mesh cupola
+    4300026: Mesh cupola
+    4300028: Mesh door itself
+    4300030: Mesh door handle
+    4300032: Mesh door frame
+    4300034: Mesh arabic window
+    4300036: Mesh arabic window
+    4300038: Mesh Vent
+    4300040: Mesh platform
+    4300042: Mesh net
+    4300044: Mesh cellar fence
+    4300046: Mesh Component#1
+    4300048: Mesh Component#3
+    4300050: Mesh Component#4
+    4300052: Mesh Component#5
+    4300054: Mesh Component#6
+    4300056: Mesh Component#7
+    4300058: Mesh Component#8
+    4300060: Mesh Component#9
+    4300062: Mesh Component#10
+    4300064: Mesh Component#2
+    4300066: Mesh Component#14
+    4300068: Mesh Component#13
+    4300070: Mesh Component#5
+    4300072: Mesh Component#11
+    4300074: Mesh Component#12
+    4300076: Mesh Al-Maqtaa Fort - UAE
+    4300078: Mesh DESERT HANGOUT
+    4300080: Mesh Group 529
+    4300082: Mesh Valve_2in_Ball Valve
+    4300084: Mesh Window#1
+    4300086: Mesh Socket_Head_CS_.875
+    4300088: Mesh Group 593
+    4300090: Mesh MachineScrew_SlottedHexHead_Size .375
+    4300092: Mesh Group 601
+    4300094: Mesh Component#16
+    4300096: Mesh Step
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

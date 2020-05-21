@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 113e379f65591bb4a90163b0fd108e86, type: 3}
+  m_Name: FPSData1
+  m_EditorClassIdentifier: 
+  smoothLook: 1
+  smoothLookTime: 5
+  XSensitivity: 196
+  YSensitivity: 198.4
+  useBounce: 1
+  useZoom: 1
+  bounceFrequency: 3.21
+  bounceAmplitude: 1.3
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  pos:
+    initialPos: {x: 0, y: 0, z: 0}
+    targetPosOffset: {x: 0, y: 4.2, z: 0}
+    maxBoundary: {x: 0, y: 0}
+    minBoundary: {x: 0, y: 0}
+    useElasticBoundary: 0
+    useBoundary: 1
+    boundaryElasticity: 1
+    distanceFromGround: 40
+    invertPan: 1
+    panSmooth: 7
+    panDrag: 0.1
+    distanceFromTarget: 0
+    allowZoom: 1
+    rpgFpsTransition: 0
+    zoomSmooth: 13.1
+    zoomStep: 9.1
+    maxZoom: 0
+    minZoom: 1
+    smoothFollow: 1
+    smooth: 0.05
+    collisionSmooth: 0.05
+    newDistance: 0
+    adjustmentDistance: 0.48
+    adjustedTargetPosOffset: {x: 0, y: 0, z: 0}
+  orbit:
+    xRotation: -20
+    yRotation: -180
+    maxXRotation: 25
+    minXRotation: -50
+    xOrbitSmooth: 0.5
+    yOrbitSmooth: 0.5
+    allowOrbit: 1
+    rotateWithTarget: 1
+    alwaysFindXAngle: 1
+    alwaysFindYAngle: 1
+    defaultXAngle: 10
+    defaultYAngle: 0
+    timeToRevertX: 0.5
+    timeToRevertY: 0.5
+  input:
+    MOUSE_ORBIT: 323
+    ZOOM: Mouse ScrollWheel
+    PAN: 323
+    ORBIT_Y: 324
+  debug:
+    useCollision: 1
+    collisionPadding: 2
+    useCloseQuartersTechnique: 1
+    closeQuartersDistance: 2
+    closeQuartersHeightAdjust: 100
+    drawDesiredCollisionLines: 1
+    drawAdjustedCollisionLines: 1
+    useCloseQuartersFade: 1
+    distanceToFadeTarget: 2
+    targetFadeAlpha: 0.1

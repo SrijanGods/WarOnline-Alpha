@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17df7c569f64c9459389d3b88e098ce, type: 3}
+  m_Name: ObstructionHandlerData
+  m_EditorClassIdentifier: 
+  obstructionSet:
+    obstructionLayer:
+      serializedVersion: 2
+      m_Bits: 4294966987
+    obstructionFadeSmooth: 1.7
+    minObstructionAlpha: 0.01
+    changeTargetColor: 1
+    obstructedColor: {r: 1, g: 0.2205882, b: 0.2205882, a: 1}
+    colorIntensity: 2.1
+    targetFadeSmooth: 20
+    active: 0

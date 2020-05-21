@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 113e379f65591bb4a90163b0fd108e86, type: 3}
+  m_Name: TopDownData1
+  m_EditorClassIdentifier: 
+  smoothLook: 1
+  smoothLookTime: 20
+  XSensitivity: 200
+  YSensitivity: 320
+  useBounce: 1
+  useZoom: 1
+  bounceFrequency: 2
+  bounceAmplitude: 0.7
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 257
+  pos:
+    initialPos: {x: 0, y: 0, z: 0}
+    targetPosOffset: {x: 0, y: 3.4, z: 0}
+    maxBoundary: {x: 0, y: 0}
+    minBoundary: {x: 0, y: 0}
+    useElasticBoundary: 0
+    useBoundary: 1
+    boundaryElasticity: 1
+    distanceFromGround: 40
+    invertPan: 1
+    panSmooth: 7
+    panDrag: 0.1
+    distanceFromTarget: 20
+    allowZoom: 1
+    rpgFpsTransition: 0
+    zoomSmooth: 49.1
+    zoomStep: 52.6
+    maxZoom: 20
+    minZoom: 59.6
+    smoothFollow: 1
+    smooth: 0.35
+    collisionSmooth: 0.05
+    newDistance: 20
+    adjustmentDistance: -8
+    adjustedTargetPosOffset: {x: 0, y: 0, z: 0}
+  orbit:
+    xRotation: 43.4
+    yRotation: 186.22636
+    maxXRotation: 89
+    minXRotation: 46
+    xOrbitSmooth: 22.5
+    yOrbitSmooth: 84
+    allowOrbit: 1
+    rotateWithTarget: 0
+    alwaysFindXAngle: 0
+    alwaysFindYAngle: 0
+    defaultXAngle: 20
+    defaultYAngle: 298
+    timeToRevertX: 0.22
+    timeToRevertY: 0.3
+  input:
+    MOUSE_ORBIT: 323
+    ZOOM: Mouse ScrollWheel
+    PAN: 323
+    ORBIT_Y: 324
+  debug:
+    useCollision: 0
+    collisionPadding: 2
+    useCloseQuartersTechnique: 1
+    closeQuartersDistance: 2
+    closeQuartersHeightAdjust: 100
+    drawDesiredCollisionLines: 1
+    drawAdjustedCollisionLines: 1
+    useCloseQuartersFade: 1
+    distanceToFadeTarget: 2
+    targetFadeAlpha: 0.1

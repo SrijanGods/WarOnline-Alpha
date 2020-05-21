@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{7ae5aa41-f364-44bb-9586-e82b9e70a609}">
+        <property name="assetPath">
+            <value>SFX/Game/TurretBlaster/SFX_Turret_Blaster_Impact_TankVar01V1.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>3.6919727891156464</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{78948348-f4b1-44f5-a7f8-296238e21dbc}</destination>
+        </relationship>
+    </object>
+</objects>

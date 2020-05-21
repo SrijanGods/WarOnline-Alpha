@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{4da8b53a-0835-4ce3-90f2-a67d81b6a25c}">
+        <property name="assetPath">
+            <value>SFX/Game/Engines/Engine_All_LoopVar01v1.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>7.2225170068027209</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{78948348-f4b1-44f5-a7f8-296238e21dbc}</destination>
+        </relationship>
+    </object>
+</objects>

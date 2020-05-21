@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af45d55ccb2f144da8a5705053ddd50, type: 3}
+  m_Name: CameraDataManager
+  m_EditorClassIdentifier: 
+  rpgData: {fileID: 11400000, guid: f137bf89c9e6d0d4192767f709bec8e4, type: 2}
+  fpsData: {fileID: 11400000, guid: f8cc33f4ad32b0f46aa3e70780c5cb03, type: 2}
+  rtsData: {fileID: 11400000, guid: e1af863fae1260b43bd09425be7206a7, type: 2}
+  topDownData: {fileID: 11400000, guid: 561c885088f6e6344b2262cd9812ba53, type: 2}
+  shakeData: {fileID: 11400000, guid: 9d6b8cf5c20e3ec42b0d964d25d782b9, type: 2}
+  playerControllerData: {fileID: 11400000, guid: a572e5d48d9fe9943895fdc146dffaaf,
+    type: 2}
+  obstructionData: {fileID: 11400000, guid: be9de833aad95584a8dc2afe827bb7c7, type: 2}

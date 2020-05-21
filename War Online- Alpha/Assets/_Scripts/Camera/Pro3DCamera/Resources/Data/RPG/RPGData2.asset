@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 113e379f65591bb4a90163b0fd108e86, type: 3}
+  m_Name: RPGData2
+  m_EditorClassIdentifier: 
+  smoothLook: 1
+  smoothLookTime: 20
+  XSensitivity: 200
+  YSensitivity: 320
+  useBounce: 1
+  useZoom: 1
+  bounceFrequency: 2
+  bounceAmplitude: 0.7
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 769
+  pos:
+    initialPos: {x: 0, y: 0, z: 0}
+    targetPosOffset: {x: -2.4, y: 2.3, z: 0}
+    maxBoundary: {x: 0, y: 0}
+    minBoundary: {x: 0, y: 0}
+    useElasticBoundary: 0
+    useBoundary: 1
+    boundaryElasticity: 1
+    distanceFromGround: 40
+    invertPan: 1
+    panSmooth: 7
+    panDrag: 0.1
+    distanceFromTarget: 7.1000004
+    allowZoom: 1
+    rpgFpsTransition: 0
+    zoomSmooth: 56.2
+    zoomStep: 41.7
+    maxZoom: 2
+    minZoom: 117
+    smoothFollow: 1
+    smooth: 0.62
+    collisionSmooth: 0.25
+    newDistance: 7.1000004
+    adjustmentDistance: 6.3974013
+    adjustedTargetPosOffset: {x: -2.3999941, y: 2.3, z: 0}
+  orbit:
+    xRotation: 27.99998
+    yRotation: -1764.0006
+    maxXRotation: 30.5
+    minXRotation: -4
+    xOrbitSmooth: 104
+    yOrbitSmooth: 93
+    allowOrbit: 1
+    rotateWithTarget: 1
+    alwaysFindXAngle: 1
+    alwaysFindYAngle: 1
+    defaultXAngle: 28
+    defaultYAngle: 36
+    timeToRevertX: 1
+    timeToRevertY: 0.51
+  input:
+    MOUSE_ORBIT: 324
+    ZOOM: Mouse ScrollWheel
+    PAN: 323
+    ORBIT_Y: 324
+  debug:
+    useCollision: 1
+    collisionPadding: 0.38
+    useCloseQuartersTechnique: 0
+    closeQuartersDistance: 2
+    closeQuartersHeightAdjust: 14
+    drawDesiredCollisionLines: 0
+    drawAdjustedCollisionLines: 0
+    useCloseQuartersFade: 1
+    distanceToFadeTarget: 5.82
+    targetFadeAlpha: 0.145

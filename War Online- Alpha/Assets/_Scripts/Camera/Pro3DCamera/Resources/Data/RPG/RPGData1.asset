@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 113e379f65591bb4a90163b0fd108e86, type: 3}
+  m_Name: RPGData1
+  m_EditorClassIdentifier: 
+  smoothLook: 1
+  smoothLookTime: 20
+  XSensitivity: 200
+  YSensitivity: 320
+  useBounce: 1
+  useZoom: 1
+  bounceFrequency: 0
+  bounceAmplitude: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 1553
+  pos:
+    initialPos: {x: 0, y: 0, z: 0}
+    targetPosOffset: {x: 0.17, y: 0, z: 0}
+    maxBoundary: {x: 0, y: 0}
+    minBoundary: {x: 0, y: 0}
+    useElasticBoundary: 0
+    useBoundary: 1
+    boundaryElasticity: 1
+    distanceFromGround: 5
+    invertPan: 1
+    panSmooth: 7
+    panDrag: 0.1
+    distanceFromTarget: 10
+    allowZoom: 1
+    rpgFpsTransition: 0
+    zoomSmooth: 9.7
+    zoomStep: 1
+    maxZoom: 10
+    minZoom: 11
+    smoothFollow: 1
+    smooth: 0.05
+    collisionSmooth: 0.005
+    newDistance: 10
+    adjustmentDistance: 10.888445
+    adjustedTargetPosOffset: {x: 0.17, y: 0, z: 0}
+  orbit:
+    xRotation: 10.000015
+    yRotation: 0
+    maxXRotation: 40
+    minXRotation: 0
+    xOrbitSmooth: 65.5
+    yOrbitSmooth: 32
+    allowOrbit: 1
+    rotateWithTarget: 1
+    alwaysFindXAngle: 1
+    alwaysFindYAngle: 1
+    defaultXAngle: 10
+    defaultYAngle: 0
+    timeToRevertX: 1
+    timeToRevertY: 0.9
+  input:
+    MOUSE_ORBIT: 324
+    ZOOM: Fire
+    PAN: 323
+    ORBIT_Y: 324
+  debug:
+    useCollision: 1
+    collisionPadding: 0.07
+    useCloseQuartersTechnique: 1
+    closeQuartersDistance: 2.63
+    closeQuartersHeightAdjust: 10
+    drawDesiredCollisionLines: 1
+    drawAdjustedCollisionLines: 1
+    useCloseQuartersFade: 0
+    distanceToFadeTarget: 1.73
+    targetFadeAlpha: 0.145
