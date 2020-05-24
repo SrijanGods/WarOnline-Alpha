@@ -1,0 +1,84 @@
+fileFormatVersion: 2
+guid: 5939e40f420edc14a9f83b1d5049fa89
+ScriptedImporter:
+  fileIDToRecycleName:
+    100000: Sci-Core/Sci-Core
+    400000: Sci-Core/Sci-Core/Transform
+    2100000: mat.Sci-Core
+    2300000: Sci-Core/Sci-Core/MeshRenderer
+    2800000: Sci-Core_Base Color
+    2800002: Sci-Core_Normal
+    2800004: Sci-Core_Metallic
+    2800006: Sci-Core_height
+    2800008: Sci-Core_emissive
+    3300000: Sci-Core/Sci-Core/MeshFilter
+    11400000: sbsar
+    11400002: graph0
+    13500000: Sci-Core/Sci-Core/SphereCollider
+    100100000: Sci-Core
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 232528478, guid: 43a8bbf65be290d44ba52b94476242b9, type: 3}
+  mGraphInstanceData:
+  - graphLabel: Sci-Core
+    graphDescIndex: 0
+    generateAllOutputs: 0
+    generateMipMaps: 1
+    preset: " <sbspreset pkgurl=\"pkg://sci-core\" label=\"\" >\n </sbspreset>\n"
+    shaderName: Standard
+    outputNames: Base Color,Normal,Metallic,height,emissive
+    texturePackingList:
+    - outputName: Base Color
+      alphaSource: Base Color
+    - outputName: Normal
+      alphaSource: Normal
+    - outputName: Roughness
+      alphaSource: Roughness
+    - outputName: Metallic
+      alphaSource: Smoothness
+    - outputName: height
+      alphaSource: height
+    - outputName: emissive
+      alphaSource: emissive
+    colorSpaceList:
+    - outputName: Base Color
+      bLinear: 0
+    - outputName: Normal
+      bLinear: 1
+    - outputName: Roughness
+      bLinear: 1
+    - outputName: Metallic
+      bLinear: 1
+    - outputName: height
+      bLinear: 1
+    - outputName: emissive
+      bLinear: 0
+    inputTextureMap: []
+    targetSettingList:
+    - label: Default
+      bOverride: 0
+      bLockRatio: 1
+      bHighQuality: 0
+      textureWidth: 256
+      textureHeight: 256
+      textureFormat: 0
+      loadBehavior: 0
+    - label: Standalone
+      bOverride: 0
+      bLockRatio: 1
+      bHighQuality: 0
+      textureWidth: 256
+      textureHeight: 256
+      textureFormat: 0
+      loadBehavior: 0
+    - label: iPhone
+      bOverride: 0
+      bLockRatio: 1
+      bHighQuality: 0
+      textureWidth: 256
+      textureHeight: 256
+      textureFormat: 0
+      loadBehavior: 0
+    material: {instanceID: 0}
