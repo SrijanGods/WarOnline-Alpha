@@ -14,6 +14,7 @@ using Photon.Realtime;
 
 public class GateKeeper : MonoBehaviour {
 
+    public bool usingFBGoogle;
     #region LoginWithEmail
     [Header("Login Gate")]
     [Tooltip("Contains the flashing \"Press Any Key\" graphic.")] [SerializeField] GameObject loginGateHandler;
@@ -228,7 +229,7 @@ public class GateKeeper : MonoBehaviour {
 
     void Update()
     {
-        if (Input.anyKeyDown)
+        if (Input.anyKeyDown && !usingFBGoogle)
         {
             if (loginGateHandler.activeInHierarchy)
             {
