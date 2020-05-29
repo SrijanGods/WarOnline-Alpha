@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 using PlayFab;
 using PlayFab.ClientModels;
+using Facebook.Unity;
 
 using Photon.Pun;
 using Photon.Chat;
@@ -15,6 +16,7 @@ using Photon.Realtime;
 public class GateKeeper : MonoBehaviour {
 
     public bool usingFBGoogle;
+
     #region LoginWithEmail
     [Header("Login Gate")]
     [Tooltip("Contains the flashing \"Press Any Key\" graphic.")] [SerializeField] GameObject loginGateHandler;
@@ -93,7 +95,7 @@ public class GateKeeper : MonoBehaviour {
         Debug.LogError(error.GenerateErrorReport());
     }
 
-    private void PhotonRequestToken(LoginResult res)
+    private void PhotonRequestToken(PlayFab.ClientModels.LoginResult res)
     {
         updateLoadingText("Requesting Authentication Token");
         PlayerIDCache = res.PlayFabId;
@@ -207,6 +209,76 @@ public class GateKeeper : MonoBehaviour {
 
     #endregion LoginWithEmail
 
+    #region LoginWithFB
+
+    private string _message;
+
+    public void OnClick_FacebookSignIn()
+    {
+        SetMessage("Initializing Facebook..."); // logs the given message and displays it on the screen using OnGUI method
+
+        // This call is required before any other calls to the Facebook API. We pass in the callback to be invoked once initialization is finished
+        FB.Init(OnFacebookInitialized);
+    }
+
+    private void OnFacebookInitialized()
+    {
+        SetMessage("Logging into Facebook...");
+
+        // Once Facebook SDK is initialized, if we are logged in, we log out to demonstrate the entire authentication cycle.
+        if (FB.IsLoggedIn)
+            FB.LogOut();
+
+        // We invoke basic login procedure and pass in the callback to process the result
+        FB.LogInWithReadPermissions(null, OnFacebookLoggedIn);
+    }
+
+    private void OnFacebookLoggedIn(ILoginResult iresult)
+    {
+        // If result has no errors, it means we have authenticated in Facebook successfully
+        if (iresult == null || string.IsNullOrEmpty(iresult.Error))
+        {
+            SetMessage("Facebook Auth Complete! Access Token: " + AccessToken.CurrentAccessToken.TokenString + "\nLogging into PlayFab...");
+
+            /*
+             * We proceed with making a call to PlayFab API. We pass in current Facebook AccessToken and let it create
+             * and account using CreateAccount flag set to true. We also pass the callback for Success and Failure results
+             */
+            PlayFabClientAPI.LoginWithFacebook(new LoginWithFacebookRequest 
+            { 
+                CreateAccount = true, 
+                AccessToken = AccessToken.CurrentAccessToken.TokenString 
+            },
+                result => 
+                {
+                    Debug.Log("Logged In FB");
+
+                    PhotonRequestToken(result);
+                }
+                , OnPlayfabFacebookAuthFailed);
+        }
+        else
+        {
+            // If Facebook authentication failed, we stop the cycle with the message
+            SetMessage("Facebook Auth Failed: " + iresult.Error + "\n" + iresult.RawResult, true);
+        }
+    }
+
+    private void OnPlayfabFacebookAuthFailed(PlayFabError error)
+    {
+        SetMessage("PlayFab Facebook Auth Failed: " + error.GenerateErrorReport(), true);
+    }
+
+    public void SetMessage(string message, bool error = false)
+    {
+        _message = message;
+        if (error)
+            Debug.LogError(_message);
+        else
+            Debug.Log(_message);
+    }
+
+    #endregion LoginWithFB
 
     IEnumerator LoadNextScene()
     {

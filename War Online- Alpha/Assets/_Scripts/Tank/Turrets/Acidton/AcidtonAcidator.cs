@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Obi;
+//using Obi;
 using UnityEngine.UI;
 using Photon.Pun;
 
-public class AcidtonAcidator : MonoBehaviourPun, IPunObservable
-{
+public class AcidtonAcidator : MonoBehaviourPun //IPunObservable
+{/*
     [Header("Acid Colors")]
     public ObiEmitter acidEmitter;
     public float speed;
@@ -220,5 +220,6 @@ public class AcidtonAcidator : MonoBehaviourPun, IPunObservable
         reloadLerp = 0;
         uiCoroutine = null;
     }
+*/
 }
 
