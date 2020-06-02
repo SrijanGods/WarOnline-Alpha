@@ -292,13 +292,13 @@ public class RTCTankController : MonoBehaviourPun
         //Engine Audio Volume.
         if (speed == 0)
         {
-            engineEv.setParameterValue("EngineStone", 0f);
-            engineEv.setParameterValue("EngineTrack", 0f);
+            engineEv.setParameterByName("EngineStone", 0f);
+            engineEv.setParameterByName("EngineTrack", 0f);
         }
         else
         {
-            engineEv.setParameterValue("EngineStone", 1f);
-            engineEv.setParameterValue("EngineTrack", 1f);
+            engineEv.setParameterByName("EngineStone", 1f);
+            engineEv.setParameterByName("EngineTrack", 1f);
         }
 
         /*
@@ -307,25 +307,25 @@ public class RTCTankController : MonoBehaviourPun
             
             if (!reversing)
             {
-                engineEv.setParameterValue("EngineStone", 1f);
-                engineEv.setParameterValue("EngineTrack", 1f);
+                engineEv.setParameterByName("EngineStone", 1f);
+                engineEv.setParameterByName("EngineTrack", 1f);
             }
 
             else
             {
-                engineEv.setParameterValue("EngineStone", 1f);
-                engineEv.setParameterValue("EngineTrack", 1f);
+                engineEv.setParameterByName("EngineStone", 1f);
+                engineEv.setParameterByName("EngineTrack", 1f);
             }
                
             if (engineRunning)
             {
-                engineEv.setParameterValue("EngineStone", 1f);
-                engineEv.setParameterValue("EngineTrack", 1f);
+                engineEv.setParameterByName("EngineStone", 1f);
+                engineEv.setParameterByName("EngineTrack", 1f);
             }
             else
             {
-                engineEv.setParameterValue("EngineStone", 1f);
-                engineEv.setParameterValue("EngineTrack", 1f);
+                engineEv.setParameterByName("EngineStone", 1f);
+                engineEv.setParameterByName("EngineTrack", 1f);
             }
                 
 
@@ -336,26 +336,26 @@ public class RTCTankController : MonoBehaviourPun
 
             if (!reversing)
             {
-                engineEv.setParameterValue("EngineStone", 0f);
-                engineEv.setParameterValue("EngineTrack", 0f);
+                engineEv.setParameterByName("EngineStone", 0f);
+                engineEv.setParameterByName("EngineTrack", 0f);
             }
             else
             {
-                engineEv.setParameterValue("EngineStone", 0f);
-                engineEv.setParameterValue("EngineTrack", 0f);
+                engineEv.setParameterByName("EngineStone", 0f);
+                engineEv.setParameterByName("EngineTrack", 0f);
             }
                
 
             if (engineRunning)
             {
-                engineEv.setParameterValue("EngineStone", 0f);
-                engineEv.setParameterValue("EngineTrack", 0f);
+                engineEv.setParameterByName("EngineStone", 0f);
+                engineEv.setParameterByName("EngineTrack", 0f);
             }
             else
             {
-                engineEv.setParameterValue("EngineStone", 0f);
-                engineEv.setParameterValue("EngineTrack", 0f);
-                engineEv.setParameterValue("EngineStart", 0f);
+                engineEv.setParameterByName("EngineStone", 0f);
+                engineEv.setParameterByName("EngineTrack", 0f);
+                engineEv.setParameterByName("EngineStart", 0f);
             }
                
 
@@ -388,7 +388,7 @@ public class RTCTankController : MonoBehaviourPun
         engineRunning = false;
         engineStarting = true;
         if (!engineRunning)
-            engineEv.setParameterValue("EngineStart", 1f);
+            engineEv.setParameterByName("EngineStart", 1f);
         yield return new WaitForSeconds(1f);
         engineRunning = true;
         yield return new WaitForSeconds(1f);

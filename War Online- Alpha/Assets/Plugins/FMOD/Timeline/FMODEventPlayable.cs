@@ -1,6 +1,4 @@
-﻿#if UNITY_2017_1_OR_NEWER
-
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
@@ -20,6 +18,8 @@ public class FMODEventPlayable : PlayableAsset, ITimelineClipAsset
     [SerializeField] public STOP_MODE stopType;
 
     [SerializeField] public FMODUnity.ParamRef[] parameters = new FMODUnity.ParamRef[0];
+
+    [NonSerialized] public bool cachedParameters = false;
 
     public override double duration
     {
@@ -45,6 +45,23 @@ public class FMODEventPlayable : PlayableAsset, ITimelineClipAsset
 
     public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
     {
+#if UNITY_EDITOR
+        if (!string.IsNullOrEmpty(eventName))
+#else
+        if (!cachedParameters && !string.IsNullOrEmpty(eventName))
+#endif
+        {
+            FMOD.Studio.EventDescription eventDescription;
+            FMODUnity.RuntimeManager.StudioSystem.getEvent(eventName, out eventDescription);
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                FMOD.Studio.PARAMETER_DESCRIPTION parameterDescription;
+                eventDescription.getParameterDescriptionByName(parameters[i].Name, out parameterDescription);
+                parameters[i].ID = parameterDescription.id;
+            }
+            cachedParameters = true;
+        }
+
         var playable = ScriptPlayable<FMODEventPlayableBehavior>.Create(graph, template);
         behavior = playable.GetBehaviour();
 
@@ -100,13 +117,9 @@ public class FMODEventPlayableBehavior : PlayableBehaviour
 
     protected void PlayEvent()
     {
-        if (eventName != null)
+        if (!string.IsNullOrEmpty(eventName))
         {
-            if (!eventInstance.isValid())
-            {
-                eventInstance = FMODUnity.RuntimeManager.CreateInstance(eventName);
-            }
-
+            eventInstance = FMODUnity.RuntimeManager.CreateInstance(eventName);
             // Only attach to object if the game is actually playing, not auditioning.
             if (Application.isPlaying && TrackTargetObject)
             {
@@ -127,7 +140,7 @@ public class FMODEventPlayableBehavior : PlayableBehaviour
 
             foreach (var param in parameters)
             {
-                eventInstance.setParameterValue(param.Name, param.Value);
+                eventInstance.setParameterByID(param.ID, param.Value);
             }
 
             eventInstance.start();
@@ -178,8 +191,7 @@ public class FMODEventPlayableBehavior : PlayableBehaviour
         {
             eventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             eventInstance.release();
+            FMODUnity.RuntimeManager.StudioSystem.update();
         }
     }
 }
-
-#endif //UNITY_2017_1_OR_NEWER

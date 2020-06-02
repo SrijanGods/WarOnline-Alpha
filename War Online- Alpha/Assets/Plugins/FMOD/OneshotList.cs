@@ -32,11 +32,11 @@ namespace FMODUnity
             }
         }
 
-        public void SetParameterValue(string name, float value)
+        public void setParameterByName(string name, float value)
         {
             foreach (var instance in instances)
             {
-                instance.setParameterValue(name, value);
+                instance.setParameterByName(name, value);
             }
         }
 

@@ -91,7 +91,7 @@ public class ParticleEmitter : MonoBehaviourPun, IPunObservable {
         if (Input.GetButton("Fire"))
         {
             isFiring = true;
-            flameThrowerEv.setParameterValue("Firing", 1f);
+            flameThrowerEv.setParameterByName("Firing", 1f);
         }
             
 
@@ -100,16 +100,16 @@ public class ParticleEmitter : MonoBehaviourPun, IPunObservable {
             isFiring = false;
 
             //sfx close
-            flameThrowerEv.setParameterValue("Firing", 0f);
-            flameThrowerEv.setParameterValue("ReloadFull", 0f);
+            flameThrowerEv.setParameterByName("Firing", 0f);
+            flameThrowerEv.setParameterByName("ReloadFull", 0f);
         }
         else
         {
             isFiring = false;
 
             //sfx close
-            flameThrowerEv.setParameterValue("Firing", 0f);
-            flameThrowerEv.setParameterValue("ReloadFull", 0f);
+            flameThrowerEv.setParameterByName("Firing", 0f);
+            flameThrowerEv.setParameterByName("ReloadFull", 0f);
         }
     }
     #endregion FireInput
@@ -208,7 +208,7 @@ public class ParticleEmitter : MonoBehaviourPun, IPunObservable {
             particleFire.Play();
             particleSmoke.Play();
 
-            flameThrowerEv.setParameterValue("Firing", 1f);
+            flameThrowerEv.setParameterByName("Firing", 1f);
         }
 
         else if (!isFiring || ammo == 0f)
@@ -217,7 +217,7 @@ public class ParticleEmitter : MonoBehaviourPun, IPunObservable {
             particleSmoke.Stop();
 
             //sfx close
-            flameThrowerEv.setParameterValue("Firing", 0f);
+            flameThrowerEv.setParameterByName("Firing", 0f);
 
             if (ammo < 10f)
             {
@@ -227,12 +227,12 @@ public class ParticleEmitter : MonoBehaviourPun, IPunObservable {
                     ammo++;
                     ammoReload = 0f;
                 }
-                flameThrowerEv.setParameterValue("ReloadFull", 0f);
+                flameThrowerEv.setParameterByName("ReloadFull", 0f);
             }
             else if(ammo >= 10f)
             {
                 ammo = 10f;
-                flameThrowerEv.setParameterValue("ReloadFull", 1f);
+                flameThrowerEv.setParameterByName("ReloadFull", 1f);
             }
         }
 

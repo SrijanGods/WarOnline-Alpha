@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.10.00">
-    <object class="ParameterPreset" id="{da10148e-528e-403b-82d2-13ef16b557fa}">
-        <property name="name">
-            <value>Parameter 3</value>
-        </property>
-        <relationship name="folder">
-            <destination>{ed1497fc-2dd9-4bab-9216-41ed4bab1b9a}</destination>
-        </relationship>
-        <relationship name="parameter">
-            <destination>{dcec73d4-be9b-4ee9-a26f-8f70a2ef6c1e}</destination>
-        </relationship>
-    </object>
-    <object class="GameParameter" id="{dcec73d4-be9b-4ee9-a26f-8f70a2ef6c1e}">
-        <property name="initialValue">
-            <value>0</value>
-        </property>
-    </object>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{da10148e-528e-403b-82d2-13ef16b557fa}">
+		<property name="name">
+			<value>Parameter 3</value>
+		</property>
+		<relationship name="folder">
+			<destination>{ed1497fc-2dd9-4bab-9216-41ed4bab1b9a}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{dcec73d4-be9b-4ee9-a26f-8f70a2ef6c1e}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{dcec73d4-be9b-4ee9-a26f-8f70a2ef6c1e}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
 </objects>

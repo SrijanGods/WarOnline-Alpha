@@ -12,38 +12,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef8d824ea7b63742966aaa0e94ac383, type: 3}
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
+  SwitchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: Assets\_Sounds\FMOD Project\WarOnlineSFX\WarOnlineSFX.fspro
-  SourceProjectPathUnformatted: Assets\_Sounds\FMOD Project\WarOnlineSFX\WarOnlineSFX.fspro
-  SourceBankPathUnformatted: Assets\_Sounds\FMOD Project\WarOnlineSFX\Build
+  sourceProjectPath: Assets/_Sounds/FMOD Project/WarOnlineSFX/WarOnlineSFX.fspro
+  sourceBankPath: Assets\_Sounds\FMOD Project\WarOnlineSFX\Build
+  SourceBankPathUnformatted: Assets/_Sounds/FMOD Project/WarOnlineSFX/Build
   AutomaticEventLoading: 1
+  BankLoadType: 0
   AutomaticSampleLoading: 0
+  EncryptionKey: 
   ImportType: 0
   TargetAssetPath: 
   LoggingLevel: 2
   SpeakerModeSettings:
   - Platform: 2
     Value: 3
+  - Platform: 20
+    Value: 3
   SampleRateSettings:
   - Platform: 1
     Value: 48000
   - Platform: 2
+    Value: 0
+  - Platform: 20
     Value: 0
   LiveUpdateSettings:
   - Platform: 1
     Value: 1
   - Platform: 2
     Value: 0
+  - Platform: 20
+    Value: 0
   OverlaySettings:
   - Platform: 1
     Value: 1
   - Platform: 2
     Value: 0
+  - Platform: 20
+    Value: 0
   LoggingSettings:
   - Platform: 1
     Value: 1
   - Platform: 2
+    Value: 0
+  - Platform: 20
     Value: 0
   BankDirectorySettings:
   - Platform: 2
@@ -53,13 +66,19 @@ MonoBehaviour:
     Value: 1024
   - Platform: 2
     Value: 128
+  - Platform: 20
+    Value: 128
   RealChannelSettings:
   - Platform: 1
     Value: 256
   - Platform: 2
     Value: 32
-  Plugins: []
+  - Platform: 20
+    Value: 32
+  Plugins:
+  - 
   MasterBanks:
   - Master Bank
   Banks: []
+  BanksToLoad: []
   LiveUpdatePort: 9264

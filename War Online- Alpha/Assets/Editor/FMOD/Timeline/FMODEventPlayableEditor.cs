@@ -1,6 +1,4 @@
-﻿#if UNITY_2017_1_OR_NEWER
-
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 using FMODUnity;
 using System;
@@ -67,7 +65,7 @@ public class FMODEventPlayableEditor : Editor
                     if (EditorGUI.EndChangeCheck())
                     {
                         Undo.RecordObjects(new UnityEngine.Object[] { serializedObject.targetObject }, "Inspector");
-                        SetParameterValue(serializedObject.targetObject, paramRef.Name, value);
+                        setParameterByName(serializedObject.targetObject, paramRef.Name, value);
                     }
                 }
                 else
@@ -101,7 +99,7 @@ public class FMODEventPlayableEditor : Editor
         }
     }
 
-    void SetParameterValue(UnityEngine.Object obj, string name, float value)
+    void setParameterByName(UnityEngine.Object obj, string name, float value)
     {
         var playable = obj as FMODEventPlayable;
         var param = playable.parameters != null ? playable.parameters.FirstOrDefault((x) => x.Name == name) : null;
@@ -144,5 +142,3 @@ public class FMODEventPlayableEditor : Editor
         }
     }
 }
-
-#endif //UNITY_2017_1_OR_NEWER

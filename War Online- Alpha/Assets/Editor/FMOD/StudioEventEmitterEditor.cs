@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using UnityEditor;
 using UnityEngine;
 
@@ -49,8 +47,8 @@ namespace FMODUnity
             EditorGUILayout.PropertyField(begin, new GUIContent("Play Event"));
             EditorGUILayout.PropertyField(end, new GUIContent("Stop Event"));
 
-            if ((begin.enumValueIndex >= 3 && begin.enumValueIndex <= 6) ||
-            (end.enumValueIndex >= 3 && end.enumValueIndex <= 6))
+            if ((begin.enumValueIndex >= (int)EmitterGameEvent.TriggerEnter && begin.enumValueIndex <= (int)EmitterGameEvent.TriggerExit2D) ||
+            (end.enumValueIndex >= (int)EmitterGameEvent.TriggerEnter && end.enumValueIndex <= (int)EmitterGameEvent.TriggerExit2D))
             {
                 tag.stringValue = EditorGUILayout.TagField("Collision Tag", tag.stringValue);
             }
@@ -150,7 +148,7 @@ namespace FMODUnity
                                 if (EditorGUI.EndChangeCheck())
                                 {
                                     Undo.RecordObjects(serializedObject.isEditingMultipleObjects ? serializedObject.targetObjects : new UnityEngine.Object[] { serializedObject.targetObject }, "Inspector");
-                                    SetParameterValue(paramRef.Name, value);
+                                    setParameterByName(paramRef.Name, value);
                                 }
                                 EditorGUI.showMixedValue = false;
                             }
@@ -163,7 +161,6 @@ namespace FMODUnity
                             EditorGUI.EndDisabledGroup();
                             EditorGUILayout.EndHorizontal();
                         }
-
                     }
                 }
 
@@ -240,22 +237,22 @@ namespace FMODUnity
             }
         }
 
-        void SetParameterValue(string name, float value)
-        {            
+        void setParameterByName(string name, float value)
+        {
             if (serializedObject.isEditingMultipleObjects)
             {
                 foreach (var obj in serializedObject.targetObjects)
                 {
-                    SetParameterValue(obj, name, value);
+                    setParameterByName(obj, name, value);
                 }
             }
             else
             {
-                SetParameterValue(serializedObject.targetObject, name, value);
+                setParameterByName(serializedObject.targetObject, name, value);
             }
         }
 
-        void SetParameterValue(UnityEngine.Object obj, string name, float value)
+        void setParameterByName(UnityEngine.Object obj, string name, float value)
         {
             var emitter = obj as StudioEventEmitter;
             var param = emitter.Params != null ? emitter.Params.FirstOrDefault((x) => x.Name == name) : null;
@@ -264,7 +261,6 @@ namespace FMODUnity
                 param.Value = value;
             }
         }
-
 
         void AddParameterValue(string name, float value)
         {
@@ -288,7 +284,7 @@ namespace FMODUnity
             if (param == null)
             {
                 int end = emitter.Params.Length;
-                Array.Resize<ParamRef>(ref emitter.Params, end + 1);
+                Array.Resize(ref emitter.Params, end + 1);
                 emitter.Params[end] = new ParamRef();
                 emitter.Params[end].Name = name;
                 emitter.Params[end].Value = value;
@@ -325,9 +321,8 @@ namespace FMODUnity
             {
                 int end = emitter.Params.Length - 1;
                 emitter.Params[found] = emitter.Params[end];
-                Array.Resize<ParamRef>(ref emitter.Params, end);
+                Array.Resize(ref emitter.Params, end);
             }
         }
     }
-
 }

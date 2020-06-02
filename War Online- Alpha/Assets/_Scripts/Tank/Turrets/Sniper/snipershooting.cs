@@ -113,14 +113,14 @@ public class snipershooting : MonoBehaviourPun
     {
         if(totalAmmo >= 3)
         {
-            sniperShootEv.setParameterValue("ReloadFull", 1f);
+            sniperShootEv.setParameterByName("ReloadFull", 1f);
         }
         expectedReloadValue = totalAmmo * 10;
         currentReloadValue = coolDownSlider.value;
 
         if (Input.GetButtonDown("Fire"))
         {
-            sniperShootEv.setParameterValue("Firing", 0f);
+            sniperShootEv.setParameterByName("Firing", 0f);
 
             if (totalAmmo >= 3)
             {
@@ -141,14 +141,14 @@ public class snipershooting : MonoBehaviourPun
 
         if (zoomHeld)
         {
-            sniperShootEv.setParameterValue("ReloadFull", 0f);
+            sniperShootEv.setParameterByName("ReloadFull", 0f);
 
             required = true;
             //Transition
             animator.enabled = true;
             animator.SetBool("Scoped", true);
 
-            sniperShootEv.setParameterValue("Scoping", 1f);
+            sniperShootEv.setParameterByName("Scoping", 1f);
 
             camMove = true;
             CameraTransition(zoomHeld);
@@ -185,7 +185,7 @@ public class snipershooting : MonoBehaviourPun
             }
             else
             {
-                sniperShootEv.setParameterValue("Scoping", 0f);
+                sniperShootEv.setParameterByName("Scoping", 0f);
             }
         }
 
@@ -200,8 +200,8 @@ public class snipershooting : MonoBehaviourPun
             GetComponentInParent<RTCTankController>().engineRunning = true;
             Shoot(damage);
 
-            sniperShootEv.setParameterValue("Scoping", 0f);
-            sniperShootEv.setParameterValue("Firing", 1f);
+            sniperShootEv.setParameterByName("Scoping", 0f);
+            sniperShootEv.setParameterByName("Firing", 1f);
 
             //Deactivating Animator
             animator.enabled = false;
@@ -265,7 +265,7 @@ public class snipershooting : MonoBehaviourPun
             {
                 reloadTime = 0f;
                 totalAmmo += 0.0625f;
-                sniperShootEv.setParameterValue("Firing", 0f);
+                sniperShootEv.setParameterByName("Firing", 0f);
             }
         }
 
@@ -325,7 +325,7 @@ public class snipershooting : MonoBehaviourPun
             }
         }
 
-       // sniperShootEv.setParameterValue("Firing", 0f);
+       // sniperShootEv.setParameterByName("Firing", 0f);
 
         if (currDamage == damage)
         {

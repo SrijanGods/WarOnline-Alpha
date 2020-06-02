@@ -88,7 +88,7 @@ public class MachineGun : MonoBehaviour
         mgShootEv = FMODUnity.RuntimeManager.CreateInstance(mgShootSfx);
         FMODUnity.RuntimeManager.AttachInstanceToGameObject(mgShootEv, GetComponent<Transform>(), GetComponent<Rigidbody>());
         mgShootEv.start();
-        mgShootEv.setParameterValue("SoundLess", 0f);
+        mgShootEv.setParameterByName("SoundLess", 0f);
 
         bulletRenderer = GetComponent<LineRenderer>();
         bulletMaterial = bulletRenderer.material;
@@ -139,7 +139,7 @@ public class MachineGun : MonoBehaviour
         if(ammo >= actualAmmo)
         {
             ceasefire = false;
-            mgShootEv.setParameterValue("SoundLess", 0f);
+            mgShootEv.setParameterByName("SoundLess", 0f);
         }
 
 
@@ -219,13 +219,13 @@ public class MachineGun : MonoBehaviour
                 barTime = 0f;
             }
 
-            mgShootEv.setParameterValue("Firing", 1f);
+            mgShootEv.setParameterByName("Firing", 1f);
 
         }
        
         if (ceasefire)
         {
-            mgShootEv.setParameterValue("Firing", 0f);
+            mgShootEv.setParameterByName("Firing", 0f);
             if (neededzero)
             {
                 neededzero = false;
@@ -250,7 +250,7 @@ public class MachineGun : MonoBehaviour
                 }
                 barTime = 0f;
             }
-            mgShootEv.setParameterValue("SoundLess", 1f);
+            mgShootEv.setParameterByName("SoundLess", 1f);
         }
 
         if(ammo < 0)
