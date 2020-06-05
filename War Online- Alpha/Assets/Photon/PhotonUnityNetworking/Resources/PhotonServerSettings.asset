@@ -16,7 +16,7 @@ MonoBehaviour:
     AppIdRealtime: 40a06571-f6a6-4c74-8163-5842fc0eec0a
     AppIdChat: 
     AppIdVoice: 
-    AppVersion: 
+    AppVersion: 1.1
     UseNameServer: 1
     FixedRegion: 
     Server: 
@@ -38,4 +38,4 @@ MonoBehaviour:
   - TakeDamage
   - UIComponentsSet
   DisableAutoOpenWizard: 1
-  ShowSettings: 0
+  ShowSettings: 1
