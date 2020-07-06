@@ -121,13 +121,17 @@ public class GettingProfil : MonoBehaviour
         PlayFabClientAPI.UpdatePlayerStatistics(new UpdatePlayerStatisticsRequest
         {
             // request.Statistics is a list, so multiple StatisticUpdate objects can be defined if required.
-            Statistics = new List<StatisticUpdate> {
+            Statistics = new List<StatisticUpdate>
+            {
+            new StatisticUpdate { StatisticName = "RankExp", Value = 0},
+            }
 
-        new StatisticUpdate { StatisticName = "RankExp", Value = rankExp },
-
-    }
         },
-     result => { Debug.Log("User statistics updated"); },
+    result => 
+    { 
+        Debug.Log("User statistics updated");
+        GetStats();
+    },
      error => { Debug.LogError(error.GenerateErrorReport()); });
     }
 
@@ -135,7 +139,17 @@ public class GettingProfil : MonoBehaviour
     {
         PlayFabClientAPI.GetPlayerStatistics(
             new GetPlayerStatisticsRequest(),
-            OnGetStats,
+            result => 
+            { 
+                if(result.Statistics.Count == 0)
+                {
+                    SetStats();
+                }
+                else
+                {
+                    OnGetStats(result);
+                }
+            },
             error => Debug.LogError(error.GenerateErrorReport())
         );
     }

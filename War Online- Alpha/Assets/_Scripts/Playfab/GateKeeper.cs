@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Networking;
 
 using PlayFab;
 using PlayFab.ClientModels;
@@ -16,6 +18,7 @@ using Photon.Realtime;
 public class GateKeeper : MonoBehaviour {
 
     public bool usingFBGoogle;
+    private string FacebookUserName = null;
 
     #region LoginWithEmail
     [Header("Login Gate")]
@@ -254,6 +257,10 @@ public class GateKeeper : MonoBehaviour {
                     Debug.Log("Logged In FB");
 
                     PhotonRequestToken(result);
+                    GetFacebookUserName("me", res =>
+                    {
+                        FacebookUserName = res.ResultDictionary["name"].ToString();
+                    });
                 }
                 , OnPlayfabFacebookAuthFailed);
         }
@@ -276,6 +283,61 @@ public class GateKeeper : MonoBehaviour {
             Debug.LogError(_message);
         else
             Debug.Log(_message);
+    }
+
+    /// <param name="id">Unique identifier of a Facebook profile.</param>
+    /// <param name="successCallback">Action to be executed when the process is done correctly.</param>
+    /// <param name="errorCallback">Action to be executed when the process fails.</param>
+    public void GetFacebookUserName(string id, Action<IGraphResult> successCallback = null, Action<IGraphResult> errorCallback = null)
+    {
+        FB.API("/" + id, HttpMethod.GET,
+            (res =>
+            {
+                if (!ValidateResult(res))
+                {
+                    if (errorCallback != null)
+                        errorCallback(res);
+
+                    return;
+                }
+
+                Debug.Log(string.Format("GetFacebookUserName => Success! (name: {0})",
+                    res.ResultDictionary["name"]));
+
+                if (successCallback != null)
+                    successCallback(res);
+            }));
+
+        SetPlayerName();
+    }
+
+    private bool ValidateResult(IResult result)
+    {
+        if (string.IsNullOrEmpty(result.Error) && !result.Cancelled)
+            return true;
+
+        Debug.LogError(string.Format("{0} is invalid (Cancelled={1}, Error={2}, JSON={3})",
+
+            result.GetType(), result.Cancelled, result.Error, Facebook.MiniJSON.Json.Serialize(result.ResultDictionary)));
+
+        return false;
+    }
+
+    public void SetPlayerName()
+    {
+        PlayFabClientAPI.UpdateUserTitleDisplayName(new UpdateUserTitleDisplayNameRequest
+        {
+            DisplayName = FacebookUserName
+        },
+        resultN =>
+        {
+            print("Done");
+        },
+        errorN =>
+        {
+            print(errorN.ErrorMessage);
+            print(FacebookUserName);
+        });
     }
 
     #endregion LoginWithFB
