@@ -47,19 +47,28 @@ public class GettingProfil : MonoBehaviour
     public GetPlayerCombinedInfoRequestParams info;
 
     public GameObject GCanvas;
+
     private InventorySelection inventory;
+    private GateKeeper gateKeeper;
 
     #region PublicMethods
     void Start()
     {
         inventory = GCanvas.GetComponent<InventorySelection>();
+        gateKeeper = gameObject.GetComponent<GateKeeper>();
+        StartCoroutine("StartStats");
+    }
 
-        //calling methods
+    IEnumerator StartStats()
+    {
+        yield return new WaitUntil(() => gateKeeper.PlayfabConnected);
+
         GetPlayerProfile();
         GetStats();
         GetNews();
         GetPlayerCombinedInfo();
     }
+
     #endregion PublicMethods
 
     #region PlayerProfile

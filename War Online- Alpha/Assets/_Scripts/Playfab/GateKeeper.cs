@@ -1,296 +1,120 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System;
-
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using UnityEngine.Networking;
-
+﻿using Facebook.Unity;
 using PlayFab;
 using PlayFab.ClientModels;
-using Facebook.Unity;
-
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+using UnityEngine.Networking;
 using Photon.Pun;
-using Photon.Chat;
-using Photon.Realtime;
+using Random = UnityEngine.Random;
 
-public class GateKeeper : MonoBehaviour {
+public class GateKeeper : MonoBehaviour
+{
+    [Header("UI GOs")]
+    public GameObject LoginPanel;
 
-    public bool usingFBGoogle;
-    private string FacebookUserName = null;
+    [Header("Player Profile")]
+    public Image userImage;
 
-    #region LoginWithEmail
-    [Header("Login Gate")]
-    [Tooltip("Contains the flashing \"Press Any Key\" graphic.")] [SerializeField] GameObject loginGateHandler;
-    [Tooltip("Contains the login/signup selection buttons.")] [SerializeField] GameObject loginSelectHandler;
-    [Tooltip("Time in seconds before the login prompt is reset. Defaults to five minutes.")] [SerializeField] float waitTimer = 300.0f;
+    [Header("FaceBook Login")]
+    public Button FBLogin;
+    private string FBUserName;
+    private string FBid;
+    private string FBurl;
 
-    [Header("Login Elements")]
-    [Tooltip("Contains E-mail and Password input fields, as well as the signup and login buttons.")][SerializeField] GameObject loginElementsHandler;
-    [Tooltip("E-mail input field.")] [SerializeField] InputField loginUserEmail;
-    [Tooltip("Password input field.")] [SerializeField] InputField loginUserPassword;
+    [Header("Play Game Login")]
+    public Button Google;
 
-    [Header("Register Elements")]
-    [Tooltip("Contains Username input field as well as the actual register button.")] [SerializeField] GameObject registerElementsHandler;
-    [Tooltip("E-mail input field.")] [SerializeField] InputField registerUserEmail;
-    [Tooltip("Password input field.")] [SerializeField] InputField registerUserPassword;
-    [Tooltip("Username input field.")] [SerializeField] InputField registerUserName;
+    [HideInInspector]
+    public bool PlayfabConnected;
 
-    [Header("Loading Elements")]
-    [Tooltip("Contains loading icon and text.")] [SerializeField] GameObject loadingElementHandler;
-    [Tooltip("Contains loading text.")] [SerializeField] Text loadingText;
-    [Tooltip("Name of scene to load upon successful authentication")] [SerializeField] string nextScene = "StartScene";
-
-    [Header("Miscellanous Messaging")]
-    [Tooltip("Contains error text.")] [SerializeField] Text errorText;
-    [Tooltip("Contains application version details")] [SerializeField] Text versionText;
-    
-
-    // Private variables
-    private float currentTime;
-    private string PlayerIDCache;
-    private bool multiBool = true;
-
-    public void RegisterPlayer()
+    private void Awake()
     {
-        hideErrorMessage();
-        showLoading();
-        registerElementsHandler.SetActive(false);
-        updateLoadingText("Registering New User");
-        PlayFabClientAPI.RegisterPlayFabUser(new RegisterPlayFabUserRequest() {
-            Email = registerUserEmail.text,
-            Password = registerUserPassword.text,
-            Username = registerUserName.text,
-            TitleId = PlayFab.PlayFabSettings.TitleId
-        }, PhotonRequestToken, RegisterError);
+        FB.Init(() => FB.ActivateApp());
     }
 
-    public void AddContactEmail()
+    private void Start()
     {
-        var request = new AddOrUpdateContactEmailRequest
+        FBLogin.onClick.AddListener(OnFacebookInitialized);
+
+        if (PlayerPrefs.HasKey("LoggedInWithFB"))
         {
-            EmailAddress = registerUserEmail.text,
-        };
-        
-        PlayFabClientAPI.AddOrUpdateContactEmail(request, result =>
-        {
-            Debug.Log("The player's account has been updated with a contact email");
-
-        }, FailureCallback);
-    }
-    public void LoginPlayer()
-    {
-        hideErrorMessage();
-        showLoading();
-        loginElementsHandler.SetActive(false);
-        updateLoadingText("Attempting to Log In");
-        PlayFabClientAPI.LoginWithEmailAddress(new LoginWithEmailAddressRequest() {
-            Email = loginUserEmail.text,
-            Password = loginUserPassword.text,
-            TitleId = PlayFab.PlayFabSettings.TitleId,
-
-    }, PhotonRequestToken, AuthError);
-    }
-    void FailureCallback(PlayFabError error)
-    {
-        Debug.LogWarning("Something went wrong with your API call. Here's some debug information:");
-        Debug.LogError(error.GenerateErrorReport());
-    }
-
-    private void PhotonRequestToken(PlayFab.ClientModels.LoginResult res)
-    {
-        updateLoadingText("Requesting Authentication Token");
-        PlayerIDCache = res.PlayFabId;
-        PlayFabClientAPI.GetPhotonAuthenticationToken(new GetPhotonAuthenticationTokenRequest() {
-            PhotonApplicationId = PhotonNetwork.PhotonServerSettings.AppSettings.AppIdRealtime
-        }, PhotonAuth, AuthError);
-    }
-
-    private void PhotonRequestToken(RegisterPlayFabUserResult res)
-    {
-        updateLoadingText("Requesting Authentication Token");
-        PlayerIDCache = res.PlayFabId;
-        PlayFabClientAPI.GetPhotonAuthenticationToken(new GetPhotonAuthenticationTokenRequest() {
-            PhotonApplicationId = PhotonNetwork.PhotonServerSettings.AppSettings.AppIdRealtime
-        }, PhotonAuth, RegisterError);
-        AddContactEmail();
-    }
-
-    private void PhotonAuth(GetPhotonAuthenticationTokenResult res)
-    {
-        emptyLoginFields();
-        emptyRegisterFields();
-        updateLoadingText("Loading Game");
-        // TODO: Change CustomAuthenticationType accordingly (maybe Steam?) in the future
-        var authDetails = new Photon.Realtime.AuthenticationValues { AuthType = Photon.Realtime.CustomAuthenticationType.Custom };
-        authDetails.AddAuthParameter("username", PlayerIDCache);
-        authDetails.AddAuthParameter("token", res.PhotonCustomAuthenticationToken);
-        PhotonNetwork.AuthValues = authDetails;
-        StartCoroutine(LoadNextScene());
-    }
-
-    private void AuthError(PlayFabError err)
-    {
-        hideLoading();
-        loginElementsHandler.SetActive(true);
-        Debug.LogError("Authentication Error: " + err.GenerateErrorReport());
-        showErrorMessage("AUTHENTICATION ERROR\n" + err.ErrorMessage);
-    }
-
-    private void RegisterError(PlayFabError err)
-    {
-        hideLoading();
-        registerElementsHandler.SetActive(true);
-        Debug.LogError("Registration Error: " + err.GenerateErrorReport());
-        showErrorMessage("REGISTRATION ERROR\n" + err.ErrorMessage);
-    }
-
-    private void updateLoadingText(string loadMsg)
-    {
-        loadingText.text = loadMsg;
-    }
-
-    private void showLoading()
-    {
-        loadingElementHandler.SetActive(true);
-    }
-
-    private void hideLoading()
-    {
-        loadingElementHandler.SetActive(false);
-        loadingText.text = null;
-    }
-
-    private void showErrorMessage(string errorMsg)
-    {
-        errorText.text = errorMsg;
-        errorText.gameObject.SetActive(true);
-    }
-
-    public void hideErrorMessage()
-    {
-        errorText.text = null;
-        errorText.gameObject.SetActive(false);
-    }
-
-    public void emptyLoginFields()
-    {
-        loginUserEmail.text = null;
-        loginUserPassword.text = null;
-    }
-
-    public void emptyRegisterFields()
-    {
-        registerUserEmail.text = null;
-        registerUserPassword.text = null;
-        registerUserName.text = null;
-    }
-
-    private void returnToGate()
-    {
-        emptyLoginFields();
-        emptyRegisterFields();
-        loginGateHandler.SetActive(true);
-        loginSelectHandler.SetActive(false);
-        loginElementsHandler.SetActive(false);
-        registerElementsHandler.SetActive(false);
-        hideErrorMessage();
-        hideLoading();
-    }
-
-    IEnumerator loginReset()
-    {
-        currentTime = waitTimer;
-        while (currentTime > 0.0f)
-        {
-            currentTime -= Time.deltaTime;
-            yield return null;
+            StartCoroutine("FBCall");
         }
-        returnToGate();
+        else
+        {
+            print(PlayerPrefs.GetString("LoggedInWithFB"));
+        }
     }
 
-    #endregion LoginWithEmail
+    #region Facebook
 
-    #region LoginWithFB
-
-    private string _message;
-
-    public void OnClick_FacebookSignIn()
+    IEnumerator FBCall()
     {
-        SetMessage("Initializing Facebook..."); // logs the given message and displays it on the screen using OnGUI method
-
-        // This call is required before any other calls to the Facebook API. We pass in the callback to be invoked once initialization is finished
-        FB.Init(OnFacebookInitialized);
+        yield return new WaitUntil(() => FB.IsInitialized);
+        OnFacebookInitialized();
     }
-
-    private void OnFacebookInitialized()
+    public void OnFacebookInitialized()
     {
-        SetMessage("Logging into Facebook...");
-
-        // Once Facebook SDK is initialized, if we are logged in, we log out to demonstrate the entire authentication cycle.
         if (FB.IsLoggedIn)
             FB.LogOut();
 
         // We invoke basic login procedure and pass in the callback to process the result
-        FB.LogInWithReadPermissions(null, OnFacebookLoggedIn);
+        FB.LogInWithReadPermissions(new List<string>() { "public_profile", "email" }, OnFacebookLoggedIn);
     }
 
-    private void OnFacebookLoggedIn(ILoginResult iresult)
+    private void OnFacebookLoggedIn(ILoginResult result)
     {
         // If result has no errors, it means we have authenticated in Facebook successfully
-        if (iresult == null || string.IsNullOrEmpty(iresult.Error))
+        if (result == null || string.IsNullOrEmpty(result.Error))
         {
-            SetMessage("Facebook Auth Complete! Access Token: " + AccessToken.CurrentAccessToken.TokenString + "\nLogging into PlayFab...");
+            FBid = result.ResultDictionary["user_id"].ToString();
 
-            /*
-             * We proceed with making a call to PlayFab API. We pass in current Facebook AccessToken and let it create
-             * and account using CreateAccount flag set to true. We also pass the callback for Success and Failure results
-             */
             PlayFabClientAPI.LoginWithFacebook(new LoginWithFacebookRequest 
             { 
                 CreateAccount = true, 
-                AccessToken = AccessToken.CurrentAccessToken.TokenString 
+                AccessToken = AccessToken.CurrentAccessToken.TokenString,
+                TitleId = "CAAAA"
             },
-                result => 
-                {
-                    Debug.Log("Logged In FB");
+            res =>
+            {
+                PlayerPrefs.SetString("LoggedInWithFB", "Yes");
 
-                    PhotonRequestToken(result);
-                    GetFacebookUserName("me", res =>
-                    {
-                        FacebookUserName = res.ResultDictionary["name"].ToString();
-                    });
-                }
-                , OnPlayfabFacebookAuthFailed);
+                FB.API("/me", HttpMethod.GET, resultCallback =>
+                {
+                    FBUserName = resultCallback.ResultDictionary["name"].ToString();
+
+                });
+
+                GetFacebookUserPictureFromUrl("me", 150, 150, resI =>
+                {
+                    StartCoroutine(GetTextureFromGraphResult(resI));
+                });
+
+                RequestPhotonToken(res);
+
+            },
+            err =>
+            {
+
+            });
         }
         else
         {
             // If Facebook authentication failed, we stop the cycle with the message
-            SetMessage("Facebook Auth Failed: " + iresult.Error + "\n" + iresult.RawResult, true);
         }
     }
 
-    private void OnPlayfabFacebookAuthFailed(PlayFabError error)
-    {
-        SetMessage("PlayFab Facebook Auth Failed: " + error.GenerateErrorReport(), true);
-    }
+    #region ImageMech
 
-    public void SetMessage(string message, bool error = false)
+    public void GetFacebookUserPictureFromUrl(string id, int width, int height, Action<IGraphResult> successCallback = null, Action<IGraphResult> errorCallback = null)
     {
-        _message = message;
-        if (error)
-            Debug.LogError(_message);
-        else
-            Debug.Log(_message);
-    }
+        string query = string.Format("/{0}/picture?type=square&height={1}&width={2}&redirect=false", id, height, width);
 
-    /// <param name="id">Unique identifier of a Facebook profile.</param>
-    /// <param name="successCallback">Action to be executed when the process is done correctly.</param>
-    /// <param name="errorCallback">Action to be executed when the process fails.</param>
-    public void GetFacebookUserName(string id, Action<IGraphResult> successCallback = null, Action<IGraphResult> errorCallback = null)
-    {
-        FB.API("/" + id, HttpMethod.GET,
+        FB.API(query, HttpMethod.GET,
             (res =>
             {
                 if (!ValidateResult(res))
@@ -301,15 +125,28 @@ public class GateKeeper : MonoBehaviour {
                     return;
                 }
 
-                Debug.Log(string.Format("GetFacebookUserName => Success! (name: {0})",
-                    res.ResultDictionary["name"]));
-
                 if (successCallback != null)
                     successCallback(res);
+
             }));
 
-        SetPlayerName();
     }
+
+    public IEnumerator GetTextureFromGraphResult(IGraphResult result)
+    {
+        var data = result.ResultDictionary["data"] as IDictionary<string, object>;
+        var url = data["url"].ToString();
+
+        FBurl = url;
+        WWW request = new WWW(url);
+
+        yield return new WaitUntil(() => request.isDone);
+
+        UpdateUserAvatarURL(FBurl);
+        StartCoroutine("DownloadImage", FBurl);
+        print(FBurl);
+    }
+    #endregion 
 
     private bool ValidateResult(IResult result)
     {
@@ -321,57 +158,89 @@ public class GateKeeper : MonoBehaviour {
             result.GetType(), result.Cancelled, result.Error, Facebook.MiniJSON.Json.Serialize(result.ResultDictionary)));
 
         return false;
+
     }
 
-    public void SetPlayerName()
+    #endregion
+
+    #region PhotonAuth
+
+    private string _playFabPlayerIdCache;
+
+    private void RequestPhotonToken(PlayFab.ClientModels.LoginResult obj)
     {
-        PlayFabClientAPI.UpdateUserTitleDisplayName(new UpdateUserTitleDisplayNameRequest
+        LogMessage("PlayFab authenticated. Requesting photon token...");
+
+        _playFabPlayerIdCache = obj.PlayFabId;
+
+
+        PlayFabClientAPI.GetPhotonAuthenticationToken(new GetPhotonAuthenticationTokenRequest()
         {
-            DisplayName = FacebookUserName
+            PhotonApplicationId = PhotonNetwork.PhotonServerSettings.AppSettings.AppIdRealtime
         },
-        resultN =>
+        AuthenticateWithPhoton, OnPlayFabError);
+    }
+
+    private void AuthenticateWithPhoton(GetPhotonAuthenticationTokenResult obj)
+    {
+
+        //We set AuthType to custom, meaning we bring our own, PlayFab authentication procedure.
+        var customAuth = new Photon.Realtime.AuthenticationValues { AuthType = Photon.Realtime.CustomAuthenticationType.Custom };
+
+        //We add "username" parameter. Do not let it confuse you: PlayFab is expecting this parameter to contain player PlayFab ID (!) and not username.
+        customAuth.AddAuthParameter("username", _playFabPlayerIdCache);    // expected by PlayFab custom auth service
+
+        //We add "token" parameter. PlayFab expects it to contain Photon Authentication Token issues to your during previous step.
+        customAuth.AddAuthParameter("token", obj.PhotonCustomAuthenticationToken);
+
+        PhotonNetwork.ConnectUsingSettings();
+
+        PlayfabConnected = true;
+
+    }
+
+    private void OnPlayFabError(PlayFabError obj)
+    {
+        LogMessage(obj.GenerateErrorReport());
+    }
+
+    public void LogMessage(string message)
+    {
+        print(message);
+    }
+
+
+    #endregion PhotonAuth
+
+    #region PlayfabUniversalFuncs
+
+    IEnumerator DownloadImage(string urlid)
+    {
+        UnityWebRequest request = UnityWebRequestTexture.GetTexture(urlid);
+        yield return request.SendWebRequest();
+        if (request.isNetworkError || request.isHttpError)
+            Debug.Log(request.error);
+        else
+            userImage.sprite = Sprite.Create(((DownloadHandlerTexture)request.downloadHandler).texture, new Rect(0, 0, ((DownloadHandlerTexture)request.downloadHandler).texture.width, ((DownloadHandlerTexture)request.downloadHandler).texture.height), new Vector2(0, 0));
+    }
+
+    private void UpdateUserAvatarURL(string link)
+    {
+        PlayFabClientAPI.UpdateAvatarUrl(new UpdateAvatarUrlRequest()
         {
-            print("Done");
+            ImageUrl = link
         },
-        errorN =>
+        res =>
         {
-            print(errorN.ErrorMessage);
-            print(FacebookUserName);
+
+        },
+        err =>
+        {
+
         });
     }
 
-    #endregion LoginWithFB
+    #endregion
 
-    IEnumerator LoadNextScene()
-    {
-        AsyncOperation AO = SceneManager.LoadSceneAsync(nextScene, LoadSceneMode.Single);
-        AO.allowSceneActivation = false;
-        while (AO.progress < 0.9f)
-        {
-            yield return null;
-        }
-
-        AO.allowSceneActivation = true;
-    }
-
-    void Start()
-    {
-        currentTime = 0.0f;
-        returnToGate();
-        versionText.text += ("\nVersion " + Application.version);
-    }
-
-    void Update()
-    {
-        if (Input.anyKeyDown && !usingFBGoogle)
-        {
-            if (loginGateHandler.activeInHierarchy)
-            {
-                loginGateHandler.SetActive(false);
-                loginSelectHandler.SetActive(true);
-                StartCoroutine("loginReset");
-            }
-            else currentTime = waitTimer;
-        }
-    }
+    //https://answers.unity.com/questions/779452/display-player-image-and-name-using-google.html
 }
