@@ -88,7 +88,6 @@ public class GettingProfil : MonoBehaviour
 
         PlayFabClientAPI.GetPlayerProfile(new GetPlayerProfileRequest()
         {
-
             PlayFabId = playFabId,
             ProfileConstraints = new PlayerProfileViewConstraints()
             {
@@ -97,8 +96,6 @@ public class GettingProfil : MonoBehaviour
         },
         result => {
 
-            
-            
             if (result.PlayerProfile.DisplayName == null)
             {
                 result.PlayerProfile.DisplayName = actualUserName;
@@ -110,10 +107,6 @@ public class GettingProfil : MonoBehaviour
             }
         },
         error => Debug.LogError(error.GenerateErrorReport()));
-
-        
-
-       
         
     }
     #endregion PlayerProfile
@@ -156,32 +149,27 @@ public class GettingProfil : MonoBehaviour
                 }
                 else
                 {
-                    OnGetStats(result);
+                    foreach (var eachStat in result.Statistics)
+                    {
+                        switch (eachStat.StatisticName)
+                        {
+                            case "RankExp":
+                                rankExp = eachStat.Value;
+                                break;
+                        }
+                    }
+
+                    RankManager rankManager = gameObject.GetComponent<RankManager>();
+                    rankManager.currentExp = rankExp;
+                    rankManager.AssignRank();
+
+                    NickName.text = actualRankName + " " + actualUserName;
                 }
             },
             error => Debug.LogError(error.GenerateErrorReport())
         );
     }
 
-    void OnGetStats(GetPlayerStatisticsResult result)
-    {
-        Debug.Log("Received the following Statistics:");
-        foreach (var eachStat in result.Statistics)
-        {
-            switch (eachStat.StatisticName)
-            {
-                case "RankExp":
-                    rankExp = eachStat.Value;
-                    break;
-            }
-        }
-
-        RankManager rankManager = gameObject.GetComponent<RankManager>();
-        rankManager.currentExp = rankExp;
-        rankManager.AssignRank();
-
-        NickName.text = actualRankName + " " + actualUserName;
-    }
 
     #endregion PlayerStats
 

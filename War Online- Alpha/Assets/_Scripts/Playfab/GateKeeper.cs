@@ -82,18 +82,19 @@ public class GateKeeper : MonoBehaviour
             res =>
             {
                 PlayerPrefs.SetString("LoggedInWithFB", "Yes");
-
-                FB.API("/me", HttpMethod.GET, resultCallback =>
+                if (res.NewlyCreated)
                 {
-                    FBUserName = resultCallback.ResultDictionary["name"].ToString();
-
-                });
+                    FB.API("/me", HttpMethod.GET, resultCallback =>
+                    {
+                        FBUserName = resultCallback.ResultDictionary["name"].ToString();
+                    });
+                }
 
                 GetFacebookUserPictureFromUrl("me", 150, 150, resI =>
                 {
                     StartCoroutine(GetTextureFromGraphResult(resI));
                 });
-
+                
                 RequestPhotonToken(res);
 
             },
