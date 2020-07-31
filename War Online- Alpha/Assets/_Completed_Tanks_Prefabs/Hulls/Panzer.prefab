@@ -4719,6 +4719,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -4821,6 +4822,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -4961,6 +4963,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5070,6 +5073,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5241,6 +5245,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5546,6 +5551,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5624,6 +5630,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5946,6 +5953,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -6318,6 +6326,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -6721,6 +6730,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -6901,6 +6911,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -7003,6 +7014,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -7081,6 +7093,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -7345,6 +7358,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -7484,6 +7498,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -7685,6 +7700,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -7763,6 +7779,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -7832,6 +7849,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -8027,6 +8045,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -8197,6 +8216,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -8232,9 +8252,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 1
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3dcae5b9400713c49b05418c667f7c57, type: 3}
 --- !u!1001 &431220102799687647
 PrefabInstance:
@@ -8437,11 +8457,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7177511275756226244}
     m_Modifications:
-    - target: {fileID: 742970497904985406, guid: 912d02f0b653e2540a9e846244c26dab,
-        type: 3}
-      propertyPath: m_Name
-      value: FireEmbers (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 739836539375078304, guid: 912d02f0b653e2540a9e846244c26dab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8496,6 +8511,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 742970497904985406, guid: 912d02f0b653e2540a9e846244c26dab,
+        type: 3}
+      propertyPath: m_Name
+      value: FireEmbers (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 912d02f0b653e2540a9e846244c26dab, type: 3}
@@ -8579,6 +8599,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TeamCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8649836883234558756, guid: 5a7777fa6c9c3ae4194f0608c2731ce3,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8946853363718742138, guid: 5a7777fa6c9c3ae4194f0608c2731ce3,
         type: 3}
@@ -8685,11 +8710,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8649836883234558756, guid: 5a7777fa6c9c3ae4194f0608c2731ce3,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a7777fa6c9c3ae4194f0608c2731ce3, type: 3}
 --- !u!224 &4214365856860918479 stripped
@@ -8708,6 +8728,20 @@ PrefabInstance:
     - target: {fileID: 1034623720092478, guid: d236713fd9932ef48a13bcc6dac1a521, type: 3}
       propertyPath: m_Name
       value: WarCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1034623720092478, guid: d236713fd9932ef48a13bcc6dac1a521, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 96365658171289094, guid: d236713fd9932ef48a13bcc6dac1a521,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 96365658171289094, guid: d236713fd9932ef48a13bcc6dac1a521,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224197342910152990, guid: d236713fd9932ef48a13bcc6dac1a521,
         type: 3}
@@ -8824,16 +8858,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 96365658171289094, guid: d236713fd9932ef48a13bcc6dac1a521,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 96365658171289094, guid: d236713fd9932ef48a13bcc6dac1a521,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d236713fd9932ef48a13bcc6dac1a521, type: 3}
 --- !u!224 &6050994385904960190 stripped
@@ -8849,11 +8873,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7177511275756226244}
     m_Modifications:
-    - target: {fileID: 2620579206075005795, guid: 1098ae0baed9b5744b0d706570e288fb,
-        type: 3}
-      propertyPath: m_Name
-      value: Fire
-      objectReference: {fileID: 0}
     - target: {fileID: 2618080171836655409, guid: 1098ae0baed9b5744b0d706570e288fb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8924,6 +8943,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.009733489
       objectReference: {fileID: 0}
+    - target: {fileID: 2620579206075005795, guid: 1098ae0baed9b5744b0d706570e288fb,
+        type: 3}
+      propertyPath: m_Name
+      value: Fire
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1098ae0baed9b5744b0d706570e288fb, type: 3}
 --- !u!1001 &7013058284050673427
@@ -8933,11 +8957,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7177511275756226244}
     m_Modifications:
-    - target: {fileID: 1068175004195173452, guid: 41f5558acdb98e34c95e59de1e38f46a,
-        type: 3}
-      propertyPath: m_Name
-      value: FireEmbers 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1063284432676337356, guid: 41f5558acdb98e34c95e59de1e38f46a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8992,6 +9011,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068175004195173452, guid: 41f5558acdb98e34c95e59de1e38f46a,
+        type: 3}
+      propertyPath: m_Name
+      value: FireEmbers 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41f5558acdb98e34c95e59de1e38f46a, type: 3}
