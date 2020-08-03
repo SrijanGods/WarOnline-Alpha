@@ -13,7 +13,4 @@ public class PanelsAnimation : MonoBehaviour
     {
         GetComponent<Animator>().SetBool("display", false);
     }
-
-
-
 }
