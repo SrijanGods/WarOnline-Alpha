@@ -24,7 +24,7 @@ public class MainScript : MonoBehaviourPunCallbacks
 
     public void Start()
     {
-        playfabLogin = GameObject.FindGameObjectWithTag("PlayFabManager").GetComponent<GateKeeper>();
+        playfabLogin = GameObject.FindGameObjectWithTag("GameController").GetComponent<GateKeeper>();
         StartCoroutine(InitialiseConnection());
     }
 
