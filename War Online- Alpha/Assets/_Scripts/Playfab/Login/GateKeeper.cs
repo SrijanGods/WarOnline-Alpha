@@ -88,12 +88,48 @@ public class GateKeeper : MonoBehaviour
                     {
                         FBUserName = resultCallback.ResultDictionary["name"].ToString();
                     });
-                }
 
-                GetFacebookUserPictureFromUrl("me", 150, 150, resI =>
+                    GetFacebookUserPictureFromUrl("me", 150, 150, resI =>
+                    {
+                        StartCoroutine(GetTextureFromGraphResult(resI));
+                    });
+
+                    PlayFabClientAPI.UpdateUserTitleDisplayName(new UpdateUserTitleDisplayNameRequest
+                    {
+                        DisplayName = FBUserName
+                    },
+                    r =>
+                    {
+                    },
+                    e =>
+                    {
+                    });
+                }
+                else
                 {
-                    StartCoroutine(GetTextureFromGraphResult(resI));
-                });
+                    PlayFabClientAPI.GetPlayerProfile(new GetPlayerProfileRequest
+                    {
+                        PlayFabId = res.PlayFabId,
+                        ProfileConstraints = new PlayerProfileViewConstraints
+                        {
+                            ShowAvatarUrl = true,
+                            ShowDisplayName = true
+                        }
+                    },
+                    resP =>
+                    {
+                        if(resP.PlayerProfile.AvatarUrl != null && resP.PlayerProfile.DisplayName != null)
+                        {
+                            print("Hmm");
+                            FBUserName = resP.PlayerProfile.DisplayName;
+                            StartCoroutine(DownloadImage(resP.PlayerProfile.AvatarUrl));
+                        }
+                    },
+                    errP =>
+                    {
+                        print(errP.Error);
+                    });
+                }
                 
                 RequestPhotonToken(res);
 
@@ -145,7 +181,6 @@ public class GateKeeper : MonoBehaviour
 
         UpdateUserAvatarURL(FBurl);
         StartCoroutine("DownloadImage", FBurl);
-        print(FBurl);
     }
     #endregion 
 
@@ -207,7 +242,6 @@ public class GateKeeper : MonoBehaviour
 
     public void LogMessage(string message)
     {
-        print(message);
     }
 
 
@@ -233,11 +267,9 @@ public class GateKeeper : MonoBehaviour
         },
         res =>
         {
-
         },
         err =>
         {
-
         });
     }
 

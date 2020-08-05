@@ -9,74 +9,58 @@ public class InventorySelection : MonoBehaviour
 
     [Header("TurretList")]
     public GameObject[] turretList;
-    private TurretChange turretNames;
     public int[] turretCost;
-    public int[] turretCostU;
-    public string[] turretDisplayN;
-    public string[] turretDes;
-    public string[] turretID;
+    public float[] turretLevel;
+    public bool[] tActive;
+    public string[] tID;
 
     [Header("HullList")]
-    private HullChange hullNames;
     public GameObject[] hullList;
     public int[] hullCost;
-    public int[] hullCostU;
-    public string[] hullDisplayN;
-    public string[] hullID;
-    public string[] hullDes;
-    public bool isturret;
-    private clickvalue script;
+    public float[] hullLevel;
+    public bool[] hActive;
+    public string[] hID;
 
-    [Header("GameObject")]
-    public GameObject turretHolder;
-    public GameObject hullHolder;
-    private GameObject statsPanel;
+    [Header("Gameobjects")]
+    public GameObject loadingPanel;
 
+    [HideInInspector]
+    public bool inventoryLoaded;
     private GateKeeper playfabLogin;
 
     #region PublicMethods
     void Awake()
     {
-        playfabLogin = GameObject.FindGameObjectWithTag("PlayFabManager").GetComponent<GateKeeper>();
+        playfabLogin = GameObject.FindGameObjectWithTag("GameController").GetComponent<GateKeeper>();
 
-        hullNames = GameObject.FindWithTag("ChoiceController").GetComponent<HullChange>();
-        int hullno = hullNames.hulls.Length;
-        hullList = hullNames.hulls;
+        int hullno = hullList.Length;
         hullCost = new int[hullno];
-        hullCostU = new int[hullno];
-        hullDisplayN = new string[hullno];
-        hullDes = new string[hullno];
-        hullID = new string[hullno];
+        hActive = new bool[hullno];
+        hID = new string[hullno];
+        hullLevel = new float[hullno];
 
-        //turret script calls
-        turretNames = GameObject.FindWithTag("ChoiceController").GetComponent<TurretChange>();
-        int turretno = turretNames.turrets.Length;
-        turretList = turretNames.turrets;
+        int turretno = turretList.Length;
         turretCost = new int[turretno];
-        turretCostU = new int[turretno];
-        turretDisplayN = new string[turretno];
-        turretDes = new string[turretno];
-        turretID = new string[turretno];
+        tActive = new bool[turretno];
+        tID = new string[turretno];
+        turretLevel = new float[turretno];
     }
 
     private void Start()
     {
-        statsPanel = Resources.Load("HullTurretSet") as GameObject;
-        GetItemsPrices();
-
         StartCoroutine(LinkInventory());
     }
 
     IEnumerator LinkInventory()
     {
         yield return new WaitUntil(() => playfabLogin.PlayfabConnected);
-        GetItemsPrices();
+        GetItems();
     }
     #endregion PublicMethods
 
     #region GettingUserInventory
 
-    public void GetItemsPrices()
+    public void GetItems()
     {
         GetCatalogItemsRequest request = new GetCatalogItemsRequest();
         request.CatalogVersion = "Cat";
@@ -88,9 +72,6 @@ public class InventorySelection : MonoBehaviour
                 foreach (CatalogItem item in items)
                 {
                     uint cost = item.VirtualCurrencyPrices["GB"];
-                    string displayName = item.DisplayName;
-                    string description = item.Description;
-                    string ID = item.ItemId;
 
                     if (item.ItemClass == "Turrets")
                     {
@@ -103,10 +84,6 @@ public class InventorySelection : MonoBehaviour
                                 {
                                     int turretno = System.Array.IndexOf(turretList, turret);
                                     turretCost.SetValue((int)cost, turretno);
-                                    // turretCostU.SetValue((int)costU, turretno);
-                                    turretDisplayN.SetValue(displayName, turretno);
-                                    turretDes.SetValue(description, turretno);
-                                    turretID.SetValue(ID, turretno);
                                     ++turretno;
                                 }
                             }
@@ -122,12 +99,7 @@ public class InventorySelection : MonoBehaviour
                                 for (int i = 0; i < hullList.Length; i++)
                                 {
                                     int hullno = System.Array.IndexOf(hullList, hull);
-                                    Debug.Log(hull.name + " " + item.ItemId + " " + hullno);
                                     hullCost.SetValue((int)cost, hullno);
-                                    // hullCostU.SetValue((int)costU, hullno);
-                                    hullDisplayN.SetValue(displayName, hullno);
-                                    hullDes.SetValue(description, hullno);
-                                    hullID.SetValue(ID, hullno);
                                     break;
                                 }
                            }
@@ -140,50 +112,139 @@ public class InventorySelection : MonoBehaviour
                 Debug.Log(error.ErrorDetails);
             });
 
-        UserInventoryInfo();
+        GetPlayerInventory();
+    }
+
+    private bool given;
+    public void GetPlayerInventory()
+    {
+        PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest { }, 
+            res => 
+            {
+                List<ItemInstance> userItems = res.Inventory;
+                if (userItems.Count == 0)
+                {
+                    if (!given)
+                    {
+                        PlayFabClientAPI.PurchaseItem(new PurchaseItemRequest()
+                        {
+                            ItemId = "Initial.Bundle",
+                            Price = 0,
+                            VirtualCurrency = "GB"
+                        },
+                        result2 =>
+                        {
+                            given = true;
+                            GetItems();
+                        },
+                        error2 =>
+                        {
+                            Debug.Log(error2.ErrorMessage);
+                        });
+                    }
+                }
+                else
+                {
+                    foreach(ItemInstance item in userItems)
+                    {
+                        if(item.ItemClass == "Turrets")
+                        {
+                            foreach (GameObject turret in turretList)
+                            {
+                                if (turret.name == item.ItemId)
+                                {
+                                    for (int i = 0; i < turretList.Length; i++)
+                                    {
+                                        int tno = System.Array.IndexOf(turretList, turret);
+                                        tActive.SetValue(true, tno);
+                                        tID.SetValue(item.ItemInstanceId, tno);
+
+                                        Dictionary<string, string> cd = item.CustomData;
+
+                                        //if there is no custom data of the hoop, I execute cloud script to sync values
+                                        if (cd == null)
+                                        {
+                                            PlayFabClientAPI.ExecuteCloudScript(new ExecuteCloudScriptRequest
+                                            {
+                                                FunctionName = "UpdatePlayerInventoryData",
+                                                FunctionParameter = new { InstID = tID[tno], Level = 1f }
+                                            },
+                                            resultcs =>
+                                            {
+                                                turretLevel.SetValue(1f, tno);
+                                            },
+                                            error =>
+                                            {
+                                                print(error.Error);
+                                            });
+                                        }
+                                        else
+                                        {
+                                            //else I take out the values and store them in the list
+                                            string lvl;
+                                            cd.TryGetValue("Level", out lvl);
+
+                                            turretLevel.SetValue(float.Parse(lvl), tno);
+                                        }
+                                        ++tno;
+                                    }
+                                }
+                            }
+                        }
+                        if(item.ItemClass == "Hull")
+                        {
+                            foreach (GameObject hull in hullList)
+                            {
+                                if (hull.name == item.ItemId)
+                                {
+                                    for (int i = 0; i < hullList.Length; i++)
+                                    {
+                                        int hno = System.Array.IndexOf(hullList, hull);
+                                        hActive.SetValue(true, hno);
+                                        hID.SetValue(item.ItemInstanceId, hno);
+
+                                        Dictionary<string, string> cd = item.CustomData;
+
+                                        //if there is no custom data of the hoop, I execute cloud script to sync values
+                                        if (cd == null)
+                                        {
+                                            PlayFabClientAPI.ExecuteCloudScript(new ExecuteCloudScriptRequest
+                                            {
+                                                FunctionName = "UpdatePlayerInventoryData",
+                                                FunctionParameter = new { InstID = hID[hno], Level = 1f }
+                                            },
+                                            resultcs =>
+                                            {
+                                            },
+                                            error =>
+                                            {
+                                                print(error.Error);
+                                            });
+                                            hullLevel.SetValue(1f, hno);
+                                        }
+                                        else
+                                        {
+                                            //else I take out the values and store them in the list
+                                            string lvl;
+                                            cd.TryGetValue("Level", out lvl);
+                                            
+                                            hullLevel.SetValue(float.Parse(lvl), hno);
+                                        }
+                                        ++hno;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }, 
+            err => 
+            { 
+            
+            });
+
+        loadingPanel.SetActive(false);
     }
 
     #endregion GettingUserInventory
-
-    #region UserInventoryInfo
-
-    private int tNo = 0;
-    private int hNo = 0;
-
-    public void UserInventoryInfo()
-    {
-
-        foreach (GameObject turretAsset in turretList)
-        {
-            GameObject load = Instantiate(statsPanel, turretHolder.transform.position, Quaternion.identity, turretHolder.transform);
-            clickvalue script = load.GetComponent<clickvalue>();
-            int value = tNo;
-            load.transform.gameObject.name = "InfoPanel" + value + "t";
-            script.displayName.text = (string)turretDisplayN.GetValue(value);
-            script.description.text = (string)turretDes.GetValue(value);
-            script.assetCost = (int)turretCost.GetValue(value);
-            script.assetCostU = (int)turretCostU.GetValue(value);
-            script.itemID = (string)turretID.GetValue(value);
-            script.value = (int)value;
-            tNo += 1;
-            load.SetActive(false);
-        }
-
-        foreach (GameObject hullAsset in hullList)
-        {
-            GameObject load = Instantiate(statsPanel, hullHolder.transform.position, Quaternion.identity, hullHolder.transform);
-            clickvalue script = load.GetComponent<clickvalue>();
-            int value = hNo;
-            load.transform.gameObject.name = "InfoPanel" + value + "h";
-            script.displayName.text = (string)hullDisplayN.GetValue(value);
-            script.description.text = (string)hullDes.GetValue(value);
-            script.assetCost = (int)hullCost.GetValue(value);
-            script.assetCostU = (int)hullCostU.GetValue(value);
-            script.itemID = (string)hullID.GetValue(value);
-            script.value = (int)value;
-            hNo += 1;
-            load.SetActive(false);
-        }
-    }
-    #endregion
 }

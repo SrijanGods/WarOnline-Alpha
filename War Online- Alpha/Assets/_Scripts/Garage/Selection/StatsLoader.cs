@@ -22,8 +22,6 @@ public class StatsLoader : MonoBehaviour
         button = gameObject.GetComponent<Button>();
         button.onClick.AddListener(Load);
         inventorySelection = GameObject.FindGameObjectWithTag("GarageCanvas").GetComponent<InventorySelection>();
-        tHolder = inventorySelection.turretHolder;
-        hHolder = inventorySelection.hullHolder;
         ip = tHolder.GetComponentInParent<RectTransform>().transform.gameObject;
     }
 
