@@ -26,6 +26,7 @@ public class InventorySelection : MonoBehaviour
 
     [HideInInspector]
     public bool inventoryLoaded;
+
     private GateKeeper playfabLogin;
 
     #region PublicMethods
