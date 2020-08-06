@@ -233,6 +233,7 @@ public class GateKeeper : MonoBehaviour
 
         PlayfabConnected = true;
 
+        GlobalValues.Instance.loggedIn = true;
     }
 
     private void OnPlayFabError(PlayFabError obj)

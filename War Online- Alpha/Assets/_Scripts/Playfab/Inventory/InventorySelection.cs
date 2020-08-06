@@ -13,6 +13,7 @@ public class InventorySelection : MonoBehaviour
     public float[] turretLevel;
     public bool[] tActive;
     public string[] tID;
+    public string[] turretDisplayName;
 
     [Header("HullList")]
     public GameObject[] hullList;
@@ -20,31 +21,33 @@ public class InventorySelection : MonoBehaviour
     public float[] hullLevel;
     public bool[] hActive;
     public string[] hID;
+    public string[] hullDisplayName;
 
     [Header("Gameobjects")]
     public GameObject loadingPanel;
+    public GameObject buyPanel;
 
     [HideInInspector]
     public bool inventoryLoaded;
 
-    private GateKeeper playfabLogin;
-
     #region PublicMethods
     void Awake()
     {
-        playfabLogin = GameObject.FindGameObjectWithTag("GameController").GetComponent<GateKeeper>();
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
         int hullno = hullList.Length;
         hullCost = new int[hullno];
         hActive = new bool[hullno];
         hID = new string[hullno];
         hullLevel = new float[hullno];
+        hullDisplayName = new string[hullno];
 
         int turretno = turretList.Length;
         turretCost = new int[turretno];
         tActive = new bool[turretno];
         tID = new string[turretno];
         turretLevel = new float[turretno];
+        turretDisplayName = new string[hullno];
     }
 
     private void Start()
@@ -54,7 +57,7 @@ public class InventorySelection : MonoBehaviour
 
     IEnumerator LinkInventory()
     {
-        yield return new WaitUntil(() => playfabLogin.PlayfabConnected);
+        yield return new WaitUntil(() => GlobalValues.Instance.loggedIn);
         GetItems();
     }
     #endregion PublicMethods
@@ -85,6 +88,7 @@ public class InventorySelection : MonoBehaviour
                                 {
                                     int turretno = System.Array.IndexOf(turretList, turret);
                                     turretCost.SetValue((int)cost, turretno);
+                                    turretDisplayName.SetValue((string)item.DisplayName, turretno);
                                     ++turretno;
                                 }
                             }
@@ -101,7 +105,8 @@ public class InventorySelection : MonoBehaviour
                                 {
                                     int hullno = System.Array.IndexOf(hullList, hull);
                                     hullCost.SetValue((int)cost, hullno);
-                                    break;
+                                    hullDisplayName.SetValue((string)item.DisplayName, hullno);
+                                    ++hullno;
                                 }
                            }
 
