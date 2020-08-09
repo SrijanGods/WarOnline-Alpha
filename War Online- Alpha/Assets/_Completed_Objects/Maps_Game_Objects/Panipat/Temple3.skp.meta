@@ -1,0 +1,391 @@
+fileFormatVersion: 2
+guid: 07aaf58d2cdf7f94889b6bd6c0350057
+timeCreated: 1481443584
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 0
+  mergeCoplanarFaces: 0
+  selectedNodes: 0000000001000000020000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f000000400000004100000042000000430000004400000045000000460000004700000048000000490000004a0000004b0000004c0000004d0000004e0000004f000000500000005100000052000000530000005400000055000000560000005700000058000000590000005a0000005b0000005c0000005d0000005e0000005f000000600000006100000062000000630000006400000065000000660000006700000068000000690000006a0000006b0000006c0000006d0000006e0000006f000000700000007100000072000000730000007400000075000000760000007700000078000000
+  assetHash:
+    serializedVersion: 2
+    Hash: eb62bcad2a7fde85c9e6813c4416bfd4
+  longitude: 72.830821
+  latitude: 18.952251
+  northCorrection: -0
+  fileUnit: 0
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: 29.84841, y: 21.063452, z: -24.463251}
+      lookAt: {x: 4.6990075, y: 8.945355, z: -12.331525}
+      up: {x: -0.35857418, y: 0.9173361, z: 0.17297125}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: column 2
+    100002: column 2 1
+    100004: column 2 2
+    100006: column 2 3
+    100008: column 2 4
+    100010: column 2 5
+    100012: comumn
+    100014: comumn 1
+    100016: comumn 10
+    100018: comumn 11
+    100020: comumn 12
+    100022: comumn 2
+    100024: comumn 3
+    100026: comumn 4
+    100028: comumn 5
+    100030: comumn 6
+    100032: comumn 7
+    100034: comumn 8
+    100036: comumn 9
+    100038: Group 7
+    100040: Group 9
+    100042: Mumba Devi Temple
+    100044: //RootNode
+    100046: thing try 3
+    100048: thing try 3 1
+    100050: thing try 3 2
+    100052: thing try 3 3
+    100054: thing try 5
+    100056: thing try 5 1
+    100058: thing try 5 2
+    100060: thing try 5 3
+    100062: thing try 6
+    100064: thing try 6 1
+    100066: thing try 6 2
+    100068: thing try 6 3
+    100070: thing try 6 4
+    100072: thing try 6 5
+    100074: thing try 6 6
+    100076: thing try 6 7
+    100078: window thing
+    100080: window thing 1
+    100082: window thing 10
+    100084: window thing 11
+    100086: window thing 12
+    100088: window thing 13
+    100090: window thing 14
+    100092: window thing 15
+    100094: window thing 16
+    100096: window thing 17
+    100098: window thing 18
+    100100: window thing 19
+    100102: window thing 2
+    100104: window thing 3
+    100106: window thing 4
+    100108: window thing 5
+    100110: window thing 6
+    100112: window thing 7
+    100114: window thing 8
+    100116: window thing 9
+    400000: column 2
+    400002: column 2 1
+    400004: column 2 2
+    400006: column 2 3
+    400008: column 2 4
+    400010: column 2 5
+    400012: comumn
+    400014: comumn 1
+    400016: comumn 10
+    400018: comumn 11
+    400020: comumn 12
+    400022: comumn 2
+    400024: comumn 3
+    400026: comumn 4
+    400028: comumn 5
+    400030: comumn 6
+    400032: comumn 7
+    400034: comumn 8
+    400036: comumn 9
+    400038: Group 7
+    400040: Group 9
+    400042: Mumba Devi Temple
+    400044: //RootNode
+    400046: thing try 3
+    400048: thing try 3 1
+    400050: thing try 3 2
+    400052: thing try 3 3
+    400054: thing try 5
+    400056: thing try 5 1
+    400058: thing try 5 2
+    400060: thing try 5 3
+    400062: thing try 6
+    400064: thing try 6 1
+    400066: thing try 6 2
+    400068: thing try 6 3
+    400070: thing try 6 4
+    400072: thing try 6 5
+    400074: thing try 6 6
+    400076: thing try 6 7
+    400078: window thing
+    400080: window thing 1
+    400082: window thing 10
+    400084: window thing 11
+    400086: window thing 12
+    400088: window thing 13
+    400090: window thing 14
+    400092: window thing 15
+    400094: window thing 16
+    400096: window thing 17
+    400098: window thing 18
+    400100: window thing 19
+    400102: window thing 2
+    400104: window thing 3
+    400106: window thing 4
+    400108: window thing 5
+    400110: window thing 6
+    400112: window thing 7
+    400114: window thing 8
+    400116: window thing 9
+    2300000: column 2
+    2300002: column 2 1
+    2300004: column 2 2
+    2300006: column 2 3
+    2300008: column 2 4
+    2300010: column 2 5
+    2300012: comumn
+    2300014: comumn 1
+    2300016: comumn 10
+    2300018: comumn 11
+    2300020: comumn 12
+    2300022: comumn 2
+    2300024: comumn 3
+    2300026: comumn 4
+    2300028: comumn 5
+    2300030: comumn 6
+    2300032: comumn 7
+    2300034: comumn 8
+    2300036: comumn 9
+    2300038: Group 7
+    2300040: Group 9
+    2300042: Mumba Devi Temple
+    2300044: thing try 3
+    2300046: thing try 3 1
+    2300048: thing try 3 2
+    2300050: thing try 3 3
+    2300052: thing try 5
+    2300054: thing try 5 1
+    2300056: thing try 5 2
+    2300058: thing try 5 3
+    2300060: thing try 6
+    2300062: thing try 6 1
+    2300064: thing try 6 2
+    2300066: thing try 6 3
+    2300068: thing try 6 4
+    2300070: thing try 6 5
+    2300072: thing try 6 6
+    2300074: thing try 6 7
+    2300076: window thing
+    2300078: window thing 1
+    2300080: window thing 10
+    2300082: window thing 11
+    2300084: window thing 12
+    2300086: window thing 13
+    2300088: window thing 14
+    2300090: window thing 15
+    2300092: window thing 16
+    2300094: window thing 17
+    2300096: window thing 18
+    2300098: window thing 19
+    2300100: window thing 2
+    2300102: window thing 3
+    2300104: window thing 4
+    2300106: window thing 5
+    2300108: window thing 6
+    2300110: window thing 7
+    2300112: window thing 8
+    2300114: window thing 9
+    3300000: column 2
+    3300002: column 2 1
+    3300004: column 2 2
+    3300006: column 2 3
+    3300008: column 2 4
+    3300010: column 2 5
+    3300012: comumn
+    3300014: comumn 1
+    3300016: comumn 10
+    3300018: comumn 11
+    3300020: comumn 12
+    3300022: comumn 2
+    3300024: comumn 3
+    3300026: comumn 4
+    3300028: comumn 5
+    3300030: comumn 6
+    3300032: comumn 7
+    3300034: comumn 8
+    3300036: comumn 9
+    3300038: Group 7
+    3300040: Group 9
+    3300042: Mumba Devi Temple
+    3300044: thing try 3
+    3300046: thing try 3 1
+    3300048: thing try 3 2
+    3300050: thing try 3 3
+    3300052: thing try 5
+    3300054: thing try 5 1
+    3300056: thing try 5 2
+    3300058: thing try 5 3
+    3300060: thing try 6
+    3300062: thing try 6 1
+    3300064: thing try 6 2
+    3300066: thing try 6 3
+    3300068: thing try 6 4
+    3300070: thing try 6 5
+    3300072: thing try 6 6
+    3300074: thing try 6 7
+    3300076: window thing
+    3300078: window thing 1
+    3300080: window thing 10
+    3300082: window thing 11
+    3300084: window thing 12
+    3300086: window thing 13
+    3300088: window thing 14
+    3300090: window thing 15
+    3300092: window thing 16
+    3300094: window thing 17
+    3300096: window thing 18
+    3300098: window thing 19
+    3300100: window thing 2
+    3300102: window thing 3
+    3300104: window thing 4
+    3300106: window thing 5
+    3300108: window thing 6
+    3300110: window thing 7
+    3300112: window thing 8
+    3300114: window thing 9
+    4300000: Mesh Mumba Devi Temple
+    4300002: Mesh Group 7
+    4300004: Mesh thing try 6
+    4300006: Mesh thing try 5
+    4300008: Mesh thing try 3
+    4300010: Mesh comumn
+    4300012: Mesh column 2
+    4300014: Mesh window thing
+    6400000: column 2
+    6400002: column 2 1
+    6400004: column 2 2
+    6400006: column 2 3
+    6400008: column 2 4
+    6400010: column 2 5
+    6400012: comumn
+    6400014: comumn 1
+    6400016: comumn 10
+    6400018: comumn 11
+    6400020: comumn 12
+    6400022: comumn 2
+    6400024: comumn 3
+    6400026: comumn 4
+    6400028: comumn 5
+    6400030: comumn 6
+    6400032: comumn 7
+    6400034: comumn 8
+    6400036: comumn 9
+    6400038: Group 7
+    6400040: Group 9
+    6400042: Mumba Devi Temple
+    6400044: thing try 3
+    6400046: thing try 3 1
+    6400048: thing try 3 2
+    6400050: thing try 3 3
+    6400052: thing try 5
+    6400054: thing try 5 1
+    6400056: thing try 5 2
+    6400058: thing try 5 3
+    6400060: thing try 6
+    6400062: thing try 6 1
+    6400064: thing try 6 2
+    6400066: thing try 6 3
+    6400068: thing try 6 4
+    6400070: thing try 6 5
+    6400072: thing try 6 6
+    6400074: thing try 6 7
+    6400076: window thing
+    6400078: window thing 1
+    6400080: window thing 10
+    6400082: window thing 11
+    6400084: window thing 12
+    6400086: window thing 13
+    6400088: window thing 14
+    6400090: window thing 15
+    6400092: window thing 16
+    6400094: window thing 17
+    6400096: window thing 18
+    6400098: window thing 19
+    6400100: window thing 2
+    6400102: window thing 3
+    6400104: window thing 4
+    6400106: window thing 5
+    6400108: window thing 6
+    6400110: window thing 7
+    6400112: window thing 8
+    6400114: window thing 9
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.0254
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

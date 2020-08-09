@@ -1,0 +1,221 @@
+fileFormatVersion: 2
+guid: d846812258516cb4685afcfaf0f0ba9f
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Cube.003_Cube.003_Material.002
+    100004: Cube.004_Cube.004_Material.003
+    100006: Cube.005_Cube.005_Material.003
+    100008: Cylinder.013_Cylinder.016_Material.005
+    100010: Cylinder.014_Cylinder.017_Crane
+    100012: Cylinder.015_Cylinder.018_Crane
+    100014: Cylinder.016_Cylinder.019_None
+    100016: Cylinder.017_Cylinder.020_Crane
+    100018: Cylinder.018_Cylinder.021_Crane
+    100020: Cylinder.019_Cylinder.022_Crane
+    100022: Cylinder.020_Cylinder.023_Crane
+    100024: Cylinder.021_Cylinder.024_Crane
+    100026: Cylinder.022_Cylinder.025_Crane
+    100028: Cylinder.023_Cylinder.026_Crane
+    100030: Cylinder.025_Cylinder.028_Crane
+    100032: Cylinder.026_Cylinder.002_Wire
+    100034: Cylinder.027_Cylinder.004_Red
+    400000: //RootNode
+    400002: Cube.003_Cube.003_Material.002
+    400004: Cube.004_Cube.004_Material.003
+    400006: Cube.005_Cube.005_Material.003
+    400008: Cylinder.013_Cylinder.016_Material.005
+    400010: Cylinder.014_Cylinder.017_Crane
+    400012: Cylinder.015_Cylinder.018_Crane
+    400014: Cylinder.016_Cylinder.019_None
+    400016: Cylinder.017_Cylinder.020_Crane
+    400018: Cylinder.018_Cylinder.021_Crane
+    400020: Cylinder.019_Cylinder.022_Crane
+    400022: Cylinder.020_Cylinder.023_Crane
+    400024: Cylinder.021_Cylinder.024_Crane
+    400026: Cylinder.022_Cylinder.025_Crane
+    400028: Cylinder.023_Cylinder.026_Crane
+    400030: Cylinder.025_Cylinder.028_Crane
+    400032: Cylinder.026_Cylinder.002_Wire
+    400034: Cylinder.027_Cylinder.004_Red
+    2100000: Material.002
+    2100002: Material.003
+    2100004: Material.005
+    2100006: Crane
+    2100008: None
+    2100010: Wire
+    2100012: Red
+    2300000: Cube.003_Cube.003_Material.002
+    2300002: Cube.004_Cube.004_Material.003
+    2300004: Cube.005_Cube.005_Material.003
+    2300006: Cylinder.013_Cylinder.016_Material.005
+    2300008: Cylinder.014_Cylinder.017_Crane
+    2300010: Cylinder.015_Cylinder.018_Crane
+    2300012: Cylinder.016_Cylinder.019_None
+    2300014: Cylinder.017_Cylinder.020_Crane
+    2300016: Cylinder.018_Cylinder.021_Crane
+    2300018: Cylinder.019_Cylinder.022_Crane
+    2300020: Cylinder.020_Cylinder.023_Crane
+    2300022: Cylinder.021_Cylinder.024_Crane
+    2300024: Cylinder.022_Cylinder.025_Crane
+    2300026: Cylinder.023_Cylinder.026_Crane
+    2300028: Cylinder.025_Cylinder.028_Crane
+    2300030: Cylinder.026_Cylinder.002_Wire
+    2300032: Cylinder.027_Cylinder.004_Red
+    3300000: Cube.003_Cube.003_Material.002
+    3300002: Cube.004_Cube.004_Material.003
+    3300004: Cube.005_Cube.005_Material.003
+    3300006: Cylinder.013_Cylinder.016_Material.005
+    3300008: Cylinder.014_Cylinder.017_Crane
+    3300010: Cylinder.015_Cylinder.018_Crane
+    3300012: Cylinder.016_Cylinder.019_None
+    3300014: Cylinder.017_Cylinder.020_Crane
+    3300016: Cylinder.018_Cylinder.021_Crane
+    3300018: Cylinder.019_Cylinder.022_Crane
+    3300020: Cylinder.020_Cylinder.023_Crane
+    3300022: Cylinder.021_Cylinder.024_Crane
+    3300024: Cylinder.022_Cylinder.025_Crane
+    3300026: Cylinder.023_Cylinder.026_Crane
+    3300028: Cylinder.025_Cylinder.028_Crane
+    3300030: Cylinder.026_Cylinder.002_Wire
+    3300032: Cylinder.027_Cylinder.004_Red
+    4300000: Cube.003_Cube.003_Material.002
+    4300002: Cube.004_Cube.004_Material.003
+    4300004: Cube.005_Cube.005_Material.003
+    4300006: Cylinder.013_Cylinder.016_Material.005
+    4300008: Cylinder.014_Cylinder.017_Crane
+    4300010: Cylinder.015_Cylinder.018_Crane
+    4300012: Cylinder.016_Cylinder.019_None
+    4300014: Cylinder.017_Cylinder.020_Crane
+    4300016: Cylinder.018_Cylinder.021_Crane
+    4300018: Cylinder.019_Cylinder.022_Crane
+    4300020: Cylinder.020_Cylinder.023_Crane
+    4300022: Cylinder.021_Cylinder.024_Crane
+    4300024: Cylinder.022_Cylinder.025_Crane
+    4300026: Cylinder.023_Cylinder.026_Crane
+    4300028: Cylinder.025_Cylinder.028_Crane
+    4300030: Cylinder.026_Cylinder.002_Wire
+    4300032: Cylinder.027_Cylinder.004_Red
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Crane
+    second: {fileID: 2100000, guid: 0e65fb73c6f94734d8872ef7af647e1f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: dd9fc98cb4f405846a630db34f24c6e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: 0d56e218a13866a46b0f7e11fb2a044e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.005
+    second: {fileID: 2100000, guid: 50cdfa32865930545b45cb0aac615675, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: None
+    second: {fileID: 2100000, guid: 8dc1033f6b34fc541b6fdcfd7d81995c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Red
+    second: {fileID: 2100000, guid: 5197c6988aad6264fb2f60d440bfd942, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wire
+    second: {fileID: 2100000, guid: 798c0d89d6a6bc84bae2356e73154d9f, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

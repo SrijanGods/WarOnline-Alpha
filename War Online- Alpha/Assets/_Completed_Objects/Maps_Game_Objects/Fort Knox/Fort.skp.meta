@@ -1,0 +1,486 @@
+fileFormatVersion: 2
+guid: 0369ed656b66565438780ca8ec1d989b
+timeCreated: 1481974830
+licenseType: Free
+SketchUpImporter:
+  generateBackFace: 1
+  mergeCoplanarFaces: 0
+  selectedNodes: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f000000400000004100000042000000430000004400000045000000460000004700000048000000490000004a0000004b0000004c0000004d0000004e0000004f000000500000005100000052000000530000005400000055000000560000005700000058000000590000005a0000005b0000005c0000005d0000005e0000005f0000006000000061000000620000006300000064000000650000006600000067000000
+  assetHash:
+    serializedVersion: 2
+    Hash: 2f0b8e56d7b9253db387c1ea88b13ee6
+  longitude: 6.646901021302355
+  latitude: 50.68994236372851
+  northCorrection: -0
+  fileUnit: 1
+  sketchUpImportData:
+    defaultCamera:
+      position: {x: -211.50035, y: -11.829633, z: -261.68973}
+      lookAt: {x: -158.55302, y: -151.88489, z: 10.009523}
+      up: {x: 0.0863545, y: 0.8922894, z: 0.4431281}
+      fov: 35
+      aspectRatio: 0
+      orthoSize: 1
+      isPerspective: 1
+    scenes: []
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Group 1
+    100004: Group 11
+    100006: Group 13
+    100008: Group 15
+    100010: Group 17
+    100012: Group 19
+    100014: Group 21
+    100016: Group 23
+    100018: Group 25
+    100020: Group 27
+    100022: Group 29
+    100024: Group 3
+    100026: Group 31
+    100028: Group 33
+    100030: Group 35
+    100032: Group 37
+    100034: Group 39
+    100036: Group 41
+    100038: Group 42
+    100040: Group 44
+    100042: Group 46
+    100044: Group 48
+    100046: Group 5
+    100048: Group 50
+    100050: Group 51
+    100052: Group 53
+    100054: Group 55
+    100056: Group 57
+    100058: Group 59
+    100060: Group 60
+    100062: Group 62
+    100064: Group 64
+    100066: Group 66
+    100068: Group 68
+    100070: Group 7
+    100072: Group 70
+    100074: Group 71
+    100076: Group 73
+    100078: Group 75
+    100080: Group 77
+    100082: Group 79
+    100084: Group 9
+    100086: Beacon
+    100088: bulkhead
+    100090: bulkhead 1
+    100092: Diagonal wall
+    100094: Floor
+    100096: Gatehouse
+    100098: Group 10
+    100100: Group 2
+    100102: Group 20
+    100104: Group 22
+    100106: Group 24
+    100108: Group 26
+    100110: Group 4
+    100112: Group 6
+    100114: Group 8
+    100116: little wall
+    100118: octagonal tower
+    100120: octagonal tower 1
+    100122: octagonal tower 2
+    100124: octagonal tower 3
+    100126: Square tower
+    100128: Square tower 1
+    100130: turret
+    100132: Wall
+    100134: Wall 1
+    100136: Wall#1
+    100138: Group 58
+    100140: Group 43
+    100142: Group 45
+    100144: Group 47
+    100146: Group 49
+    100148: Group 98
+    400000: //RootNode
+    400002: Group 1
+    400004: Group 11
+    400006: Group 13
+    400008: Group 15
+    400010: Group 17
+    400012: Group 19
+    400014: Group 21
+    400016: Group 23
+    400018: Group 25
+    400020: Group 27
+    400022: Group 29
+    400024: Group 3
+    400026: Group 31
+    400028: Group 33
+    400030: Group 35
+    400032: Group 37
+    400034: Group 39
+    400036: Group 41
+    400038: Group 42
+    400040: Group 44
+    400042: Group 46
+    400044: Group 48
+    400046: Group 5
+    400048: Group 50
+    400050: Group 51
+    400052: Group 53
+    400054: Group 55
+    400056: Group 57
+    400058: Group 59
+    400060: Group 60
+    400062: Group 62
+    400064: Group 64
+    400066: Group 66
+    400068: Group 68
+    400070: Group 7
+    400072: Group 70
+    400074: Group 71
+    400076: Group 73
+    400078: Group 75
+    400080: Group 77
+    400082: Group 79
+    400084: Group 9
+    400086: Beacon
+    400088: bulkhead
+    400090: bulkhead 1
+    400092: Diagonal wall
+    400094: Floor
+    400096: Gatehouse
+    400098: Group 10
+    400100: Group 2
+    400102: Group 20
+    400104: Group 22
+    400106: Group 24
+    400108: Group 26
+    400110: Group 4
+    400112: Group 6
+    400114: Group 8
+    400116: little wall
+    400118: octagonal tower
+    400120: octagonal tower 1
+    400122: octagonal tower 2
+    400124: octagonal tower 3
+    400126: Square tower
+    400128: Square tower 1
+    400130: turret
+    400132: Wall
+    400134: Wall 1
+    400136: Wall#1
+    400138: Group 58
+    400140: Group 43
+    400142: Group 45
+    400144: Group 47
+    400146: Group 49
+    400148: Group 98
+    2300000: Group 1
+    2300002: Group 11
+    2300004: Group 13
+    2300006: Group 15
+    2300008: Group 17
+    2300010: Group 19
+    2300012: Group 21
+    2300014: Group 23
+    2300016: Group 25
+    2300018: Group 27
+    2300020: Group 29
+    2300022: Group 3
+    2300024: Group 31
+    2300026: Group 33
+    2300028: Group 35
+    2300030: Group 37
+    2300032: Group 39
+    2300034: Group 42
+    2300036: Group 44
+    2300038: Group 46
+    2300040: Group 48
+    2300042: Group 5
+    2300044: Group 51
+    2300046: Group 53
+    2300048: Group 55
+    2300050: Group 57
+    2300052: Group 60
+    2300054: Group 62
+    2300056: Group 64
+    2300058: Group 66
+    2300060: Group 68
+    2300062: Group 7
+    2300064: Group 71
+    2300066: Group 73
+    2300068: Group 75
+    2300070: Group 77
+    2300072: Group 79
+    2300074: Group 9
+    2300076: Beacon
+    2300078: bulkhead
+    2300080: bulkhead 1
+    2300082: Diagonal wall
+    2300084: Floor
+    2300086: //RootNode
+    2300088: Gatehouse
+    2300090: Group 2
+    2300092: Group 20
+    2300094: Group 22
+    2300096: Group 24
+    2300098: Group 26
+    2300100: Group 4
+    2300102: Group 6
+    2300104: Group 8
+    2300106: little wall
+    2300108: octagonal tower
+    2300110: octagonal tower 1
+    2300112: octagonal tower 2
+    2300114: octagonal tower 3
+    2300116: Square tower
+    2300118: Square tower 1
+    2300120: turret
+    2300122: Wall
+    2300124: Wall 1
+    2300126: Wall#1
+    2300128: Group 58
+    2300130: Group 41
+    2300132: Group 43
+    2300134: Group 45
+    2300136: Group 47
+    2300138: Group 49
+    2300140: Group 98
+    3300000: Group 1
+    3300002: Group 11
+    3300004: Group 13
+    3300006: Group 15
+    3300008: Group 17
+    3300010: Group 19
+    3300012: Group 21
+    3300014: Group 23
+    3300016: Group 25
+    3300018: Group 27
+    3300020: Group 29
+    3300022: Group 3
+    3300024: Group 31
+    3300026: Group 33
+    3300028: Group 35
+    3300030: Group 37
+    3300032: Group 39
+    3300034: Group 42
+    3300036: Group 44
+    3300038: Group 46
+    3300040: Group 48
+    3300042: Group 5
+    3300044: Group 51
+    3300046: Group 53
+    3300048: Group 55
+    3300050: Group 57
+    3300052: Group 60
+    3300054: Group 62
+    3300056: Group 64
+    3300058: Group 66
+    3300060: Group 68
+    3300062: Group 7
+    3300064: Group 71
+    3300066: Group 73
+    3300068: Group 75
+    3300070: Group 77
+    3300072: Group 79
+    3300074: Group 9
+    3300076: Beacon
+    3300078: bulkhead
+    3300080: bulkhead 1
+    3300082: Diagonal wall
+    3300084: Floor
+    3300086: //RootNode
+    3300088: Gatehouse
+    3300090: Group 2
+    3300092: Group 20
+    3300094: Group 22
+    3300096: Group 24
+    3300098: Group 26
+    3300100: Group 4
+    3300102: Group 6
+    3300104: Group 8
+    3300106: little wall
+    3300108: octagonal tower
+    3300110: octagonal tower 1
+    3300112: octagonal tower 2
+    3300114: octagonal tower 3
+    3300116: Square tower
+    3300118: Square tower 1
+    3300120: turret
+    3300122: Wall
+    3300124: Wall 1
+    3300126: Wall#1
+    3300128: Group 58
+    3300130: Group 41
+    3300132: Group 43
+    3300134: Group 45
+    3300136: Group 47
+    3300138: Group 49
+    3300140: Group 98
+    4300000: Mesh Group 1
+    4300002: Mesh Group 3
+    4300004: Mesh Group 7
+    4300006: Mesh Group 9
+    4300008: Mesh Group 11
+    4300010: Mesh Group 13
+    4300012: Mesh Group 42
+    4300014: Mesh Fort
+    4300016: Mesh Group 2
+    4300018: Mesh Group 6
+    4300020: Mesh octagonal tower
+    4300022: Mesh Gatehouse
+    4300024: Mesh Wall#1
+    4300026: Mesh Beacon
+    4300028: Mesh little wall
+    4300030: Mesh turret
+    4300032: Mesh Wall
+    4300034: Mesh Square tower
+    4300036: Mesh bulkhead
+    4300038: Mesh octagonal tower
+    4300040: Mesh Diagonal wall
+    4300042: Mesh Floor
+    4300044: Mesh Group 58
+    4300046: Mesh Group 47
+    4300048: Mesh Group 57
+    4300050: Mesh Group 98
+    6400000: Group 1
+    6400002: Group 11
+    6400004: Group 13
+    6400006: Group 15
+    6400008: Group 17
+    6400010: Group 19
+    6400012: Group 21
+    6400014: Group 23
+    6400016: Group 25
+    6400018: Group 27
+    6400020: Group 29
+    6400022: Group 3
+    6400024: Group 31
+    6400026: Group 33
+    6400028: Group 35
+    6400030: Group 37
+    6400032: Group 39
+    6400034: Group 42
+    6400036: Group 44
+    6400038: Group 46
+    6400040: Group 48
+    6400042: Group 5
+    6400044: Group 51
+    6400046: Group 53
+    6400048: Group 55
+    6400050: Group 57
+    6400052: Group 60
+    6400054: Group 62
+    6400056: Group 64
+    6400058: Group 66
+    6400060: Group 68
+    6400062: Group 7
+    6400064: Group 71
+    6400066: Group 73
+    6400068: Group 75
+    6400070: Group 77
+    6400072: Group 79
+    6400074: Group 9
+    6400076: Beacon
+    6400078: bulkhead
+    6400080: bulkhead 1
+    6400082: Diagonal wall
+    6400084: Floor
+    6400086: //RootNode
+    6400088: Gatehouse
+    6400090: Group 2
+    6400092: Group 20
+    6400094: Group 22
+    6400096: Group 24
+    6400098: Group 26
+    6400100: Group 4
+    6400102: Group 6
+    6400104: Group 8
+    6400106: little wall
+    6400108: octagonal tower
+    6400110: octagonal tower 1
+    6400112: octagonal tower 2
+    6400114: octagonal tower 3
+    6400116: Square tower
+    6400118: Square tower 1
+    6400120: turret
+    6400122: Wall
+    6400124: Wall 1
+    6400126: Wall#1
+    6400128: Group 58
+    6400130: Group 41
+    6400132: Group 43
+    6400134: Group 45
+    6400136: Group 47
+    6400138: Group 49
+    6400140: Group 98
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.025399998
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
