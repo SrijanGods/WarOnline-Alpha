@@ -253,4 +253,28 @@ public class InventorySelection : MonoBehaviour
     }
 
     #endregion GettingUserInventory
+
+    #region BuyCalls
+
+    public void BuyItem(string id, int price, string curr)
+    {
+        PlayFabClientAPI.PurchaseItem(new PurchaseItemRequest
+        {
+            ItemId = id,
+            Price = price,
+            VirtualCurrency = curr
+        },
+        buyRes =>
+        {
+            print("Bought Successfully");
+            gameObject.GetComponent<GettingProfil>().GetPlayerCombinedInfo();
+            buyPanel.transform.GetChild(3).gameObject.SetActive(true);
+        },
+        buyErr =>
+        {
+
+        });
+    }
+
+    #endregion
 }

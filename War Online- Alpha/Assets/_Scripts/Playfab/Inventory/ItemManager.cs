@@ -132,12 +132,12 @@ public class ItemManager : MonoBehaviour
         if (turret) 
         {
             int i = System.Array.FindIndex(inventory.turretDisplayName, s => s == gameObject.name);
-            buyP.GetComponent<BuyManager>().GetOrder(gameObject.name, inventory.turretCost[i]);
+            buyP.GetComponent<BuyManager>().GetOrder(gameObject.name, inventory.turretCost[i], "GB");
         }
         if (hull)
         {
             int i = System.Array.FindIndex(inventory.hullDisplayName, s => s == gameObject.name);
-            buyP.GetComponent<BuyManager>().GetOrder(gameObject.name, inventory.hullCost[i]);
+            buyP.GetComponent<BuyManager>().GetOrder(gameObject.name, inventory.hullCost[i], "GB");
         }
     }
 }

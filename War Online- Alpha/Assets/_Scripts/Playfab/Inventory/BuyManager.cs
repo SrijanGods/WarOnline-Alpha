@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class BuyManager : MonoBehaviour
 {
@@ -16,29 +17,47 @@ public class BuyManager : MonoBehaviour
     public GameObject lessPanel;
 
     private GettingProfil profile;
-
+    private string ID;
     public void Start()
     {
         profile = GameObject.FindGameObjectWithTag("GameController").GetComponent<GettingProfil>();
         buyBtn.onClick.AddListener(SetOrder);
     }
 
-    public void GetOrder(string itemName, int itemPrice)
+    public void GetOrder(string itemName, int itemPrice, string currID)
     {
-        if (itemPrice >= profile.GBValue)
+        ID = currID;
+        if (currID == "GB")
         {
-            objName.text = itemName;
-            objValue.text = itemPrice.ToString();
-            buyPanel.SetActive(true);
+            if (itemPrice >= profile.GBValue)
+            {
+                objName.text = itemName;
+                objValue.text = itemPrice.ToString();
+                buyPanel.SetActive(true);
+            }
+            else
+            {
+                lessPanel.SetActive(true);
+            }
         }
-        else
+        if(currID == "KR")
         {
-            lessPanel.SetActive(true);
+            if (itemPrice >= profile.KRValue)
+            {
+                objName.text = itemName;
+                objValue.text = itemPrice.ToString();
+                buyPanel.SetActive(true);
+            }
+            else
+            {
+                lessPanel.SetActive(true);
+            }
         }
     }
 
     public void SetOrder()
     {
-
+        profile.GetComponent<InventorySelection>().BuyItem(objName.text, Int32.Parse(objValue.text), ID);
+        buyPanel.SetActive(false);
     }
 }

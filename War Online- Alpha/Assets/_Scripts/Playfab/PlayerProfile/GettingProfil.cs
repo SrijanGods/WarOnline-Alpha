@@ -25,17 +25,16 @@ public class GettingProfil : MonoBehaviour
 
     [HideInInspector]
     [SerializeField]
-    private string GBCurrency;
-    [HideInInspector]
-    [SerializeField]
-    private string KRCurrency;
-    [HideInInspector]
-    [SerializeField]
     private int GBcurrency;
     public int GBValue
     {
         get { return GBcurrency; }
         set { GBcurrency = value; }
+    }
+    public int KRValue
+    {
+        get { return KRcurrency; }
+        set { KRcurrency = value; }
     }
     [HideInInspector]
     [SerializeField]
@@ -209,11 +208,8 @@ public class GettingProfil : MonoBehaviour
                 GBcurrency = result.InfoResultPayload.UserVirtualCurrency["GB"];
                 KRcurrency = result.InfoResultPayload.UserVirtualCurrency["KR"];
 
-                GBCurrency = GBcurrency.ToString();
-                KRCurrency = KRcurrency.ToString();
-
-                GB.text = GBCurrency;
-                KR.text = KRCurrency;
+                GB.text = GBcurrency.ToString();
+                KR.text = KRcurrency.ToString();
             }, 
             error => 
             {
