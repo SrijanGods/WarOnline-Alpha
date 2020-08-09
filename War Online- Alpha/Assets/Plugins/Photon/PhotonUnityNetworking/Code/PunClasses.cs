@@ -208,6 +208,9 @@ namespace Photon.Pun
     /// <remarks>
     /// By extending this class, you can implement individual methods as override.
     ///
+    /// Do not add <b>new</b> <code>MonoBehaviour.OnEnable</code> or <code>MonoBehaviour.OnDisable</code>
+    /// Instead, you should override those and call <code>base.OnEnable</code> and <code>base.OnDisable</code>.
+    /// 
     /// Visual Studio and MonoDevelop should provide the list of methods when you begin typing "override".
     /// <b>Your implementation does not have to call "base.method()".</b>
     ///
@@ -215,7 +218,7 @@ namespace Photon.Pun
     /// </remarks>
     /// \ingroup callbacks
     // the documentation for the interface methods becomes inherited when Doxygen builds it.
-    public class MonoBehaviourPunCallbacks : MonoBehaviourPun, IConnectionCallbacks , IMatchmakingCallbacks , IInRoomCallbacks, ILobbyCallbacks
+    public class MonoBehaviourPunCallbacks : MonoBehaviourPun, IConnectionCallbacks , IMatchmakingCallbacks , IInRoomCallbacks, ILobbyCallbacks, IWebRpcCallback, IErrorInfoCallback
     {
         public virtual void OnEnable()
         {
@@ -449,7 +452,7 @@ namespace Photon.Pun
         ///
         /// <param name="targetPlayer">Contains Player that changed.</param>
         /// <param name="changedProps">Contains the properties that changed.</param>
-        public virtual void OnPlayerPropertiesUpdate(Player target, Hashtable changedProps)
+        public virtual void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
         {
         }
 
@@ -509,6 +512,24 @@ namespace Photon.Pun
         //TODO: Check if this needs to be implemented
         // in: IOptionalInfoCallbacks
         public virtual void OnLobbyStatisticsUpdate(List<TypedLobbyInfo> lobbyStatistics)
+        {
+        }
+
+        /// <summary>
+        /// Called when the client receives an event from the server indicating that an error happened there.
+        /// </summary>
+        /// <remarks>
+        /// In most cases this could be either:
+        /// 1. an error from webhooks plugin (if HasErrorInfo is enabled), read more here:
+        /// https://doc.photonengine.com/en-us/realtime/current/gameplay/web-extensions/webhooks#options
+        /// 2. an error sent from a custom server plugin via PluginHost.BroadcastErrorInfoEvent, see example here: 
+        /// https://doc.photonengine.com/en-us/server/current/plugins/manual#handling_http_response
+        /// 3. an error sent from the server, for example, when the limit of cached events has been exceeded in the room
+        /// (all clients will be disconnected and the room will be closed in this case)
+        /// read more here: https://doc.photonengine.com/en-us/realtime/current/gameplay/cached-events#special_considerations
+        /// </remarks>
+        /// <param name="errorInfo">object containing information about the error</param>
+        public virtual void OnErrorInfo(ErrorInfo errorInfo)
         {
         }
     }
@@ -601,7 +622,7 @@ namespace Photon.Pun
     {
         private List<object> writeData;
         private object[] readData;
-        private byte currentItem; //Used to track the next item to receive.
+        private int currentItem; //Used to track the next item to receive.
 
         /// <summary>If true, this client should add data to the stream to send it.</summary>
         public bool IsWriting { get; private set; }
@@ -631,14 +652,14 @@ namespace Photon.Pun
             }
         }
 
-        public void SetReadStream(object[] incomingData, byte pos = 0)
+        public void SetReadStream(object[] incomingData, int pos = 0)
         {
             this.readData = incomingData;
             this.currentItem = pos;
             this.IsWriting = false;
         }
 
-        internal void SetWriteStream(List<object> newWriteData, byte pos = 0)
+        internal void SetWriteStream(List<object> newWriteData, int pos = 0)
         {
             if (pos != newWriteData.Count)
             {

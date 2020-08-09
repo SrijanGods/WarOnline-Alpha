@@ -17,7 +17,7 @@ using Photon.Realtime;
 namespace Photon.Pun
 {
     [CustomEditor(typeof(PhotonView))]
-    public class PhotonViewInspector : Editor
+    internal class PhotonViewInspector : Editor
     {
         private PhotonView m_Target;
 
@@ -37,14 +37,15 @@ namespace Photon.Pun
             }
 
             EditorGUILayout.BeginHorizontal();
+
             // Owner
             if (isProjectPrefab)
             {
-                EditorGUILayout.LabelField("Owner:", "Set at runtime");
+				EditorGUILayout.LabelField("Owner", "<i>Set at runtime</i>", new GUIStyle("Label") { richText = true }, GUILayout.MinWidth(120));
             }
             else if (!this.m_Target.IsOwnerActive)
             {
-                EditorGUILayout.LabelField("Owner", "Scene");
+                EditorGUILayout.LabelField("Owner", "Scene", GUILayout.MinWidth(120));
             }
             else
             {
@@ -56,12 +57,12 @@ namespace Photon.Pun
                     ownerInfo = "<no playername set>";
                 }
 
-                EditorGUILayout.LabelField("Owner", "[" + this.m_Target.OwnerActorNr + "] " + ownerInfo);
+                EditorGUILayout.LabelField("Owner [" + this.m_Target.OwnerActorNr + "] " + ownerInfo, GUILayout.MinWidth(120));
             }
 
             // ownership requests
             EditorGUI.BeginDisabledGroup(Application.isPlaying);
-            OwnershipOption own = (OwnershipOption) EditorGUILayout.EnumPopup(this.m_Target.OwnershipTransfer, GUILayout.Width(100));
+            OwnershipOption own = (OwnershipOption) EditorGUILayout.EnumPopup(this.m_Target.OwnershipTransfer, GUILayout.MaxWidth(68), GUILayout.MinWidth(68));
             if (own != this.m_Target.OwnershipTransfer)
             {
                 // jf: fixed 5 and up prefab not accepting changes if you quit Unity straight after change.
@@ -79,7 +80,7 @@ namespace Photon.Pun
             // View ID
             if (isProjectPrefab)
             {
-                EditorGUILayout.LabelField("View ID", "Set at runtime");
+                EditorGUILayout.LabelField("View ID", "<i>Set at runtime</i>", new GUIStyle("Label") { richText = true });
             }
             else if (EditorApplication.isPlaying)
             {
@@ -108,15 +109,12 @@ namespace Photon.Pun
                 GUI.color = Color.grey;
             }
 
-            EditorGUILayout.PropertyField(this.serializedObject.FindProperty("Synchronization"), new GUIContent("Observe option:"));
+            EditorGUILayout.PropertyField(this.serializedObject.FindProperty("Synchronization"), new GUIContent("Observe option"));
 
             if (this.m_Target.Synchronization != ViewSynchronization.Off && this.m_Target.ObservedComponents.FindAll(item => item != null).Count == 0)
             {
-                GUILayout.BeginVertical(GUI.skin.box);
-                GUILayout.Label("Warning", EditorStyles.boldLabel);
-                GUILayout.Label("Setting the synchronization option only makes sense if you observe something.");
-                GUILayout.EndVertical();
-            }
+				EditorGUILayout.HelpBox("Setting the synchronization option only makes sense if you observe something.", MessageType.Warning);
+			}
 
             GUI.color = Color.white;
             this.DrawObservedComponentsList();
@@ -124,7 +122,7 @@ namespace Photon.Pun
             // Cleanup: save and fix look
             if (GUI.changed)
             {
-                PhotonViewHandler.HierarchyChange(); // TODO: check if needed
+                PhotonViewHandler.OnHierarchyChanged(); // TODO: check if needed
             }
 
             GUI.color = Color.white;
@@ -323,11 +321,6 @@ namespace Photon.Pun
                 this.m_Target.Synchronization = ViewSynchronization.Off;
                 this.serializedObject.Update();
             }
-        }
-
-        private static GameObject GetPrefabParent(GameObject mp)
-        {
-            return PrefabUtility.GetPrefabParent(mp) as GameObject;
         }
     }
 }

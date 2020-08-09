@@ -33,6 +33,8 @@ namespace Photon.Realtime
 
         protected internal byte PingId;
 
+        private static readonly Random RandomIdProvider = new Random();
+
         public virtual bool StartPing(string ip)
         {
             throw new NotImplementedException();
@@ -48,11 +50,12 @@ namespace Photon.Realtime
             throw new NotImplementedException();
         }
 
+
         protected internal void Init()
         {
             this.GotResult = false;
             this.Successful = false;
-            this.PingId = (byte) (Environment.TickCount%255);
+            this.PingId = (byte)(RandomIdProvider.Next(255));
         }
     }
 
@@ -67,7 +70,7 @@ namespace Photon.Realtime
         /// <summary>
         /// Sends a "Photon Ping" to a server.
         /// </summary>
-        /// <param name="ip">Address in IPv4 or IPv6 format. An address containing a '.' will be interpretet as IPv4.</param>
+        /// <param name="ip">Address in IPv4 or IPv6 format. An address containing a '.' will be interpreted as IPv4.</param>
         /// <returns>True if the Photon Ping could be sent.</returns>
         public override bool StartPing(string ip)
         {
@@ -93,6 +96,7 @@ namespace Photon.Realtime
 
                 this.PingBytes[this.PingBytes.Length - 1] = this.PingId;
                 this.sock.Send(this.PingBytes);
+                this.PingBytes[this.PingBytes.Length - 1] = (byte)(this.PingId+1);  // this buffer is re-used for the result/receive. invalidate the result now.
             }
             catch (Exception e)
             {
