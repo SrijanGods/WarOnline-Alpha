@@ -5,20 +5,27 @@ using UnityEngine;
 public class CameraChanger : MonoBehaviour
 {
     [SerializeField] Camera secondaryCamera;
-    [SerializeField] GameObject backButton;
+    [SerializeField] Camera mainCam;
 
     private void Start()
     {
-        GetComponent<Canvas>().worldCamera = Camera.main;
-        backButton.SetActive(false);
+        GetComponent<Canvas>().worldCamera = mainCam;
+        secondaryCamera.gameObject.SetActive(false);
     }
 
-    public void ChangeCameraAndBackButton()
+    public void ChangeCameraToSec()
     {
+        mainCam.gameObject.SetActive(false);
         GetComponent<Canvas>().worldCamera = secondaryCamera;
-        backButton.SetActive(true);
-
+        secondaryCamera.gameObject.SetActive(true);
     }
+     public void ChangeCameraToMain()
+    {
+        mainCam.gameObject.SetActive(true);
+        GetComponent<Canvas>().worldCamera = Camera.main;
+        secondaryCamera.gameObject.SetActive(false);
+    }
+
 
 
 }
