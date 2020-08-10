@@ -15,11 +15,8 @@ using Photon.Pun;
 public class RTCTankController : MonoBehaviourPun
 {
 
-    [Header("edits")]
-    public float speedmultiplier = 6f;
-    public float fuelInputMultiplier = 6f;
-    public float gasInputMultiplier = 3f;
-
+    [Header("Edits")]
+    public Vector2 moveAxis;
     // Rigidbody
     public Rigidbody rigid;
 
@@ -75,7 +72,7 @@ public class RTCTankController : MonoBehaviourPun
     public float maxEngineRPM = 5000.0f;
     public float maxSpeed = 60.0f;
     public float steerTorque = 5f;
-    private float speed;
+    public float speed;
     private float defSteerAngle;
     private float acceleration = 0f;
     private float lastVelocity = 0f;
@@ -447,7 +444,7 @@ public class RTCTankController : MonoBehaviourPun
         else
             reversing = false;
 
-        speed = rigid.velocity.magnitude * speedmultiplier;
+        speed = rigid.velocity.magnitude;
 
         //Acceleration Calculation.
         acceleration = 0f;
@@ -469,7 +466,7 @@ public class RTCTankController : MonoBehaviourPun
         if (!engineRunning)
             fuelInput = 0;
         else
-            fuelInput = fuelInputMultiplier;
+            fuelInput = moveAxis.y;
 
         //Auto Reverse Bool.
         if (autoReverse)
@@ -609,13 +606,13 @@ public class RTCTankController : MonoBehaviourPun
             } */
 
         //Motor Input.
-        gasInput = Input.GetAxis("Vertical") * gasInputMultiplier;
+        gasInput = moveAxis.y;
 
         //Brake Input
         brakeInput = -Mathf.Clamp(gasInput, -1f, 0f);
 
         //Steering Input.
-        steerInput = Input.GetAxis("Horizontal");
+        steerInput = moveAxis.x;
 
     }
     #endregion Inputs

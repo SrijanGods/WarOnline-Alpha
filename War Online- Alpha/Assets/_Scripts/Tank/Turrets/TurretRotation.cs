@@ -13,8 +13,7 @@ public class TurretRotation : MonoBehaviourPun, IPunObservable
 
     [SerializeField, Tooltip("Right angle")]
     private float maxAngle = 60f;
-
-
+    
     //exclusively for sniper
     private float sniperrotateSpeed = 0.3f;
     private Transform dummyScope;
@@ -23,8 +22,11 @@ public class TurretRotation : MonoBehaviourPun, IPunObservable
     private float maxXAngle = 1.179f;
     private float minXAngle = -3f;
 
+    private TouchProcessor tP;
+
     void Start()
     {
+        tP = GetComponentInParent<TouchProcessor>();
         minAngle += 360;
         minXAngle += 360;
 
@@ -36,14 +38,14 @@ public class TurretRotation : MonoBehaviourPun, IPunObservable
 
     void Update()
     {
-        if(Input.GetAxis("Mouse X") != 0f)
+        if(tP.lookAxis.x != 0f)
         {
-            yaw += rotateSpeed * Input.GetAxis("Mouse X");
+            yaw += rotateSpeed * tP.lookAxis.x;
         }
 
-        if (Input.GetAxis("Rotate") != 0f)
+        if (tP.lookAxis.y != 0f)
         {
-            yaw += rotateSpeed * Input.GetAxis("Rotate");
+            yaw += rotateSpeed * tP.lookAxis.y;
         }
 
         yaw = Mathf.Clamp(yaw, -rotateSpeed, rotateSpeed);

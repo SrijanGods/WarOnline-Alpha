@@ -35,10 +35,12 @@ public class Duos : MonoBehaviour
     private float myTeamID;
     private Vector3 enemyPos;
     private bool changeDir = false;
+    private TouchProcessor tP;
 
     #region Start&Update
     void Start()
     {
+        tP = GetComponentInParent<TouchProcessor>();
         tankHealth = GetComponentInParent<TankHealth>();
         mainCanvas = tankHealth.warCanvas;
         GameObject coolDownUI = mainCanvas.transform.Find("CoolDownUI").gameObject;
@@ -61,8 +63,8 @@ public class Duos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (Input.GetButton("Fire"))
+        print(tP.fire);
+        if (tP.fire)
         {
             if (right == true)
             {
@@ -120,7 +122,7 @@ public class Duos : MonoBehaviour
 
     IEnumerator Waiting()
     {
-        coolDownSlider.value = Mathf.Lerp(1f, 0f, LerpValue);
+        //coolDownSlider.value = Mathf.Lerp(1f, 0f, LerpValue);
         GameObject G = Instantiate(Bullet, Sp1.transform.position, Sp1.transform.rotation) as GameObject;
         duosShootEv.start();
 
@@ -134,7 +136,7 @@ public class Duos : MonoBehaviour
         right = false;
         
         yield return new WaitForSeconds(0.5f);
-        coolDownSlider.value = Mathf.Lerp(0f, 1f, LerpValue);
+        //coolDownSlider.value = Mathf.Lerp(0f, 1f, LerpValue);
         left = true;
         duosShootEv.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }

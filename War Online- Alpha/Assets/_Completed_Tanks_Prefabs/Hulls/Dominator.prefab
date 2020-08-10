@@ -2284,6 +2284,7 @@ GameObject:
   - component: {fileID: 2819878482383010088}
   - component: {fileID: 2819986264594171520}
   - component: {fileID: 6651291607487693324}
+  - component: {fileID: 1666860049683228463}
   m_Layer: 0
   m_Name: Dominator
   m_TagString: Player
@@ -2348,9 +2349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 643afdf0678e4de4497211894c3d1945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedmultiplier: 6
-  fuelInputMultiplier: 6
-  gasInputMultiplier: 3
+  moveAxis: {x: 0, y: 0}
   rigid: {fileID: 2771282557969655056}
   runEngineAtAwake: 1
   engineRunning: 0
@@ -2451,6 +2450,7 @@ MonoBehaviour:
   maxEngineRPM: 15000
   maxSpeed: 24
   steerTorque: 9.666667
+  speed: 0
   gasInput: 0
   brakeInput: 0
   steerInput: 0
@@ -2532,6 +2532,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _teamID: 1
   myAccID: 0
+--- !u!114 &1666860049683228463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2788654593757001840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef77d85f781c624a98754d435f6b878, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fixedJoystick: {fileID: 5709927457889931475}
+  fixedButton: {fileID: 6759311577637772300}
+  touchField: {fileID: 7148478353110976382}
+  lookAxis: {x: 0, y: 0}
 --- !u!1 &2788668101291159208
 GameObject:
   m_ObjectHideFlags: 0
@@ -8632,6 +8648,42 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 6808363267744118471}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7148478353110976382 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4415873312992489913, guid: d236713fd9932ef48a13bcc6dac1a521,
+    type: 3}
+  m_PrefabInstance: {fileID: 6808363267744118471}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c40529b1da4b8642b0c79a325ea73c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5709927457889931475 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1243440538413426196, guid: d236713fd9932ef48a13bcc6dac1a521,
+    type: 3}
+  m_PrefabInstance: {fileID: 6808363267744118471}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6759311577637772300 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 266218430875331275, guid: d236713fd9932ef48a13bcc6dac1a521,
+    type: 3}
+  m_PrefabInstance: {fileID: 6808363267744118471}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 424c16f85b0e7fc4382ce544056611d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8224753463389865257
 PrefabInstance:
   m_ObjectHideFlags: 0
