@@ -122,7 +122,7 @@ public class Duos : MonoBehaviour
 
     IEnumerator Waiting()
     {
-        //coolDownSlider.value = Mathf.Lerp(1f, 0f, LerpValue);
+        coolDownSlider.value = Mathf.Lerp(1f, 0f, LerpValue);
         GameObject G = Instantiate(Bullet, Sp1.transform.position, Sp1.transform.rotation) as GameObject;
         duosShootEv.start();
 
@@ -136,7 +136,7 @@ public class Duos : MonoBehaviour
         right = false;
         
         yield return new WaitForSeconds(0.5f);
-        //coolDownSlider.value = Mathf.Lerp(0f, 1f, LerpValue);
+        coolDownSlider.value = Mathf.Lerp(0f, 1f, LerpValue);
         left = true;
         duosShootEv.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
