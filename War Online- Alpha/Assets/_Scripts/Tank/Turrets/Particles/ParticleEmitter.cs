@@ -51,16 +51,19 @@ public class ParticleEmitter : MonoBehaviourPun, IPunObservable {
     private bool increment = false;
     private bool decrement = false;
     private float mainValue = 0f;
+    private TouchProcessor tP;
 
     #region Start
     void Start()
     {
+        tP = GetComponentInParent<TouchProcessor>();
+
         particleFire.Stop();
         particleSmoke.Stop();
 
         tankHealth = GetComponentInParent<TankHealth>();
         mainCanvas = tankHealth.warCanvas;
-        GameObject coolDownUI = mainCanvas.transform.Find("CoolDownUI").gameObject;
+        GameObject coolDownUI = mainCanvas.transform.GetChild(2).gameObject;
         coolDownSlider = coolDownUI.GetComponent<Slider>();
         if (!isFlameThrower)
         {
@@ -88,25 +91,14 @@ public class ParticleEmitter : MonoBehaviourPun, IPunObservable {
     #region FireInput
     void ProcessFireInput()
     {
-        if (Input.GetButton("Fire"))
+        if (tP.fire)
         {
             isFiring = true;
             flameThrowerEv.setParameterByName("Firing", 1f);
         }
-            
-
-        else if (Input.GetButtonUp("Fire"))
-        {
-            isFiring = false;
-
-            //sfx close
-            flameThrowerEv.setParameterByName("Firing", 0f);
-            flameThrowerEv.setParameterByName("ReloadFull", 0f);
-        }
         else
         {
             isFiring = false;
-
             //sfx close
             flameThrowerEv.setParameterByName("Firing", 0f);
             flameThrowerEv.setParameterByName("ReloadFull", 0f);
@@ -130,16 +122,20 @@ public class ParticleEmitter : MonoBehaviourPun, IPunObservable {
         }
         else if (hit.distance < range)
         {
-            if (hit.transform.GetComponentInParent<TankHealth>())
+            if (hit.transform.GetComponentInParent<TankHealth>() != null)
             {
-                newPos = hit.transform.position + Vector3.forward;
-            }
-            else
-            {
-                newPos = hit.transform.position;
+                if (hit.transform.GetComponentInParent<TankHealth>())
+                {
+                    newPos = hit.transform.position + Vector3.forward;
+                }
+                else
+                {
+                    newPos = hit.transform.position;
+                }
             }
         }
 
+        
         if (coolDownSlider.value != ammo)
         {
             barTime += Time.deltaTime;
@@ -157,7 +153,7 @@ public class ParticleEmitter : MonoBehaviourPun, IPunObservable {
                 }
             }
         }
-
+        
         if (isFiring && ammo != 0)
         {
 

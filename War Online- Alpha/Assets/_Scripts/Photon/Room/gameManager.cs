@@ -6,6 +6,7 @@ using Photon.Pun;
 
 public class gameManager : MonoBehaviourPun {
 
+    /*
     [Tooltip("To be honest, this shouldn't be changed at all. But if you do feel like a badass, this controls which scene the player exits to when quitting.")]
     [SerializeField] string exitScene = "StartScene";
     [Tooltip("The prefab to use for representing the player")]
@@ -27,7 +28,7 @@ public class gameManager : MonoBehaviourPun {
     {
         /*if (_instance != null) Destroy(gameObject);
         else if (_instance == null) _instance = this;
-        DontDestroyOnLoad(this);*/
+        DontDestroyOnLoad(this);
     }
 
     private void Start()
@@ -43,7 +44,7 @@ public class gameManager : MonoBehaviourPun {
         }
         else
         {
-            if (RTCTankController.LocalPlayerInstance == null && !firstTimeTankCalled)
+            if (RTC_TankController.LocalPlayerInstance == null && !firstTimeTankCalled)
             {
                 SpawnTank();
                 firstTimeTankCalled = true;
@@ -137,4 +138,5 @@ public class gameManager : MonoBehaviourPun {
 
 
     #endregion
+*/
 }

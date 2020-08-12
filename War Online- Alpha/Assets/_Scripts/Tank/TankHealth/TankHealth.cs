@@ -185,7 +185,7 @@ public class TankHealth : MonoBehaviourPun
             destroyedTurret.SetActive(true);
             destroyedHull.SetActive(true);
             destroyCalled = true;
-            RTCTankController tankController = gameObject.GetComponent<RTCTankController>();
+            RTC_TankController tankController = gameObject.GetComponent<RTC_TankController>();
             tankController.engineRunning = false;
         }
 
@@ -204,7 +204,7 @@ public class TankHealth : MonoBehaviourPun
     {
         if (!spawnCalled)
         {
-            photonScript.SpawnTank();
+            //photonScript.SpawnTank();
             spawnCalled = true;
             Destroy(warCanvas);
         }

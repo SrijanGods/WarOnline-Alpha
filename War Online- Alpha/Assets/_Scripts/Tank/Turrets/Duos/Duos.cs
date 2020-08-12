@@ -63,7 +63,6 @@ public class Duos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(tP.fire);
         if (tP.fire)
         {
             if (right == true)

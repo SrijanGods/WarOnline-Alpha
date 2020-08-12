@@ -21,6 +21,6 @@ public class TurretAddOn : MonoBehaviour
         tankHealth.destroyedTurret = destroyedBody;
 
         thisTransform = gameObject.transform;
-        GetComponentInChildren<Pro3DCamera.CameraControl>().target = thisTransform;
+        //GetComponentInChildren<Pro3DCamera.CameraControl>().target = thisTransform;
     }
 }

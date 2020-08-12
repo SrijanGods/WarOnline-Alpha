@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2669067078535130054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1697476104216696439}
+  m_Layer: 0
+  m_Name: Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1697476104216696439
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2669067078535130054}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 670572832407526923}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &7076232554262656255
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,6 +93,7 @@ Transform:
   - {fileID: 3114740154413417824}
   - {fileID: 1904993902708330389}
   - {fileID: 2778679521744204318}
+  - {fileID: 1697476104216696439}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -85,6 +116,7 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 3114740154413417824}
   barrelFlash: {fileID: 1904993902723533525}
+  sniperShootSfx: event:/Sniper
 --- !u!114 &7183523162501384186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16935992e3631bb47b673d0abd2aa2b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 10
+  rotateSpeed: 5
   minAngle: 0
   maxAngle: 360
 --- !u!1001 &1501808319695368169
@@ -107,6 +139,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 670572832407526923}
     m_Modifications:
+    - target: {fileID: 2533141210915946247, guid: cc6482b5e92605742ba897023420bce7,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1697476104216696439}
     - target: {fileID: 3626780186504537785, guid: cc6482b5e92605742ba897023420bce7,
         type: 3}
       propertyPath: m_Name

@@ -162,7 +162,7 @@ public class snipershooting : MonoBehaviourPun
             laser.SetPosition(1, hit.point);
             //Set hit point to target
             target = hit;
-            cam.GetComponent<Pro3DCamera.CameraControl>().enabled = false;
+            //cam.GetComponent<Pro3DCamera.CameraControl>().enabled = false;
 
             //Zoom
             scopeImage.enabled = true;
@@ -197,7 +197,7 @@ public class snipershooting : MonoBehaviourPun
             required = false;
             zoomHeld = false;
             camMove = false;
-            GetComponentInParent<RTCTankController>().engineRunning = true;
+            //GetComponentInParent<RTCTankController>().engineRunning = true;
             Shoot(damage);
 
             sniperShootEv.setParameterByName("Scoping", 0f);
@@ -213,7 +213,7 @@ public class snipershooting : MonoBehaviourPun
             laser.enabled = false;
             cam.cullingMask = ~0;
             cam.fieldOfView = initCamFov;
-            cam.GetComponent<Pro3DCamera.CameraControl>().enabled = true;
+            //cam.GetComponent<Pro3DCamera.CameraControl>().enabled = true;
 
             //Rotation
             turretRotation.rotateSpeed = initRotateSpeed;
@@ -369,7 +369,7 @@ public class snipershooting : MonoBehaviourPun
         if(camMove)
         {
             cam.transform.localEulerAngles = new Vector3(0, cam.transform.localEulerAngles.y, cam.transform.localEulerAngles.z);
-            GetComponentInParent<RTCTankController>().engineRunning = false;
+            //GetComponentInParent<RTCTankController>().engineRunning = false;
             inZoomMode = true;
             camMove = true;
         }
