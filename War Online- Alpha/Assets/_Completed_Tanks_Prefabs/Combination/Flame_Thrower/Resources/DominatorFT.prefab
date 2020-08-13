@@ -27,7 +27,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.059000008, y: 1.532, z: -0.59999996}
+  m_ConnectedAnchor: {x: 0.059000023, y: 1.451, z: -0.6}
   m_UseSpring: 1
   m_Spring:
     spring: 0
@@ -133,10 +133,55 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 554827329004724187, guid: 2b17a866042f78c43a137c4439c929cc,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 554827329004724187, guid: 2b17a866042f78c43a137c4439c929cc,
+        type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 554827329004724187, guid: 2b17a866042f78c43a137c4439c929cc,
+        type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 554827329004724187, guid: 2b17a866042f78c43a137c4439c929cc,
+        type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 554827330391100715, guid: 2b17a866042f78c43a137c4439c929cc,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 554827330391100715, guid: 2b17a866042f78c43a137c4439c929cc,
+        type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 554827330391100715, guid: 2b17a866042f78c43a137c4439c929cc,
+        type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 554827330391100715, guid: 2b17a866042f78c43a137c4439c929cc,
+        type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865394570362853865, guid: 2b17a866042f78c43a137c4439c929cc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -8.600098
+      objectReference: {fileID: 0}
     - target: {fileID: 5944152936746496101, guid: 2b17a866042f78c43a137c4439c929cc,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b17a866042f78c43a137c4439c929cc, type: 3}
