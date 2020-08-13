@@ -1,8 +1,1 @@
-*.unity filter=lfs diff=lfs merge=lfs -text
-*.asset filter=lfs diff=lfs merge=lfs -text
-*.psd filter=lfs diff=lfs merge=lfs -text
-War[[:space:]]Online-[[:space:]]Alpha/Assets/_Tank_Controllers/RealisticTankController/Models/RTC_Tank.FBX filter=lfs diff=lfs merge=lfs -text
-AlphaAssets_Tank_ControllersRealisticTankControllerModelsRTC_Tank.FBX filter=lfs diff=lfs merge=lfs -text
-G:War filter=lfs diff=lfs merge=lfs -text
-G:/War[[:space:]]Online/War[[:space:]]Online-[[:space:]]Alpha/Assets/_Tank_Controllers/RealisticTankController/Models/RTC_Tank.FBX filter=lfs diff=lfs merge=lfs -text
-Assets/_Tank_Controllers/RealisticTankController/Models/RTC_Tank.FBX filter=lfs diff=lfs merge=lfs -text
+
