@@ -639,7 +639,7 @@ Transform:
   m_GameObject: {fileID: 5638661103774576489}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -37.6, y: 0.097, z: 12.49758}
-  m_LocalScale: {x: 5.342005, y: 5.4755535, z: 5.3446765}
+  m_LocalScale: {x: 5.3420053, y: 5.475554, z: 5.344677}
   m_Children:
   - {fileID: 5324379869904583028}
   - {fileID: 5638661103763777495}
@@ -1022,6 +1022,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MainCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626780186504537785, guid: cc6482b5e92605742ba897023420bce7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3627830885813591543, guid: cc6482b5e92605742ba897023420bce7,
         type: 3}

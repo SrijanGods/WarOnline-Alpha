@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   SwitchSettingsMigration: 1
-  HasSourceProject: 1
+  HasSourceProject: 0
   HasPlatforms: 1
   sourceProjectPath: Assets/_Sounds/FMOD Project/WarOnlineSFX/WarOnlineSFX.fspro
   sourceBankPath: Assets\_Sounds\FMOD Project\WarOnlineSFX\Build
