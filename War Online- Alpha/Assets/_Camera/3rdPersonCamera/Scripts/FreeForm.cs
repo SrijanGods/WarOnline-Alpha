@@ -79,7 +79,7 @@ namespace ThirdPersonCamera
             catch
             {
                 Debug.LogWarning("Controller Error - Right axis not set in InputManager. Controller is disabled!");
-                controllerEnabled = false;
+                controllerEnabled = true;
             }
         }
 

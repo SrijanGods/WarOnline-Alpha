@@ -138,10 +138,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTank: {fileID: 0}
-  pivot: {fileID: 0}
+  pivot: {fileID: 1000011976100696}
   cameraMode: 0
-  orbitDistance: 8.62
-  orbitHeight: 2.26
+  orbitDistance: 5
+  orbitHeight: 3
   gunCameraFOV: 65
   orbitCameraFOV: 50
   minOrbitY: -20
@@ -161,11 +161,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clipMoveTime: 0.01
-  returnTime: 0.44
-  sphereCastRadius: 1.2
+  returnTime: 0.5
+  sphereCastRadius: 0.4
   visualiseInEditor: 0
-  closestDistance: -1.52
+  closestDistance: 0.1
   dontClipTag: Player
+  startPoint: {fileID: 0}
 --- !u!1 &1000011976100696
 GameObject:
   m_ObjectHideFlags: 0
