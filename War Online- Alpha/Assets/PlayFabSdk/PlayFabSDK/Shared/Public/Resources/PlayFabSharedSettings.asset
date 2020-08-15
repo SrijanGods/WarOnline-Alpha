@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a59a67871928ff21578580b49b292f6e6d09c68bcbd6a7d56e1a18587fbf8359
-size 827
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093286084a3d1994a9c28281a1c38b1d, type: 3}
+  m_Name: PlayFabSharedSettings
+  m_EditorClassIdentifier: 
+  TitleId: CAAAA
+  DeveloperSecretKey: X9TXXGESPXDQJ8FUKHGYSXJO35YWK3C34SOEZZYSIAA3IWBZMY
+  ProductionEnvironmentUrl: 
+  RequestType: 2
+  AdvertisingIdType: 
+  AdvertisingIdValue: 
+  DisableAdvertising: 0
+  DisableDeviceInfo: 0
+  DisableFocusTimeCollection: 0
+  RequestTimeout: 2000
+  RequestKeepAlive: 1
+  CompressApiData: 1
+  LogLevel: 12
+  LoggerHost: 
+  LoggerPort: 0
+  EnableRealTimeLogging: 0
+  LogCapLimit: 30
