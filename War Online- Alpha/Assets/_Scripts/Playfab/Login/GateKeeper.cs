@@ -232,6 +232,7 @@ public class GateKeeper : MonoBehaviour
         PhotonNetwork.ConnectUsingSettings();
 
         PlayfabConnected = true;
+        print("Connected");
 
         GlobalValues.Instance.loggedIn = true;
     }

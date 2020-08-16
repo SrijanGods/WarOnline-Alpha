@@ -327,6 +327,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DominatorDS Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5099707625030898982, guid: da0ed7292c3d2964e818a0c50cec1e7d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5099707625031160216, guid: da0ed7292c3d2964e818a0c50cec1e7d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -790,7 +795,7 @@ PrefabInstance:
     - target: {fileID: 3830794669135364472, guid: 834dfd3330d9b02419b95e96a9893de3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3830794669146164602, guid: 834dfd3330d9b02419b95e96a9893de3,
         type: 3}
@@ -806,6 +811,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909710126983932443, guid: 834dfd3330d9b02419b95e96a9893de3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4888206271436496064, guid: 834dfd3330d9b02419b95e96a9893de3,
         type: 3}
@@ -841,6 +851,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5536904570622985208, guid: 834dfd3330d9b02419b95e96a9893de3,
+        type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5898353856570366144, guid: 834dfd3330d9b02419b95e96a9893de3,
         type: 3}
@@ -937,8 +952,41 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7609200009385095383, guid: 834dfd3330d9b02419b95e96a9893de3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7609200009385095383, guid: 834dfd3330d9b02419b95e96a9893de3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 834dfd3330d9b02419b95e96a9893de3, type: 3}
+--- !u!1 &1941307295 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3909710126983932443, guid: 834dfd3330d9b02419b95e96a9893de3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1941307294}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1941307296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941307295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 60a3ab97d63469b47881ad2c174e1630, type: 2}
 --- !u!1 &2057404157
 GameObject:
   m_ObjectHideFlags: 0

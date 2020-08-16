@@ -15,10 +15,12 @@ public class BuyManager : MonoBehaviour
 
     [Space]
     public GameObject lessPanel;
+    public GameObject succPanel;
 
     private GettingProfil profile;
     private string ID;
-    public void Start()
+
+    public void Awake()
     {
         profile = GameObject.FindGameObjectWithTag("GameController").GetComponent<GettingProfil>();
         buyBtn.onClick.AddListener(SetOrder);
@@ -26,10 +28,12 @@ public class BuyManager : MonoBehaviour
 
     public void GetOrder(string itemName, int itemPrice, string currID)
     {
+        succPanel.SetActive(false);
+        lessPanel.SetActive(false);
         ID = currID;
         if (currID == "GB")
         {
-            if (itemPrice >= profile.GBValue)
+            if (profile.GBcurrency >= itemPrice)
             {
                 objName.text = itemName;
                 objValue.text = itemPrice.ToString();
@@ -42,7 +46,7 @@ public class BuyManager : MonoBehaviour
         }
         if(currID == "KR")
         {
-            if (itemPrice >= profile.KRValue)
+            if (profile.KRcurrency >= itemPrice)
             {
                 objName.text = itemName;
                 objValue.text = itemPrice.ToString();
@@ -57,7 +61,8 @@ public class BuyManager : MonoBehaviour
 
     public void SetOrder()
     {
-        profile.GetComponent<InventorySelection>().BuyItem(objName.text, Int32.Parse(objValue.text), ID);
+        profile.gameObject.GetComponent<InventorySelection>().BuyItem(objName.text, Int32.Parse(objValue.text), ID);
         buyPanel.SetActive(false);
+        succPanel.SetActive(true);
     }
 }

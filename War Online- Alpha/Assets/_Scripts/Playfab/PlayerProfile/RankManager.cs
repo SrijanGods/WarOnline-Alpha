@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class RankManager : MonoBehaviour
 {
-    public Slider rankSlider;
     public string[] rankName;
     public Sprite[] rankImage;
     public Image currentRankImage;
@@ -105,10 +104,10 @@ public class RankManager : MonoBehaviour
             xpInInt = 11;
         }
 
-        rankSlider.minValue = rankL;
-        rankSlider.maxValue = rankH;
+        //rankSlider.minValue = rankL;
+        //rankSlider.maxValue = rankH;
         int intTofloat = currentExp;
-        rankSlider.value = (float)intTofloat;
+        //rankSlider.value = (float)intTofloat;
         gameObject.GetComponent<GettingProfil>().actualRankName = currentRank;
     }
 

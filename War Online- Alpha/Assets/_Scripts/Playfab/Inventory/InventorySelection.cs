@@ -88,7 +88,7 @@ public class InventorySelection : MonoBehaviour
                                 {
                                     int turretno = System.Array.IndexOf(turretList, turret);
                                     turretCost.SetValue((int)cost, turretno);
-                                    turretDisplayName.SetValue((string)item.DisplayName, turretno);
+                                    turretDisplayName.SetValue((string)item.ItemId, turretno);
                                     ++turretno;
                                 }
                             }
@@ -105,7 +105,7 @@ public class InventorySelection : MonoBehaviour
                                 {
                                     int hullno = System.Array.IndexOf(hullList, hull);
                                     hullCost.SetValue((int)cost, hullno);
-                                    hullDisplayName.SetValue((string)item.DisplayName, hullno);
+                                    hullDisplayName.SetValue((string)item.ItemId, hullno);
                                     ++hullno;
                                 }
                            }
@@ -269,10 +269,11 @@ public class InventorySelection : MonoBehaviour
             print("Bought Successfully");
             gameObject.GetComponent<GettingProfil>().GetPlayerCombinedInfo();
             buyPanel.transform.GetChild(3).gameObject.SetActive(true);
+            GetItems();
         },
         buyErr =>
         {
-
+            print(buyErr.Error);
         });
     }
 

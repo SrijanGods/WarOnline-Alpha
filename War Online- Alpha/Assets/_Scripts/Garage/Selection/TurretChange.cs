@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,21 +7,21 @@ public class TurretChange : MonoBehaviour
 {
     public int selection;
     public GameObject[] turrets;
-    private int lasttimenumber;
-    // Use this for initialization
-
-    private void Awake()
-    {
-        
-    }
 
     void Start()
     {
-        disableAll();
-        turrets[selection].SetActive(true);
-        lasttimenumber = selection;
+        StartCoroutine(UpdateTurret());
     }
-    void disableAll()
+
+    IEnumerator UpdateTurret()
+    {
+        yield return new WaitForSeconds(1f);
+        yield return new WaitUntil(() => GlobalValues.Instance.turret != null);
+        DisableAll();
+        int selection = Array.FindIndex(turrets, g => g.name == GlobalValues.Instance.turret);
+        turrets[selection].SetActive(true);
+    }
+    void DisableAll()
     {
         for (int x = 0; x < turrets.Length; x++)
         {
@@ -31,14 +31,6 @@ public class TurretChange : MonoBehaviour
     }
     private void Update()
     {
-
-        if (selection != lasttimenumber)
-        {
-            disableAll();
-            turrets[selection].SetActive(true);
-            lasttimenumber = selection;
-        }
-
-
+        StartCoroutine(UpdateTurret());
     }
 }

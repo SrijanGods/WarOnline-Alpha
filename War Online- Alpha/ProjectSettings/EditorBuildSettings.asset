@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Lobby.unity
     guid: 467492d8c9be02847b711ac45a9fe3dd
+  - enabled: 1
+    path: Assets/_Tank_Controllers/RealisticTankController/Demo Scenes/RTC Demo.unity
+    guid: fc0b996781bda6147947d5c84b83709e
   m_configObjects: {}

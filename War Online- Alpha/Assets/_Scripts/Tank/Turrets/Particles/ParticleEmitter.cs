@@ -116,6 +116,7 @@ public class ParticleEmitter : MonoBehaviourPun, IPunObservable {
         RaycastHit hit;
         Physics.Raycast(newStartPos.position, newStartPos.forward, out hit);
         
+        /*
         if (hit.distance >= range)
         {
             newPos = endPoint.GetComponent<Transform>().position;
@@ -134,6 +135,7 @@ public class ParticleEmitter : MonoBehaviourPun, IPunObservable {
                 }
             }
         }
+        */
 
         
         if (coolDownSlider.value != ammo)

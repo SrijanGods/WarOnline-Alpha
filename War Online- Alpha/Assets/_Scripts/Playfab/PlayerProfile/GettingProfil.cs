@@ -23,29 +23,15 @@ public class GettingProfil : MonoBehaviour
     public TextMeshProUGUI KR;
 
 
-    [HideInInspector]
-    [SerializeField]
-    private int GBcurrency;
-    public int GBValue
-    {
-        get { return GBcurrency; }
-        set { GBcurrency = value; }
-    }
-    public int KRValue
-    {
-        get { return KRcurrency; }
-        set { KRcurrency = value; }
-    }
-    [HideInInspector]
-    [SerializeField]
-    private int KRcurrency;
+    public int GBcurrency;
+    public int KRcurrency;
 
-    public GameObject newsPanel;
-    public GameObject newsView;
+    //public GameObject newsPanel;
+    //public GameObject newsView;
 
     public GetPlayerCombinedInfoRequestParams info;
 
-    public GameObject GCanvas;
+    //public GameObject GCanvas;
 
     #region PublicMethods
     void Start()
@@ -56,10 +42,8 @@ public class GettingProfil : MonoBehaviour
     IEnumerator StartStats()
     {
         yield return new WaitUntil(() => GlobalValues.Instance.loggedIn);
-
         GetPlayerProfile();
         GetStats();
-        GetNews();
         GetPlayerCombinedInfo();
     }
 
@@ -92,8 +76,7 @@ public class GettingProfil : MonoBehaviour
 
             if (result.PlayerProfile.DisplayName == null)
             {
-                result.PlayerProfile.DisplayName = actualUserName;
-                NickName.text = actualRankName + " " + result.PlayerProfile.DisplayName;
+                NickName.text = actualRankName + " " + actualUserName;
             }
             else
             {
@@ -167,31 +150,6 @@ public class GettingProfil : MonoBehaviour
 
     #endregion PlayerStats
 
-    #region PlayerNews
-
-    void GetNews()
-    {
-        GetTitleNewsRequest request = new GetTitleNewsRequest();
-        request.Count = 5;
-        PlayFabClientAPI.GetTitleNews(request, result => {
-            List<TitleNewsItem> news = result.News;
-            foreach (TitleNewsItem item in news)
-            {
-                GameObject p = Instantiate(newsPanel, newsView.gameObject.GetComponentInParent<Transform>().gameObject.GetComponentInParent<ScrollRect>().gameObject.transform.position, Quaternion.identity);
-                p.transform.SetParent(newsView.transform);
-
-                p.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = item.Title;
-                p.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = item.Body;
-            }
-            
-            }, 
-            error => {
-
-            });
-    }
-
-    #endregion PlayerNews
-
     #region PlayerCurrency
 
     public void GetPlayerCombinedInfo()
@@ -218,5 +176,30 @@ public class GettingProfil : MonoBehaviour
     }
     #endregion PlayerCurrency
 
+    /*
+   #region PlayerNews
 
+   void GetNews()
+   {
+       GetTitleNewsRequest request = new GetTitleNewsRequest();
+       request.Count = 5;
+       PlayFabClientAPI.GetTitleNews(request, result => {
+           List<TitleNewsItem> news = result.News;
+           foreach (TitleNewsItem item in news)
+           {
+               GameObject p = Instantiate(newsPanel, newsView.gameObject.GetComponentInParent<Transform>().gameObject.GetComponentInParent<ScrollRect>().gameObject.transform.position, Quaternion.identity);
+               p.transform.SetParent(newsView.transform);
+
+               p.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = item.Title;
+               p.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = item.Body;
+           }
+
+           }, 
+           error => {
+
+           });
+   }
+
+   #endregion PlayerNews
+   */
 }

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "830920697302",
+    "firebase_url": "https://war-online-alpha.firebaseio.com",
+    "project_id": "war-online-alpha",
+    "storage_bucket": "war-online-alpha.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:830920697302:android:b76d4b2803ca2790047077",
+        "android_client_info": {
+          "package_name": "com.TelepathyStudios.WarOnline"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "830920697302-235navhb4ls8kcc5q55ejfa12ao8usq4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClE63FzIFYoITchFh4Y19mjpo-d7PJ6nE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "830920697302-235navhb4ls8kcc5q55ejfa12ao8usq4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
