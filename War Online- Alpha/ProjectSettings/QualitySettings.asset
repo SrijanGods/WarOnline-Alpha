@@ -20,8 +20,8 @@ QualitySettings:
     shadowmaskMode: 0
     skinWeights: 2
     textureQuality: 1
-    anisotropicTextures: 0
-    antiAliasing: 8
+    anisotropicTextures: 1
+    antiAliasing: 2
     softParticles: 0
     softVegetation: 0
     realtimeReflectionProbes: 0
