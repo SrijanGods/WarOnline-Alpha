@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,9 +10,11 @@ public class PanelsAnimation : MonoBehaviour
     [SerializeField] PanelsAnimation[] panelsAnimations;
     public bool startScreen = false;
     bool onScreen = false;
+    CanvasGroup cG;
 
     private void Start()
     {
+        cG = GetComponent<CanvasGroup>();
         if (startScreen) { DisplayTrue(); };
         if (listSelector)
         {
@@ -21,9 +24,28 @@ public class PanelsAnimation : MonoBehaviour
 
     public void DisplayTrue()
     {
+        CanvasGroupDisplayTrue();
         GetComponent<Animator>().SetBool("display", true);
 
+
     }
+
+    private void CanvasGroupDisplayTrue()
+    {
+        cG.alpha = 1;
+        cG.blocksRaycasts = true;
+        cG.interactable = true;
+
+    }
+
+    private void CanvasGroupDisplayFalse()
+    {
+        cG.alpha = 0;
+        cG.blocksRaycasts = false;
+        cG.interactable = false;
+
+    }
+
     public void DisplayFalse()
     {
         GetComponent<Animator>().SetBool("display", false);
