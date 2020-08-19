@@ -4,8 +4,18 @@ using System.Collections;
 public class FPSDisplayer : MonoBehaviour
 {
 	float deltaTime = 0.0f;
- 
-	void Update()
+	public Camera[] cams;
+
+    private void Start()
+    {
+		Screen.SetResolution(800, 450, true);
+		foreach(Camera cam in cams)
+        {
+			cam.aspect = 16f / 9f;
+        }
+    }
+
+    void Update()
 	{
 		deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
 	}
@@ -25,4 +35,5 @@ public class FPSDisplayer : MonoBehaviour
 		string text = string.Format("{0:0.0} ms ({1:0.} fps)", msec, fps);
 		GUI.Label(rect, text, style);
 	}
+
 }

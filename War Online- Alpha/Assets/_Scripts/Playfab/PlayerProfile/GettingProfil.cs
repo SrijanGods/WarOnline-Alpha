@@ -10,15 +10,11 @@ using TMPro;
 
 public class GettingProfil : MonoBehaviour
 {
-    [SerializeField]
-    public TextMeshProUGUI NickName;
+    public TextMeshProUGUI nickName;
+    public TextMeshProUGUI rankName;
     [HideInInspector]
     [SerializeField]
     private string playFabId;
-    [SerializeField]
-    private string actualUserName;
-    [SerializeField]
-    public string actualRankName;
     public TextMeshProUGUI GB;
     public TextMeshProUGUI KR;
 
@@ -54,16 +50,6 @@ public class GettingProfil : MonoBehaviour
 
     public void GetPlayerProfile()
     {
-        PlayFabClientAPI.GetAccountInfo(new GetAccountInfoRequest()
-        {
-
-        },
-        result =>
-        {
-            actualUserName = result.AccountInfo.Username;
-        },
-        error => Debug.Log(error.GenerateErrorReport()));
-
         PlayFabClientAPI.GetPlayerProfile(new GetPlayerProfileRequest()
         {
             PlayFabId = playFabId,
@@ -72,18 +58,11 @@ public class GettingProfil : MonoBehaviour
                 ShowDisplayName = true
             }
         },
-        result => {
-
-            if (result.PlayerProfile.DisplayName == null)
-            {
-                NickName.text = actualRankName + " " + actualUserName;
-            }
-            else
-            {
-                NickName.text = actualRankName + " " + result.PlayerProfile.DisplayName;
-            }
+        result => 
+        {
+            nickName.text = result.PlayerProfile.DisplayName;
         },
-        error => Debug.LogError(error.GenerateErrorReport()));
+        error => Debug.LogError(error.Error));
         
     }
     #endregion PlayerProfile
@@ -139,8 +118,6 @@ public class GettingProfil : MonoBehaviour
                     RankManager rankManager = gameObject.GetComponent<RankManager>();
                     rankManager.currentExp = rankExp;
                     rankManager.AssignRank();
-
-                    NickName.text = actualRankName + " " + actualUserName;
                 }
             },
             error => Debug.LogError(error.GenerateErrorReport())

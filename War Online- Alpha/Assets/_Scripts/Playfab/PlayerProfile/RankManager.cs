@@ -104,11 +104,8 @@ public class RankManager : MonoBehaviour
             xpInInt = 11;
         }
 
-        //rankSlider.minValue = rankL;
-        //rankSlider.maxValue = rankH;
         int intTofloat = currentExp;
-        //rankSlider.value = (float)intTofloat;
-        gameObject.GetComponent<GettingProfil>().actualRankName = currentRank;
+        gameObject.GetComponent<GettingProfil>().rankName.text = currentRank;
     }
 
     public void Update()
