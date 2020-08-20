@@ -6,15 +6,6 @@ public class FPSDisplayer : MonoBehaviour
 	float deltaTime = 0.0f;
 	public Camera[] cams;
 
-    private void Start()
-    {
-		Screen.SetResolution(800, 450, true);
-		foreach(Camera cam in cams)
-        {
-			cam.aspect = 16f / 9f;
-        }
-    }
-
     void Update()
 	{
 		deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
