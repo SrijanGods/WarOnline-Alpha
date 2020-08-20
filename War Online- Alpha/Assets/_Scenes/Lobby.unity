@@ -10152,7 +10152,7 @@ GameObject:
   - component: {fileID: 256632398}
   - component: {fileID: 256632397}
   m_Layer: 5
-  m_Name: Image
+  m_Name: RankImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31973,7 +31973,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1991797880}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &856026783
 GameObject:
@@ -44346,11 +44346,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b217353d1b23e5846b54d3851fc2e718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nickName: {fileID: 0}
-  rankName: {fileID: 0}
+  nickName: {fileID: 7633356530341728067}
+  rankName: {fileID: 7632509280897953811}
   playFabId: 
-  GB: {fileID: 0}
-  KR: {fileID: 0}
+  GB: {fileID: 36489014}
+  KR: {fileID: 2101488315}
   GBcurrency: 0
   KRcurrency: 0
   info:
@@ -44400,9 +44400,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b4403e621d58242b49989e4b7f63de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rankName: []
-  rankImage: []
-  currentRankImage: {fileID: 0}
+  rankName:
+  - Rookie
+  - Private
+  - Private First Class
+  - Lance Corporal
+  - Corporal
+  - Sergeant
+  - Staff Sergeant
+  - First Sergeant
+  - Sergreant Major
+  - Alpha Master
+  - Alpha Lord
+  rankImage:
+  - {fileID: 21300000, guid: 8db5600335ce1d147b557b17d6dea725, type: 3}
+  - {fileID: 21300000, guid: 3dabd50a1be67224298e07f437d22f3c, type: 3}
+  - {fileID: 21300000, guid: f2637be10d2595b4f9e82dda66c03407, type: 3}
+  - {fileID: 21300000, guid: 739ff82694937f34aaa4e5e008010339, type: 3}
+  - {fileID: 21300000, guid: 9aaa0de6a15299049adbf384d96e182b, type: 3}
+  - {fileID: 21300000, guid: 186e755afd6d4f64ab1a8adf59feb9b5, type: 3}
+  - {fileID: 21300000, guid: a44a787efad8ed04d8dd85849b045072, type: 3}
+  - {fileID: 21300000, guid: 3e04c1393746d584da0a54d1c7761ab2, type: 3}
+  - {fileID: 21300000, guid: ace12772b9e9aac49a76d44469b92e63, type: 3}
+  - {fileID: 21300000, guid: c487e4c873250c647a3fc07aa4bdcd48, type: 3}
+  - {fileID: 21300000, guid: 5f386406609f64d4da10eedf85765b27, type: 3}
+  currentRankImage: {fileID: 256632397}
   currentRank: 
   currentExp: 0
   rankL: 0
@@ -44420,20 +44442,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e00868b721eaf1744934dd4d3617bcbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretList: []
+  turretList:
+  - {fileID: 5466540363936946286}
+  - {fileID: 5332943717908687291}
+  - {fileID: 7800969148106257930}
+  - {fileID: 7639588166984679379}
+  - {fileID: 5692081549188804413}
   turretCost: 
   turretLevel: []
   tActive: 
   tID: []
   turretDisplayName: []
-  hullList: []
+  hullList:
+  - {fileID: 2788654592537636984}
+  - {fileID: 2872207593071099078}
+  - {fileID: 1170575440253059062}
+  - {fileID: 3667310654616989147}
+  - {fileID: 3087413891917835617}
   hullCost: 
   hullLevel: []
   hActive: 
   hID: []
   hullDisplayName: []
-  loadingPanel: {fileID: 0}
-  buyPanel: {fileID: 0}
+  loadingPanel: {fileID: 27937251}
+  buyPanel: {fileID: 523904574}
   inventoryLoaded: 0
 --- !u!114 &1182520823
 MonoBehaviour:
@@ -44447,10 +44479,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d618b0876857847877b602cadd9657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoginPanel: {fileID: 0}
-  userImage: {fileID: 0}
-  FBLogin: {fileID: 0}
-  Google: {fileID: 0}
+  LoginPanel: {fileID: 27937251}
+  userImage: {fileID: 7529736626337412108}
+  FBLogin: {fileID: 66168259}
+  Google: {fileID: 66168259}
   PlayfabConnected: 0
 --- !u!1 &1182829207
 GameObject:
@@ -53015,8 +53047,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e99631eec5978b4cb5f58fa04236580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  createRoomPanel: {fileID: 0}
-  lobbyPanel: {fileID: 0}
+  createRoomPanel: {fileID: 6515939900036698539, guid: 2d66f080653c7e44eafb9ef7b2b0d8e2,
+    type: 3}
+  lobbyPanel: {fileID: 6515939900036698539, guid: 2d66f080653c7e44eafb9ef7b2b0d8e2,
+    type: 3}
 --- !u!4 &1405562566
 Transform:
   m_ObjectHideFlags: 0
@@ -53043,7 +53077,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b331d475c9159e4998db018316215b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cams: []
+  cams:
+  - {fileID: 1541587923}
+  - {fileID: 1450988811}
 --- !u!1 &1406477832
 GameObject:
   m_ObjectHideFlags: 0
@@ -74209,8 +74245,8 @@ Transform:
   - {fileID: 1370787808}
   - {fileID: 1050153955}
   - {fileID: 1711966813}
-  - {fileID: 935895288}
   - {fileID: 855355666}
+  - {fileID: 935895288}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
