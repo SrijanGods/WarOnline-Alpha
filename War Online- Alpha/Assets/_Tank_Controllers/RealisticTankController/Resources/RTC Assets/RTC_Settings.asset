@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 609abd1c2a4948a42b16c3cffb5d281f, type: 3}
   m_Name: RTC_Settings
   m_EditorClassIdentifier: 
-  toolbarSelectedIndex: 1
+  toolbarSelectedIndex: 2
   overrideFixedTimeStep: 1
   fixedTimeStep: 0.02
   maxAngularVelocity: 6.65
-  controllerType: 1
+  controllerType: 2
   enableReWired: 0
   gasInput: Vertical
   steerInput: Horizontal

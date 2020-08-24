@@ -1,30 +1,43 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using _Scripts.Controls;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class FixedButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
-    [HideInInspector]
-    public bool Pressed;
+    [HideInInspector] public bool down, pressed;
+    public InputCodes button;
 
-    // Use this for initialization
-    void Start()
+    private void Update()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        SimulatedInput.SetButton(button, new SimButtonControl {down = down, pressed = pressed}, true);
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Pressed = true;
+        pressed = true;
+
+        SimulatedInput.SimulateInput(button, true);
+        down = true;
+        StartCoroutine(ResetStateDown());
+        SimulatedInput.SetButton(button, new SimButtonControl {down = down, pressed = true}, true);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        Pressed = false;
+        pressed = false;
+
+        SimulatedInput.SetButton(button, new SimButtonControl {down = false, pressed = false, up = true}, true);
+        SimulatedInput.SimulateInput(button, false);
+    }
+
+    private IEnumerator ResetStateDown()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            yield return new WaitForFixedUpdate();
+        }
+
+        down = false;
     }
 }

@@ -1,28 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using _Scripts.Controls;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Duos : MonoBehaviour
 {
-    [Header("GameObjects")]
-    public GameObject Sp1;
+    [Header("GameObjects")] public GameObject Sp1;
     public GameObject Bullet;
     public GameObject Sp2;
 
-    [Header("Forces")]
-    public float force;
+    [Header("Forces")] public float force;
     public float LerpValue;
 
-    [Header("Particle Systems")]
-    public ParticleSystem muzzleFlashA, muzzleFlashB;
+    [Header("Particle Systems")] public ParticleSystem muzzleFlashA, muzzleFlashB;
 
-    [Header("Sound Effects")]
-    [FMODUnity.EventRef]
+    [Header("Sound Effects")] [FMODUnity.EventRef]
     public string duosReloadSfx = "event:/TurretDuos";
+
     FMOD.Studio.EventInstance duosEv;
-    [FMODUnity.EventRef]
-    public string duosShootSfx = "event:/TurretDuosShoot";
+    [FMODUnity.EventRef] public string duosShootSfx = "event:/TurretDuosShoot";
     FMOD.Studio.EventInstance duosShootEv;
     private Collider enemyFinder;
     private bool right = true;
@@ -34,13 +31,15 @@ public class Duos : MonoBehaviour
     private GameObject mainCanvas;
     private float myTeamID;
     private Vector3 enemyPos;
+
     private bool changeDir = false;
-    private TouchProcessor tP;
+    // private TouchProcessor tP;
 
     #region Start&Update
+
     void Start()
     {
-        tP = GetComponentInParent<TouchProcessor>();
+        // tP = GetComponentInParent<TouchProcessor>();
         tankHealth = GetComponentInParent<TankHealth>();
         mainCanvas = tankHealth.warCanvas;
         GameObject coolDownUI = mainCanvas.transform.Find("CoolDownUI").gameObject;
@@ -54,16 +53,18 @@ public class Duos : MonoBehaviour
 
         //SFX initialize here
         duosEv = FMODUnity.RuntimeManager.CreateInstance(duosReloadSfx);
-        FMODUnity.RuntimeManager.AttachInstanceToGameObject(duosEv, GetComponent<Transform>(), GetComponent<Rigidbody>());
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(duosEv, GetComponent<Transform>(),
+            GetComponent<Rigidbody>());
         duosShootEv = FMODUnity.RuntimeManager.CreateInstance(duosShootSfx);
-        FMODUnity.RuntimeManager.AttachInstanceToGameObject(duosShootEv, GetComponent<Transform>(), GetComponent<Rigidbody>());
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(duosShootEv, GetComponent<Transform>(),
+            GetComponent<Rigidbody>());
         duosEv.start();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (tP.fire)
+        if (SimulatedInput.GetButton(InputCodes.TankFire))
         {
             if (right == true)
             {
@@ -78,14 +79,16 @@ public class Duos : MonoBehaviour
         {
         }
     }
+
     #endregion Start&Update
 
     #region Collision
+
     private void OnTriggerEnter(Collider collider)
     {
-        if(collider.GetComponentInParent<FactionID>() != null)
+        if (collider.GetComponentInParent<FactionID>() != null)
         {
-            if(collider.GetComponentInParent<FactionID>()._teamID != myTeamID && collider.isTrigger == false)
+            if (collider.GetComponentInParent<FactionID>()._teamID != myTeamID && collider.isTrigger == false)
             {
                 enemyPos = collider.GetComponentInChildren<Transform>().position;
                 changeDir = true;
@@ -101,20 +104,22 @@ public class Duos : MonoBehaviour
         {
             if (collider.GetComponentInParent<FactionID>() != null)
             {
-                if (collider.GetComponentInParent<FactionID>()._teamID != myTeamID || collider.GetComponentInParent<FactionID>()._teamID == 1 && collider.isTrigger == false)
+                if (collider.GetComponentInParent<FactionID>()._teamID != myTeamID ||
+                    collider.GetComponentInParent<FactionID>()._teamID == 1 && collider.isTrigger == false)
                 {
                     enemyPos = collider.GetComponentInChildren<Transform>().position;
                     changeDir = true;
                 }
             }
+
             stayCount = stayCount - 1f;
         }
         else
         {
             stayCount = stayCount + Time.deltaTime;
         }
-
     }
+
     #endregion Collision
 
     #region IEnum
@@ -130,15 +135,17 @@ public class Duos : MonoBehaviour
         {
             G.transform.LookAt(enemyPos);
         }
+
         muzzleFlashA.Play(true);
 
         right = false;
-        
+
         yield return new WaitForSeconds(0.5f);
         coolDownSlider.value = Mathf.Lerp(0f, 1f, LerpValue);
         left = true;
         duosShootEv.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
+
     IEnumerator Waiting2()
     {
         coolDownSlider.value = Mathf.Lerp(1f, 0f, LerpValue);
@@ -149,6 +156,7 @@ public class Duos : MonoBehaviour
         {
             G.transform.LookAt(enemyPos);
         }
+
         muzzleFlashB.Play(true);
 
         left = false;
@@ -158,7 +166,6 @@ public class Duos : MonoBehaviour
         right = true;
         duosShootEv.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
+
     #endregion IEnum
 }
-
-

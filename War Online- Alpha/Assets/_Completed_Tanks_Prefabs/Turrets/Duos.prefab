@@ -677,14 +677,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5638661103774576489}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16935992e3631bb47b673d0abd2aa2b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 4
-  minAngle: 0
+  minAngle: -360
   maxAngle: 360
+  recenterSpeed: 0.01
 --- !u!114 &4132897965214182350
 MonoBehaviour:
   m_ObjectHideFlags: 0

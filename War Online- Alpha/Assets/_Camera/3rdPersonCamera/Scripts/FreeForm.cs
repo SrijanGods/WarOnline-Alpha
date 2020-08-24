@@ -1,4 +1,5 @@
 ﻿using System;
+using _Scripts.Controls;
 using UnityEngine;
 
 namespace ThirdPersonCamera
@@ -23,10 +24,8 @@ namespace ThirdPersonCamera
         public Vector2 mouseSensitivity = new Vector2(1.5f, 1.0f);
         public Vector2 controllerSensitivity = new Vector2(1.0f, 0.7f);
 
-        [HideInInspector]
-        public float x;
-        [HideInInspector]
-        public float y;
+        [HideInInspector] public float x;
+        [HideInInspector] public float y;
         private float yAngle;
         private float angle;
 
@@ -41,6 +40,8 @@ namespace ThirdPersonCamera
         private bool smartPivotInit;
 
         private CameraController cameraController;
+
+        public bool disableInputs = true;
 
         public void Start()
         {
@@ -85,6 +86,14 @@ namespace ThirdPersonCamera
 
         public void Update()
         {
+            x = SimulatedInput.GetAxis(InputCodes.MouseLookX);
+            y = SimulatedInput.GetAxis(InputCodes.MouseLookY);
+
+            if (disableInputs)
+            {
+                x = y = 0;
+            }
+
             if (cameraEnabled)
             {
                 mouse0 = Input.GetMouseButton(0);
@@ -92,8 +101,8 @@ namespace ThirdPersonCamera
 
                 if ((cameraMode == CameraMode.Hold && mouse0 || mouse1) || cameraMode == CameraMode.Always)
                 {
-                    x = Input.GetAxis("Mouse X") * mouseSensitivity.x;
-                    y = Input.GetAxis("Mouse Y") * mouseSensitivity.y;
+                    // x = Input.GetAxis("Mouse X") * mouseSensitivity.x;
+                    // y = Input.GetAxis("Mouse Y") * mouseSensitivity.y;
 
                     if (mouseInvertY)
                         y *= -1.0f;
@@ -118,8 +127,8 @@ namespace ThirdPersonCamera
 
                 if (controllerEnabled && x == 0 && y == 0)
                 {
-                    x = Input.GetAxis(rightAxisXName) * controllerSensitivity.x;
-                    y = Input.GetAxis(rightAxisYName) * controllerSensitivity.y;
+                    // x = Input.GetAxis(rightAxisXName) * controllerSensitivity.x;
+                    // y = Input.GetAxis(rightAxisYName) * controllerSensitivity.y;
 
                     if (controllerInvertY)
                         y *= -1.0f;
@@ -129,6 +138,7 @@ namespace ThirdPersonCamera
                 {
                     cameraController.desiredDistance += cameraController.zoomOutStepValue;
                 }
+
                 if (Input.GetAxis("Mouse ScrollWheel") > 0) // forward
                 {
                     cameraController.desiredDistance -= cameraController.zoomOutStepValue;
@@ -137,9 +147,11 @@ namespace ThirdPersonCamera
                 if (cameraController.desiredDistance < 0)
                     cameraController.desiredDistance = 0;
 
-                Vector3 offsetVectorTransformed = cameraController.target.transform.rotation * cameraController.offsetVector;
+                Vector3 offsetVectorTransformed =
+                    cameraController.target.transform.rotation * cameraController.offsetVector;
 
-                transform.RotateAround(cameraController.target.position + offsetVectorTransformed, cameraController.target.up, x);
+                transform.RotateAround(cameraController.target.position + offsetVectorTransformed,
+                    cameraController.target.up, x);
 
                 yAngle = -y;
                 // Prevent camera flipping
@@ -163,10 +175,12 @@ namespace ThirdPersonCamera
                 }
 
                 if (!cameraController.smartPivot || cameraController.cameraNormalMode
-                    && (!cameraController.bGroundHit || (cameraController.bGroundHit && y < 0) || transform.position.y > (cameraController.target.position.y + cameraController.offsetVector.y)))
+                    && (!cameraController.bGroundHit || (cameraController.bGroundHit && y < 0) || transform.position.y >
+                        (cameraController.target.position.y + cameraController.offsetVector.y)))
                 {
                     // normal mode
-                    transform.RotateAround(cameraController.target.position + offsetVectorTransformed, transform.right, yAngle);
+                    transform.RotateAround(cameraController.target.position + offsetVectorTransformed, transform.right,
+                        yAngle);
                 }
                 else
                 {
@@ -179,7 +193,8 @@ namespace ThirdPersonCamera
 
                     transform.RotateAround(transform.position, transform.right, yAngle);
 
-                    if (transform.rotation.eulerAngles.x > cameraController.startingY || (transform.rotation.eulerAngles.x >= 0 && transform.rotation.eulerAngles.x < 90))
+                    if (transform.rotation.eulerAngles.x > cameraController.startingY ||
+                        (transform.rotation.eulerAngles.x >= 0 && transform.rotation.eulerAngles.x < 90))
                     {
                         smartPivotInit = true;
 
@@ -190,4 +205,3 @@ namespace ThirdPersonCamera
         }
     }
 }
-

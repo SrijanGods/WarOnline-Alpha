@@ -23,6 +23,6 @@ public class TouchProcessor : MonoBehaviour
     void Update()
     {
         lookAxis = touchField.TouchDist;
-        fire = fixedButton.Pressed;
+        fire = fixedButton.pressed;
     }
 }

@@ -10,150 +10,172 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using _Scripts.Controls;
 using UnityEngine.EventSystems;
 
 [AddComponentMenu("BoneCracker Games/Realistic Tank Controller/UI/Joystick")]
-public class RTC_UIJoystickController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler {
+public class RTC_UIJoystickController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
+{
+    // Getting an Instance of Main Shared RTC Settings.
 
-	// Getting an Instance of Main Shared RTC Settings.
-	#region RTC Settings Instance
+    #region RTC Settings Instance
 
-	private RTC_Settings RTCSettingsInstance;
-	private RTC_Settings RTCSettings {
-		get {
-			if (RTCSettingsInstance == null) {
-				RTCSettingsInstance = RTC_Settings.Instance;
-			}
-			return RTCSettingsInstance;
-		}
-	}
+    private RTC_Settings RTCSettingsInstance;
 
-	#endregion
+    private RTC_Settings RTCSettings
+    {
+        get
+        {
+            if (RTCSettingsInstance == null)
+            {
+                RTCSettingsInstance = RTC_Settings.Instance;
+            }
 
-	public enum AxisOption
-	{
-		// Options for which axes to use
-		OnlyVertical, // Only vertical
-		OnlyHorizontal, // Only horizontal
-		Both // Use both
-	}
+            return RTCSettingsInstance;
+        }
+    }
 
-	public int MovementRange = 100;
-	public AxisOption axesToUse = AxisOption.Both; // The options for the axes that the still will use.
+    #endregion
 
-	public JoystickType joystickType;
-	public enum JoystickType{Controlling, Aiming}
+    public enum AxisOption
+    {
+        // Options for which axes to use
+        OnlyVertical, // Only vertical
+        OnlyHorizontal, // Only horizontal
+        Both // Use both
+    }
 
-	internal float verticalInput = 0f;
-	internal float horizontal = 0f;
+    public int MovementRange = 100;
+    public AxisOption axesToUse = AxisOption.Both; // The options for the axes that the still will use.
 
-	private float sensitivity{get{return RTCSettings.UIButtonSensitivity;}}
-	private float gravity{get{return RTCSettings.UIButtonGravity;}}
-	public bool pressing = false;
+    public JoystickType joystickType;
 
-	Vector3 m_StartPos;
+    public enum JoystickType
+    {
+        Controlling,
+        Aiming
+    }
 
-	void Start () {
+    internal float verticalInput = 0f;
+    internal float horizontal = 0f;
 
-		m_StartPos = transform.position;
-	
-	}
+    private float sensitivity
+    {
+        get { return RTCSettings.UIButtonSensitivity; }
+    }
 
-	void Update(){
+    private float gravity
+    {
+        get { return RTCSettings.UIButtonGravity; }
+    }
 
-		if (!pressing) {
-			verticalInput = Mathf.MoveTowards (verticalInput, 0f, Time.deltaTime * gravity);
-			horizontal = Mathf.MoveTowards (horizontal, 0f, Time.deltaTime * gravity);
-		}
+    public bool pressing = false;
 
-		if(verticalInput < -1f)
-			verticalInput = -1f;
-		if(verticalInput > 1f)
-			verticalInput = 1f;
+    Vector3 m_StartPos;
+    public InputCodes horizontalAxis, verticalAxis;
 
-		if(horizontal < -1f)
-			horizontal = -1f;
-		if(horizontal > 1f)
-			horizontal = 1f;
+    void Start()
+    {
+        m_StartPos = transform.position;
+    }
 
-	}
-	
-	void UpdateVirtualAxes(Vector3 value){
-		
-		var delta = m_StartPos - value;
-		delta.y = -delta.y;
-		delta /= MovementRange;
+    void Update()
+    {
+        if (!pressing)
+        {
+            verticalInput = Mathf.MoveTowards(verticalInput, 0f, Time.deltaTime * gravity);
+            horizontal = Mathf.MoveTowards(horizontal, 0f, Time.deltaTime * gravity);
+        }
 
-		switch (axesToUse) {
+        if (verticalInput < -1f)
+            verticalInput = -1f;
+        if (verticalInput > 1f)
+            verticalInput = 1f;
 
-		case AxisOption.OnlyVertical:
-			verticalInput = delta.y;
-			break;
+        if (horizontal < -1f)
+            horizontal = -1f;
+        if (horizontal > 1f)
+            horizontal = 1f;
+    }
 
-		case AxisOption.OnlyHorizontal:
-			horizontal = -delta.x;
-			break;
+    void UpdateVirtualAxes(Vector3 value)
+    {
+        var delta = m_StartPos - value;
+        delta.y = -delta.y;
+        delta /= MovementRange;
 
-		case AxisOption.Both:
-			horizontal = -delta.x;
-			verticalInput = delta.y;
-			break;
+        switch (axesToUse)
+        {
+            case AxisOption.OnlyVertical:
+                verticalInput = delta.y;
+                break;
 
-		}
+            case AxisOption.OnlyHorizontal:
+                horizontal = -delta.x;
+                break;
 
-	}
+            case AxisOption.Both:
+                horizontal = -delta.x;
+                verticalInput = delta.y;
+                break;
+        }
 
-	public void OnDrag(PointerEventData data){
-		
-		Vector3 newPos = Vector3.zero;
+        SimulatedInput.SetAxis(horizontalAxis, horizontal, true);
+        SimulatedInput.SetAxis(verticalAxis, verticalInput, true);
+    }
 
-		int verticalDelta = 0;
-		int horizontalDelta = 0;
+    public void OnDrag(PointerEventData data)
+    {
+        Vector3 newPos = Vector3.zero;
 
-		switch (axesToUse) {
+        int verticalDelta = 0;
+        int horizontalDelta = 0;
 
-		case AxisOption.OnlyVertical:
-			verticalDelta = (int)(data.position.y - m_StartPos.y);
-			verticalDelta = Mathf.Clamp(verticalDelta, -MovementRange, MovementRange);
-			newPos.y = verticalDelta;
-			break;
+        switch (axesToUse)
+        {
+            case AxisOption.OnlyVertical:
+                verticalDelta = (int) (data.position.y - m_StartPos.y);
+                verticalDelta = Mathf.Clamp(verticalDelta, -MovementRange, MovementRange);
+                newPos.y = verticalDelta;
+                break;
 
-		case AxisOption.OnlyHorizontal:
-			horizontalDelta = (int)(data.position.x - m_StartPos.x);
-			horizontalDelta = Mathf.Clamp(horizontalDelta, - MovementRange, MovementRange);
-			newPos.x = horizontalDelta;
-			break;
+            case AxisOption.OnlyHorizontal:
+                horizontalDelta = (int) (data.position.x - m_StartPos.x);
+                horizontalDelta = Mathf.Clamp(horizontalDelta, -MovementRange, MovementRange);
+                newPos.x = horizontalDelta;
+                break;
 
-		case AxisOption.Both:
-			verticalDelta = (int)(data.position.y - m_StartPos.y);
-			verticalDelta = Mathf.Clamp(verticalDelta, -MovementRange, MovementRange);
-			newPos.y = verticalDelta;
-			horizontalDelta = (int)(data.position.x - m_StartPos.x);
-			horizontalDelta = Mathf.Clamp(horizontalDelta, - MovementRange, MovementRange);
-			newPos.x = horizontalDelta;
-			break;
+            case AxisOption.Both:
+                verticalDelta = (int) (data.position.y - m_StartPos.y);
+                verticalDelta = Mathf.Clamp(verticalDelta, -MovementRange, MovementRange);
+                newPos.y = verticalDelta;
+                horizontalDelta = (int) (data.position.x - m_StartPos.x);
+                horizontalDelta = Mathf.Clamp(horizontalDelta, -MovementRange, MovementRange);
+                newPos.x = horizontalDelta;
+                break;
+        }
 
-		}
-
-		transform.position = new Vector3(m_StartPos.x + newPos.x, m_StartPos.y + newPos.y, m_StartPos.z + newPos.z);
-		UpdateVirtualAxes(transform.position);
-
-	}
-
-
-	public void OnPointerUp(PointerEventData data)	{
-
-		pressing = false;
-		transform.position = m_StartPos;
-		UpdateVirtualAxes(m_StartPos);
-
-	}
+        transform.position = new Vector3(m_StartPos.x + newPos.x, m_StartPos.y + newPos.y, m_StartPos.z + newPos.z);
+        UpdateVirtualAxes(transform.position);
+    }
 
 
-	public void OnPointerDown(PointerEventData data) {
+    public void OnPointerUp(PointerEventData data)
+    {
+        pressing = false;
+        transform.position = m_StartPos;
+        UpdateVirtualAxes(m_StartPos);
 
-		pressing = true;
+        SimulatedInput.SimulateInput(horizontalAxis, false);
+        SimulatedInput.SimulateInput(verticalAxis, false);
+    }
 
-	}
 
+    public void OnPointerDown(PointerEventData data)
+    {
+        pressing = true;
+
+        SimulatedInput.SimulateInput(horizontalAxis, true);
+        SimulatedInput.SimulateInput(verticalAxis, true);
+    }
 }

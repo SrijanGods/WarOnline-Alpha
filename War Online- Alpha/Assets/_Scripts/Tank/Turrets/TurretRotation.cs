@@ -1,3 +1,5 @@
+using System;
+using _Scripts.Controls;
 using UnityEngine;
 using Photon.Pun;
 
@@ -13,7 +15,7 @@ public class TurretRotation : MonoBehaviourPun, IPunObservable
 
     [SerializeField, Tooltip("Right angle")]
     private float maxAngle = 60f;
-    
+
     //exclusively for sniper
     private float sniperrotateSpeed = 0.3f;
     private Transform dummyScope;
@@ -22,11 +24,13 @@ public class TurretRotation : MonoBehaviourPun, IPunObservable
     private float maxXAngle = 1.179f;
     private float minXAngle = -3f;
 
-    private TouchProcessor tP;
+    // private TouchProcessor tP;
+
+    public float recenterSpeed;
 
     void Start()
     {
-        tP = GetComponentInParent<TouchProcessor>();
+        // tP = GetComponentInParent<TouchProcessor>();
         minAngle += 360;
         minXAngle += 360;
 
@@ -36,25 +40,28 @@ public class TurretRotation : MonoBehaviourPun, IPunObservable
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if(tP.lookAxis.x != 0f)
+        var lookX = SimulatedInput.GetAxis(InputCodes.MouseLookX);
+        var lookY = SimulatedInput.GetAxis(InputCodes.MouseLookY);
+
+        if (Math.Abs(lookX) > .05f)
         {
-            yaw += rotateSpeed * tP.lookAxis.x;
+            yaw += rotateSpeed * lookX;
         }
 
-        if (tP.lookAxis.y != 0f)
+        /*if (Math.Abs(lookY) > .05f)
         {
-            yaw += rotateSpeed * tP.lookAxis.y;
-        }
+            yaw += rotateSpeed * lookY;
+        }*/
 
         yaw = Mathf.Clamp(yaw, -rotateSpeed, rotateSpeed);
 
         transform.Rotate(Vector3.up, yaw);
 
-        if (transform.localEulerAngles.y > maxAngle && transform.localEulerAngles.y < minAngle)
+        if (transform.localEulerAngles.y > maxAngle || transform.localEulerAngles.y < minAngle)
         {
-            if(yaw < 0f)
+            if (transform.localEulerAngles.y < minAngle)
             {
                 Vector3 tempVec = new Vector3(0f, minAngle, 0f);
                 transform.localEulerAngles = tempVec;
@@ -67,49 +74,37 @@ public class TurretRotation : MonoBehaviourPun, IPunObservable
         }
 
         yaw = 0f;
-        /*
-        if (Input.GetButtonDown("escape"))
-        {
-            DoUnlockMouse();
-        }
-        if (Input.GetButtonUp("escape"))
-        {
-            DoLockMouse();
-        }*/
-    }
 
-    void DoLockMouse()
-    {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        if (SimulatedInput.GetButtonDown(InputCodes.Recenter))
+            transform.localEulerAngles = Vector3.zero;
+
+        if (Math.Abs(yaw) <= .05f)
+        {
+            transform.localRotation =
+                Quaternion.Lerp(transform.localRotation, Quaternion.identity, recenterSpeed);
+        }
     }
 
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting) stream.SendNext(yaw);
-        else this.yaw = (float)stream.ReceiveNext();
-    }
-
-    void DoUnlockMouse ()
-    {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        else yaw = (float) stream.ReceiveNext();
     }
 
     public void SniperCamRotation(bool running)
     {
         if (running)
         {
-
-            if (Input.GetAxis("Mouse Y") != 0f)
+            var y = SimulatedInput.GetAxis(InputCodes.MouseLookY);
+            if (Math.Abs(y) > .05f)
             {
-               // xaw += sniperrotateSpeed * Input.GetAxis("Mouse Y");
+                xaw += sniperrotateSpeed * y;
             }
 
-            if (Input.GetAxis("Vertical") != 0f)
+            /*if (Input.GetAxis("Vertical") != 0f)
             {
                 xaw += sniperrotateSpeed * -Input.GetAxis("Vertical");
-            }
+            }*/
 
             xaw = Mathf.Clamp(xaw, -sniperrotateSpeed, sniperrotateSpeed);
 
@@ -133,5 +128,3 @@ public class TurretRotation : MonoBehaviourPun, IPunObservable
         }
     }
 }
-
-

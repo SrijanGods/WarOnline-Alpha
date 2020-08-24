@@ -10,70 +10,91 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using _Scripts.Controls;
 using UnityEngine.EventSystems;
 
 [AddComponentMenu("BoneCracker Games/Realistic Tank Controller/UI/Drag")]
-public class RTC_UIDragController : MonoBehaviour, IDragHandler {
+public class RTC_UIDragController : MonoBehaviour, IDragHandler
+{
+    // Getting an Instance of Main Shared RTC Settings.
 
-	// Getting an Instance of Main Shared RTC Settings.
-	#region RTC Settings Instance
+    #region RTC Settings Instance
 
-	private RTC_Settings RTCSettingsInstance;
-	private RTC_Settings RTCSettings {
-		get {
-			if (RTCSettingsInstance == null) {
-				RTCSettingsInstance = RTC_Settings.Instance;
-			}
-			return RTCSettingsInstance;
-		}
-	}
+    private RTC_Settings RTCSettingsInstance;
 
-	#endregion
+    private RTC_Settings RTCSettings
+    {
+        get
+        {
+            if (RTCSettingsInstance == null)
+            {
+                RTCSettingsInstance = RTC_Settings.Instance;
+            }
 
-	internal float verticalInput = 0f;
-	internal float horizontal = 0f;
+            return RTCSettingsInstance;
+        }
+    }
 
-	private float sensitivity{get{return RTCSettings.UIButtonSensitivity;}}
-	private float gravity{get{return RTCSettings.UIButtonGravity;}}
-	public bool pressing = false;
+    #endregion
 
-	void Update(){
+    internal float verticalInput = 0f;
+    internal float horizontal = 0f;
 
-		if (!pressing) {
-			verticalInput = Mathf.MoveTowards (verticalInput, 0f, Time.deltaTime * gravity);
-			horizontal = Mathf.MoveTowards (horizontal, 0f, Time.deltaTime * gravity);
-		}
+    private float sensitivity
+    {
+        get { return RTCSettings.UIButtonSensitivity; }
+    }
 
-		if(verticalInput < -1f)
-			verticalInput = -1f;
-		if(verticalInput > 1f)
-			verticalInput = 1f;
+    private float gravity
+    {
+        get { return RTCSettings.UIButtonGravity; }
+    }
 
-		if(horizontal < -1f)
-			horizontal = -1f;
-		if(horizontal > 1f)
-			horizontal = 1f;
+    public bool pressing = false;
+    public InputCodes horizontalAxis, verticalAxis;
 
-	}
-	
-	public void OnDrag(PointerEventData data){
+    void Update()
+    {
+        if (!pressing)
+        {
+            verticalInput = Mathf.MoveTowards(verticalInput, 0f, Time.deltaTime * gravity);
+            horizontal = Mathf.MoveTowards(horizontal, 0f, Time.deltaTime * gravity);
+        }
 
-		//verticalInput = -data.delta.y * sensitivity * 0f;
-		horizontal = -data.delta.x * sensitivity * .02f;
+        if (verticalInput < -1f)
+            verticalInput = -1f;
+        if (verticalInput > 1f)
+            verticalInput = 1f;
 
-	}
+        if (horizontal < -1f)
+            horizontal = -1f;
+        if (horizontal > 1f)
+            horizontal = 1f;
 
-	public void OnBeginDrag(PointerEventData data)	{
+        SimulatedInput.SetAxis(horizontalAxis, horizontal, true);
+        SimulatedInput.SetAxis(verticalAxis, verticalInput, true);
+    }
 
-		pressing = false;
+    public void OnDrag(PointerEventData data)
+    {
+        verticalInput = -data.delta.y * sensitivity * .02f;
+        horizontal = -data.delta.x * sensitivity * .02f;
+    }
 
-	}
+    public void OnBeginDrag(PointerEventData data)
+    {
+        pressing = true;
+
+        SimulatedInput.SimulateInput(horizontalAxis, true);
+        SimulatedInput.SimulateInput(verticalAxis, true);
+    }
 
 
-	public void OnEndDrag(PointerEventData data) {
+    public void OnEndDrag(PointerEventData data)
+    {
+        pressing = false;
 
-		pressing = true;
-
-	}
-		
+        SimulatedInput.SimulateInput(horizontalAxis, false);
+        SimulatedInput.SimulateInput(verticalAxis, false);
+    }
 }
