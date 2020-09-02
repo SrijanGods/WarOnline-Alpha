@@ -43,7 +43,7 @@ public class GlobalValues : MonoBehaviour
         }
         else
         {
-            PlayerPrefs.SetString("CurrentTurret", "Dominator");
+            PlayerPrefs.SetString("CurrentHull", "Dominator");
             hull = "Dominator";
         }
     }
