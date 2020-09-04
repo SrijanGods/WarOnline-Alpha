@@ -24,7 +24,6 @@ public class ImageUpdater : MonoBehaviour
 
     IEnumerator SyncHull()
     {
-        yield return new WaitUntil(() => GameObject.FindGameObjectWithTag("GameController").GetComponent<InventorySelection>().inventoryLoaded);
         yield return new WaitUntil(() => GlobalValues.Instance.hull != null);
         hullText.text = GlobalValues.Instance.hull;
 
@@ -34,7 +33,6 @@ public class ImageUpdater : MonoBehaviour
 
     IEnumerator SyncTurret()
     {
-        yield return new WaitUntil(() => GameObject.FindGameObjectWithTag("GameController").GetComponent<InventorySelection>().inventoryLoaded);
         yield return new WaitUntil(() => GlobalValues.Instance.turret != null);
         turretText.text = GlobalValues.Instance.turret;
 

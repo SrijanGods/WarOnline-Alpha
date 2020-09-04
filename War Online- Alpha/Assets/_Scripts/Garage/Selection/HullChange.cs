@@ -15,7 +15,6 @@ public class HullChange : MonoBehaviour {
 
     IEnumerator UpdateHull()
     {
-        yield return new WaitUntil(() => GameObject.FindGameObjectWithTag("GameController").GetComponent<InventorySelection>().inventoryLoaded);
         yield return new WaitForSeconds(1f);
         yield return new WaitUntil(() => GlobalValues.Instance.hull != null);
         DisableAll();

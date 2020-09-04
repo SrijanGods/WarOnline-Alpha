@@ -8,9 +8,7 @@ public class FPSDisplayer : MonoBehaviour
 
     private void Start()
     {
-		int h = (int)(Screen.currentResolution.height * 0.7);
-		int w = (int)(Screen.currentResolution.width * 0.7);
-		Screen.SetResolution(w, h, true);
+		Screen.SetResolution(800, 450, true);
 		foreach(Camera cam in cams)
         {
 			cam.aspect = 16f / 9f;
