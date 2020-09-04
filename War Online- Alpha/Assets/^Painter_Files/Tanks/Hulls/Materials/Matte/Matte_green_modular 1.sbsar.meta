@@ -17,8 +17,15 @@ ScriptedImporter:
     generateAllOutputs: 0
     generateMipMaps: 1
     preset: " <sbspreset pkgurl=\"pkg://Matte_green_modular\" label=\"\" >\n  <presetinput
-      identifier=\"$outputsize\" uid=\"3550122055\" type=\"8\" value=\"9,9\" />\n
-      </sbspreset>\n"
+      identifier=\"Color1\" uid=\"3146957170\" type=\"3\" value=\"0.0239854,0.726415,0.0545258,1\"
+      />\n  <presetinput identifier=\"Color2\" uid=\"3146956821\" type=\"3\" value=\"0.121567,0.85098,0,1\"
+      />\n  <presetinput identifier=\"Shards_disorder\" uid=\"3146949156\" type=\"0\"
+      value=\"0.07\" />\n  <presetinput identifier=\"General_N_Intensity\" uid=\"3146932158\"
+      type=\"0\" value=\"1.55\" />\n  <presetinput identifier=\"Granul_N_Intensity\"
+      uid=\"3146928547\" type=\"0\" value=\"0.62\" />\n  <presetinput identifier=\"Granul_softness\"
+      uid=\"3146929163\" type=\"0\" value=\"1.26\" />\n  <presetinput identifier=\"General_roughness\"
+      uid=\"3146960756\" type=\"0\" value=\"0.566\" />\n  <presetinput identifier=\"Shards_roughness\"
+      uid=\"3148685784\" type=\"0\" value=\"0.341\" />\n </sbspreset>\n"
     shaderName: Universal Render Pipeline/Lit
     materialProperties:
       shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
@@ -138,7 +145,7 @@ ScriptedImporter:
       usage: 34
       bImage: 1
       bNumerical: 0
-      bLinear: 1
+      bLinear: 0
     - outputName: roughness
       identifier: output_3
       usageName: roughness
@@ -192,8 +199,8 @@ ScriptedImporter:
     - label: Default
       bOverride: 0
       bLockRatio: 1
-      textureWidth: 512
-      textureHeight: 512
+      textureWidth: 256
+      textureHeight: 256
       textureFormatMode: 0
       normalCompressed: 0
       bGenerateOnLoad: 1

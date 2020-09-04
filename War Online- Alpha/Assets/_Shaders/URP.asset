@@ -31,7 +31,7 @@ MonoBehaviour:
   m_MainLightShadowmapResolution: 1024
   m_AdditionalLightsRenderingMode: 1
   m_AdditionalLightsPerObjectLimit: 3
-  m_AdditionalLightShadowsSupported: 0
+  m_AdditionalLightShadowsSupported: 1
   m_AdditionalLightsShadowmapResolution: 512
   m_ShadowDistance: 11.41
   m_ShadowCascades: 0
@@ -40,7 +40,7 @@ MonoBehaviour:
   m_ShadowDepthBias: 0.88
   m_ShadowNormalBias: 0
   m_SoftShadowsSupported: 0
-  m_UseSRPBatcher: 1
+  m_UseSRPBatcher: 0
   m_SupportsDynamicBatching: 0
   m_MixedLightingSupported: 1
   m_DebugLevel: 0

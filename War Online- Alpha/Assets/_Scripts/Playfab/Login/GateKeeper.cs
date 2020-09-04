@@ -10,6 +10,7 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using Photon.Pun;
 using Random = UnityEngine.Random;
+using WebSocketSharp;
 
 public class GateKeeper : MonoBehaviour
 {
@@ -28,12 +29,18 @@ public class GateKeeper : MonoBehaviour
     [Header("Play Game Login")]
     public Button Google;
 
+    public bool reset;
     [HideInInspector]
     public bool PlayfabConnected;
 
     private void Awake()
     {
         FB.Init(() => FB.ActivateApp());
+
+        if (reset)
+        {
+            PlayerPrefs.DeleteAll();
+        }
     }
 
     private void Start()
@@ -46,7 +53,6 @@ public class GateKeeper : MonoBehaviour
         }
         else
         {
-            print(PlayerPrefs.GetString("LoggedInWithFB"));
         }
     }
 
@@ -94,16 +100,7 @@ public class GateKeeper : MonoBehaviour
                         StartCoroutine(GetTextureFromGraphResult(resI));
                     });
 
-                    PlayFabClientAPI.UpdateUserTitleDisplayName(new UpdateUserTitleDisplayNameRequest
-                    {
-                        DisplayName = FBUserName
-                    },
-                    r =>
-                    {
-                    },
-                    e =>
-                    {
-                    });
+                    StartCoroutine(UploadName());
                 }
                 else
                 {
@@ -145,6 +142,23 @@ public class GateKeeper : MonoBehaviour
         }
     }
 
+    IEnumerator UploadName()
+    {
+        yield return new WaitUntil(() => !FBUserName.IsNullOrEmpty());
+
+        PlayFabClientAPI.UpdateUserTitleDisplayName(new UpdateUserTitleDisplayNameRequest
+        {
+            DisplayName = FBUserName.ToString()
+        },
+        r =>
+        {
+            print(FBUserName);
+        },
+        e =>
+        {
+            print(e.Error);
+        });
+    }
     #region ImageMech
 
     public void GetFacebookUserPictureFromUrl(string id, int width, int height, Action<IGraphResult> successCallback = null, Action<IGraphResult> errorCallback = null)

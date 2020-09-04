@@ -15,6 +15,7 @@ public class TurretChange : MonoBehaviour
 
     IEnumerator UpdateTurret()
     {
+        yield return new WaitUntil(() => GameObject.FindGameObjectWithTag("GameController").GetComponent<InventorySelection>().inventoryLoaded);
         yield return new WaitForSeconds(1f);
         yield return new WaitUntil(() => GlobalValues.Instance.turret != null);
         DisableAll();
