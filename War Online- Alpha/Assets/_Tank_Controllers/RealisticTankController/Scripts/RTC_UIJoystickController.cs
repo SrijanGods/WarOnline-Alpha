@@ -7,6 +7,7 @@
 //
 //----------------------------------------------
 
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
@@ -59,6 +60,8 @@ public class RTC_UIJoystickController : MonoBehaviour, IPointerDownHandler, IPoi
     internal float verticalInput = 0f;
     internal float horizontal = 0f;
 
+    public float deadzoneHoriz, deadzoneVert;
+
     private float sensitivity
     {
         get { return RTCSettings.UIButtonSensitivity; }
@@ -100,8 +103,7 @@ public class RTC_UIJoystickController : MonoBehaviour, IPointerDownHandler, IPoi
 
     void UpdateVirtualAxes(Vector3 value)
     {
-        var delta = m_StartPos - value;
-        delta.y = -delta.y;
+        var delta = value - m_StartPos;
         delta /= MovementRange;
 
         switch (axesToUse)
@@ -111,14 +113,22 @@ public class RTC_UIJoystickController : MonoBehaviour, IPointerDownHandler, IPoi
                 break;
 
             case AxisOption.OnlyHorizontal:
-                horizontal = -delta.x;
+                horizontal = delta.x;
                 break;
 
             case AxisOption.Both:
-                horizontal = -delta.x;
+                horizontal = delta.x;
                 verticalInput = delta.y;
                 break;
         }
+
+        var comp = new Vector2(Math.Abs(delta.x), Math.Abs(delta.y));
+
+        if (Vector2.Angle(comp, Vector2.up) < deadzoneHoriz)
+            horizontal = 0;
+
+        if (Vector2.Angle(comp, Vector2.right) < deadzoneVert)
+            verticalInput = 0;
 
         SimulatedInput.SetAxis(horizontalAxis, horizontal, true);
         SimulatedInput.SetAxis(verticalAxis, verticalInput, true);

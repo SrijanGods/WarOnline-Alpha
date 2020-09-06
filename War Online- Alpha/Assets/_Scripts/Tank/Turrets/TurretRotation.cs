@@ -75,14 +75,10 @@ public class TurretRotation : MonoBehaviourPun, IPunObservable
 
         yaw = 0f;
 
-        if (SimulatedInput.GetButtonDown(InputCodes.Recenter))
-            transform.localEulerAngles = Vector3.zero;
+        if (!SimulatedInput.GetButton(InputCodes.Recenter)) return;
 
-        if (Math.Abs(yaw) <= .05f)
-        {
-            transform.localRotation =
-                Quaternion.Lerp(transform.localRotation, Quaternion.identity, recenterSpeed);
-        }
+        if (transform.localEulerAngles.magnitude < 10) transform.localRotation = Quaternion.identity;
+        else transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.identity, recenterSpeed);
     }
 
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

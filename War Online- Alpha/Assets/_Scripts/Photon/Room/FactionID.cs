@@ -1,16 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Photon.Pun;
 using UnityEngine;
-using Photon.Pun;
 
-public class FactionID : MonoBehaviour
+namespace _Scripts.Photon.Room
 {
-    public float _teamID = 1;
-    public float myAccID;
-
-    private void Start()
+    public class FactionID : MonoBehaviour
     {
-        myAccID = gameObject.GetComponent<PhotonView>().ViewID;
-    }
+        public int teamID = 1;
+        public int myAccID;
 
+        private void Start()
+        {
+            myAccID = gameObject.GetComponent<PhotonView>().ViewID;
+        }
+    }
 }

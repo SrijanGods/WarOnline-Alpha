@@ -1,88 +1,85 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using _Scripts.Controls;
+using _Scripts.Photon.Room;
 using UnityEngine;
 using UnityEngine.UI;
-using Photon.Pun;
 
-public class OneShot : MonoBehaviourPun
+namespace _Scripts.Tank.Turrets.Blaster
 {
-    [Header("Reload Functions")]
-    [SerializeField]
-    private float reloadTime;
-    private float ammo = 1f;
-    [SerializeField]
-    private float range = 450f;
-
-    [Header("Damage Values")]
-    [SerializeField]
-    private float damage;
-    [SerializeField]
-    private ParticleSystem hitEffect;
-
-    [Header("Others")]
-    [SerializeField]
-    private Transform firePoint;
-    [SerializeField]
-    private ParticleSystem barrelFlash;
-
-    [Header("Sound System")]
-    [FMODUnity.EventRef]
-    public string sniperShootSfx = "event:/Sniper";
-    FMOD.Studio.EventInstance sniperShootEv;
-
-    private RaycastHit target;
-    private float ammoReload;
-    private float timeForBar;
-  
-    private TankHealth tankHealth;
-    private GameObject mainCanvas;
-    private Slider coolDownSlider;
-    private Image fillImage;
-    private Animator animator;
-    private bool camMove = false;
-    private float currentReloadValue;
-    private float expectedReloadValue;
-
-    #region Start&Update
-    private void Start()
+    public class OneShot : MonoBehaviour
     {
-        barrelFlash.Play(false);
+        [Header("Reload Functions")] [SerializeField]
+        private float reloadTime;
 
-        //Interface
-        tankHealth = GetComponentInParent<TankHealth>();
-        mainCanvas = tankHealth.warCanvas;
-        GameObject coolDownUI = mainCanvas.transform.Find("CoolDownUI").gameObject;
-        coolDownSlider = coolDownUI.GetComponent<Slider>();
-        GameObject coolDown = coolDownUI.transform.Find("CoolDown").gameObject;
-        coolDownSlider.maxValue = 1f;
-        coolDownSlider.minValue = 0f;
-        coolDownSlider.value = 1f;
-        fillImage = coolDown.GetComponentInChildren<Image>();
-    }
+        private int _ammo = 1;
+        [SerializeField] private float range = 450f;
 
-    private void Update()
-    {
-        if (Input.GetButtonDown("Fire"))
+        [Header("Damage Values")] [SerializeField]
+        private float damage;
+
+        [SerializeField] private ParticleSystem hitEffect;
+
+        [Header("Others")] [SerializeField] private Transform firePoint;
+        [SerializeField] private ParticleSystem barrelFlash;
+        public LayerMask shootObjectslayer;
+
+        [Header("Sound System")] [FMODUnity.EventRef]
+        public string sniperShootSfx = "event:/Sniper";
+
+        FMOD.Studio.EventInstance sniperShootEv;
+
+        private RaycastHit target;
+        private float ammoReload;
+        private float timeForBar;
+
+        private TankHealth _myTankHealth;
+        private GameObject mainCanvas;
+        private Slider coolDownSlider;
+        private Image fillImage;
+        private Animator animator;
+        private bool camMove = false;
+        private float currentReloadValue;
+        private float expectedReloadValue;
+
+        #region Start&Update
+
+        private void Start()
         {
-            if(ammo >= 1)
-            {
-                Shoot();
-            }
+            barrelFlash.Play(false);
+
+            //Interface
+            _myTankHealth = GetComponentInParent<TankHealth>();
+            mainCanvas = _myTankHealth.warCanvas;
+            GameObject coolDownUI = mainCanvas.transform.Find("CoolDownUI").gameObject;
+            coolDownSlider = coolDownUI.GetComponent<Slider>();
+            GameObject coolDown = coolDownUI.transform.Find("CoolDown").gameObject;
+            coolDownSlider.maxValue = 1f;
+            coolDownSlider.minValue = 0f;
+            coolDownSlider.value = 1f;
+            fillImage = coolDown.GetComponentInChildren<Image>();
         }
 
-        if(ammo < 1f)
+        private void Update()
         {
-            ammoReload += Time.deltaTime;
-            if(ammoReload >= reloadTime)
+            if (SimulatedInput.GetButtonDown(InputCodes.TankFire))
             {
-                ammo = 1f;
-                ammoReload = 0f;
+                if (_ammo >= 1)
+                {
+                    StartCoroutine(nameof(Shoot));
+                }
             }
-        }
 
-        if(coolDownSlider.value != ammo)
-        {
-            if(coolDownSlider.value < ammo)
+            if (_ammo < 1)
+            {
+                ammoReload += Time.deltaTime;
+                if (ammoReload >= reloadTime)
+                {
+                    _ammo = 1;
+                    ammoReload = 0f;
+                }
+            }
+
+            if (coolDownSlider.value < _ammo)
             {
                 timeForBar += Time.deltaTime;
                 if (timeForBar >= 0.06)
@@ -95,49 +92,50 @@ public class OneShot : MonoBehaviourPun
             {
                 coolDownSlider.value = 0f;
             }
-
         }
 
-    }
+        #endregion Start&Update
 
-    #endregion Start&Update
+        #region Shoot
 
-    #region Shoot
-    private void Shoot()
-    {
-        ammo = 0f;
-
-        RaycastHit hit;
-        Physics.Raycast(firePoint.position, firePoint.forward, out hit, range);
-        target = hit;
-
-        barrelFlash.Play(true);
-        TankHealth targetHealth = target.transform.gameObject.GetComponent<TankHealth>();
-
-        if (targetHealth != null)
+        private IEnumerator Shoot()
         {
-            FactionID fID = targetHealth.gameObject.GetComponent<FactionID>();
-            FactionID myID = gameObject.GetComponentInParent<FactionID>();
+            _ammo = 0;
 
-            if (fID == null || fID._teamID == 1 || myID._teamID == 1 || fID._teamID != myID._teamID)
+            barrelFlash.Play(true);
+
+            // wait until next fixed update to cast ray, physics thing
+            yield return new WaitForFixedUpdate();
+
+            // proceed only if the raycast did hit something
+            if (!Physics.Raycast(firePoint.position, firePoint.forward, out target, range, shootObjectslayer))
+                yield break;
+
+            TankHealth targetHealth = target.transform.gameObject.GetComponent<TankHealth>();
+
+            // Damage if hit any tank
+            if (targetHealth && _myTankHealth.photonView.IsMine)
             {
-                if (fID.myAccID != myID.myAccID)
+                FactionID fID = targetHealth.fid;
+                FactionID myID = _myTankHealth.fid;
+
+                if (fID.teamID != myID.teamID)
                 {
-                    targetHealth.gameObject.GetComponent<PhotonView>().RPC("TakeDamage", target.transform.gameObject.GetComponent<PhotonView>().Owner, damage);
+                    if (fID.myAccID != myID.myAccID)
+                    {
+                        targetHealth.TakeDamage(damage);
+                        /*targetHealth.gameObject.GetComponent<PhotonView>().RPC("TakeDamage",
+                            target.transform.gameObject.GetComponent<PhotonView>().Owner, damage);*/
+                    }
                 }
             }
-        }
-        else
-        {
-            if(hit.transform != null)
-            {
-                GameObject i = Instantiate(hitEffect.gameObject, target.point, Quaternion.identity);
-                i.transform.rotation = Quaternion.FromToRotation(Vector3.forward, target.normal);
-                Destroy(i, 10f);
-            }
+
+            // create impact effect at hit pos
+            GameObject i = Instantiate(hitEffect.gameObject, target.point, Quaternion.identity);
+            i.transform.rotation = Quaternion.FromToRotation(Vector3.forward, target.normal);
+            Destroy(i, 10f);
         }
 
+        #endregion Shoot
     }
-    #endregion Shoot
 }
-

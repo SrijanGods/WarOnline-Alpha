@@ -1,96 +1,107 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using _Scripts.Controls;
+using _Scripts.Tank.Projectile;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Duos : MonoBehaviour
+namespace _Scripts.Tank.Turrets.Duos
 {
-    [Header("GameObjects")] public GameObject Sp1;
-    public GameObject Bullet;
-    public GameObject Sp2;
-
-    [Header("Forces")] public float force;
-    public float LerpValue;
-
-    [Header("Particle Systems")] public ParticleSystem muzzleFlashA, muzzleFlashB;
-
-    [Header("Sound Effects")] [FMODUnity.EventRef]
-    public string duosReloadSfx = "event:/TurretDuos";
-
-    FMOD.Studio.EventInstance duosEv;
-    [FMODUnity.EventRef] public string duosShootSfx = "event:/TurretDuosShoot";
-    FMOD.Studio.EventInstance duosShootEv;
-    private Collider enemyFinder;
-    private bool right = true;
-    private bool left = false;
-
-    private Slider coolDownSlider;
-    private Image fillImage;
-    private TankHealth tankHealth;
-    private GameObject mainCanvas;
-    private float myTeamID;
-    private Vector3 enemyPos;
-
-    private bool changeDir = false;
-    // private TouchProcessor tP;
-
-    #region Start&Update
-
-    void Start()
+    public class Duos : ProjectileShooter
     {
-        // tP = GetComponentInParent<TouchProcessor>();
-        tankHealth = GetComponentInParent<TankHealth>();
-        mainCanvas = tankHealth.warCanvas;
-        GameObject coolDownUI = mainCanvas.transform.Find("CoolDownUI").gameObject;
-        coolDownSlider = coolDownUI.GetComponent<Slider>();
-        coolDownSlider.maxValue = 1f;
-        coolDownSlider.minValue = 0f;
-        coolDownSlider.value = 1f;
-        GameObject coolDown = coolDownUI.transform.Find("CoolDown").gameObject;
-        fillImage = coolDown.GetComponentInChildren<Image>();
-        myTeamID = GetComponentInParent<FactionID>()._teamID;
+        [Header("GameObjects")] public GameObject Sp1, Sp2;
 
-        //SFX initialize here
-        duosEv = FMODUnity.RuntimeManager.CreateInstance(duosReloadSfx);
-        FMODUnity.RuntimeManager.AttachInstanceToGameObject(duosEv, GetComponent<Transform>(),
-            GetComponent<Rigidbody>());
-        duosShootEv = FMODUnity.RuntimeManager.CreateInstance(duosShootSfx);
-        FMODUnity.RuntimeManager.AttachInstanceToGameObject(duosShootEv, GetComponent<Transform>(),
-            GetComponent<Rigidbody>());
-        duosEv.start();
-    }
+        [Header("Particle Systems")] public ParticleSystem muzzleFlashA, muzzleFlashB;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (SimulatedInput.GetButton(InputCodes.TankFire))
+        [Header("Sound Effects")] [FMODUnity.EventRef]
+        public string duosReloadSfx = "event:/TurretDuos", duosShootSfx = "event:/TurretDuosShoot";
+
+        FMOD.Studio.EventInstance duosReloadEv, duosShootEv;
+
+        [Header("Cooldown Slider value")] public float decreasePerShoot, increasePerSecond;
+
+        public Collider enemyFinder;
+
+        private bool _right = true, _left;
+
+        private Slider coolDownSlider;
+        private Image fillImage;
+        private TankHealth tankHealth;
+
+        private GameObject mainCanvas;
+
+        // private int myTeamID;
+        private bool _reload;
+
+        // private TouchProcessor tP;
+
+        #region Start&Update
+
+        void Start()
         {
-            if (right == true)
+            autoAim = false;
+
+            // tP = GetComponentInParent<TouchProcessor>();
+            tankHealth = GetComponentInParent<TankHealth>();
+            mainCanvas = tankHealth.warCanvas;
+            GameObject coolDownUI = mainCanvas.transform.Find("CoolDownUI").gameObject;
+            coolDownSlider = coolDownUI.GetComponent<Slider>();
+            coolDownSlider.maxValue = 1f;
+            coolDownSlider.minValue = 0f;
+            coolDownSlider.value = 1f;
+            GameObject coolDown = coolDownUI.transform.Find("CoolDown").gameObject;
+            fillImage = coolDown.GetComponentInChildren<Image>();
+
+            //SFX initialize here
+            duosReloadEv = FMODUnity.RuntimeManager.CreateInstance(duosReloadSfx);
+            FMODUnity.RuntimeManager.AttachInstanceToGameObject(duosReloadEv, GetComponent<Transform>(),
+                GetComponent<Rigidbody>());
+            duosShootEv = FMODUnity.RuntimeManager.CreateInstance(duosShootSfx);
+            FMODUnity.RuntimeManager.AttachInstanceToGameObject(duosShootEv, GetComponent<Transform>(),
+                GetComponent<Rigidbody>());
+        }
+
+        void FixedUpdate()
+        {
+            if (coolDownSlider.value <= decreasePerShoot)
             {
-                StartCoroutine(Waiting());
+                muzzleFlashA.Stop(true);
+                muzzleFlashB.Stop(true);
             }
-            else if (left == true)
+
+            if (SimulatedInput.GetButton(InputCodes.TankFire))
             {
-                StartCoroutine(Waiting2());
+                _reload = true;
+
+                if (coolDownSlider.value <= decreasePerShoot) return;
+
+                if (_right)
+                {
+                    StartCoroutine(nameof(RightShoot));
+                }
+                else if (_left)
+                {
+                    StartCoroutine(nameof(LeftShoot));
+                }
+            }
+            else
+            {
+                if (_reload) duosReloadEv.start();
+                _reload = false;
+                coolDownSlider.value += increasePerSecond * Time.fixedDeltaTime;
             }
         }
-        else
-        {
-        }
-    }
 
-    #endregion Start&Update
+        #endregion Start&Update
 
-    #region Collision
+        /*#region Collision
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnTriggerEnter(Collider otherCollider)
     {
-        if (collider.GetComponentInParent<FactionID>() != null)
+        if (otherCollider.GetComponentInParent<FactionID>() != null)
         {
-            if (collider.GetComponentInParent<FactionID>()._teamID != myTeamID && collider.isTrigger == false)
+            if (otherCollider.GetComponentInParent<FactionID>()._teamID != myTeamID && otherCollider.isTrigger == false)
             {
-                enemyPos = collider.GetComponentInChildren<Transform>().position;
+                enemyPos = otherCollider.GetComponentInChildren<Transform>().position;
                 changeDir = true;
             }
         }
@@ -98,16 +109,16 @@ public class Duos : MonoBehaviour
 
     private float stayCount = 0.0f;
 
-    private void OnTriggerStay(Collider collider)
+    private void OnTriggerStay(Collider otherCollider)
     {
         if (stayCount > 1f)
         {
-            if (collider.GetComponentInParent<FactionID>() != null)
+            if (otherCollider.GetComponentInParent<FactionID>() != null)
             {
-                if (collider.GetComponentInParent<FactionID>()._teamID != myTeamID ||
-                    collider.GetComponentInParent<FactionID>()._teamID == 1 && collider.isTrigger == false)
+                if (otherCollider.GetComponentInParent<FactionID>()._teamID != myTeamID ||
+                    otherCollider.GetComponentInParent<FactionID>()._teamID == 1 && otherCollider.isTrigger == false)
                 {
-                    enemyPos = collider.GetComponentInChildren<Transform>().position;
+                    enemyPos = otherCollider.GetComponentInChildren<Transform>().position;
                     changeDir = true;
                 }
             }
@@ -120,52 +131,120 @@ public class Duos : MonoBehaviour
         }
     }
 
-    #endregion Collision
+    #endregion Collision*/
 
-    #region IEnum
+        #region IEnum
 
-    IEnumerator Waiting()
-    {
-        coolDownSlider.value = Mathf.Lerp(1f, 0f, LerpValue);
-        GameObject G = Instantiate(Bullet, Sp1.transform.position, Sp1.transform.rotation) as GameObject;
-        duosShootEv.start();
-
-        G.GetComponent<Rigidbody>().AddForce(G.transform.forward * force);
-        if (changeDir)
+        IEnumerator RightShoot()
         {
-            G.transform.LookAt(enemyPos);
+            coolDownSlider.value -= decreasePerShoot;
+
+            GameObject g;
+            TankProjectile tp;
+
+            if (InactiveProjectiles.Count > 0)
+            {
+                tp = InactiveProjectiles[0];
+                InactiveProjectiles.Remove(tp);
+
+                g = tp.gameObject;
+                g.transform.SetParent(Sp1.transform, false);
+            }
+            else
+            {
+                // Break if we have created max projectile instances allowed
+                if (ActiveProjectiles.Count >= maxProjectilesCount) yield break;
+
+                g = Instantiate(projectilePrefab, Sp1.transform, false);
+                tp = g.GetComponent<TankProjectile>();
+            }
+
+            ActiveProjectiles.Add(tp);
+
+            g.transform.localPosition = Vector3.zero;
+            g.transform.localRotation = Quaternion.identity;
+            g.transform.SetParent(null, true);
+            g.transform.localScale = Vector3.one;
+
+            tp.turretParent = this;
+
+            // duosShootEv.start();
+
+            tp.force = force;
+            tp.damage = damage;
+            tp.dir = Sp1.transform.forward;
+            tp.range = range;
+            tp.autoAim = autoAim;
+            tp.enemy = null;
+
+            muzzleFlashA.Play(true);
+
+            tp.Launch();
+
+            _right = false;
+
+            yield return new WaitForSeconds(1 / fireRate);
+
+            _left = true;
+
+            duosShootEv.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
 
-        muzzleFlashA.Play(true);
-
-        right = false;
-
-        yield return new WaitForSeconds(0.5f);
-        coolDownSlider.value = Mathf.Lerp(0f, 1f, LerpValue);
-        left = true;
-        duosShootEv.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-    }
-
-    IEnumerator Waiting2()
-    {
-        coolDownSlider.value = Mathf.Lerp(1f, 0f, LerpValue);
-        GameObject G = Instantiate(Bullet, Sp2.transform.position, Sp2.transform.rotation) as GameObject;
-        duosShootEv.start();
-        G.GetComponent<Rigidbody>().AddForce(G.transform.forward * force);
-        if (changeDir)
+        IEnumerator LeftShoot()
         {
-            G.transform.LookAt(enemyPos);
+            coolDownSlider.value -= decreasePerShoot;
+
+            GameObject g;
+            TankProjectile tp;
+
+            if (InactiveProjectiles.Count > 0)
+            {
+                tp = InactiveProjectiles[0];
+                InactiveProjectiles.Remove(tp);
+
+                g = tp.gameObject;
+                g.transform.SetParent(Sp2.transform, false);
+            }
+            else
+            {
+                // Break if we have created max projectile instances allowed
+                if (ActiveProjectiles.Count >= maxProjectilesCount) yield break;
+
+                g = Instantiate(projectilePrefab, Sp2.transform, false);
+                tp = g.GetComponent<TankProjectile>();
+            }
+
+            ActiveProjectiles.Add(tp);
+
+            g.transform.localPosition = Vector3.zero;
+            g.transform.localRotation = Quaternion.identity;
+            g.transform.SetParent(null, true);
+            g.transform.localScale = Vector3.one;
+
+            tp.turretParent = this;
+
+            duosShootEv.start();
+
+            tp.force = force;
+            tp.damage = damage;
+            tp.dir = Sp2.transform.forward;
+            tp.range = range;
+            tp.autoAim = autoAim;
+            tp.enemy = null;
+
+            muzzleFlashB.Play(true);
+
+            tp.Launch();
+
+            _left = false;
+
+            yield return new WaitForSeconds(1 / fireRate);
+
+            _right = true;
+
+            duosShootEv.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
 
-        muzzleFlashB.Play(true);
-
-        left = false;
-
-        yield return new WaitForSeconds(0.5f);
-        coolDownSlider.value = Mathf.Lerp(0f, 1f, LerpValue);
-        right = true;
-        duosShootEv.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        #endregion IEnum
     }
-
-    #endregion IEnum
 }

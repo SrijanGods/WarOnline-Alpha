@@ -346,6 +346,8 @@ MonoBehaviour:
   MovementRange: 70
   axesToUse: 2
   joystickType: 1
+  deadzoneHoriz: 0
+  deadzoneVert: 0
   pressing: 0
   horizontalAxis: 0
   verticalAxis: 0
@@ -481,6 +483,8 @@ MonoBehaviour:
   MovementRange: 38
   axesToUse: 2
   joystickType: 0
+  deadzoneHoriz: 0.2777778
+  deadzoneVert: 0.2777778
   pressing: 0
   horizontalAxis: 2
   verticalAxis: 3

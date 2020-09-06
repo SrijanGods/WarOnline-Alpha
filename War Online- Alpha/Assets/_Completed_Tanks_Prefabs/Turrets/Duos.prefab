@@ -656,20 +656,29 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5638661103774576489}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1bed26d8e9bb7249969ad63dd280240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 7796217854461616460, guid: c686240168e833e4abf5b52286226ec9,
+    type: 3}
+  maxProjectilesCount: 100
+  maxHitCount: 3
+  fireRate: 2
+  force: 50
+  damage: 5
+  range: 100
+  autoAim: 0
   Sp1: {fileID: 5638661103763777496}
-  Bullet: {fileID: 7796217854461616460, guid: c686240168e833e4abf5b52286226ec9, type: 3}
   Sp2: {fileID: 5638661103458639455}
-  force: 900
-  LerpValue: 1
   muzzleFlashA: {fileID: 6429506821885562286}
   muzzleFlashB: {fileID: 2693578146156534514}
   duosReloadSfx: event:/TurretDuos
   duosShootSfx: event:/TurretDuosShoot
+  decreasePerShoot: 0.1
+  increasePerSecond: 0.05
+  enemyFinder: {fileID: 0}
 --- !u!114 &5638661103774576495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,7 +694,7 @@ MonoBehaviour:
   rotateSpeed: 4
   minAngle: -360
   maxAngle: 360
-  recenterSpeed: 0.01
+  recenterSpeed: 0.1
 --- !u!114 &4132897965214182350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -698,6 +707,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14d08c22adc872a4499b62be16ade9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turretBody: {fileID: 0}
+  destroyedBody: {fileID: 0}
 --- !u!65 &2716643595497029610
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -746,7 +757,7 @@ BoxCollider:
   m_GameObject: {fileID: 5638661103774576489}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.99999994, y: 0.5008227, z: 4.3101506}
   m_Center: {x: -0.000003838259, y: 0.09014148, z: 2.6486669}

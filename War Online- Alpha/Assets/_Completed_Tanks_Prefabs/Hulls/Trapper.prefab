@@ -13411,18 +13411,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d2b2d044554a542a3e8d1087f80588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entityPrefab: {fileID: 6650905595765540301, guid: 49c4a685b3983924ab80730ebbb3910d,
+    type: 3}
   m_StartingHealth: 100
   m_FullHealthColor: {r: 0, g: 0, b: 0, a: 0}
   m_ZeroHealthColor: {r: 0, g: 0, b: 0, a: 0}
   m_CurrentHealth: 0
   warCanvas: {fileID: 5429998960388702193}
+  rtcCanvas: {fileID: 3751241821039646999}
   teamView: {fileID: 0}
   enemyView: {fileID: 0}
   m_Slider: {fileID: 0}
   m_FillImage: {fileID: 0}
-  actualHull: {fileID: 0}
+  actualHull: {fileID: 684255112644435241}
   actualTurret: {fileID: 0}
   destroyedTurret: {fileID: 0}
+  myTeam: 0
+  fid: {fileID: 0}
 --- !u!114 &1626848530867219458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13435,7 +13440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 424aae1839321ea4cb4968d75a32709d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _teamID: 1
+  teamID: -1
   myAccID: 0
 --- !u!1 &7169311038555863895
 GameObject:
@@ -16090,6 +16095,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 427a7510ca915f342b3163b914ddd08e, type: 3}
+--- !u!1 &3751241821039646999 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 187594, guid: 427a7510ca915f342b3163b914ddd08e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3751241821039789533}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3751241821028410493 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 22438304, guid: 427a7510ca915f342b3163b914ddd08e,

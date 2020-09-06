@@ -1,55 +1,83 @@
-﻿using System.IO;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
+using _Scripts;
+using _Scripts.Photon.Room;
+using _Scripts.Tank.DOTS;
 using UnityEngine.UI;
 using Photon.Pun;
+using Unity.Entities;
 
 public class TankHealth : MonoBehaviourPun
 {
-    [Header("Health")]
-    public float m_StartingHealth = 100f;
+    [Header("Prefab")] public GameObject entityPrefab;
+
+    [Header("Health")] public float m_StartingHealth = 100f;
     public Color m_FullHealthColor;
     public Color m_ZeroHealthColor;
     public float m_CurrentHealth;
 
-    [Header("UI Stuff")]
-    public GameObject warCanvas, teamView, enemyView;
+    [Header("UI Stuff")] public GameObject warCanvas, rtcCanvas, teamView, enemyView;
     public Slider m_Slider;
     public Image m_FillImage;
 
-    [Header("GameObjects")]
-    public GameObject actualHull;
-    public GameObject actualTurret;
-
-    [HideInInspector]
-    public GameObject destroyedTurret;
+    [Header("GameObjects")] public GameObject actualHull, actualTurret, destroyedHull, destroyedTurret;
 
     //public GameObject m_ExplosionPrefab;
 
     private bool spawnCalled;
-    private float myTeam;
-    private GameObject destroyedHull;
+    [HideInInspector] public int myTeam;
+    [HideInInspector] public FactionID fid;
     private string playerTankName;
     private AudioSource m_ExplosionAudio;
     private ParticleSystem m_ExplosionParticles;
     private bool m_Dead;
-    private gameManager photonScript;
+    private GameManager photonScript;
     private bool destroyCalled;
-    
 
+    private BlobAssetStore _blobAssetStore;
+    private EntityManager _entityManager;
+
+    private Entity _instantiatedEntity;
 
     private void Awake()
     {
-        GameObject canvas = gameObject.transform.Find("WarCanvas").gameObject;
-        canvas.SetActive(true);
-        warCanvas = canvas;
+        // ECS
 
-        teamView = gameObject.transform.Find("TeamCanvas").gameObject;
-        enemyView = gameObject.transform.Find("EnemyCanvas").gameObject;
-        
-        GameObject warslider = canvas.transform.Find("TankHealthUI").gameObject;
+        _blobAssetStore = new BlobAssetStore();
 
-        myTeam = GetComponent<FactionID>()._teamID;
+        _entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
+
+        var settings =
+            GameObjectConversionSettings.FromWorld(World.DefaultGameObjectInjectionWorld, _blobAssetStore);
+
+        var converted =
+            GameObjectConversionUtility.ConvertGameObjectHierarchy(entityPrefab, settings);
+
+        _instantiatedEntity = _entityManager.Instantiate(converted);
+        _entityManager.SetName(_instantiatedEntity, gameObject.name);
+        _entityManager.AddComponentData(_instantiatedEntity, new TankBody
+        {
+            teamID = myTeam
+        });
+
+        _entityManager.AddComponentData(_instantiatedEntity, new SyncEntity
+        {
+            translation = true, rotation = true
+        });
+
+        EntitiesHelper.Tse.Add(_instantiatedEntity, actualHull.transform);
+        EntitiesHelper.Eth.Add(_instantiatedEntity, this);
+
+        // fields
+
+        destroyCalled = false;
+
+        m_Dead = false;
+
+        fid = GetComponent<FactionID>();
+        myTeam = fid.teamID;
+
+        GameObject warslider = warCanvas.transform.Find("TankHealthUI").gameObject;
 
         Slider slider = warslider.GetComponent<Slider>();
         m_Slider = slider;
@@ -57,50 +85,52 @@ public class TankHealth : MonoBehaviourPun
         Image healthImage = health.GetComponentInChildren<Image>();
         m_FillImage = healthImage;
 
-        m_Dead = false;
-
         m_CurrentHealth = m_StartingHealth;
-        photonScript = GameObject.Find("GameManager").GetComponent<gameManager>();
-       
+        photonScript = FindObjectOfType<GameManager>();
+
+        if (!teamView) teamView = gameObject.transform.Find("TeamCanvas").gameObject;
+        if (!enemyView) enemyView = gameObject.transform.Find("EnemyCanvas").gameObject;
+
         //getting destroyed tank prefabs
-        destroyedHull = gameObject.transform.Find(actualHull.name + "_D").gameObject;
-        
-
-        destroyCalled = false;
-        GameObject mainCanvas = GameObject.Find("MainWarCanvas");
-        canvas.transform.parent = mainCanvas.transform;
-
-        m_Dead = false;
+        if (!destroyedHull) destroyedHull = gameObject.transform.Find(actualHull.name + "_D").gameObject;
     }
 
     private void Start()
     {
-        if (photonView.IsMine)
-        {
-            teamView.SetActive(false);
-            enemyView.SetActive(false);
-        }
+        if (photonView.IsMine) return;
+
+        teamView.SetActive(false);
+        enemyView.SetActive(false);
     }
 
-    private void Update()
+    /*private void Update()
     {
+        SetHealthUI(m_CurrentHealth);
+
+        if (m_CurrentHealth <= 0)
+        {
+            OnDeath();
+        }
+
+        if (Input.GetKeyDown("u"))
+        {
+            m_CurrentHealth = 0f;
+        }
+    }*/
+
+    [PunRPC]
+    public void UpdateHealth(float health)
+    {
+        m_CurrentHealth = health;
 
         SetHealthUI(m_CurrentHealth);
 
         if (m_CurrentHealth <= 0)
         {
-
             OnDeath();
-
-        }
-        
-        if (Input.GetKeyDown("u"))
-        {
-            m_CurrentHealth = 0f;
         }
     }
 
-    [PunRPC]
     public void TakeDamage(float damage)
     {
         // Adjust the tank's current health, update the UI based on the new health and check whether or not the tank is dead.
@@ -109,7 +139,7 @@ public class TankHealth : MonoBehaviourPun
 
         SetHealthUI(m_CurrentHealth);
 
-        photonView.RPC("UpdateHealth", RpcTarget.Others, m_CurrentHealth);
+        photonView.RPC(nameof(UpdateHealth), RpcTarget.Others, m_CurrentHealth);
 
         if (m_CurrentHealth <= 0)
         {
@@ -117,56 +147,47 @@ public class TankHealth : MonoBehaviourPun
         }
     }
 
-    [PunRPC]
-    private void SelfDamage(float damage)
-    {
-        m_CurrentHealth -= damage;
-
-        SetHealthUI(m_CurrentHealth);
-
-        photonView.RPC("UpdateHealth", RpcTarget.Others, m_CurrentHealth);
-
-        if (m_CurrentHealth <= 0)
-        {
-
-            OnDeath();
-
-        }
-    }
-
-    [PunRPC]
     private void SetHealthUI(float health)
     {
         // Adjust the value and colour of the slider.
 
         m_Slider.value = health;
-        m_FillImage.color = Color.Lerp(m_ZeroHealthColor, m_FullHealthColor, health / m_StartingHealth);
 
+        if (health < .05f)
+        {
+            m_FillImage.color = Color.red;
+        }
+        else if (health > .95f)
+        {
+            m_FillImage.color = Color.white;
+        }
+        else
+        {
+            m_FillImage.color = Color.Lerp(m_ZeroHealthColor, m_FullHealthColor, health / m_StartingHealth);
+        }
     }
 
     [PunRPC]
-    private void SetColorFromFlameThrower(bool isthrowing, Color color)
+    public void SetColorFromFlameThrower(bool isthrowing, Color color)
     {
-        Color currentColor;
         if (isthrowing)
         {
-            actualHull.GetComponent<MeshRenderer>().material.color = Color.Lerp(Color.white, color, Time.deltaTime * 2f);
-            actualTurret.GetComponent<MeshRenderer>().material.color = Color.Lerp(Color.white, color, Time.deltaTime * 2f); ;
+            actualHull.GetComponent<MeshRenderer>().material.color =
+                Color.Lerp(Color.white, color, Time.deltaTime * 2f);
         }
-        else if (!isthrowing && actualHull.GetComponentInChildren<MeshRenderer>().material.color != Color.white)
+        else if (actualHull.GetComponentInChildren<MeshRenderer>().material.color != Color.white)
         {
-            currentColor = actualHull.GetComponent<MeshRenderer>().material.color;
-            actualHull.GetComponent<MeshRenderer>().material.color = Color.Lerp(currentColor, Color.white, Time.deltaTime * 2f);
-            actualTurret.GetComponent<MeshRenderer>().material.color = Color.Lerp(currentColor, Color.white, Time.deltaTime * 2f);
+            var currentColor = actualHull.GetComponent<MeshRenderer>().material.color;
+            actualHull.GetComponent<MeshRenderer>().material.color =
+                Color.Lerp(currentColor, Color.white, Time.deltaTime * 2f);
         }
     }
 
     [PunRPC]
-    private void UIComponentsSet(float teamNo)
+    private void UIComponentsSet(int teamNo)
     {
-        if(teamNo != myTeam || teamNo == 1)
+        if (teamNo != myTeam || teamNo == 1)
         {
-            
         }
     }
 
@@ -190,14 +211,13 @@ public class TankHealth : MonoBehaviourPun
         }
 
         StartCoroutine(Destroying());
-
     }
 
     private IEnumerator Destroying()
     {
         yield return new WaitForSeconds(1.8f);
 
-        PhotonNetwork.Destroy(this.gameObject);
+        PhotonNetwork.Destroy(gameObject);
     }
 
     private void OnDestroy()
@@ -208,5 +228,8 @@ public class TankHealth : MonoBehaviourPun
             spawnCalled = true;
             Destroy(warCanvas);
         }
+
+        EntitiesHelper.Eth.Remove(_instantiatedEntity);
+        _blobAssetStore.Dispose();
     }
 }

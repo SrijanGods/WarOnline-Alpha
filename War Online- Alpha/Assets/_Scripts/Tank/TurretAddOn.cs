@@ -4,23 +4,15 @@ using UnityEngine;
 
 public class TurretAddOn : MonoBehaviour
 {
-    private TankHealth tankHealth;
-    private Transform thisTransform;
-    private GameObject thisTurret;
-    private GameObject turretBody;
-    private GameObject destroyedBody;
+    private TankHealth _tankHealth;
+    public GameObject turretBody, destroyedBody;
 
     private void Start()
     {
-        thisTurret = this.gameObject;
-        turretBody = gameObject.transform.Find(thisTurret.name + "_Body").gameObject;
-        destroyedBody = gameObject.transform.Find(thisTurret.name + "_Body_D").gameObject;
+        _tankHealth = GetComponentInParent<TankHealth>();
+        _tankHealth.actualTurret = turretBody;
+        _tankHealth.destroyedTurret = destroyedBody;
 
-        tankHealth = GetComponentInParent<TankHealth>();
-        tankHealth.actualTurret = turretBody;
-        tankHealth.destroyedTurret = destroyedBody;
-
-        thisTransform = gameObject.transform;
-        //GetComponentInChildren<Pro3DCamera.CameraControl>().target = thisTransform;
+        //GetComponentInChildren<Pro3DCamera.CameraControl>().target = transform;
     }
 }

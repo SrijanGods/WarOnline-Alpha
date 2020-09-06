@@ -71,6 +71,7 @@ GameObject:
   - component: {fileID: 670572832407526923}
   - component: {fileID: 5625429084593411297}
   - component: {fileID: 7183523162501384186}
+  - component: {fileID: 5856971249219993340}
   m_Layer: 0
   m_Name: Blaster
   m_TagString: Untagged
@@ -116,6 +117,9 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 3114740154413417824}
   barrelFlash: {fileID: 1904993902723533525}
+  shootObjectslayer:
+    serializedVersion: 2
+    m_Bits: 0
   sniperShootSfx: event:/Sniper
 --- !u!114 &7183523162501384186
 MonoBehaviour:
@@ -124,7 +128,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9179417699941674133}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16935992e3631bb47b673d0abd2aa2b2, type: 3}
   m_Name: 
@@ -132,6 +136,21 @@ MonoBehaviour:
   rotateSpeed: 5
   minAngle: 0
   maxAngle: 360
+  recenterSpeed: 0
+--- !u!114 &5856971249219993340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9179417699941674133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d08c22adc872a4499b62be16ade9b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretBody: {fileID: 6233672534262670602}
+  destroyedBody: {fileID: 0}
 --- !u!1001 &1501808319695368169
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -462,6 +481,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 13cd6ca2132167c4389a9f9688085881, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 133fc42ef61026245b615dd8f10df598, type: 3}
+--- !u!1 &6233672534262670602 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 133fc42ef61026245b615dd8f10df598,
+    type: 3}
+  m_PrefabInstance: {fileID: 6233672534262571946}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6233672534262446378 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 133fc42ef61026245b615dd8f10df598,
