@@ -29,22 +29,18 @@ MonoBehaviour:
   PunLogging: 0
   EnableSupportLogger: 0
   RunInBackground: 1
-  StartInOfflineMode: 1
+  StartInOfflineMode: 0
   RpcList:
   - ClickRpc
   - DestroyRpc
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
-  - SelfDamage
-  - SetColorFromFlameThrower
-  - SetHealthUI
-  - TakeDamage
-  - UIComponentsSet
-  - Launched
   - Dead
+  - Launched
+  - SetColorFromFlameThrower
+  - UIComponentsSet
   - UpdateHealth
-  - CreateDecal
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0
