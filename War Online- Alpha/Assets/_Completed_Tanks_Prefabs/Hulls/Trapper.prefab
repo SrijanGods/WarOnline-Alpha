@@ -15923,6 +15923,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7169311038556126841}
     m_Modifications:
+    - target: {fileID: -1577525735758686155, guid: c3174224c3ba02d49b42f579e57034b1,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: c3174224c3ba02d49b42f579e57034b1, type: 3}
       propertyPath: m_Name
       value: Trapper
@@ -15982,6 +15987,11 @@ PrefabInstance:
     - target: {fileID: 400002, guid: c3174224c3ba02d49b42f579e57034b1, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.8240448
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454052246472240778, guid: c3174224c3ba02d49b42f579e57034b1,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3174224c3ba02d49b42f579e57034b1, type: 3}

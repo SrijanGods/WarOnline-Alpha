@@ -101,6 +101,7 @@ MonoBehaviour:
   barrel: {fileID: 7802788566572444158}
   rollingSpeed: 1000
   muzzleFlash: {fileID: 8336723672242256164}
+  bulletRenderer: {fileID: 7920689397664468222}
   XAxis: 993109
   YAxis: 0
   mgShootSfx: event:/MachineGun
@@ -213,10 +214,10 @@ LineRenderer:
     numCornerVertices: 1
     numCapVertices: 0
     alignment: 0
-    textureMode: 1
+    textureMode: 0
     shadowBias: 0
     generateLightingData: 0
-  m_UseWorldSpace: 1
+  m_UseWorldSpace: 0
   m_Loop: 0
 --- !u!114 &1987139424841607074
 MonoBehaviour:

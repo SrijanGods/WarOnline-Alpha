@@ -216,18 +216,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleFire: {fileID: 2381836322556536405}
-  particleSmoke: {fileID: 3675635690428271599}
+  particleSmoke: {fileID: 3675635690428271592}
+  tanksLayer:
+    serializedVersion: 2
+    m_Bits: 0
   radius: 4
   damage: 4
-  startPoint: {fileID: 6687005562342792526}
-  endPoint: {fileID: 8630045037161008423}
+  startPoint: {fileID: 5295790175700188258}
+  endPoint: {fileID: 8770328142032009794}
   ammo: 12
   multiplier: 2
   isFlameThrower: 0
   flameColor: {r: 0, g: 0, b: 0, a: 0}
   iceColor: {r: 1, g: 1, b: 1, a: 0}
   flameThrowersfx: event:/Tanks/Turrets/FlameThrower
-  ammoRunning: 0
   ammoReload: 0
   range: 12
 --- !u!1 &6687005562342792526
@@ -327,6 +329,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7270250604421629620}
     m_Modifications:
+    - target: {fileID: 7309099878356742490, guid: 8620dc3f5f121934aa5909e9688d3734,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7471183019264481788, guid: 8620dc3f5f121934aa5909e9688d3734,
         type: 3}
       propertyPath: m_Name
@@ -387,6 +394,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8603215301212074495, guid: 8620dc3f5f121934aa5909e9688d3734,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8603215301212074495, guid: 8620dc3f5f121934aa5909e9688d3734,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 395e614c7f5dc914b9126fbf983d7b57, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8620dc3f5f121934aa5909e9688d3734, type: 3}
 --- !u!4 &2584302990901458851 stripped
@@ -401,9 +418,9 @@ ParticleSystem:
     type: 3}
   m_PrefabInstance: {fileID: 4928830886189398545}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &3675635690428271599 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8603215301212074494, guid: 8620dc3f5f121934aa5909e9688d3734,
+--- !u!4 &3675635690428271592 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8603215301212074489, guid: 8620dc3f5f121934aa5909e9688d3734,
     type: 3}
   m_PrefabInstance: {fileID: 4928830886189398545}
   m_PrefabAsset: {fileID: 0}

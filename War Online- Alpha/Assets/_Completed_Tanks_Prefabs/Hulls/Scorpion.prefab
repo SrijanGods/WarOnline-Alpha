@@ -16192,6 +16192,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6228444426056637770, guid: 2c8cc0cf50d20d9499f8669bfc6ec051,
         type: 3}
+    - target: {fileID: -1577525735758686155, guid: aab8a0e95642c4c4cb0c98f93e774e87,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: aab8a0e95642c4c4cb0c98f93e774e87, type: 3}
       propertyPath: m_Name
       value: Scorpion
@@ -16251,6 +16256,11 @@ PrefabInstance:
     - target: {fileID: 400002, guid: aab8a0e95642c4c4cb0c98f93e774e87, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.79543
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454052246472240778, guid: aab8a0e95642c4c4cb0c98f93e774e87,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aab8a0e95642c4c4cb0c98f93e774e87, type: 3}
