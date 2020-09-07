@@ -16,9 +16,12 @@ namespace _Scripts.Tank.DOTS
             Entities.ForEach(
                 (Entity e, ref TankBody tb) =>
                 {
-                    var t = EntitiesHelper.Eth[e];
-                    t.TakeDamage(tb.deltaHealth);
-                    tb.deltaHealth = 0;
+                    if (tb.deltaHealth > .0000001f)
+                    {
+                        var t = EntitiesHelper.Eth[e];
+                        t.TakeDamage(tb.deltaHealth);
+                        tb.deltaHealth = 0;
+                    }
                 }
             );
         }

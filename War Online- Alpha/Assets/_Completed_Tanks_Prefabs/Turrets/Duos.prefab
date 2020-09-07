@@ -151,7 +151,7 @@ MonoBehaviour:
     type: 3}
   maxProjectilesCount: 100
   maxHitCount: 3
-  fireRate: 2
+  fireRate: 0.6
   force: 50
   damage: 5
   range: 100
@@ -162,8 +162,8 @@ MonoBehaviour:
   muzzleFlashB: {fileID: 2693578146156534514}
   duosReloadSfx: event:/TurretDuos
   duosShootSfx: event:/TurretDuosShoot
-  decreasePerShoot: 0.1
-  increasePerSecond: 0.05
+  decreasePerShoot: 0
+  increasePerSecond: 0
   enemyFinder: {fileID: 0}
 --- !u!114 &5638661103774576495
 MonoBehaviour:

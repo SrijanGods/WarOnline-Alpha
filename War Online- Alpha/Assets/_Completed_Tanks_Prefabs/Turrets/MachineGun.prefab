@@ -41,12 +41,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7806528176476897114}
-  - component: {fileID: 7913437697431475984}
   - component: {fileID: 7912891880434564934}
   - component: {fileID: 7920689397664468222}
   - component: {fileID: 1987139424841607074}
   - component: {fileID: 2249440797661259509}
   - component: {fileID: 2941634241309258015}
+  - component: {fileID: 3018995381191677841}
   m_Layer: 10
   m_Name: MachineGun
   m_TagString: Untagged
@@ -75,36 +75,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7913437697431475984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7800969146756815542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25f9aceba2e381f40ab39d65488c025d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 6
-  damagePerTime: 2
-  isOnline: 0
-  bulletEffect: {fileID: 100012, guid: 4124bcd25ead6874eb9c83ebc2b1586b, type: 3}
-  reloadTime: 1
-  actualAmmo: 15
-  overHeatDamage: 0
-  range: 10000
-  radius: 4
-  bulletStartPoint: {fileID: 7806935906333448262}
-  bulletEndPoint: {fileID: 7806748218348365320}
-  barrel: {fileID: 7802788566572444158}
-  rollingSpeed: 1000
-  muzzleFlash: {fileID: 8336723672242256164}
-  bulletRenderer: {fileID: 7920689397664468222}
-  XAxis: 993109
-  YAxis: 0
-  mgShootSfx: event:/MachineGun
 --- !u!114 &7912891880434564934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +90,7 @@ MonoBehaviour:
   rotateSpeed: 3
   minAngle: -360
   maxAngle: 360
-  recenterSpeed: 0
+  recenterSpeed: 1
 --- !u!120 &7920689397664468222
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -128,7 +98,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7800969146756815542}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -217,7 +187,7 @@ LineRenderer:
     textureMode: 0
     shadowBias: 0
     generateLightingData: 0
-  m_UseWorldSpace: 0
+  m_UseWorldSpace: 1
   m_Loop: 0
 --- !u!114 &1987139424841607074
 MonoBehaviour:
@@ -244,8 +214,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.15, y: 1.29, z: 2.96}
-  m_Center: {x: 0.01, y: 0.59, z: -0.98}
+  m_Size: {x: 2.3207908, y: 3.0311759, z: 2.96}
+  m_Center: {x: 0.085051, y: 1.5206283, z: -0.9800002}
 --- !u!65 &2941634241309258015
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -257,8 +227,33 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.61, y: 0.5008441, z: 3.0563245}
-  m_Center: {x: -0.029999971, y: 0.608803, z: 2.043442}
+  m_Size: {x: 1.8506594, y: 1.7934871, z: 8.655481}
+  m_Center: {x: 0.03356885, y: 1.7642494, z: 4.843022}
+--- !u!114 &3018995381191677841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7800969146756815542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0aaaa746074491a9614fe3e5465226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletEffect: {fileID: 100012, guid: 4124bcd25ead6874eb9c83ebc2b1586b, type: 3}
+  range: 10000
+  actualAmmo: 15
+  reloadTime: 1
+  damage: 6
+  overheatDamage: 2
+  muzzleParts: {fileID: 8336723672242256164}
+  bulletRenderer: {fileID: 7920689397664468222}
+  bulletStart: {fileID: 7806935906333448262}
+  barrel: {fileID: 7802788566572444158}
+  barrelRollAxis: {x: 0, y: 0, z: 1}
+  barrelRollSpeed: 1
+  mgShootSfx: event:/MachineGun
 --- !u!1 &7800981198360362046
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,6 +644,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 3509650196453316428}
+    - target: {fileID: 2533141210915946247, guid: cc6482b5e92605742ba897023420bce7,
+        type: 3}
+      propertyPath: collisionDistance
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3626780186504537785, guid: cc6482b5e92605742ba897023420bce7,
         type: 3}
       propertyPath: m_Name
