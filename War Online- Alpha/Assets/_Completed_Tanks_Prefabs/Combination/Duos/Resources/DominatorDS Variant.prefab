@@ -69,6 +69,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33beccd670bb4e34d998d9f0aea8509f, type: 3}
+--- !u!1 &5005526820493160472 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5638661103774576489, guid: 33beccd670bb4e34d998d9f0aea8509f,
+    type: 3}
+  m_PrefabInstance: {fileID: 808317489349189489}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4884583030294559737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81,6 +87,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: DominatorDS Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 363748623526062689, guid: 2b17a866042f78c43a137c4439c929cc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 363748623526062689, guid: 2b17a866042f78c43a137c4439c929cc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 363748623526062689, guid: 2b17a866042f78c43a137c4439c929cc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 363748623526062689, guid: 2b17a866042f78c43a137c4439c929cc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 363748623526062689, guid: 2b17a866042f78c43a137c4439c929cc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 363748623526062689, guid: 2b17a866042f78c43a137c4439c929cc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 363748623526062689, guid: 2b17a866042f78c43a137c4439c929cc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2249390553483792132, guid: 2b17a866042f78c43a137c4439c929cc,
+        type: 3}
+      propertyPath: actualTurret
+      value: 
+      objectReference: {fileID: 5005526820493160472}
     - target: {fileID: 2788654593757001840, guid: 2b17a866042f78c43a137c4439c929cc,
         type: 3}
       propertyPath: m_Name

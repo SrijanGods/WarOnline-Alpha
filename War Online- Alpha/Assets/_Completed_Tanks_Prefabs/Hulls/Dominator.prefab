@@ -4345,6 +4345,7 @@ GameObject:
   - component: {fileID: 7818428745955905803}
   - component: {fileID: 2249390553483792132}
   - component: {fileID: 8133908893560911898}
+  - component: {fileID: 4443764332702226242}
   m_Layer: 8
   m_Name: Dominator
   m_TagString: Player
@@ -4557,7 +4558,7 @@ MonoBehaviour:
   enemyView: {fileID: 0}
   m_Slider: {fileID: 0}
   m_FillImage: {fileID: 0}
-  actualHull: {fileID: 3454254645962293574}
+  actualHull: {fileID: 7846741307428471879}
   actualTurret: {fileID: 0}
   destroyedHull: {fileID: 0}
   destroyedTurret: {fileID: 0}
@@ -4577,6 +4578,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teamID: -1
   myAccID: 0
+--- !u!114 &4443764332702226242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363748623525801695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7e777e094a42f7bbcfbf0ddf9e8bb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &363748623525801807
 GameObject:
   m_ObjectHideFlags: 0
@@ -16173,6 +16186,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 363748623526062689}
     m_Modifications:
+    - target: {fileID: -7573716697348691311, guid: e84f0678445634741bf79f4d1de93d02,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1920117663810784998, guid: e84f0678445634741bf79f4d1de93d02,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: e84f0678445634741bf79f4d1de93d02, type: 3}
       propertyPath: m_Name
       value: DominatorBody
@@ -16241,6 +16264,12 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e84f0678445634741bf79f4d1de93d02, type: 3}
+--- !u!1 &7846741307428471879 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100002, guid: e84f0678445634741bf79f4d1de93d02,
+    type: 3}
+  m_PrefabInstance: {fileID: 7846741307428504293}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7846741307428903015 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: e84f0678445634741bf79f4d1de93d02,

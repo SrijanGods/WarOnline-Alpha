@@ -42,7 +42,7 @@ GameObject:
   m_Layer: 0
   m_Name: Left
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14d08c22adc872a4499b62be16ade9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretBody: {fileID: 0}
+  turretBody: {fileID: 3549177994932728638}
   destroyedBody: {fileID: 0}
 --- !u!65 &2716643595497029610
 BoxCollider:
@@ -269,7 +269,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100004, guid: 384150f122550bc4cb80c3b0775762e9, type: 3}
       propertyPath: m_Name
-      value: SparkyMuzzleFire (1)
+      value: Left Muzzle
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 384150f122550bc4cb80c3b0775762e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -277,11 +277,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 384150f122550bc4cb80c3b0775762e9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.015399998
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 384150f122550bc4cb80c3b0775762e9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.1579997
+      value: -0.075999826
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 384150f122550bc4cb80c3b0775762e9, type: 3}
       propertyPath: m_LocalRotation.x
@@ -325,6 +325,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 384150f122550bc4cb80c3b0775762e9, type: 3}
       propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: 384150f122550bc4cb80c3b0775762e9, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900004, guid: 384150f122550bc4cb80c3b0775762e9, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900006, guid: 384150f122550bc4cb80c3b0775762e9, type: 3}
+      propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -464,11 +476,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400016, guid: 090fc64943f4a6549806775a9afab2b2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.022
+      value: -0.081
       objectReference: {fileID: 0}
     - target: {fileID: 400016, guid: 090fc64943f4a6549806775a9afab2b2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.228
+      value: 0.175
       objectReference: {fileID: 0}
     - target: {fileID: 400016, guid: 090fc64943f4a6549806775a9afab2b2, type: 3}
       propertyPath: m_LocalRotation.x
@@ -504,6 +516,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 090fc64943f4a6549806775a9afab2b2, type: 3}
+--- !u!1 &3549177994932728638 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100016, guid: 090fc64943f4a6549806775a9afab2b2,
+    type: 3}
+  m_PrefabInstance: {fileID: 3549177994932696462}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3549177994933088030 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400016, guid: 090fc64943f4a6549806775a9afab2b2,
@@ -519,7 +537,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100004, guid: 384150f122550bc4cb80c3b0775762e9, type: 3}
       propertyPath: m_Name
-      value: SparkyMuzzleFire
+      value: Right Muzzle
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 384150f122550bc4cb80c3b0775762e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -527,11 +545,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 384150f122550bc4cb80c3b0775762e9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.0154
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 384150f122550bc4cb80c3b0775762e9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.158
+      value: -0.076
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 384150f122550bc4cb80c3b0775762e9, type: 3}
       propertyPath: m_LocalRotation.x
@@ -564,6 +582,18 @@ PrefabInstance:
     - target: {fileID: 400004, guid: 384150f122550bc4cb80c3b0775762e9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: 384150f122550bc4cb80c3b0775762e9, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900004, guid: 384150f122550bc4cb80c3b0775762e9, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900006, guid: 384150f122550bc4cb80c3b0775762e9, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 384150f122550bc4cb80c3b0775762e9, type: 3}

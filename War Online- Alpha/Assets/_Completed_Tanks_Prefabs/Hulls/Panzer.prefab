@@ -2339,6 +2339,7 @@ GameObject:
   - component: {fileID: 2108079452939210564}
   - component: {fileID: 7995776481905021259}
   - component: {fileID: 81266664050320981}
+  - component: {fileID: 425834749213303350}
   m_Layer: 8
   m_Name: Panzer
   m_TagString: Player
@@ -2353,8 +2354,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8416541473177120912}
-  m_LocalRotation: {x: 0.006542311, y: 0.6910772, z: -0.0062453197, w: 0.7227244}
-  m_LocalPosition: {x: 34.20053, y: 1.7, z: 32.95652}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6065147720370141398}
@@ -2553,6 +2554,7 @@ MonoBehaviour:
   m_FillImage: {fileID: 0}
   actualHull: {fileID: 6065147720369775862}
   actualTurret: {fileID: 0}
+  destroyedHull: {fileID: 0}
   destroyedTurret: {fileID: 0}
   myTeam: 0
   fid: {fileID: 0}
@@ -2570,6 +2572,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teamID: -1
   myAccID: 0
+--- !u!114 &425834749213303350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8416541473177120912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7e777e094a42f7bbcfbf0ddf9e8bb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8416541473177121024
 GameObject:
   m_ObjectHideFlags: 0

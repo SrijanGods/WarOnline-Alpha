@@ -2539,6 +2539,7 @@ GameObject:
   - component: {fileID: 8259610232692618485}
   - component: {fileID: 78765653866179322}
   - component: {fileID: 7980896618429947364}
+  - component: {fileID: 6920531902075637430}
   m_Layer: 8
   m_Name: Falcon
   m_TagString: Player
@@ -2553,8 +2554,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1958203037537159969}
-  m_LocalRotation: {x: 0.006542311, y: 0.6910772, z: -0.0062453197, w: 0.7227244}
-  m_LocalPosition: {x: 34.20053, y: 1.7, z: 32.95652}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8940587883372206638}
@@ -2734,23 +2735,29 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1958203037537159969}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87d2b2d044554a542a3e8d1087f80588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entityPrefab: {fileID: 4922932757289710321, guid: 2121031d9aafcad4a9869de99561a549,
+    type: 3}
   m_StartingHealth: 100
   m_FullHealthColor: {r: 0, g: 0, b: 0, a: 0}
   m_ZeroHealthColor: {r: 0, g: 0, b: 0, a: 0}
   m_CurrentHealth: 0
   warCanvas: {fileID: 3677565570966064663}
+  rtcCanvas: {fileID: 0}
   teamView: {fileID: 0}
   enemyView: {fileID: 0}
   m_Slider: {fileID: 0}
   m_FillImage: {fileID: 0}
   actualHull: {fileID: 0}
   actualTurret: {fileID: 0}
+  destroyedHull: {fileID: 0}
   destroyedTurret: {fileID: 0}
+  myTeam: 0
+  fid: {fileID: 0}
 --- !u!114 &7980896618429947364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2763,8 +2770,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 424aae1839321ea4cb4968d75a32709d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _teamID: 1
+  teamID: -1
   myAccID: 0
+--- !u!114 &6920531902075637430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958203037537159969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7e777e094a42f7bbcfbf0ddf9e8bb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1958203037537163691
 GameObject:
   m_ObjectHideFlags: 0
@@ -16167,6 +16186,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6228444426056637770, guid: 2c8cc0cf50d20d9499f8669bfc6ec051,
         type: 3}
+    - target: {fileID: -1577525735758686155, guid: 66d6bb7676cfb284a8f45de7bfa10842,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 66d6bb7676cfb284a8f45de7bfa10842, type: 3}
       propertyPath: m_Name
       value: Falcon
@@ -16214,6 +16238,11 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 66d6bb7676cfb284a8f45de7bfa10842, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454052246472240778, guid: 66d6bb7676cfb284a8f45de7bfa10842,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66d6bb7676cfb284a8f45de7bfa10842, type: 3}

@@ -11,7 +11,7 @@ namespace _Scripts.Tank.Turrets.Blaster
         [Header("Reload Functions")] [SerializeField]
         private float reloadTime;
 
-        private int _ammo = 1;
+        private float _ammo = 1;
         [SerializeField] private float range = 450f;
 
         [Header("Damage Values")] [SerializeField]
@@ -71,15 +71,18 @@ namespace _Scripts.Tank.Turrets.Blaster
 
             if (_ammo < 1)
             {
-                ammoReload += Time.deltaTime;
+                _ammo += Time.deltaTime / reloadTime;
+                /*ammoReload += Time.deltaTime;
                 if (ammoReload >= reloadTime)
                 {
                     _ammo = 1;
                     ammoReload = 0f;
-                }
+                }*/
             }
 
-            if (coolDownSlider.value < _ammo)
+            coolDownSlider.value = _ammo;
+
+            /*if (coolDownSlider.value < _ammo)
             {
                 timeForBar += Time.deltaTime;
                 if (timeForBar >= 0.06)
@@ -88,10 +91,10 @@ namespace _Scripts.Tank.Turrets.Blaster
                     timeForBar = 0f;
                 }
             }
-            else
+            else if (coolDownSlider.value > _ammo)
             {
                 coolDownSlider.value = 0f;
-            }
+            }*/
         }
 
         #endregion Start&Update

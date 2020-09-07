@@ -134,9 +134,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 5
-  minAngle: 0
+  minAngle: -360
   maxAngle: 360
-  recenterSpeed: 0
+  recenterSpeed: 0.01
 --- !u!114 &5856971249219993340
 MonoBehaviour:
   m_ObjectHideFlags: 0

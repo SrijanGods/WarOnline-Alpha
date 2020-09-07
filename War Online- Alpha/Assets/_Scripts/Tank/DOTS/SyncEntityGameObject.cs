@@ -45,11 +45,11 @@ namespace _Scripts.Tank.DOTS
                         {
                             var position = t.position;
 
-                            var newWorldPosition = new float4(position, 1);
+                            /*var newWorldPosition = new float4(position, 1);
                             var worldToLocal = math.inverse(ltw.Value);
-                            var newLocalPos = tr.Value + math.mul(worldToLocal, newWorldPosition).xyz;
+                            var newLocalPos = tr.Value + math.mul(worldToLocal, newWorldPosition).xyz;*/
 
-                            tr.Value = newLocalPos;
+                            tr.Value = position;
                             ltw.Value = new float4x4(ltw.Rotation, position);
                         }
 
