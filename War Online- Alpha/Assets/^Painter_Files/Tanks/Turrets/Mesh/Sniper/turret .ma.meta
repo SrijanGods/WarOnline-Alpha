@@ -1,56 +1,8 @@
 fileFormatVersion: 2
-guid: 3dcae5b9400713c49b05418c667f7c57
+guid: f3ae97a46d7c33043bed92b17d9fac68
 ModelImporter:
   serializedVersion: 20101
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: Camera
-  - first:
-      1: 100002
-    second: Cube.003
-  - first:
-      1: 100004
-    second: Lamp
-  - first:
-      1: 100006
-    second: //RootNode
-  - first:
-      4: 400000
-    second: Camera
-  - first:
-      4: 400002
-    second: Cube.003
-  - first:
-      4: 400004
-    second: Lamp
-  - first:
-      4: 400006
-    second: //RootNode
-  - first:
-      20: 2000000
-    second: Camera
-  - first:
-      21: 2100000
-    second: None
-  - first:
-      21: 2100002
-    second: Material.001
-  - first:
-      23: 2300000
-    second: Cube.003
-  - first:
-      33: 3300000
-    second: Cube.003
-  - first:
-      43: 4300000
-    second: Cube.003
-  - first:
-      64: 6400000
-    second: Cube.003
-  - first:
-      108: 10800000
-    second: Lamp
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -79,19 +31,19 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 100
+    globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importVisibility: 0
+    importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
-    fileIdsGeneration: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -107,7 +59,7 @@ ModelImporter:
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
-    secondaryUVMarginMethod: 0
+    secondaryUVMarginMethod: 1
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
@@ -140,7 +92,7 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
   additionalBone: 0
