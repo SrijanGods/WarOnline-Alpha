@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{d8766132-ca33-49d9-8760-29c96e5fbf61}">
+        <property name="assetPath">
+            <value>SFX/Game/MachineGun/SFX_Turret_MG_FireLoop.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>96</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>6.4692812499999999</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{78948348-f4b1-44f5-a7f8-296238e21dbc}</destination>
+        </relationship>
+    </object>
+</objects>

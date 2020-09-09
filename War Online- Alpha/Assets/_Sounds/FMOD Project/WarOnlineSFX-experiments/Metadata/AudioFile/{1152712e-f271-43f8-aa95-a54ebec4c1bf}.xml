@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{1152712e-f271-43f8-aa95-a54ebec4c1bf}">
+		<property name="assetPath">
+			<value>SFX/Game/Sniper/SFX_Turret_Sniper_ScopeIn_Short_Var2V01.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.1575736961451247</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{78948348-f4b1-44f5-a7f8-296238e21dbc}</destination>
+		</relationship>
+	</object>
+</objects>
