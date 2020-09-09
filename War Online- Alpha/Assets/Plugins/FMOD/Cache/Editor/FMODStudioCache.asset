@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9195227293361843273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sniper
+  m_EditorClassIdentifier: 
+  Path: event:/Sniper
+  guid: ad880dbc98d78c449798f1aee5239d69
+  Banks:
+  - {fileID: -6567526356407556270}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 5090473231306744908}
+  - {fileID: 7801634093734378928}
+  - {fileID: -7597152142016356172}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 6000
 --- !u!114 &-9159574912760823243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23,6 +49,23 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 450
+--- !u!114 &-8963206984030616723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SniperImpact/ImpactTank
+  m_EditorClassIdentifier: 
+  Name: ImpactTank
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-8810435733840472154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,6 +91,57 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3279
+--- !u!114 &-8567200298046832772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/IceGun/Firing
+  m_EditorClassIdentifier: 
+  Name: Firing
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &-8536582372372777453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MachineGun/SoundLess
+  m_EditorClassIdentifier: 
+  Name: SoundLess
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-8535287309097654370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MachineGun/SoundLess
+  m_EditorClassIdentifier: 
+  Name: SoundLess
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-8324172419754926640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,6 +183,49 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-7597152142016356172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sniper/Firing
+  m_EditorClassIdentifier: 
+  Name: Firing
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &-7564205645378098084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SniperImpact
+  m_EditorClassIdentifier: 
+  Path: event:/SniperImpact
+  guid: 10f7d984263d4440b00f0ed6708f1b20
+  Banks:
+  - {fileID: -6567526356407556270}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 3363628862802850018}
+  - {fileID: -2230583459951575688}
+  - {fileID: -8963206984030616723}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3300
 --- !u!114 &-7032502274718080282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,6 +239,64 @@ MonoBehaviour:
   m_Name: parameter:/Sniper/ReloadFull
   m_EditorClassIdentifier: 
   Name: ReloadFull
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-6712561002328991384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/TurretBlaster
+  m_EditorClassIdentifier: 
+  Path: event:/TurretBlaster
+  guid: 399251671e62d345bc7f6097b8c60371
+  Banks:
+  - {fileID: -6567526356407556270}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4000
+--- !u!114 &-6567526356407556270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master Bank.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/_Sounds/FMOD Project/WarOnlineSFX/Build/Desktop/Master Bank.bank
+  SubDir: 
+  lastModified: 637352639707076302
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-6491039308929692663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SniperImpact/ImpactTank
+  m_EditorClassIdentifier: 
+  Name: ImpactTank
   Min: 0
   Max: 1
   Default: 0
@@ -131,6 +326,66 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 7285
+--- !u!114 &-6324139259757602261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Engine
+  m_EditorClassIdentifier: 
+  Path: event:/Engine
+  guid: b60ba3fdbf3b0346a49725f0f8168d18
+  Banks:
+  - {fileID: -6567526356407556270}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -2562745239701574250}
+  - {fileID: 8821212166358794298}
+  - {fileID: 2709657460180038104}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 73996
+--- !u!114 &-6183364723293622581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MachineGunImpact/Damaging
+  m_EditorClassIdentifier: 
+  Name: Damaging
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &-6146506323213697832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Engine/EngineStone
+  m_EditorClassIdentifier: 
+  Name: EngineStone
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &-5483877127654553946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,6 +409,31 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1989
+--- !u!114 &-5333545640162876344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MachineGun
+  m_EditorClassIdentifier: 
+  Path: event:/MachineGun
+  guid: 81b286c23e8fb44791fd76f11df33072
+  Banks:
+  - {fileID: -6567526356407556270}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -8535287309097654370}
+  - {fileID: 582037458729947549}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 7285
 --- !u!114 &-5044370315653411749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +447,23 @@ MonoBehaviour:
   m_Name: parameter:/Sniper/Scoping
   m_EditorClassIdentifier: 
   Name: Scoping
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-5043066392516212038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MachineGunImpact/Damaging
+  m_EditorClassIdentifier: 
+  Name: Damaging
   Min: 0
   Max: 1
   Default: 0
@@ -188,6 +485,31 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &-4300672156719101495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/IceGun
+  m_EditorClassIdentifier: 
+  Path: event:/IceGun
+  guid: 88d2b717c730434faf4bb68edbf003f7
+  Banks:
+  - {fileID: -6567526356407556270}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 3307003490638250399}
+  - {fileID: -8567200298046832772}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 14835
 --- !u!114 &-4109248501237868275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,6 +625,31 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &-2787242187317975229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/FlameThrower
+  m_EditorClassIdentifier: 
+  Path: event:/FlameThrower
+  guid: 53bf52fc9b5e5f4daa62aaee534de7aa
+  Banks:
+  - {fileID: -6567526356407556270}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -89826240458807410}
+  - {fileID: 7390158936794959377}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 14835
 --- !u!114 &-2690369370806937564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,6 +667,57 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-2562745239701574250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Engine/EngineStart
+  m_EditorClassIdentifier: 
+  Name: EngineStart
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &-2283015889380449739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Engine/EngineTrack
+  m_EditorClassIdentifier: 
+  Name: EngineTrack
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-2230583459951575688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SniperImpact/ImpactOther
+  m_EditorClassIdentifier: 
+  Name: ImpactOther
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-2221756530652045586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,6 +735,31 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &-2217370108297814087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MachineGunImpact
+  m_EditorClassIdentifier: 
+  Path: event:/MachineGunImpact
+  guid: c574f3c383f8624d96ef63abdce32e18
+  Banks:
+  - {fileID: -6567526356407556270}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -6183364723293622581}
+  - {fileID: 6525062328538621073}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3279
 --- !u!114 &-1610898612973621066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,6 +777,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-1426751338594538742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/IceGunImpact/Damaging
+  m_EditorClassIdentifier: 
+  Name: Damaging
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-1249944884949725805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,6 +817,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &-1171045558010073971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/FlameThrower/Firing
+  m_EditorClassIdentifier: 
+  Name: Firing
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &-1098223822609522331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,6 +859,23 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 14835
+--- !u!114 &-889569666470106191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/FlameThrower/ReloadFull
+  m_EditorClassIdentifier: 
+  Name: ReloadFull
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &-879764803770591874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,6 +893,98 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-840407654993189425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sniper/Scoping
+  m_EditorClassIdentifier: 
+  Name: Scoping
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-824596716562265670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/FlameThrowerImpact
+  m_EditorClassIdentifier: 
+  Path: event:/FlameThrowerImpact
+  guid: 9e3ea51e8d335445854f5f51153da762
+  Banks:
+  - {fileID: -6567526356407556270}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 6268963032965217490}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3666
+--- !u!114 &-341739696102190178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SniperImpact/ImpactOther
+  m_EditorClassIdentifier: 
+  Name: ImpactOther
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-335950672833537725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/FlameThrowerImpact/Damaging
+  m_EditorClassIdentifier: 
+  Name: Damaging
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-89826240458807410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/FlameThrower/Firing
+  m_EditorClassIdentifier: 
+  Name: Firing
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-42252384553420005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,31 +1016,49 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -4109248501237868275}
-  - {fileID: -42252384553420005}
+  - {fileID: 2580728807929709954}
+  - {fileID: -6567526356407556270}
   EditorEvents:
-  - {fileID: 8323452235094626739}
-  - {fileID: -4053044717164696525}
-  - {fileID: 7236226859404040966}
-  - {fileID: -8324172419754926640}
-  - {fileID: 921062690541894231}
-  - {fileID: 8054780217031597982}
-  - {fileID: -5483877127654553946}
-  - {fileID: -6463382176746690091}
-  - {fileID: -1098223822609522331}
-  - {fileID: 1773799677565707843}
-  - {fileID: -1249944884949725805}
-  - {fileID: 7540705148608027066}
-  - {fileID: 6198516153394314442}
-  - {fileID: -8810435733840472154}
-  - {fileID: -9159574912760823243}
+  - {fileID: 2967654087479766931}
+  - {fileID: -7564205645378098084}
+  - {fileID: -6712561002328991384}
+  - {fileID: 8824103068489646006}
+  - {fileID: 5373000995193732311}
+  - {fileID: -2787242187317975229}
+  - {fileID: 4402087740028758410}
+  - {fileID: -5333545640162876344}
+  - {fileID: -4300672156719101495}
+  - {fileID: -824596716562265670}
+  - {fileID: 8739786223278437438}
+  - {fileID: -9195227293361843273}
+  - {fileID: -6324139259757602261}
+  - {fileID: -2217370108297814087}
+  - {fileID: 2694568681229385490}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -42252384553420005}
+  - {fileID: -6567526356407556270}
   StringsBanks:
-  - {fileID: -4109248501237868275}
-  stringsBankWriteTime: 637331115532293275
+  - {fileID: 2580728807929709954}
+  stringsBankWriteTime: 637352639708241571
   cacheVersion: 3
+--- !u!114 &68809551993682800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master Bank.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/_Sounds/FMOD Project/WarOnlineSFX/Build/Desktop/Master Bank.bank
+  SubDir: 
+  lastModified: 637331115531176207
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &303148414757824318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,6 +1076,40 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &582037458729947549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MachineGun/Firing
+  m_EditorClassIdentifier: 
+  Name: Firing
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &598216982066731831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MachineGun/Firing
+  m_EditorClassIdentifier: 
+  Name: Firing
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &643847235508748040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,6 +1180,40 @@ MonoBehaviour:
   m_Name: parameter:/FlameThrower/Firing
   m_EditorClassIdentifier: 
   Name: Firing
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &1473088894610690312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Engine/EngineStart
+  m_EditorClassIdentifier: 
+  Name: EngineStart
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &1632893675290174560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sniper/ReloadFull
+  m_EditorClassIdentifier: 
+  Name: ReloadFull
   Min: 0
   Max: 1
   Default: 0
@@ -675,6 +1327,99 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &2580728807929709954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master Bank.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/_Sounds/FMOD Project/WarOnlineSFX/Build/Desktop/Master Bank.strings.bank
+  SubDir: 
+  lastModified: 637352639708241571
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 1860
+  - Name: 
+    Value: 1860
+  - Name: Assets
+    Value: 1860
+  - Name: Build
+    Value: 1860
+  - Name: Metadata
+    Value: 1860
+  - Name: Plugins
+    Value: 1860
+  Exists: 1
+--- !u!114 &2694568681229385490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/TurretDuosImpact
+  m_EditorClassIdentifier: 
+  Path: event:/TurretDuosImpact
+  guid: dbbedfd607446f4cbfd9b1745b87350d
+  Banks:
+  - {fileID: -6567526356407556270}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 450
+--- !u!114 &2709657460180038104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Engine/EngineStone
+  m_EditorClassIdentifier: 
+  Name: EngineStone
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &2967654087479766931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/TurretDuosShoot
+  m_EditorClassIdentifier: 
+  Path: event:/TurretDuosShoot
+  guid: 081b0dcf270cdd43b39a5eb2d4f48a74
+  Banks:
+  - {fileID: -6567526356407556270}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 424
 --- !u!114 &3008112781260876995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,6 +1454,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &3236732392226588515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MachineGunImpact/ImpactOther
+  m_EditorClassIdentifier: 
+  Name: ImpactOther
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &3265050628820849943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -726,6 +1488,40 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &3307003490638250399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/IceGun/ReloadFull
+  m_EditorClassIdentifier: 
+  Name: ReloadFull
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &3363628862802850018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SniperImpact/Firing
+  m_EditorClassIdentifier: 
+  Name: Firing
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &3934362634336623845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -743,6 +1539,63 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &4402087740028758410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/TurretDuos
+  m_EditorClassIdentifier: 
+  Path: event:/TurretDuos
+  guid: 563ada8a204cc341a8daf8d40a1e004c
+  Banks:
+  - {fileID: -6567526356407556270}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1989
+--- !u!114 &4550438029899467594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/IceGun/ReloadFull
+  m_EditorClassIdentifier: 
+  Name: ReloadFull
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &5090473231306744908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sniper/ReloadFull
+  m_EditorClassIdentifier: 
+  Name: ReloadFull
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &5202032335134470923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -760,6 +1613,29 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &5373000995193732311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Background Music
+  m_EditorClassIdentifier: 
+  Path: event:/Background Music
+  guid: 50ad12f23b06fc4baa3604c321443984
+  Banks:
+  - {fileID: -6567526356407556270}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 234710
 --- !u!114 &5497046235494242413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -811,6 +1687,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &5742629539861672802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SniperImpact/Firing
+  m_EditorClassIdentifier: 
+  Name: Firing
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &6025522964593774515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -824,6 +1717,23 @@ MonoBehaviour:
   m_Name: parameter:/Engine/EngineStart
   m_EditorClassIdentifier: 
   Name: EngineStart
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &6128846115597417136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/IceGun/Firing
+  m_EditorClassIdentifier: 
+  Name: Firing
   Min: 0
   Max: 1
   Default: 0
@@ -871,6 +1781,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &6268963032965217490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/FlameThrowerImpact/Damaging
+  m_EditorClassIdentifier: 
+  Name: Damaging
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &6323759396494074570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -901,6 +1828,23 @@ MonoBehaviour:
   m_Name: parameter:/Engine/EngineTrack
   m_EditorClassIdentifier: 
   Name: EngineTrack
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &6525062328538621073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MachineGunImpact/ImpactOther
+  m_EditorClassIdentifier: 
+  Name: ImpactOther
   Min: 0
   Max: 1
   Default: 0
@@ -962,6 +1906,23 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 4000
+--- !u!114 &7390158936794959377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/FlameThrower/ReloadFull
+  m_EditorClassIdentifier: 
+  Name: ReloadFull
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &7454076931183396876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1022,6 +1983,40 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &7801634093734378928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sniper/Scoping
+  m_EditorClassIdentifier: 
+  Name: Scoping
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &7872340847161868341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sniper/Firing
+  m_EditorClassIdentifier: 
+  Name: Firing
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &8054780217031597982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1070,6 +2065,23 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 424
+--- !u!114 &8343521204685100726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/IceGunImpact/Damaging
+  m_EditorClassIdentifier: 
+  Name: Damaging
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &8719158451055558607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1087,6 +2099,70 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &8739786223278437438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/Blend
+  m_EditorClassIdentifier: 
+  Path: snapshot:/Blend
+  guid: a24e7781acbb9c4796190acaf392d5ec
+  Banks:
+  - {fileID: -6567526356407556270}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &8821212166358794298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Engine/EngineTrack
+  m_EditorClassIdentifier: 
+  Name: EngineTrack
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &8824103068489646006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/IceGunImpact
+  m_EditorClassIdentifier: 
+  Path: event:/IceGunImpact
+  guid: 477dec8b18f7f34085ed69293a00d50f
+  Banks:
+  - {fileID: -6567526356407556270}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -1426751338594538742}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3666
 --- !u!114 &9203637956938221870
 MonoBehaviour:
   m_ObjectHideFlags: 0
