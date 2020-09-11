@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{b820e5ba-aaef-436e-8c2a-67b12b4ff232}">
+		<property name="name">
+			<value>ReloadAcid</value>
+		</property>
+		<relationship name="folder">
+			<destination>{ed1497fc-2dd9-4bab-9216-41ed4bab1b9a}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{a66f03f2-d37c-4cde-ab50-974684c72a8f}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{a66f03f2-d37c-4cde-ab50-974684c72a8f}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
