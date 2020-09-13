@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2c8cc0cf50d20d9499f8669bfc6ec051
+guid: 86c345a941e0f03498d84367c1e74faa
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -11,43 +11,44 @@ ScriptedImporter:
   version: 29
   projectContext: 2
   mGraphInstanceData:
-  - graphLabel: Matte_green_modular
-    prototypeName: Matte_green_modular
+  - graphLabel: Lava Cracked Metal
+    prototypeName: Lava Cracked Metal
     graphDescIndex: 0
     generateAllOutputs: 0
     generateMipMaps: 1
-    preset: " <sbspreset pkgurl=\"pkg://Matte_green_modular\" label=\"\" >\n  <presetinput
-      identifier=\"$outputsize\" uid=\"3550122055\" type=\"8\" value=\"9,9\" />\n
+    preset: " <sbspreset pkgurl=\"pkg:///Lava_Cracked_Metal\" label=\"\" >\n  <presetinput
+      identifier=\"$outputsize\" uid=\"4192661955\" type=\"8\" value=\"9,9\" />\n
       </sbspreset>\n"
     shaderName: Universal Render Pipeline/Lit
     materialProperties:
       shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-      shaderKeywords: _METALLICSPECGLOSSMAP _NORMALMAP
-      lightmapFlags: 4
+      shaderKeywords: _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP
+      lightmapFlags: 1
       enableInstancingVariants: 0
       doubleSidedGI: 0
       customRenderQueue: 2000
       texEnvs:
       - name: _BaseMap
-        texture: {fileID: -4708508823176031340, guid: 2c8cc0cf50d20d9499f8669bfc6ec051,
+        texture: {fileID: -4496604908210527985, guid: 86c345a941e0f03498d84367c1e74faa,
           type: 3}
-        scale: {x: 8, y: 8}
+        scale: {x: 6.55, y: 5}
         offset: {x: 0, y: 0}
       - name: _BumpMap
-        texture: {fileID: -6921287545964199072, guid: 2c8cc0cf50d20d9499f8669bfc6ec051,
+        texture: {fileID: -1675405644213399209, guid: 86c345a941e0f03498d84367c1e74faa,
           type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _EmissionMap
-        texture: {instanceID: 0}
+        texture: {fileID: -6441510336940391621, guid: 86c345a941e0f03498d84367c1e74faa,
+          type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _MainTex
         texture: {instanceID: 0}
-        scale: {x: 8, y: 8}
+        scale: {x: 6.55, y: 5}
         offset: {x: 0, y: 0}
       - name: _MetallicGlossMap
-        texture: {fileID: -1840909670408109886, guid: 2c8cc0cf50d20d9499f8669bfc6ec051,
+        texture: {fileID: -6353517664430050268, guid: 86c345a941e0f03498d84367c1e74faa,
           type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
@@ -108,50 +109,59 @@ ScriptedImporter:
       - name: _Color
         color: {r: 1, g: 1, b: 1, a: 1}
       - name: _EmissionColor
-        color: {r: 0, g: 0, b: 0, a: 1}
+        color: {r: 0.9716981, g: 0.9535979, b: 0, a: 1}
       - name: _SpecColor
         color: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     outputDescList:
-    - outputName: diffuse
-      identifier: output
-      usageName: diffuse
-      channelStr: diffuse
-      label: diffuse
-      usage: 0
+    - outputName: baseColor
+      identifier: basecolor
+      usageName: baseColor
+      channelStr: baseColor
+      label: Base Color
+      usage: 1
       bImage: 1
       bNumerical: 0
       bLinear: 0
     - outputName: normal
-      identifier: output_1
+      identifier: normal
       usageName: normal
       channelStr: normal
-      label: output_1
+      label: Normal
       usage: 7
       bImage: 1
       bNumerical: 0
       bLinear: 1
-    - outputName: metallic
-      identifier: output_2
-      usageName: metallic
-      channelStr: metallic
-      label: metallic
-      usage: 34
-      bImage: 1
-      bNumerical: 0
-      bLinear: 1
     - outputName: roughness
-      identifier: output_3
+      identifier: roughness
       usageName: roughness
       channelStr: roughness
-      label: roughness
+      label: Roughness
       usage: 15
       bImage: 1
       bNumerical: 0
       bLinear: 1
+    - outputName: metallic
+      identifier: metallic
+      usageName: metallic
+      channelStr: metallic
+      label: Metallic
+      usage: 34
+      bImage: 1
+      bNumerical: 0
+      bLinear: 1
+    - outputName: emissive
+      identifier: Emmisve
+      usageName: emissive
+      channelStr: emissive
+      label: Emmisive
+      usage: 3
+      bImage: 1
+      bNumerical: 0
+      bLinear: 0
     texturePackingList:
-    - targetName: diffuse
+    - targetName: baseColor
       components:
-      - sourceName: diffuse
+      - sourceName: baseColor
         from: 0
         to: 3
     - targetName: normal
@@ -159,30 +169,39 @@ ScriptedImporter:
       - sourceName: normal
         from: 0
         to: 3
-    - targetName: metallic
-      components:
-      - sourceName: smoothness
-        from: 0
-        to: 3
     - targetName: roughness
       components:
       - sourceName: roughness
         from: 0
         to: 3
+    - targetName: metallic
+      components:
+      - sourceName: smoothness
+        from: 0
+        to: 3
+    - targetName: emissive
+      components:
+      - sourceName: emissive
+        from: 0
+        to: 3
     textureParameters:
-    - textureName: Matte_green_modular - diffuse
+    - textureName: Lava Cracked Metal - baseColor
       wrapMode: 0
       filterMode: 1
       aniso: 1
-    - textureName: Matte_green_modular - normal
+    - textureName: Lava Cracked Metal - normal
       wrapMode: 0
       filterMode: 1
       aniso: 1
-    - textureName: Matte_green_modular - metallic
+    - textureName: Lava Cracked Metal - roughness
       wrapMode: 0
       filterMode: 1
       aniso: 1
-    - textureName: Matte_green_modular - roughness
+    - textureName: Lava Cracked Metal - metallic
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: Lava Cracked Metal - emissive
       wrapMode: 0
       filterMode: 1
       aniso: 1
@@ -197,9 +216,10 @@ ScriptedImporter:
       textureFormatMode: 0
       normalCompressed: 0
       bGenerateOnLoad: 1
-    material: {fileID: 6228444426056637770, guid: 2c8cc0cf50d20d9499f8669bfc6ec051,
+    material: {fileID: 3256832828218991985, guid: 86c345a941e0f03498d84367c1e74faa,
       type: 3}
     generatedTextures:
-    - {fileID: -4708508823176031340, guid: 2c8cc0cf50d20d9499f8669bfc6ec051, type: 3}
-    - {fileID: -6921287545964199072, guid: 2c8cc0cf50d20d9499f8669bfc6ec051, type: 3}
-    - {fileID: -1840909670408109886, guid: 2c8cc0cf50d20d9499f8669bfc6ec051, type: 3}
+    - {fileID: -4496604908210527985, guid: 86c345a941e0f03498d84367c1e74faa, type: 3}
+    - {fileID: -1675405644213399209, guid: 86c345a941e0f03498d84367c1e74faa, type: 3}
+    - {fileID: -6353517664430050268, guid: 86c345a941e0f03498d84367c1e74faa, type: 3}
+    - {fileID: -6441510336940391621, guid: 86c345a941e0f03498d84367c1e74faa, type: 3}
