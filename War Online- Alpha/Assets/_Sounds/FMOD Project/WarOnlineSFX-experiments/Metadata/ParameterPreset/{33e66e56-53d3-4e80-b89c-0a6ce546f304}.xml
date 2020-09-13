@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{33e66e56-53d3-4e80-b89c-0a6ce546f304}">
+		<property name="name">
+			<value>ScopingFiring2</value>
+		</property>
+		<relationship name="folder">
+			<destination>{ed1497fc-2dd9-4bab-9216-41ed4bab1b9a}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{f85cfde3-4ea6-41e5-86af-6a9fe4b64159}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{f85cfde3-4ea6-41e5-86af-6a9fe4b64159}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{ae6276c1-d83a-44a0-8b9f-55a014da887b}">
+        <property name="assetPath">
+            <value>SFX/Game/FlameThrower/SFX_Turret_FlameThrower_Fire_Loop_Var01v1.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>48</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>3.6666666666666665</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{78948348-f4b1-44f5-a7f8-296238e21dbc}</destination>
+        </relationship>
+    </object>
+</objects>

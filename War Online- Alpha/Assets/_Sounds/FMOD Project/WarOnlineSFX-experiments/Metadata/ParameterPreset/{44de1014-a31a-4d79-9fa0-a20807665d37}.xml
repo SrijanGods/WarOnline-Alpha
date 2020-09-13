@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{44de1014-a31a-4d79-9fa0-a20807665d37}">
+		<property name="name">
+			<value>ReloadFull</value>
+		</property>
+		<relationship name="folder">
+			<destination>{ed1497fc-2dd9-4bab-9216-41ed4bab1b9a}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{919a25be-a1bd-41de-bfb5-1350003717d5}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{919a25be-a1bd-41de-bfb5-1350003717d5}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

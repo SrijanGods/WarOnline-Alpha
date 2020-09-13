@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{2eceb51d-10c9-4434-b07a-e004a05e1b52}">
+		<property name="name">
+			<value>EngineMove2</value>
+		</property>
+		<relationship name="folder">
+			<destination>{ed1497fc-2dd9-4bab-9216-41ed4bab1b9a}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{c69513a5-7f83-4214-8c73-f3536ba2de81}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{c69513a5-7f83-4214-8c73-f3536ba2de81}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

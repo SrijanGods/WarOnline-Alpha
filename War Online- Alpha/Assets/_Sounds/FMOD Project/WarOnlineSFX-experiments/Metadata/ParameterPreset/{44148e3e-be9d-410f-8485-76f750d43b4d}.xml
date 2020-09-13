@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{44148e3e-be9d-410f-8485-76f750d43b4d}">
+		<property name="name">
+			<value>EngineIdle2</value>
+		</property>
+		<relationship name="folder">
+			<destination>{ed1497fc-2dd9-4bab-9216-41ed4bab1b9a}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{1500b500-f0ed-48c0-b02e-4714c429f1b1}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{1500b500-f0ed-48c0-b02e-4714c429f1b1}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>1</value>
+		</property>
+	</object>
+</objects>
