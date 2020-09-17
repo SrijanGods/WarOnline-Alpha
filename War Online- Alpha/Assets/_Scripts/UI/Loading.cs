@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Loading : MonoBehaviourPunCallbacks
 {
-    public DuloGames.UI.UIProgressBar loadingSlider;
+    public Slider loadingSlider;
     public Text loading;
 
 // connect to photon in the initial scene while the login is not ready
@@ -33,7 +33,7 @@ public class Loading : MonoBehaviourPunCallbacks
         while (!asyncLoad.isDone)
         {
             float progress = asyncLoad.progress;
-            loadingSlider.fillAmount = progress;
+            loadingSlider.value = progress;
             loading.text = progress * 100 + "%";
             yield return null;
         }

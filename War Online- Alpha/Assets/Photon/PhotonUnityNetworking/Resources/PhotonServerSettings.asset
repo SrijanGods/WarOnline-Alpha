@@ -32,21 +32,18 @@ MonoBehaviour:
   StartInOfflineMode: 0
   RpcList:
   - ClickRpc
-  - Dead
   - DestroyRpc
   - DestroySpaceship
   - Fire
-  - Launched
   - RespawnSpaceship
-  - SetColorFromFlameThrower
-  - UIComponentsSet
-  - UpdateHealth
-  - Shoot
+  - ClientPlayerSpawned
   - HitEffect
   - HitImpact
   - KillProjectile
-  - ClientPlayerSpawned
+  - SetColorFromFlameThrower
+  - Shoot
   - SpawnNonMasterPlayer
+  - UpdateHealth
   DisableAutoOpenWizard: 1
-  ShowSettings: 0
+  ShowSettings: 1
   DevRegionSetOnce: 0
