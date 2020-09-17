@@ -36,15 +36,20 @@ namespace _Scripts.Tank.DOTS
 
                 bool isBodyAProjectile = Projectiles.HasComponent(eA), isBodyBProjectile = Projectiles.HasComponent(eB);
 
-                if (!(isBodyATank || isBodyBTank) || !(isBodyAProjectile || isBodyBProjectile)) return;
+                if (!(isBodyAProjectile || isBodyBProjectile)) return;
 
                 var p = isBodyAProjectile ? eA : eB;
-                var t = isBodyATank ? eA : eB;
-
                 var c = Projectiles[p];
-                var ct = Tanks[t];
 
                 c.HitCount += 1;
+
+                Projectiles[p] = c;
+
+                if (!(isBodyATank || isBodyBTank)) return;
+
+                var t = isBodyATank ? eA : eB;
+
+                var ct = Tanks[t];
 
                 // If we can damage ally then proceed else check if the tank hit is enemy then proceed
                 // Also damage tank if it is in test mode teamid -1
@@ -56,7 +61,6 @@ namespace _Scripts.Tank.DOTS
                     }
                 }
 
-                Projectiles[p] = c;
                 Tanks[t] = ct;
             }
         }
@@ -79,23 +83,20 @@ namespace _Scripts.Tank.DOTS
     }
 
     [UpdateAfter(typeof(TankProjectileHit))]
-    public class ProjectileHitDestroy : JobComponentSystem
+    public class ProjectileHitDestroy : ComponentSystem
     {
-        protected override JobHandle OnUpdate(JobHandle inputDeps)
+        protected override void OnUpdate()
         {
-            return Entities.ForEach(
-                    (Entity e, int entityInQueryIndex, ref TankProjectile tp) =>
-                    {
-                        if (tp.HitCount < tp.MAXHitCount) return;
+            Entities.ForEach(
+                (Entity e, ref TankProjectile tp) =>
+                {
+                    if (tp.HitCount < tp.MAXHitCount) return;
 
-                        var p = EntitiesHelper.Etp[e];
-                        p.Die();
-                        tp.HitCount = 0;
-                    }
-                )
-                .WithoutBurst()
-                .WithName("ProjectileHitDestroyJob")
-                .Schedule(inputDeps);
+                    var p = EntitiesHelper.Etp[e];
+                    p.OnDie();
+                    tp.HitCount = 0;
+                }
+            );
         }
     }
 }

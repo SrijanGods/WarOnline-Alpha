@@ -17,8 +17,8 @@ public class CurrentTH : MonoBehaviour
 
     private void Start()
     {
-        hullName = GlobalValues.Instance.hull;
-        turrentName = GlobalValues.Instance.turret;
+        hullName = GlobalValues.hull;
+        turrentName = GlobalValues.turret;
     }
     private void Update()
     {

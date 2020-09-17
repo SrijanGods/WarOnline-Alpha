@@ -32,8 +32,8 @@ public class MainScript : MonoBehaviourPunCallbacks
     {
         yield return new WaitUntil(() => playfabLogin.PlayfabConnected);
 
-        PhotonNetwork.ConnectUsingSettings();
         PhotonNetwork.AutomaticallySyncScene = true;
+        PhotonNetwork.ConnectUsingSettings();
 
         PhotonNetwork.SendRate = 40;
         PhotonNetwork.SerializationRate = 14;

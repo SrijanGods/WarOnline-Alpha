@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using _Scripts.Tank;
 using UnityEngine;
 
 public class OceanDestroy : MonoBehaviour

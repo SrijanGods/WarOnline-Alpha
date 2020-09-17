@@ -9693,7 +9693,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6655908537366568414}
   - component: {fileID: 2065137023585140566}
-  - component: {fileID: 7423032918961527709}
   m_Layer: 9
   m_Name: DuosPlasma
   m_TagString: Untagged
@@ -9735,35 +9734,16 @@ MonoBehaviour:
   range: 100
   particle: {fileID: 891296491767851643}
   destroyedParticle: {fileID: 8273992174953135660}
-  duosImpactSfx: event:/TurretDuosImpact
+  impactSfx: event:/TurretDuosImpact
   commonParent: {fileID: 4368838835003381828}
   entityPrefab: {fileID: 9092539825428929668, guid: 7ee379876a656fe47891581a6702c3d3,
     type: 3}
+  body: {fileID: 3169196632715671073}
   force: 10
   dir: {x: 0, y: 0, z: 0}
   turretParent: {fileID: 0}
---- !u!114 &7423032918961527709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7796217854461616460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 2065137023585140566}
-  viewIdField: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
+  enemy: {fileID: 0}
+  autoAim: 0
 --- !u!1001 &1587029645804093930
 PrefabInstance:
   m_ObjectHideFlags: 0

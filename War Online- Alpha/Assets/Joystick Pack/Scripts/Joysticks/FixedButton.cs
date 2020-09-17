@@ -33,10 +33,7 @@ public class FixedButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
     private IEnumerator ResetStateDown()
     {
-        for (int i = 0; i < 3; i++)
-        {
-            yield return new WaitForFixedUpdate();
-        }
+        yield return new WaitForSeconds(.05f);
 
         down = false;
     }

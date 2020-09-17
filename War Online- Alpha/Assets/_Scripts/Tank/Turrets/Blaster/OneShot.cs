@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using _Scripts.Controls;
 using _Scripts.Photon.Room;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace _Scripts.Tank.Turrets.Blaster
 {
-    public class OneShot : MonoBehaviour
+    public class OneShot : MonoBehaviourPun
     {
+        public Camera myCamera;
+
         [Header("Reload Functions")] [SerializeField]
         private float reloadTime;
 
@@ -33,9 +36,7 @@ namespace _Scripts.Tank.Turrets.Blaster
         private float timeForBar;
 
         private TankHealth _myTankHealth;
-        private GameObject mainCanvas;
-        private Slider coolDownSlider;
-        private Image fillImage;
+        private Slider _coolDownSlider;
         private Animator animator;
         private bool camMove = false;
         private float currentReloadValue;
@@ -45,22 +46,30 @@ namespace _Scripts.Tank.Turrets.Blaster
 
         private void Start()
         {
-            barrelFlash.Play(false);
+            if (photonView.IsMine || !PhotonNetwork.IsConnected)
+            {
+                myCamera.gameObject.SetActive(true);
+                myCamera.enabled = true;
+            }
+            else
+            {
+                myCamera.gameObject.SetActive(false);
+            }
+
+            barrelFlash.Stop(true);
 
             //Interface
             _myTankHealth = GetComponentInParent<TankHealth>();
-            mainCanvas = _myTankHealth.warCanvas;
-            GameObject coolDownUI = mainCanvas.transform.Find("CoolDownUI").gameObject;
-            coolDownSlider = coolDownUI.GetComponent<Slider>();
-            GameObject coolDown = coolDownUI.transform.Find("CoolDown").gameObject;
-            coolDownSlider.maxValue = 1f;
-            coolDownSlider.minValue = 0f;
-            coolDownSlider.value = 1f;
-            fillImage = coolDown.GetComponentInChildren<Image>();
+            _coolDownSlider = _myTankHealth.attackCooldown;
+            _coolDownSlider.maxValue = 1f;
+            _coolDownSlider.minValue = 0f;
+            _coolDownSlider.value = 1f;
         }
 
         private void Update()
         {
+            if (!photonView.IsMine && PhotonNetwork.IsConnected) return;
+
             if (SimulatedInput.GetButtonDown(InputCodes.TankFire))
             {
                 if (_ammo >= 1)
@@ -72,29 +81,9 @@ namespace _Scripts.Tank.Turrets.Blaster
             if (_ammo < 1)
             {
                 _ammo += Time.deltaTime / reloadTime;
-                /*ammoReload += Time.deltaTime;
-                if (ammoReload >= reloadTime)
-                {
-                    _ammo = 1;
-                    ammoReload = 0f;
-                }*/
             }
 
-            coolDownSlider.value = _ammo;
-
-            /*if (coolDownSlider.value < _ammo)
-            {
-                timeForBar += Time.deltaTime;
-                if (timeForBar >= 0.06)
-                {
-                    coolDownSlider.value += 0.01f;
-                    timeForBar = 0f;
-                }
-            }
-            else if (coolDownSlider.value > _ammo)
-            {
-                coolDownSlider.value = 0f;
-            }*/
+            _coolDownSlider.value = _ammo;
         }
 
         #endregion Start&Update
@@ -127,15 +116,19 @@ namespace _Scripts.Tank.Turrets.Blaster
                     if (fID.myAccID != myID.myAccID)
                     {
                         targetHealth.TakeDamage(damage);
-                        /*targetHealth.gameObject.GetComponent<PhotonView>().RPC("TakeDamage",
-                            target.transform.gameObject.GetComponent<PhotonView>().Owner, damage);*/
                     }
                 }
             }
 
+            photonView.RPC(nameof(HitImpact), RpcTarget.All, target.point, target.normal);
+        }
+
+        [PunRPC]
+        public void HitImpact(Vector3 position, Vector3 rotation)
+        {
             // create impact effect at hit pos
-            GameObject i = Instantiate(hitEffect.gameObject, target.point, Quaternion.identity);
-            i.transform.rotation = Quaternion.FromToRotation(Vector3.forward, target.normal);
+            GameObject i = Instantiate(hitEffect.gameObject, position, Quaternion.identity);
+            i.transform.rotation = Quaternion.FromToRotation(Vector3.forward, rotation);
             Destroy(i, 10f);
         }
 

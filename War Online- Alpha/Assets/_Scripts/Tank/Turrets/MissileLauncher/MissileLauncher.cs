@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using _Scripts.Controls;
 using _Scripts.Photon.Room;
 using _Scripts.Tank.Projectile;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +10,8 @@ namespace _Scripts.Tank.Turrets.MissileLauncher
 {
     public class MissileLauncher : ProjectileShooter
     {
+        public Camera myCamera;
+
         // maximum missiles that can be launched at a time
         public int maxLaunchCount = 4;
 
@@ -23,27 +25,44 @@ namespace _Scripts.Tank.Turrets.MissileLauncher
         [FMODUnity.EventRef] public string reloadSfx = "event:/TurretMissile", shootSfx = "event:/TurretMissileShoot";
         private FMOD.Studio.EventInstance _reloadEv, _shootEv;
 
-        public ParticleSystem shootEffect;
+        public ParticleSystem[] shootEffects;
 
-        private bool _shoot;
-        private float _heldTime;
+        private float _heldTime, _shootCount;
 
         private Slider _coolDownSlider;
-        private TankHealth _tankHealth;
-        private GameObject _mainCanvas;
+        private TankHealth _myTankHealth;
         private int _myTeamID;
         private Transform _enemy;
 
         private void Awake()
         {
-            _tankHealth = GetComponentInParent<TankHealth>();
-            _mainCanvas = _tankHealth.warCanvas;
-            GameObject coolDownUI = _mainCanvas.transform.Find("CoolDownUI").gameObject;
-            _coolDownSlider = coolDownUI.GetComponent<Slider>();
+            if (photonView.IsMine || !PhotonNetwork.IsConnected)
+            {
+                myCamera.gameObject.SetActive(true);
+                myCamera.enabled = true;
+            }
+            else
+            {
+                myCamera.gameObject.SetActive(false);
+            }
+
+            _myTankHealth = GetComponentInParent<TankHealth>();
+            _coolDownSlider = _myTankHealth.attackCooldown;
             _coolDownSlider.maxValue = maxLaunchCount;
             _coolDownSlider.minValue = 0f;
             _coolDownSlider.value = maxLaunchCount;
             // GameObject coolDown = coolDownUI.transform.Find("CoolDown").gameObject;
+
+            // Projectiles init
+            /*for (int i = 0; i < maxProjectilesCount; i++)
+            {
+                var p = projectilesParents[i % projectilesParents.Length];
+                var g = Instantiate(projectilePrefab, p, false);
+                var c = g.GetComponent<TankProjectile>();
+
+                InactiveProjectiles.Add(c);
+            }*/
+
             _myTeamID = GetComponentInParent<FactionID>().teamID;
 
             //SFX initialize here
@@ -53,20 +72,12 @@ namespace _Scripts.Tank.Turrets.MissileLauncher
             _shootEv = FMODUnity.RuntimeManager.CreateInstance(shootSfx);
             FMODUnity.RuntimeManager.AttachInstanceToGameObject(_shootEv, GetComponent<Transform>(),
                 GetComponent<Rigidbody>());
-
-            // Projectiles init
-            for (int i = 0; i < maxProjectilesCount; i++)
-            {
-                var p = projectilesParents[i % projectilesParents.Length];
-                var g = Instantiate(projectilePrefab, p, false);
-                var c = g.GetComponent<TankProjectile>();
-
-                InactiveProjectiles.Add(c);
-            }
         }
 
         private void FixedUpdate()
         {
+            if (!photonView.IsMine && PhotonNetwork.IsConnected) return;
+
             // Will launch 1 missile when fire is pressed and released
 
             // else if fire is held for required time
@@ -74,44 +85,33 @@ namespace _Scripts.Tank.Turrets.MissileLauncher
 
             if (SimulatedInput.GetButtonDown(InputCodes.TankFire))
             {
-                _heldTime = requiredHoldTime;
+                _heldTime = 0;
 
-                var count = (int) Mathf.Clamp(1, 0, _coolDownSlider.value);
-                _coolDownSlider.value = maxLaunchCount - count;
-                _shoot = count >= 1;
+                _shootCount = 0;
+                _shootCount = (int) Mathf.Clamp(1, 0, _coolDownSlider.value);
             }
-
-            if (SimulatedInput.GetButton(InputCodes.TankFire))
+            else if (SimulatedInput.GetButton(InputCodes.TankFire))
             {
                 _heldTime += Time.fixedDeltaTime;
 
                 if (_heldTime >= requiredHoldTime)
                 {
-                    var count = (int) Mathf.Clamp(maxLaunchCount, 0, _coolDownSlider.value);
-                    _coolDownSlider.value = maxLaunchCount - count;
-                    _shoot = count >= 1;
+                    _shootCount = (int) Mathf.Clamp(maxLaunchCount, 0, _coolDownSlider.value);
+
+                    _heldTime = 0;
                 }
             }
-            /*if (SimulatedInput.GetButton(InputCodes.TankFire))
+
+            else if (_shootCount >= 1)
             {
-                _heldTime += Time.fixedDeltaTime;
+                var c = _shootCount;
+                _shootCount = 0;
 
-                var count = (int) Mathf.Clamp((int) Math.Floor(_heldTime / requiredHoldTime), 0, _coolDownSlider.value);
-                _coolDownSlider.value = maxLaunchCount - count;
-                _shoot = count >= 1;
-            }*/
+                // var count = (int) Mathf.Clamp((int) Math.Floor(_heldTime / requiredHoldTime), 0, _coolDownSlider.value);
+                // _coolDownSlider.value = maxLaunchCount - count;
 
-            if (SimulatedInput.GetButtonUp(InputCodes.TankFire))
-            {
-                if (!_shoot || InactiveProjectiles.Count <= 0) return;
-
-                _shoot = false;
-
-                var count = (int) Mathf.Clamp((int) Math.Floor(_heldTime / requiredHoldTime), 0, _coolDownSlider.value);
-                _coolDownSlider.value = maxLaunchCount - count;
-
-                StartCoroutine(nameof(Shoot), count);
-                StartCoroutine(nameof(Reload));
+                StopAllCoroutines();
+                StartCoroutine(nameof(Shoot), c);
             }
         }
 
@@ -138,16 +138,30 @@ namespace _Scripts.Tank.Turrets.MissileLauncher
             }
         }
 
-        private IEnumerator Shoot(int count)
+        private IEnumerator Shoot(int c)
         {
-            count = Mathf.Clamp(count, 0, InactiveProjectiles.Count);
-
-            for (var i = 0; i < count; i++)
+            for (var i = 0; i < c; i++)
             {
+                _coolDownSlider.value--;
+
                 var p = projectilesParents[i % projectilesParents.Length];
 
-                var tp = InactiveProjectiles[0];
-                var g = tp.gameObject;
+                GameObject g;
+                TankProjectile tp;
+
+                if (InactiveProjectiles.Count > 0)
+                {
+                    tp = InactiveProjectiles[0];
+                    g = tp.gameObject;
+                }
+                else if (ActiveProjectiles.Count < maxProjectilesCount)
+                {
+                    g = Instantiate(projectilePrefab, p, false);
+                    tp = g.GetComponent<TankProjectile>();
+
+                    InactiveProjectiles.Add(tp);
+                }
+                else continue;
 
                 InactiveProjectiles.Remove(tp);
                 ActiveProjectiles.Add(tp);
@@ -170,12 +184,14 @@ namespace _Scripts.Tank.Turrets.MissileLauncher
                 if (autoAim) GetClosestEnemy();
                 tp.enemy = _enemy;
 
-                shootEffect.Play(true);
+                shootEffects[i % projectilesParents.Length].Play(true);
                 tp.Launch();
                 _shootEv.start();
 
                 yield return new WaitForSeconds(consecutiveLaunchGap);
             }
+
+            StartCoroutine(Reload());
         }
 
         private IEnumerator Reload()
@@ -185,14 +201,14 @@ namespace _Scripts.Tank.Turrets.MissileLauncher
 
             while (t < reloadTime)
             {
-                t += Time.deltaTime;
+                t += .1f;
 
-                _coolDownSlider.value = t / reloadTime;
+                _coolDownSlider.value = (t / reloadTime) * maxProjectilesCount;
 
-                yield return new WaitForEndOfFrame();
+                yield return new WaitForSeconds(.1f);
             }
 
-            _coolDownSlider.value = 1;
+            _coolDownSlider.value = maxProjectilesCount;
         }
     }
 }

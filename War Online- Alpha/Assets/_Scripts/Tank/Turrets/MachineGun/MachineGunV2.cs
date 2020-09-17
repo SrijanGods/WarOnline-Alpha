@@ -1,12 +1,15 @@
 ﻿using _Scripts.Controls;
 using _Scripts.Photon.Room;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace _Scripts.Tank.Turrets.MachineGun
 {
-    public class MachineGunV2 : MonoBehaviour
+    public class MachineGunV2 : MonoBehaviourPun, IPunObservable
     {
+        public Camera myCamera;
+
         public GameObject bulletEffect;
 
         public float range, actualAmmo, reloadTime, damage, overheatDamage;
@@ -27,10 +30,8 @@ namespace _Scripts.Tank.Turrets.MachineGun
         FMOD.Studio.EventInstance _mgShootEv;
 
         private TankHealth _myTankHealth;
-        private GameObject _mainCanvas;
-        private Slider _coolDownSlider;
 
-        private Image _fillImage;
+        private Slider _coolDownSlider;
         // private bool _neededZero;
 
         private bool _attack;
@@ -39,6 +40,16 @@ namespace _Scripts.Tank.Turrets.MachineGun
 
         private void Start()
         {
+            if (photonView.IsMine || !PhotonNetwork.IsConnected)
+            {
+                myCamera.gameObject.SetActive(true);
+                myCamera.enabled = true;
+            }
+            else
+            {
+                myCamera.gameObject.SetActive(false);
+            }
+
             if (bulletRenderer == null)
             {
                 bulletRenderer = GetComponent<LineRenderer>();
@@ -49,14 +60,10 @@ namespace _Scripts.Tank.Turrets.MachineGun
             _ammo = actualAmmo;
 
             _myTankHealth = GetComponentInParent<TankHealth>();
-            _mainCanvas = _myTankHealth.warCanvas;
-            GameObject coolDownUI = _mainCanvas.transform.Find("CoolDownUI").gameObject;
-            _coolDownSlider = coolDownUI.GetComponent<Slider>();
+            _coolDownSlider = _myTankHealth.attackCooldown;
             _coolDownSlider.minValue = 0f;
             _coolDownSlider.maxValue = actualAmmo;
             _coolDownSlider.value = actualAmmo;
-            GameObject coolDown = coolDownUI.transform.Find("CoolDown").gameObject;
-            _fillImage = coolDown.GetComponentInChildren<Image>();
 
             //setting sfx
             _mgShootEv = FMODUnity.RuntimeManager.CreateInstance(mgShootSfx);
@@ -68,6 +75,8 @@ namespace _Scripts.Tank.Turrets.MachineGun
 
         private void FixedUpdate()
         {
+            if (!photonView.IsMine && PhotonNetwork.IsConnected) return;
+
             if (SimulatedInput.GetButton(InputCodes.TankFire))
             {
                 if (_ammo >= 0)
@@ -156,10 +165,6 @@ namespace _Scripts.Tank.Turrets.MachineGun
 
         private void HitDamage(RaycastHit hit)
         {
-            GameObject bulletSpot = Instantiate(bulletEffect, hit.point, Quaternion.identity);
-            bulletSpot.transform.rotation = Quaternion.FromToRotation(Vector3.forward, hit.normal);
-            Destroy(bulletSpot, 2f);
-
             var th = hit.transform.GetComponent<TankHealth>();
             if (!th) th = hit.transform.GetComponentInParent<TankHealth>();
 
@@ -174,6 +179,43 @@ namespace _Scripts.Tank.Turrets.MachineGun
                     {
                         th.TakeDamage(damage);
                     }
+                }
+            }
+
+            photonView.RPC(nameof(HitEffect), RpcTarget.All, hit.point, hit.normal);
+        }
+
+        [PunRPC]
+        public void HitEffect(Vector3 pos, Vector3 rot)
+        {
+            GameObject bulletSpot = Instantiate(bulletEffect, pos, Quaternion.identity);
+            bulletSpot.transform.up = rot;
+            Destroy(bulletSpot, 2f);
+        }
+
+        public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+        {
+            if (stream.IsWriting)
+            {
+                stream.SendNext(barrel.rotation);
+
+                stream.SendNext(bulletRenderer.enabled);
+
+                var ps = new Vector3[bulletRenderer.positionCount];
+                bulletRenderer.GetPositions(ps);
+                stream.SendNext(ps);
+            }
+            else if (stream.IsReading)
+            {
+                barrel.rotation = (Quaternion) stream.ReceiveNext();
+
+                bulletRenderer.enabled = (bool) stream.ReceiveNext();
+
+                var ps = (Vector3[]) stream.ReceiveNext();
+
+                for (int i = 0; i < ps.Length; i++)
+                {
+                    bulletRenderer.SetPosition(i, ps[i]);
                 }
             }
         }

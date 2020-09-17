@@ -1,21 +1,29 @@
 ﻿using System.Collections;
 using _Scripts.Controls;
 using _Scripts.Tank.Projectile;
+using Photon.Pun;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace _Scripts.Tank.Turrets.Duos
 {
     public class Duos : ProjectileShooter
     {
-        [Header("GameObjects")] public GameObject Sp1, Sp2;
+        public Camera myCamera;
+
+        [FormerlySerializedAs("Sp1")] [Header("GameObjects")]
+        public GameObject sp1;
+
+        [FormerlySerializedAs("Sp2")] [Header("GameObjects")]
+        public GameObject sp2;
 
         [Header("Particle Systems")] public ParticleSystem muzzleFlashA, muzzleFlashB;
 
         [Header("Sound Effects")] [FMODUnity.EventRef]
         public string duosReloadSfx = "event:/TurretDuos", duosShootSfx = "event:/TurretDuosShoot";
 
-        FMOD.Studio.EventInstance duosReloadEv, duosShootEv;
+        FMOD.Studio.EventInstance _duosReloadEv, _duosShootEv;
 
         [Header("Cooldown Slider value")] public float decreasePerShoot, increasePerSecond;
 
@@ -23,11 +31,8 @@ namespace _Scripts.Tank.Turrets.Duos
 
         private bool _right = true, _left;
 
-        private Slider coolDownSlider;
-        private Image fillImage;
-        private TankHealth tankHealth;
-
-        private GameObject mainCanvas;
+        private Slider _coolDownSlider;
+        private TankHealth _myTankHealth;
 
         // private int myTeamID;
         private bool _reload;
@@ -38,31 +43,39 @@ namespace _Scripts.Tank.Turrets.Duos
 
         void Start()
         {
+            if (photonView.IsMine || !PhotonNetwork.IsConnected)
+            {
+                myCamera.gameObject.SetActive(true);
+                myCamera.enabled = true;
+            }
+            else
+            {
+                myCamera.gameObject.SetActive(false);
+            }
+
             autoAim = false;
 
             // tP = GetComponentInParent<TouchProcessor>();
-            tankHealth = GetComponentInParent<TankHealth>();
-            mainCanvas = tankHealth.warCanvas;
-            GameObject coolDownUI = mainCanvas.transform.Find("CoolDownUI").gameObject;
-            coolDownSlider = coolDownUI.GetComponent<Slider>();
-            coolDownSlider.maxValue = 1f;
-            coolDownSlider.minValue = 0f;
-            coolDownSlider.value = 1f;
-            GameObject coolDown = coolDownUI.transform.Find("CoolDown").gameObject;
-            fillImage = coolDown.GetComponentInChildren<Image>();
+            _myTankHealth = GetComponentInParent<TankHealth>();
+            _coolDownSlider = _myTankHealth.attackCooldown;
+            _coolDownSlider.maxValue = 1f;
+            _coolDownSlider.minValue = 0f;
+            _coolDownSlider.value = 1f;
 
             //SFX initialize here
-            duosReloadEv = FMODUnity.RuntimeManager.CreateInstance(duosReloadSfx);
-            FMODUnity.RuntimeManager.AttachInstanceToGameObject(duosReloadEv, GetComponent<Transform>(),
+            _duosReloadEv = FMODUnity.RuntimeManager.CreateInstance(duosReloadSfx);
+            FMODUnity.RuntimeManager.AttachInstanceToGameObject(_duosReloadEv, GetComponent<Transform>(),
                 GetComponent<Rigidbody>());
-            duosShootEv = FMODUnity.RuntimeManager.CreateInstance(duosShootSfx);
-            FMODUnity.RuntimeManager.AttachInstanceToGameObject(duosShootEv, GetComponent<Transform>(),
+            _duosShootEv = FMODUnity.RuntimeManager.CreateInstance(duosShootSfx);
+            FMODUnity.RuntimeManager.AttachInstanceToGameObject(_duosShootEv, GetComponent<Transform>(),
                 GetComponent<Rigidbody>());
         }
 
         void FixedUpdate()
         {
-            if (coolDownSlider.value <= decreasePerShoot)
+            if (!photonView.IsMine && PhotonNetwork.IsConnected) return;
+
+            if (_coolDownSlider.value <= decreasePerShoot)
             {
                 muzzleFlashA.Stop(true);
                 muzzleFlashB.Stop(true);
@@ -72,72 +85,38 @@ namespace _Scripts.Tank.Turrets.Duos
             {
                 _reload = true;
 
-                if (coolDownSlider.value <= decreasePerShoot) return;
+                if (_coolDownSlider.value <= decreasePerShoot) return;
 
-                if (_right)
-                {
-                    StartCoroutine(nameof(RightShoot));
-                }
-                else if (_left)
-                {
-                    StartCoroutine(nameof(LeftShoot));
-                }
+                photonView.RPC(nameof(Shoot), RpcTarget.All);
             }
             else
             {
-                if (_reload) duosReloadEv.start();
+                if (_reload) _duosReloadEv.start();
                 _reload = false;
-                coolDownSlider.value += increasePerSecond * Time.fixedDeltaTime;
+                _coolDownSlider.value += increasePerSecond * Time.fixedDeltaTime;
             }
         }
 
         #endregion Start&Update
 
-        /*#region Collision
+        #region Projectiles Shoot & Sync
 
-    private void OnTriggerEnter(Collider otherCollider)
-    {
-        if (otherCollider.GetComponentInParent<FactionID>() != null)
+        [PunRPC]
+        public void Shoot()
         {
-            if (otherCollider.GetComponentInParent<FactionID>()._teamID != myTeamID && otherCollider.isTrigger == false)
+            if (_right)
             {
-                enemyPos = otherCollider.GetComponentInChildren<Transform>().position;
-                changeDir = true;
+                StartCoroutine(nameof(RightShoot));
+            }
+            else if (_left)
+            {
+                StartCoroutine(nameof(LeftShoot));
             }
         }
-    }
-
-    private float stayCount = 0.0f;
-
-    private void OnTriggerStay(Collider otherCollider)
-    {
-        if (stayCount > 1f)
-        {
-            if (otherCollider.GetComponentInParent<FactionID>() != null)
-            {
-                if (otherCollider.GetComponentInParent<FactionID>()._teamID != myTeamID ||
-                    otherCollider.GetComponentInParent<FactionID>()._teamID == 1 && otherCollider.isTrigger == false)
-                {
-                    enemyPos = otherCollider.GetComponentInChildren<Transform>().position;
-                    changeDir = true;
-                }
-            }
-
-            stayCount = stayCount - 1f;
-        }
-        else
-        {
-            stayCount = stayCount + Time.deltaTime;
-        }
-    }
-
-    #endregion Collision*/
-
-        #region IEnum
 
         IEnumerator RightShoot()
         {
-            coolDownSlider.value -= decreasePerShoot;
+            _coolDownSlider.value -= decreasePerShoot;
 
             GameObject g;
             TankProjectile tp;
@@ -148,14 +127,14 @@ namespace _Scripts.Tank.Turrets.Duos
                 InactiveProjectiles.Remove(tp);
 
                 g = tp.gameObject;
-                g.transform.SetParent(Sp1.transform, false);
+                g.transform.SetParent(sp1.transform, false);
             }
             else
             {
                 // Break if we have created max projectile instances allowed
                 if (ActiveProjectiles.Count >= maxProjectilesCount) yield break;
 
-                g = Instantiate(projectilePrefab, Sp1.transform, false);
+                g = Instantiate(projectilePrefab, sp1.transform, false);
                 tp = g.GetComponent<TankProjectile>();
             }
 
@@ -167,12 +146,14 @@ namespace _Scripts.Tank.Turrets.Duos
             g.transform.localScale = Vector3.one;
 
             tp.turretParent = this;
+            tp.pvw = _myTankHealth.photonView;
+            tp.Ready();
 
             // duosShootEv.start();
 
             tp.force = force;
             tp.damage = damage;
-            tp.dir = Sp1.transform.forward;
+            tp.dir = sp1.transform.forward;
             tp.range = range;
             tp.autoAim = autoAim;
             tp.enemy = null;
@@ -187,12 +168,12 @@ namespace _Scripts.Tank.Turrets.Duos
 
             _left = true;
 
-            duosShootEv.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            _duosShootEv.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
 
         IEnumerator LeftShoot()
         {
-            coolDownSlider.value -= decreasePerShoot;
+            _coolDownSlider.value -= decreasePerShoot;
 
             GameObject g;
             TankProjectile tp;
@@ -203,14 +184,14 @@ namespace _Scripts.Tank.Turrets.Duos
                 InactiveProjectiles.Remove(tp);
 
                 g = tp.gameObject;
-                g.transform.SetParent(Sp2.transform, false);
+                g.transform.SetParent(sp2.transform, false);
             }
             else
             {
                 // Break if we have created max projectile instances allowed
                 if (ActiveProjectiles.Count >= maxProjectilesCount) yield break;
 
-                g = Instantiate(projectilePrefab, Sp2.transform, false);
+                g = Instantiate(projectilePrefab, sp2.transform, false);
                 tp = g.GetComponent<TankProjectile>();
             }
 
@@ -222,12 +203,14 @@ namespace _Scripts.Tank.Turrets.Duos
             g.transform.localScale = Vector3.one;
 
             tp.turretParent = this;
+            tp.pvw = _myTankHealth.photonView;
+            tp.Ready();
 
-            duosShootEv.start();
+            _duosShootEv.start();
 
             tp.force = force;
             tp.damage = damage;
-            tp.dir = Sp2.transform.forward;
+            tp.dir = sp2.transform.forward;
             tp.range = range;
             tp.autoAim = autoAim;
             tp.enemy = null;
@@ -242,7 +225,7 @@ namespace _Scripts.Tank.Turrets.Duos
 
             _right = true;
 
-            duosShootEv.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            _duosShootEv.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
 
         #endregion IEnum

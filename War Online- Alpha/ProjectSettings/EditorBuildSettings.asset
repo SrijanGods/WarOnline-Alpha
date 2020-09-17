@@ -5,16 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/_Scenes/InitialScene.unity
     guid: 22aebe00dc87be245b6f017656f2d5c8
   - enabled: 1
     path: Assets/_Scenes/Lobby.unity
-    guid: 467492d8c9be02847b711ac45a9fe3dd
-  - enabled: 0
+    guid: 22c3bc5a09acc404da620f97eb6b2430
+  - enabled: 1
     path: Assets/_Tank_Controllers/RealisticTankController/Demo Scenes/RTC Demo.unity
     guid: fc0b996781bda6147947d5c84b83709e
+  - enabled: 1
+    path: Assets/_Scenes/Test/WarTest.unity
+    guid: be53f44a47d6abf4dbbdd8a5eceaac00
   m_configObjects: {}

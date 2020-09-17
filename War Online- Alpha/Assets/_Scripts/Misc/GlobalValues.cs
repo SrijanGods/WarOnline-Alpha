@@ -1,16 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GlobalValues : MonoBehaviour
 {
     public static GlobalValues Instance;
 
-    public string turret;
-    public string hull;
+    public static string turret = "FlameThrower", hull = "Dominator";
 
-    [HideInInspector]
-    public bool loggedIn;
+    [HideInInspector] public bool loggedIn;
 
     void Awake()
     {
@@ -23,28 +19,9 @@ public class GlobalValues : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
 
-    private void Start()
-    {
-        if (PlayerPrefs.HasKey("CurrentTurret"))
-        {
-            turret = PlayerPrefs.GetString("CurrentTurret");
-        }
-        else
-        {
-            PlayerPrefs.SetString("CurrentTurret", "FlameThrower");
-            turret = "FlameThrower";
-        }
+        turret = PlayerPrefs.GetString("CurrentTurret", "FlameThrower");
 
-        if (PlayerPrefs.HasKey("CurrentHull"))
-        {
-            hull = PlayerPrefs.GetString("CurrentHull");
-        }
-        else
-        {
-            PlayerPrefs.SetString("CurrentTurret", "Dominator");
-            hull = "Dominator";
-        }
+        hull = PlayerPrefs.GetString("CurrentHull", "Dominator");
     }
 }

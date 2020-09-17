@@ -1,0 +1,17 @@
+{
+    "name": "RTC-Scripts-Editor",
+    "references": [
+        "GUID:015a5929fc38cc949a7662f99b904611"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

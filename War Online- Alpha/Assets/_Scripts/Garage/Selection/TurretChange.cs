@@ -16,10 +16,11 @@ public class TurretChange : MonoBehaviour
     IEnumerator UpdateTurret()
     {
         yield return new WaitForSeconds(1f);
-        yield return new WaitUntil(() => GlobalValues.Instance.turret != null);
+        yield return new WaitUntil(() => GlobalValues.turret != null);
         DisableAll();
-        int selection = Array.FindIndex(turrets, g => g.name == GlobalValues.Instance.turret);
-        turrets[selection].SetActive(true);
+        // int selection = Array.FindIndex(turrets, g => g.name == GlobalValues.turret);
+        // turrets[selection].SetActive(true);
+        Array.Find(turrets, g => g.name == GlobalValues.turret).SetActive(true);
     }
     void DisableAll()
     {

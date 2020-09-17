@@ -41,12 +41,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7806528176476897114}
+  - component: {fileID: 6155768336560194129}
+  - component: {fileID: 3018995381191677841}
   - component: {fileID: 7912891880434564934}
   - component: {fileID: 7920689397664468222}
-  - component: {fileID: 1987139424841607074}
   - component: {fileID: 2249440797661259509}
   - component: {fileID: 2941634241309258015}
-  - component: {fileID: 3018995381191677841}
   m_Layer: 10
   m_Name: MachineGun
   m_TagString: Untagged
@@ -75,6 +75,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6155768336560194129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7800969146756815542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 7912891880434564934}
+  - {fileID: 3018995381191677841}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &3018995381191677841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7800969146756815542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0aaaa746074491a9614fe3e5465226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCamera: {fileID: 2284685565828342031}
+  bulletEffect: {fileID: 100012, guid: 4124bcd25ead6874eb9c83ebc2b1586b, type: 3}
+  range: 10000
+  actualAmmo: 15
+  reloadTime: 1
+  damage: 6
+  overheatDamage: 2
+  muzzleParts: {fileID: 8336723672242256164}
+  bulletRenderer: {fileID: 7920689397664468222}
+  bulletStart: {fileID: 7806935906333448262}
+  barrel: {fileID: 7802788566572444158}
+  barrelRollAxis: {x: 0, y: 0, z: 1}
+  barrelRollSpeed: 1
+  mgShootSfx: event:/MachineGun
 --- !u!114 &7912891880434564934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,20 +238,6 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &1987139424841607074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7800969146756815542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14d08c22adc872a4499b62be16ade9b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turretBody: {fileID: 2701521233269032182}
-  destroyedBody: {fileID: 4578703883447364657}
 --- !u!65 &2249440797661259509
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -214,8 +249,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.3207908, y: 3.0311759, z: 2.96}
-  m_Center: {x: 0.085051, y: 1.5206283, z: -0.9800002}
+  m_Size: {x: 2.3207908, y: 3.031176, z: 6.3504252}
+  m_Center: {x: 0.085051, y: 1.5206285, z: -2.6752117}
 --- !u!65 &2941634241309258015
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -229,31 +264,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.8506594, y: 1.7934871, z: 8.655481}
   m_Center: {x: 0.03356885, y: 1.7642494, z: 4.843022}
---- !u!114 &3018995381191677841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7800969146756815542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b0aaaa746074491a9614fe3e5465226, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletEffect: {fileID: 100012, guid: 4124bcd25ead6874eb9c83ebc2b1586b, type: 3}
-  range: 10000
-  actualAmmo: 15
-  reloadTime: 1
-  damage: 6
-  overheatDamage: 2
-  muzzleParts: {fileID: 8336723672242256164}
-  bulletRenderer: {fileID: 7920689397664468222}
-  bulletStart: {fileID: 7806935906333448262}
-  barrel: {fileID: 7802788566572444158}
-  barrelRollAxis: {x: 0, y: 0, z: 1}
-  barrelRollSpeed: 1
-  mgShootSfx: event:/MachineGun
 --- !u!1 &7800981198360362046
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,7 +323,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e5e9f9ccc05956342a3821ea43ce5d8e, type: 2}
+  - {fileID: 1689485150190383496, guid: f105bf28ad2cd6d4cbea36201642af46, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -424,7 +434,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e5e9f9ccc05956342a3821ea43ce5d8e, type: 2}
+  - {fileID: 6228444426056637770, guid: 2c8cc0cf50d20d9499f8669bfc6ec051, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -618,14 +628,18 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.86665034
       objectReference: {fileID: 0}
+    - target: {fileID: 4316370553279378031, guid: d35e2897fd81adb4b8e2fa4f397708d6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316569452688873365, guid: d35e2897fd81adb4b8e2fa4f397708d6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d35e2897fd81adb4b8e2fa4f397708d6, type: 3}
---- !u!1 &4578703883447364657 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4301784266447386751, guid: d35e2897fd81adb4b8e2fa4f397708d6,
-    type: 3}
-  m_PrefabInstance: {fileID: 304506531961967694}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4576317794933019357 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4304187637690336915, guid: d35e2897fd81adb4b8e2fa4f397708d6,
@@ -657,7 +671,7 @@ PrefabInstance:
     - target: {fileID: 3626780186504537785, guid: cc6482b5e92605742ba897023420bce7,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3627830885813591543, guid: cc6482b5e92605742ba897023420bce7,
         type: 3}
@@ -727,6 +741,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3290689185116434946}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &2284685565828342031 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3611382276312306445, guid: cc6482b5e92605742ba897023420bce7,
+    type: 3}
+  m_PrefabInstance: {fileID: 3290689185116434946}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5061018039965815488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -772,6 +792,16 @@ PrefabInstance:
     - target: {fileID: 3921371111259269539, guid: af761308add1eee4bb5351ef16d3b568,
         type: 3}
       propertyPath: InitialModule.startSize.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3921371111259269543, guid: af761308add1eee4bb5351ef16d3b568,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3921371111259269543, guid: af761308add1eee4bb5351ef16d3b568,
+        type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3921371111259361281, guid: af761308add1eee4bb5351ef16d3b568,

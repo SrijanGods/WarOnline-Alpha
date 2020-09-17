@@ -1,16 +1,15 @@
 ﻿using Photon.Pun;
-using UnityEngine;
 
 namespace _Scripts.Photon.Room
 {
-    public class FactionID : MonoBehaviour
+    public class FactionID : MonoBehaviourPun
     {
-        public int teamID = 1;
-        public int myAccID;
+        public int teamID = -1;
+        public string myAccID;
 
-        private void Start()
+        private void OnEnable()
         {
-            myAccID = gameObject.GetComponent<PhotonView>().ViewID;
+            myAccID = PhotonNetwork.AuthValues.UserId;
         }
     }
 }

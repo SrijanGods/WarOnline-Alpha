@@ -71,7 +71,7 @@ public class ItemManager : MonoBehaviour
                         equipBtn.SetActive(true);
                         equippedBtn.SetActive(false);
 
-                        if(GlobalValues.Instance.turret == gameObject.name)
+                        if(GlobalValues.turret == gameObject.name)
                         {
                             equippedBtn.SetActive(true);
                             equipBtn.SetActive(false);
@@ -93,7 +93,7 @@ public class ItemManager : MonoBehaviour
                         equipBtn.SetActive(true);
                         equippedBtn.SetActive(false);
 
-                        if (GlobalValues.Instance.hull == gameObject.name)
+                        if (GlobalValues.hull == gameObject.name)
                         {
                             equippedBtn.SetActive(true);
                             equipBtn.SetActive(false);
@@ -106,7 +106,7 @@ public class ItemManager : MonoBehaviour
 
     private void SetTurretState()
     {
-        GlobalValues.Instance.turret = gameObject.name;
+        GlobalValues.turret = gameObject.name;
         PlayerPrefs.DeleteKey("CurrentTurret");
         PlayerPrefs.SetString("CurrentTurret", gameObject.name);
 
@@ -116,7 +116,7 @@ public class ItemManager : MonoBehaviour
 
     private void SetHullState()
     {
-        GlobalValues.Instance.hull = gameObject.name;
+        GlobalValues.hull = gameObject.name;
         PlayerPrefs.DeleteKey("CurrentHull");
         PlayerPrefs.SetString("CurrentHull", gameObject.name);
 

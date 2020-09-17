@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace _Scripts.Tank.Projectile
 {
-    public class TankProjectile : MonoBehaviourPun, IPunObservable
+    public class TankProjectile : MonoBehaviour
     {
         public bool damageAllies;
         public int teamID;
@@ -20,9 +20,9 @@ namespace _Scripts.Tank.Projectile
         public float damage, livingTime, range;
         public ParticleSystem particle, destroyedParticle;
 
-        [FMODUnity.EventRef] public string duosImpactSfx = "event:/TurretDuosImpact";
+        [FMODUnity.EventRef] public string impactSfx = "event:/TurretDuosImpact";
 
-        public GameObject commonParent, entityPrefab;
+        public GameObject commonParent, entityPrefab, body;
 
         public float force;
         public Vector3 dir;
@@ -32,11 +32,13 @@ namespace _Scripts.Tank.Projectile
         public Transform enemy;
         public bool autoAim;
 
+        [HideInInspector] public PhotonView pvw;
+
         private float _livedTime;
         private Vector3 _startPos;
         private bool _dead;
 
-        private FMOD.Studio.EventInstance _duosImpactEv;
+        private FMOD.Studio.EventInstance _impactEv;
 
         private BlobAssetStore _blobAssetStore;
         private EntityManager _entityManager;
@@ -45,11 +47,16 @@ namespace _Scripts.Tank.Projectile
 
         private void Awake()
         {
-            // _duosImpactEv = FMODUnity.RuntimeManager.CreateInstance(duosImpactSfx);
-            // FMODUnity.RuntimeManager.AttachInstanceToGameObject(_duosImpactEv, GetComponent<Transform>(),
-            //     GetComponent<Rigidbody>());
+            _impactEv = FMODUnity.RuntimeManager.CreateInstance(impactSfx);
+            FMODUnity.RuntimeManager.AttachInstanceToGameObject(_impactEv, GetComponent<Transform>(),
+                GetComponent<Rigidbody>());
+        }
 
-            // if (photonView != null && !photonView.IsMine) return;
+        public void Ready()
+        {
+            if (!pvw.IsMine && PhotonNetwork.IsConnected) return;
+
+            if (_instantiatedEntity != Entity.Null) return;
 
             _blobAssetStore = new BlobAssetStore();
 
@@ -63,7 +70,9 @@ namespace _Scripts.Tank.Projectile
 
             _instantiatedEntity = _entityManager.Instantiate(converted);
 
+#if UNITY_EDITOR
             _entityManager.SetName(_instantiatedEntity, gameObject.name);
+#endif
 
             _entityManager.AddComponentData(_instantiatedEntity, new SyncGameObject
             {
@@ -72,6 +81,11 @@ namespace _Scripts.Tank.Projectile
 
             EntitiesHelper.Est.Add(_instantiatedEntity, transform);
             EntitiesHelper.Etp.Add(_instantiatedEntity, this);
+        }
+
+        private void OnEnable()
+        {
+            if (destroyedParticle) destroyedParticle.Stop(true);
         }
 
         [SuppressMessage("ReSharper", "Unity.InefficientPropertyAccess")]
@@ -83,14 +97,14 @@ namespace _Scripts.Tank.Projectile
 
             if (_livedTime > livingTime)
             {
-                Die();
+                OnDie();
                 return;
             }
 
             var cPos = transform.position;
             if (Vector3.Distance(cPos, _startPos) > range)
             {
-                Die();
+                OnDie();
                 return;
             }
 
@@ -125,113 +139,142 @@ namespace _Scripts.Tank.Projectile
 
         private IEnumerator LaunchStart()
         {
-            _livedTime = 0;
-
-            var position = transform.position;
-            // ReSharper disable once Unity.InefficientPropertyAccess
-            var rotation = transform.rotation;
-
-            _startPos = position;
-
-            _entityManager.SetComponentData(_instantiatedEntity, new DOTS.TankProjectile
+            if (!pvw.IsMine && PhotonNetwork.IsConnected)
             {
-                DamageAllies = damageAllies, TeamID = teamID,
-                Damage = damage, HitCount = 0, MAXHitCount = turretParent.maxHitCount
-            });
+                _dead = false;
 
-            _entityManager.SetComponentData(_instantiatedEntity, new Translation
+                commonParent.SetActive(true);
+
+                if (destroyedParticle) destroyedParticle.Stop(true);
+                if (particle) particle.Play(true);
+            }
+            else
             {
-                Value = position
-            });
+                _livedTime = 0;
 
-            _entityManager.SetComponentData(_instantiatedEntity, new Rotation
-            {
-                Value = rotation
-            });
+                var position = transform.position;
+                // ReSharper disable once Unity.InefficientPropertyAccess
+                var rotation = transform.rotation;
 
-            _entityManager.SetComponentData(_instantiatedEntity, new LocalToWorld
-            {
-                Value = new float4x4(rotation, position)
-            });
+                _startPos = position;
 
-            var pv = _entityManager.GetComponentData<PhysicsVelocity>(_instantiatedEntity);
-            var pm = _entityManager.GetComponentData<PhysicsMass>(_instantiatedEntity);
+                _entityManager.SetComponentData(_instantiatedEntity, new DOTS.TankProjectile
+                {
+                    DamageAllies = damageAllies, TeamID = teamID,
+                    Damage = damage, HitCount = 0, MAXHitCount = turretParent.maxHitCount
+                });
 
-            pv.Linear = pv.Angular = float3.zero;
+                _entityManager.SetComponentData(_instantiatedEntity, new Translation
+                {
+                    Value = position
+                });
 
-            _entityManager.SetComponentData(_instantiatedEntity, pv);
+                _entityManager.SetComponentData(_instantiatedEntity, new Rotation
+                {
+                    Value = rotation
+                });
 
-            _entityManager.SetEnabled(_instantiatedEntity, true);
+                _entityManager.SetComponentData(_instantiatedEntity, new LocalToWorld
+                {
+                    Value = new float4x4(rotation, position)
+                });
 
-            ComponentExtensions.ApplyLinearImpulse(ref pv, in pm, dir * force);
+                var pv = _entityManager.GetComponentData<PhysicsVelocity>(_instantiatedEntity);
+                var pm = _entityManager.GetComponentData<PhysicsMass>(_instantiatedEntity);
 
-            _entityManager.SetComponentData(_instantiatedEntity, pv);
+                pv.Linear = pv.Angular = float3.zero;
 
-            commonParent.SetActive(true);
+                _entityManager.SetComponentData(_instantiatedEntity, pv);
 
-            if (destroyedParticle) destroyedParticle.Stop(true);
-            if (particle) particle.Play(true);
+                _entityManager.SetEnabled(_instantiatedEntity, true);
 
-            _dead = false;
+                ComponentExtensions.ApplyLinearImpulse(ref pv, in pm, dir * force);
 
-            photonView.RPC(nameof(Launched), RpcTarget.Others);
+                _entityManager.SetComponentData(_instantiatedEntity, pv);
+
+                commonParent.SetActive(true);
+                body.SetActive(true);
+
+                if (destroyedParticle) destroyedParticle.Stop(true);
+                if (particle) particle.Play(true);
+
+                _dead = false;
+            }
 
             yield break;
         }
 
-        [PunRPC]
-        public void Launched()
+        public void OnDie()
         {
-            _dead = false;
-
-            commonParent.SetActive(true);
-
-            if (destroyedParticle) destroyedParticle.Stop(true);
-            if (particle) particle.Play(true);
+            turretParent.photonView.RPC(nameof(turretParent.KillProjectile), RpcTarget.All,
+                turretParent.ActiveProjectiles.IndexOf(this));
         }
 
-        public void Die()
+        public void SilentDie()
+        {
+            if (!pvw.IsMine && PhotonNetwork.IsConnected)
+            {
+                _dead = true;
+
+                if (particle) particle.Stop(true);
+                if (destroyedParticle) destroyedParticle.Stop(true);
+            }
+            else
+            {
+                _dead = true;
+
+                _entityManager.SetEnabled(_instantiatedEntity, false);
+
+                var pv = _entityManager.GetComponentData<PhysicsVelocity>(_instantiatedEntity);
+                pv.Linear = pv.Angular = float3.zero;
+                _entityManager.SetComponentData(_instantiatedEntity, pv);
+
+                if (particle) particle.Stop(true);
+                if (destroyedParticle) destroyedParticle.Stop(true);
+            }
+
+            body.SetActive(false);
+
+            commonParent.SetActive(false);
+
+            if (!turretParent.ActiveProjectiles.Contains(this)) return;
+
+            turretParent.ActiveProjectiles.Remove(this);
+            turretParent.InactiveProjectiles.Add(this);
+        }
+
+        public void KillSelf()
         {
             StartCoroutine(nameof(DieStart));
         }
 
         private IEnumerator DieStart()
         {
-            _dead = true;
+            if (!pvw.IsMine && PhotonNetwork.IsConnected)
+            {
+                _dead = true;
 
-            _entityManager.SetEnabled(_instantiatedEntity, false);
+                if (particle) particle.Stop(true);
+                if (destroyedParticle) destroyedParticle.Play(true);
+            }
+            else
+            {
+                _dead = true;
 
-            var pv = _entityManager.GetComponentData<PhysicsVelocity>(_instantiatedEntity);
-            pv.Linear = pv.Angular = float3.zero;
-            _entityManager.SetComponentData(_instantiatedEntity, pv);
+                _entityManager.SetEnabled(_instantiatedEntity, false);
 
-            if (particle) particle.Stop(true);
-            if (destroyedParticle) destroyedParticle.Play(true);
+                var pv = _entityManager.GetComponentData<PhysicsVelocity>(_instantiatedEntity);
+                pv.Linear = pv.Angular = float3.zero;
+                _entityManager.SetComponentData(_instantiatedEntity, pv);
 
-            _duosImpactEv.start();
+                if (particle) particle.Stop(true);
+                if (destroyedParticle) destroyedParticle.Play(true);
+            }
 
-            StartCoroutine(nameof(WaitForDie));
+            _impactEv.start();
 
-            photonView.RPC(nameof(Dead), RpcTarget.Others);
+            body.SetActive(false);
 
-            yield break;
-        }
-
-        [PunRPC]
-        public void Dead()
-        {
-            _dead = true;
-
-            if (particle) particle.Stop(true);
-            if (destroyedParticle) destroyedParticle.Play(true);
-
-            _duosImpactEv.start();
-
-            StartCoroutine(nameof(WaitForDie));
-        }
-
-        private IEnumerator WaitForDie()
-        {
             yield return new WaitWhile(() => destroyedParticle.isPlaying);
 
             commonParent.SetActive(false);

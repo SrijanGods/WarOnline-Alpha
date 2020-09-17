@@ -1,0 +1,15 @@
+{
+    "name": "RTC-Scripts",
+    "references": [
+        "GUID:0df66fdaebadaa049a4b3140939dbf2f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

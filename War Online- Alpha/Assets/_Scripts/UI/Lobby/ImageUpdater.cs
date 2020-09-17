@@ -24,8 +24,8 @@ public class ImageUpdater : MonoBehaviour
 
     IEnumerator SyncHull()
     {
-        yield return new WaitUntil(() => GlobalValues.Instance.hull != null);
-        hullText.text = GlobalValues.Instance.hull;
+        yield return new WaitUntil(() => GlobalValues.hull != null);
+        hullText.text = GlobalValues.hull;
 
         int i = Array.FindIndex(hullImages, g => g.name == hullText.text);
         currHull.sprite = hullImages[i];
@@ -33,8 +33,8 @@ public class ImageUpdater : MonoBehaviour
 
     IEnumerator SyncTurret()
     {
-        yield return new WaitUntil(() => GlobalValues.Instance.turret != null);
-        turretText.text = GlobalValues.Instance.turret;
+        yield return new WaitUntil(() => GlobalValues.turret != null);
+        turretText.text = GlobalValues.turret;
 
         int i = Array.FindIndex(turretImages, g => g.name == turretText.text);
         currTurret.sprite = turretImages[i];

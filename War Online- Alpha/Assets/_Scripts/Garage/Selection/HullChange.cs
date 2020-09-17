@@ -16,10 +16,11 @@ public class HullChange : MonoBehaviour {
     IEnumerator UpdateHull()
     {
         yield return new WaitForSeconds(1f);
-        yield return new WaitUntil(() => GlobalValues.Instance.hull != null);
+        yield return new WaitUntil(() => GlobalValues.hull != null);
         DisableAll();
-        int selection = Array.FindIndex(hulls, g => g.name == GlobalValues.Instance.hull);
-        hulls[selection].SetActive(true);
+        // int selection = Array.FindIndex(hulls, g => g.name == GlobalValues.hull);
+        // hulls[selection].SetActive(true);
+        Array.Find(hulls, g => g.name == GlobalValues.hull).SetActive(true);
     }
 
     private void Update()

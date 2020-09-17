@@ -1,5 +1,6 @@
 using System;
 using _Scripts.Controls;
+using _Scripts.Tank.Turrets.Sniper;
 using UnityEngine;
 using Photon.Pun;
 
@@ -36,12 +37,14 @@ public class TurretRotation : MonoBehaviourPun, IPunObservable
 
         if (transform.name == "Sniper")
         {
-            dummyScope = gameObject.GetComponent<snipershooting>().scope;
+            dummyScope = gameObject.GetComponent<Sniper>().scope;
         }
     }
 
     void FixedUpdate()
     {
+        if (!photonView.IsMine && PhotonNetwork.IsConnected) return;
+
         var lookX = SimulatedInput.GetAxis(InputCodes.MouseLookX);
         var lookY = SimulatedInput.GetAxis(InputCodes.MouseLookY);
 
@@ -83,8 +86,8 @@ public class TurretRotation : MonoBehaviourPun, IPunObservable
 
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (stream.IsWriting) stream.SendNext(yaw);
-        else yaw = (float) stream.ReceiveNext();
+        if (stream.IsWriting) stream.SendNext(transform.rotation);
+        else transform.rotation = (Quaternion) stream.ReceiveNext();
     }
 
     public void SniperCamRotation(bool running)
