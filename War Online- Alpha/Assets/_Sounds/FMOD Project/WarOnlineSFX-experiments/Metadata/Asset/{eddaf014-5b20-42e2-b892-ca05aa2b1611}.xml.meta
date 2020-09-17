@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<<< HEAD:War Online- Alpha/Assets/_Sounds/FMOD Project/WarOnlineSFX-experiments/Metadata/Asset/{eddaf014-5b20-42e2-b892-ca05aa2b1611}.xml.meta
 guid: 0ad67bfe0b6c6364ba48bc3d1adcd222
+========
+guid: b44b4fba80588e246b78de3d7cd769bb
+>>>>>>>> 7366a8fd03d8a0acec4aba357a9a719e693a55d7:War Online- Alpha/Assets/_Sounds/FMOD Project/WarOnlineSFX-experiments/Metadata/Asset/{78948348-f4b1-44f5-a7f8-296238e21dbc}.xml.meta
+=======
+guid: c7ce36e9e02416c44ada7ac8dc05b2b7
+>>>>>>> 7366a8fd03d8a0acec4aba357a9a719e693a55d7
 TextScriptImporter:
   externalObjects: {}
   userData: 

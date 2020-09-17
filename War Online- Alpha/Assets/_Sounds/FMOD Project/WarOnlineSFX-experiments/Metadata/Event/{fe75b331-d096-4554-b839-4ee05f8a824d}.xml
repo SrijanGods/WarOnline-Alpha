@@ -134,7 +134,7 @@
 			<value>3.3965608733776551</value>
 		</property>
 		<property name="length">
-			<value>5.5994331065759635</value>
+			<value>7.1906122448979595</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{7e98d88c-37de-4524-b0bd-4419229da32c}</destination>
@@ -244,7 +244,7 @@
 			<value>3.3965608733776551</value>
 		</property>
 		<property name="length">
-			<value>5.5994331065759635</value>
+			<value>7.1906122448979595</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{8081f20e-baf8-4573-8ab6-8a942f302b6d}</destination>
@@ -261,7 +261,7 @@
 			<value>3.3965608733776551</value>
 		</property>
 		<property name="length">
-			<value>5.5994331065759635</value>
+			<value>7.1906122448979595</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{8081f20e-baf8-4573-8ab6-8a942f302b6d}</destination>
@@ -335,7 +335,7 @@
 			<value>3.3965608733776551</value>
 		</property>
 		<property name="length">
-			<value>5.5994331065759635</value>
+			<value>7.1906122448979595</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{8081f20e-baf8-4573-8ab6-8a942f302b6d}</destination>

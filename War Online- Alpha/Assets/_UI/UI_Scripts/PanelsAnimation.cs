@@ -6,20 +6,17 @@ using UnityEngine;
 public class PanelsAnimation : MonoBehaviour
 {
     [SerializeField] bool listContent = false;
-    [SerializeField] bool listSelector = false;
+    [SerializeField] bool scrollbar = false;
     [SerializeField] PanelsAnimation[] panelsAnimations;
     public bool startScreen = false;
-    bool onScreen = false;
+    public bool onScreen = false;
     CanvasGroup cG;
 
     private void Start()
     {
         cG = GetComponent<CanvasGroup>();
         if (startScreen) { DisplayTrue(); };
-        if (listSelector)
-        {
-            panelsAnimations = FindObjectsOfType<PanelsAnimation>();
-        }
+        
     }
 
     public void DisplayTrue()
@@ -43,6 +40,7 @@ public class PanelsAnimation : MonoBehaviour
         cG.alpha = 0;
         cG.blocksRaycasts = false;
         cG.interactable = false;
+        OnScreenFalse();
 
     }
 
@@ -50,7 +48,7 @@ public class PanelsAnimation : MonoBehaviour
     {
         GetComponent<Animator>().SetBool("display", false);
     }
-
+    
     public bool IsListContent()
     {
         return listContent;
@@ -94,10 +92,28 @@ public class PanelsAnimation : MonoBehaviour
     {
         foreach(PanelsAnimation pA in panelsAnimations)
         {
-                if (pA.IsOnScreen())
-                {
                     pA.DisplayFalse();
-                }
+        }
+    }
+
+    public void DisplayTrue2()
+    {
+        GetComponent<Animator>().SetBool("display2", true);
+    } 
+    
+    public void DisplayFalse2()
+    {
+        GetComponent<Animator>().SetBool("display2", false);
+    }
+
+    public void ScrollBarSelection()
+    {
+        foreach (PanelsAnimation pA in panelsAnimations)
+        {
+            if (scrollbar && IsOnScreen())
+            {
+                pA.DisplayFalse();
+            }
         }
     }
 
