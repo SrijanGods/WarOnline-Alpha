@@ -1,0 +1,17 @@
+{
+    "name": "BulletUI-Scripts.Editor",
+    "references": [
+        "GUID:d82f6a0f0ac6cfb44995e1302d9080bb"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

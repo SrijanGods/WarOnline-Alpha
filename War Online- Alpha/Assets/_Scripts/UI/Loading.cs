@@ -12,17 +12,6 @@ public class Loading : MonoBehaviourPunCallbacks
 // connect to photon in the initial scene while the login is not ready
     private void Start()
     {
-        PhotonNetwork.AutomaticallySyncScene = true;
-        PhotonNetwork.ConnectUsingSettings();
-    }
-
-    public override void OnConnectedToMaster()
-    {
-        PhotonNetwork.JoinLobby();
-    }
-
-    public override void OnJoinedLobby()
-    {
         StartCoroutine(LoadMainScene());
     }
 
