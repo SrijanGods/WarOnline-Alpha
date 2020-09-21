@@ -1,36 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
+using _Scripts.Photon.Game;
 using Photon.Pun;
 using Photon.Realtime;
 
 public class MainScript : MonoBehaviourPunCallbacks
 {
-    [Header("Create Room Panel")]
-    public GameObject createRoomPanel;
+    [Header("Create Room Panel")] public GameObject createRoomPanel;
 
-    [Header("Lobby Panel")]
-    public GameObject lobbyPanel;
+    [Header("Lobby Panel")] public GameObject lobbyPanel;
 
 
     //private vars
-    private GateKeeper playfabLogin;
+    private GateKeeper _playfabLogin;
 
     //private vars for lobby
-    private int xp;
-    private TypedLobby sqlLobby;
+    private int _xp;
+    private TypedLobby _sqlLobby;
 
     #region InitialCalls
 
     public void Start()
     {
-        playfabLogin = GameObject.FindGameObjectWithTag("GameController").GetComponent<GateKeeper>();
+        _playfabLogin = GameObject.FindGameObjectWithTag("GameController").GetComponent<GateKeeper>();
         StartCoroutine(InitialiseConnection());
     }
 
     IEnumerator InitialiseConnection()
     {
-        yield return new WaitUntil(() => playfabLogin.PlayfabConnected);
+        yield return new WaitUntil(() => _playfabLogin.PlayfabConnected);
 
         PhotonNetwork.AutomaticallySyncScene = true;
         PhotonNetwork.ConnectUsingSettings();
@@ -45,42 +43,44 @@ public class MainScript : MonoBehaviourPunCallbacks
 
     public void JoinLobby()
     {
-        xp = playfabLogin.GetComponent<RankManager>().xpInInt;
+        _xp = _playfabLogin.GetComponent<RankManager>().xpInInt;
 
-        string lobbyName = "Null";
+        string lobbyName = "Advanced";
 
-        if(xp <= 3)
+        if (_xp <= 3)
         {
             lobbyName = "Noobs";
         }
-        else if(xp > 3 && xp <= 8)
+        else if (_xp <= 8)
         {
             lobbyName = "Players";
         }
-        else if (xp > 8 && xp <= 11)
+        else if (_xp <= 11)
         {
             lobbyName = "Pro";
         }
 
-        sqlLobby = new TypedLobby(lobbyName, LobbyType.SqlLobby);
-        PhotonNetwork.JoinLobby(sqlLobby);
+        _sqlLobby = new TypedLobby(lobbyName, LobbyType.SqlLobby);
+        PhotonNetwork.JoinLobby(_sqlLobby);
     }
 
-    private string battleMode;
-    private int players;
-    public void JoinRandomBattle(string BattleMode)
+    private string _battleMode;
+    private int _players;
+
+    public void JoinRandomBattle(string battleMode)
     {
-        players = 12;
-        battleMode = BattleMode;
-        string conds = string.Format("BattleMode={0}", battleMode);
-        PhotonNetwork.JoinRandomRoom(null, (byte)players, MatchmakingMode.FillRoom, sqlLobby, conds);
+        _players = 12;
+        _battleMode = battleMode;
+        string conds = $"BattleMode={_battleMode}";
+        var expectedRoomProperties =
+            new ExitGames.Client.Photon.Hashtable {{"C0", _battleMode}, {"C1", "Hmm"}};
+        PhotonNetwork.JoinRandomRoom(expectedRoomProperties, (byte) _players, MatchmakingMode.FillRoom, _sqlLobby, conds);
     }
 
     #endregion
 
     #region PhotonCallBacks
 
-    //room joining shiiit
     public override void OnJoinedRoom()
     {
         if (PhotonNetwork.IsMasterClient)
@@ -97,10 +97,13 @@ public class MainScript : MonoBehaviourPunCallbacks
 
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
-        PhotonNetwork.CreateRoom("", GetRoomOptions(), sqlLobby);
+        PhotonNetwork.CreateRoom("", GetRoomOptions(), _sqlLobby);
     }
-    //shit over
 
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        base.OnCreateRoomFailed(returnCode, message);
+    }
 
     public override void OnDisconnected(DisconnectCause cause)
     {
@@ -113,17 +116,22 @@ public class MainScript : MonoBehaviourPunCallbacks
 
     RoomOptions GetRoomOptions()
     {
-        RoomOptions roomOptions = new RoomOptions();
-
-        roomOptions.CustomRoomProperties = new ExitGames.Client.Photon.Hashtable() { { "C0", battleMode }, { "C1", "Hmm" }, { "C2", (float)PhotonNetwork.Time } };
-        roomOptions.CustomRoomPropertiesForLobby = new string[] { "C0", "C1", "c2" };
-
-        roomOptions.MaxPlayers = (byte)players;
-        roomOptions.EmptyRoomTtl = (byte)120;
-        roomOptions.CleanupCacheOnLeave = false;
-        roomOptions.DeleteNullProperties = true;
+        RoomOptions roomOptions = new RoomOptions
+        {
+            CustomRoomProperties =
+                new ExitGames.Client.Photon.Hashtable()
+                {
+                    {"C0", _battleMode}, {"C1", "Hmm"}, {"C2", (float) PhotonNetwork.Time}
+                },
+            CustomRoomPropertiesForLobby = new string[] {"C0", "C1", "c2"},
+            MaxPlayers = (byte) _players,
+            EmptyRoomTtl = 120,
+            CleanupCacheOnLeave = false,
+            DeleteNullProperties = true
+        };
 
         return roomOptions;
     }
+
     #endregion RoomProps
 }

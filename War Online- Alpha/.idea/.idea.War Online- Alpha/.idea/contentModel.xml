@@ -363,10 +363,20 @@
           </e>
           <e p="MoventShip.cs" t="Include" />
           <e p="Photon" t="Include">
+            <e p="Game" t="Include">
+              <e p="DeathMatch.cs" t="Include" />
+              <e p="Enums.cs" t="Include" />
+              <e p="GameSession.cs" t="Include" />
+              <e p="Scoring" t="Include">
+                <e p="ScoreBoard.cs" t="Include" />
+                <e p="ScoreSet.cs" t="Include" />
+              </e>
+            </e>
             <e p="Lobby" t="Include">
               <e p="MainScript.cs" t="Include" />
             </e>
             <e p="Room" t="Include">
+              <e p="BattleMode.cs" t="Include" />
               <e p="CacheBehaviour.cs" t="Include" />
               <e p="FactionID.cs" t="Include" />
               <e p="gameManager.cs" t="Include" />

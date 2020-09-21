@@ -152,7 +152,7 @@ namespace _Scripts.Tank.Turrets.Particles
                         FactionID fID = targetHealth.fid;
                         FactionID myID = _myTankHealth.fid;
 
-                        if ((fID.teamID != -1 || myID.teamID != -1) && fID.teamID == myID.teamID) continue;
+                        if ((fID.teamIndex != -1 || myID.teamIndex != -1) && fID.teamIndex == myID.teamIndex) continue;
 
                         if (fID.myAccID == myID.myAccID) continue;
 

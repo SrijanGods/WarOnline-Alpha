@@ -5,11 +5,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using Photon.Pun;
-using Random = UnityEngine.Random;
 
 public class GateKeeper : MonoBehaviour
 {
@@ -229,10 +227,13 @@ public class GateKeeper : MonoBehaviour
         //We add "token" parameter. PlayFab expects it to contain Photon Authentication Token issues to your during previous step.
         customAuth.AddAuthParameter("token", obj.PhotonCustomAuthenticationToken);
 
-        PhotonNetwork.ConnectUsingSettings();
+        PhotonNetwork.AuthValues = customAuth;
+
+        // PhotonNetwork will be connected to later in MainScript
+        // PhotonNetwork.ConnectUsingSettings();
 
         PlayfabConnected = true;
-        print("Connected");
+        print("PlayFab authenticated with Photo ");
 
         GlobalValues.Instance.loggedIn = true;
     }

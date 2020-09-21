@@ -80,7 +80,7 @@ namespace _Scripts.Tank
             m_Dead = false;
 
             fid = GetComponent<FactionID>();
-            myTeam = fid.teamID;
+            myTeam = fid.teamIndex;
 
             m_CurrentHealth = m_StartingHealth;
             photonScript = FindObjectOfType<GameManager>();

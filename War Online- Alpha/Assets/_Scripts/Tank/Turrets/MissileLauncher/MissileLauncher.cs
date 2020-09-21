@@ -63,7 +63,7 @@ namespace _Scripts.Tank.Turrets.MissileLauncher
                 InactiveProjectiles.Add(c);
             }*/
 
-            _myTeamID = GetComponentInParent<FactionID>().teamID;
+            _myTeamID = GetComponentInParent<FactionID>().teamIndex;
 
             //SFX initialize here
             _reloadEv = FMODUnity.RuntimeManager.CreateInstance(reloadSfx);

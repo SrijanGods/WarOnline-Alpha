@@ -297,7 +297,7 @@ namespace _Scripts.Tank.Turrets.Sniper
                 FactionID fID = targetHealth.fid;
                 FactionID myID = _myTankHealth.fid;
 
-                if ((fID.teamID == -1 && myID.teamID == -1) || fID.teamID != myID.teamID)
+                if ((fID.teamIndex == -1 && myID.teamIndex == -1) || fID.teamIndex != myID.teamIndex)
                 {
                     if (fID.myAccID != myID.myAccID)
                     {

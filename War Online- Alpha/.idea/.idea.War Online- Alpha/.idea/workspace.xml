@@ -20,73 +20,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76928b57-085e-4c9b-bdc1-4e5972a596de" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/Attributes/Editor/NewAssemblyReference.asmref" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/Attributes/Editor/NewAssemblyReference.asmref" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Bars/Editor/NewAssemblyReference.asmref" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Bars/Editor/NewAssemblyReference.asmref" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Controls/Editor/NewAssemblyReference.asmref" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Controls/Editor/NewAssemblyReference.asmref" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Controls/Select Field/Editor/NewAssemblyReference.asmref" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Controls/Select Field/Editor/NewAssemblyReference.asmref" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Editor/NewAssemblyReference.asmref" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Editor/NewAssemblyReference.asmref.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Icon Slot System/Editor/NewAssemblyReference.asmref" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Icon Slot System/Editor/NewAssemblyReference.asmref" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Modal Box/Editor/NewAssemblyReference.asmref" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Modal Box/Editor/NewAssemblyReference.asmref" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Raycast Filters/Editor/NewAssemblyReference.asmref" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Raycast Filters/Editor/NewAssemblyReference.asmref" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Scene Loading/Editor/NewAssemblyReference.asmref" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Scene Loading/Editor/NewAssemblyReference.asmref" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Scene System/Editor/NewAssemblyReference.asmref" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Scene System/Editor/NewAssemblyReference.asmref" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Serializables/Editor/NewAssemblyReference.asmref" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Serializables/Editor/NewAssemblyReference.asmref" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Tooltips/Editor/NewAssemblyReference.asmref" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Tooltips/Editor/NewAssemblyReference.asmref" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Transitions/Editor/NewAssemblyReference.asmref" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Transitions/Editor/NewAssemblyReference.asmref" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Window/Editor/NewAssemblyReference.asmref" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet UI/Scripts/UI/Window/Editor/NewAssemblyReference.asmref" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/Photon/Game/DeathMatch.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/Photon/Game/DeathMatch.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/Photon/Game/Enums.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/Photon/Game/Enums.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/Photon/Game/GameSession.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/Photon/Game/GameSession.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/Photon/Game/Scoring/ScoreBoard.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/Photon/Game/Scoring/ScoreBoard.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/Photon/Game/Scoring/ScoreSet.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/Photon/Game/Scoring/ScoreSet.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/Photon/Room/BattleMode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Scripts/Photon/Room/BattleMode.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.War Online- Alpha/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.War Online- Alpha/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.War Online- Alpha/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.War Online- Alpha/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/GitHub/Editor/GitHub.Api.45.pdb.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/GitHub/Editor/GitHub.Api.pdb.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/GitHub/Editor/GitHub.Logging.pdb.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/GitHub/Editor/GitHub.Unity.45.pdb.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/GitHub/Editor/GitHub.Unity.pdb.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/GitHub/Editor/GitHub.UnityShim.pdb.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Photon/PhotonLibs/Metro/Photon3Unity3D.pdb.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master Bank.bank" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master Bank.bank.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master Bank.strings.bank" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master Bank.strings.bank.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/^Painter_Files/Tanks/Hulls/Mesh/Panzer/Panzer.obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/^Painter_Files/Tanks/Hulls/Mesh/Panzer/Panzer.obj.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/^Painter_Files/Tanks/Hulls/Mesh/Scorpion/Scorpion.obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/^Painter_Files/Tanks/Hulls/Mesh/Scorpion/Scorpion.obj.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/^Painter_Files/Tanks/Hulls/Mesh/Trapper/Trapper.obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/^Painter_Files/Tanks/Hulls/Mesh/Trapper/Trapper.obj.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/^Painter_Files/Tanks/Textures/Matte/Matte_green_modular 1.sbsar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/^Painter_Files/Tanks/Textures/Matte/Matte_green_modular 1.sbsar.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/^Painter_Files/Tanks/Turrets/Mesh/MachineGun/MachineGun.obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/^Painter_Files/Tanks/Turrets/Mesh/MachineGun/MachineGun.obj.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/^Painter_Files/Tanks/Turrets/Mesh/Missile_Launcher/MissileLauncher.obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/^Painter_Files/Tanks/Turrets/Mesh/Missile_Launcher/MissileLauncher.obj.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Acidton/Resources/PanzerAT Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Acidton/Resources/PanzerAT Variant.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Acidton/Resources/ScorpionAT Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Acidton/Resources/ScorpionAT Variant.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Acidton/Resources/TrapperAT Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Acidton/Resources/TrapperAT Variant.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Blaster/Resources/DominatorBL.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Blaster/Resources/DominatorBL.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Blaster/Resources/FalconBL.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Blaster/Resources/FalconBL.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Blaster/Resources/PanzerBL Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Blaster/Resources/PanzerBL Variant.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Blaster/Resources/ScorpionBL Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Blaster/Resources/ScorpionBL Variant.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Blaster/Resources/TrapperBL Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Blaster/Resources/TrapperBL Variant.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Duos/Resources/DominatorDS.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Duos/Resources/DominatorDS.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Duos/Resources/FalconDS.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Duos/Resources/FalconDS.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Machine_Gun/Resources/DominatorMG.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Machine_Gun/Resources/DominatorMG.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Machine_Gun/Resources/FalconMG.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Machine_Gun/Resources/FalconMG.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Missile Launcher/Resources/DominatorML.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Missile Launcher/Resources/DominatorML.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Missile Launcher/Resources/FalconML.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/Missile Launcher/Resources/FalconML.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/WindChill/Resources/FalconWC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Combination/WindChill/Resources/FalconWC.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Dominator.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Dominator.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Entity/Falcon_Body Entity.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Entity/Falcon_Body Entity.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Entity/Panzer_Body Entity.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Entity/Panzer_Body Entity.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Entity/Scorpion_Body Entity.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Entity/Scorpion_Body Entity.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Entity/Trapper_Body Entity.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Entity/Trapper_Body Entity.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Falcon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Falcon.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Panzer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Panzer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Scorpion.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Scorpion.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Trapper.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Trapper.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Turrets/Acidton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Turrets/Acidton.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Turrets/Blaster.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Turrets/Blaster.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Turrets/Duos.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Turrets/Duos.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Turrets/FlameThrower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Turrets/FlameThrower.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Turrets/MachineGun.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Turrets/MachineGun.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Turrets/Missile Launcher.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Turrets/Missile Launcher.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Turrets/Sniper.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Turrets/Sniper.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Turrets/WindChill.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Turrets/WindChill.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UI/Loading.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UI/Loading.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Tank_Controllers/Physics Based Tank Controller/Prefabs/RTCCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Tank_Controllers/Physics Based Tank Controller/Prefabs/RTCCanvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Tank_Controllers/RealisticTankController/For BoneCracker Games Shared Assets/BoneCracker Games Shared Assets.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Lobby.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Lobby.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Test/WarTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Test/WarTest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Misc/GlobalValues.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Misc/GlobalValues.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Photon/Lobby/MainScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Photon/Lobby/MainScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Photon/Room/FactionID.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Photon/Room/FactionID.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Photon/Room/GameMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Photon/Room/GameMap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Playfab/Login/GateKeeper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Playfab/Login/GateKeeper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Tank/TankHealth/TankHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Tank/TankHealth/TankHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/Blaster/OneShot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/Blaster/OneShot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/MachineGun/MachineGunV2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/MachineGun/MachineGunV2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/MissileLauncher/MissileLauncher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/MissileLauncher/MissileLauncher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/Particles/ParticleEmitter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/Particles/ParticleEmitter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/Sniper/Sniper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/Sniper/Sniper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/Sniper/snipershooting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/Sniper/snipershooting.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,30 +73,17 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/50FE65A4-93A0-4952-84F1-E3562EFBE38D/1f/05a97607/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/301E83EA-5372-4807-97D2-7B44A1D98309/a1/c1d0a961/FB.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Tank/TankAddOn.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/11E9ABBC-A912-444A-A80E-D58A280369FC/ee/59d33dcc/PhotonPeer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2E6610ED-2984-4F85-A379-24F81509FE5D/f4/968ab065/LineRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.1.0/Unity.Mathematics/float4x4.gen.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities@0.14.0-preview.18/Unity.Entities/EntityManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2E6610ED-2984-4F85-A379-24F81509FE5D/83/97a14956/AsyncOperation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Tank/TankHealth/TankHealth.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/50FE65A4-93A0-4952-84F1-E3562EFBE38D/49/d859cd68/Object.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/New/TankCustomInputs.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/Projectile/DOTS/ITankProjectile.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/IProjectileShooter.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/DOTS/EntitiesHelper.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/EntitiesHelper.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Scripts/Photon/Room/gameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/Duos/DuosBulletDestroy.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/DOTS/TankProjectileHit.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/DOTS/TankHealthSync.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/DOTS/SyncGameObject.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/MissileLauncher/Scripts/Fire.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/Projectile/ProjectileDecal.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/TurretAddOn.cs" />
-        <option value="$PROJECT_DIR$/Assets/Plugins/Photon/PhotonUnityNetworking/UtilityScripts/Prototyping/OnClickDestroy.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/DOTS/SyncEntityGameObject.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/DOTS/TankBody.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/MachineGun/MachineGun.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/Sniper/snipershooting.cs" />
@@ -147,21 +105,36 @@
         <option value="$PROJECT_DIR$/Assets/_Scripts/Photon/Room/CacheBehaviour.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/TankAddOn.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Photon/Room/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Scripts/Photon/Room/FactionID.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Playfab/Inventory/ItemManager.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Misc/CurrentTH.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/UI/Lobby/ImageUpdater.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Scripts/Misc/GlobalValues.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Garage/Selection/TurretChange.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Scripts/Photon/Lobby/MainScript.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/UI/Lobby/GameLooby.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/UI/Lobby/GameLobby.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/TankHealth/TankHealth.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/Projectile/TankProjectile.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Scripts/Photon/Room/GameMap.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Garage/Selection/HullChange.cs" />
         <option value="$PROJECT_DIR$/Assets/Joystick Pack/Scripts/Joysticks/FixedButton.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/UI/Loading.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/Photon/GameTypes/GameMode.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/Photon/GameTypes/Enums.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/Photon/GameTypes/Ffa.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/Photon/GameTypes/GameSession.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/Photon/Game/ScoreBoard.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/Photon/Game/ScoreSet.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/Photon/Game/Scoring/TextScoreSet.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/Misc/GlobalValues.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Temprary/LevelLoader.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/Photon/Game/Enums.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/Photon/Lobby/MainScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/Photon/Room/BattleMode.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/Photon/Room/GameMap.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/Photon/Game/Scoring/ScoreSet.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/Playfab/Login/GateKeeper.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/Photon/Room/FactionID.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/Photon/Game/Scoring/ScoreBoard.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/Photon/Game/GameSession.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/Photon/Game/DeathMatch.cs" />
       </list>
     </option>
   </component>
@@ -265,6 +238,9 @@
       <workItem from="1600265330188" duration="98000" />
       <workItem from="1600416616487" duration="1222000" />
       <workItem from="1600424751017" duration="703000" />
+      <workItem from="1600483015667" duration="3475000" />
+      <workItem from="1600659997769" duration="5234000" />
+      <workItem from="1600675959831" duration="19010000" />
     </task>
     <servers />
   </component>
@@ -369,25 +345,29 @@
     </state>
     <state width="1493" height="235" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1600180260440" />
     <state width="1493" height="240" key="GridCell.Tab.3.right/0.0.1536.834@0.0.1536.834" timestamp="1598441295796" />
-    <state x="601" y="128" key="RiderGenerateDialog" timestamp="1600185086800">
+    <state x="601" y="128" key="RiderGenerateDialog" timestamp="1600690522354">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="601" y="128" key="RiderGenerateDialog/0.0.1536.824@0.0.1536.824" timestamp="1600185086800" />
+    <state x="601" y="128" key="RiderGenerateDialog/0.0.1536.824@0.0.1536.824" timestamp="1600690522354" />
     <state x="454" y="122" key="RollbackChangesDialog" timestamp="1600074344267">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="454" y="122" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1600074344267" />
-    <state x="367" y="145" width="857" height="534" key="find.popup" timestamp="1600182951881">
+    <state x="93" y="93" width="1350" height="638" key="VCS.FileHistoryDialog" timestamp="1600483830759">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="367" y="145" width="857" height="534" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1600182951881" />
+    <state x="93" y="93" width="1350" height="638" key="VCS.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1600483830759" />
+    <state x="367" y="145" width="857" height="534" key="find.popup" timestamp="1600691270674">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="367" y="145" width="857" height="534" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1600691270674" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1600135677091">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1600135677091" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1599057553267">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1600682098162">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1599057553267" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1600682098162" />
   </component>
 </project>

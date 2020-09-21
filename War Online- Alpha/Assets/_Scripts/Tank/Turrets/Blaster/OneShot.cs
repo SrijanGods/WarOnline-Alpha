@@ -111,7 +111,7 @@ namespace _Scripts.Tank.Turrets.Blaster
                 FactionID fID = targetHealth.fid;
                 FactionID myID = _myTankHealth.fid;
 
-                if (fID.teamID != myID.teamID)
+                if (fID.teamIndex != myID.teamIndex)
                 {
                     if (fID.myAccID != myID.myAccID)
                     {
