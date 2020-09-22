@@ -108,13 +108,13 @@ public class PanelsAnimation : MonoBehaviour
 
     public void ScrollBarSelection()
     {
-        foreach (PanelsAnimation pA in panelsAnimations)
+        foreach(PanelsAnimation pA in panelsAnimations)
         {
-            if (scrollbar && IsOnScreen())
+            if (scrollbar && IsOnScreen()) 
             {
+                Debug.Log("t");
                 pA.DisplayFalse();
             }
         }
     }
-
 }
