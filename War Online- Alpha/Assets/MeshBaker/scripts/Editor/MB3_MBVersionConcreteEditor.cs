@@ -31,10 +31,6 @@ namespace DigitalOpus.MB.Core{
 			    ){
 				return "Standalone";	
 			}
-			if (EditorUserBuildSettings.activeBuildTarget == BuildTarget.WebPlayer ||
-			    EditorUserBuildSettings.activeBuildTarget == BuildTarget.WebPlayerStreamed){
-				return "Web";
-			}
 			return null;
 		}
 
@@ -47,13 +43,9 @@ namespace DigitalOpus.MB.Core{
 				#else
 				if (EditorUserBuildSettings.activeBuildTarget == BuildTarget.iOS) atlasMaxDimension = 4096;
 				#endif
-				if (EditorUserBuildSettings.activeBuildTarget == BuildTarget.WebPlayer) atlasMaxDimension = 2048;
-				if (EditorUserBuildSettings.activeBuildTarget == BuildTarget.WebPlayerStreamed) atlasMaxDimension = 2048;
 			} else {			
 				if (Application.platform == RuntimePlatform.Android) atlasMaxDimension = 2048;
 				if (Application.platform == RuntimePlatform.IPhonePlayer) atlasMaxDimension = 4096;
-				if (Application.platform == RuntimePlatform.WindowsWebPlayer) atlasMaxDimension = 2048;
-				if (Application.platform == RuntimePlatform.OSXWebPlayer) atlasMaxDimension = 2048;
 			}
 			return atlasMaxDimension;
 		}
