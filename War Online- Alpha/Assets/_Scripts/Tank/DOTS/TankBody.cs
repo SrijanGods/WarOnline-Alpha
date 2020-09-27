@@ -4,8 +4,8 @@ namespace _Scripts.Tank.DOTS
 {
     public struct TankBody : IComponentData
     {
-        public int teamID;
-        public float deltaHealth;
+        public int TeamID, LastAttackedBy;
+        public float DeltaHealth;
     }
 
     [UpdateAfter(typeof(TankProjectileHit))]
@@ -16,11 +16,11 @@ namespace _Scripts.Tank.DOTS
             Entities.ForEach(
                 (Entity e, ref TankBody tb) =>
                 {
-                    if (tb.deltaHealth > .0000001f)
+                    if (tb.DeltaHealth > .0000001f)
                     {
                         var t = EntitiesHelper.Eth[e];
-                        t.TakeDamage(tb.deltaHealth);
-                        tb.deltaHealth = 0;
+                        t.TakeDamage(tb.DeltaHealth, tb.LastAttackedBy);
+                        tb.DeltaHealth = 0;
                     }
                 }
             );

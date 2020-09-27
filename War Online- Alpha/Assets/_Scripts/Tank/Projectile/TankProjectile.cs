@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Diagnostics.CodeAnalysis;
+using _Scripts.Photon.Room;
 using _Scripts.Tank.DOTS;
 using _Scripts.Tank.Turrets;
 using Photon.Pun;
@@ -161,7 +162,8 @@ namespace _Scripts.Tank.Projectile
                 _entityManager.SetComponentData(_instantiatedEntity, new DOTS.TankProjectile
                 {
                     DamageAllies = damageAllies, TeamID = teamID,
-                    Damage = damage, HitCount = 0, MAXHitCount = turretParent.maxHitCount
+                    Damage = damage, HitCount = 0, MAXHitCount = turretParent.maxHitCount,
+                    OwnerActorNumber = turretParent.GetComponentInParent<FactionID>().actorNumber
                 });
 
                 _entityManager.SetComponentData(_instantiatedEntity, new Translation

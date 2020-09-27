@@ -32,7 +32,7 @@ namespace _Scripts.Tank.Turrets.Particles
 
         //private variables
         private bool isFiring;
-        private TankHealth _myTankHealth;
+        private TankHealth.TankHealth _myTankHealth;
         private Slider _coolDownSlider;
         private float barTime;
 
@@ -63,7 +63,7 @@ namespace _Scripts.Tank.Turrets.Particles
             particleSmoke.SetParent(particleFire.transform, true);
             particleFire.Stop(true);
 
-            _myTankHealth = GetComponentInParent<TankHealth>();
+            _myTankHealth = GetComponentInParent<TankHealth.TankHealth>();
             _coolDownSlider = _myTankHealth.attackCooldown;
             if (!isFlameThrower)
             {
@@ -144,7 +144,7 @@ namespace _Scripts.Tank.Turrets.Particles
 
                 for (int i = 0; i < size; i++)
                 {
-                    TankHealth targetHealth = colliders[i].GetComponent<TankHealth>();
+                    TankHealth.TankHealth targetHealth = colliders[i].GetComponent<TankHealth.TankHealth>();
                     if (!targetHealth) continue;
 
                     if (targetHealth)
@@ -199,10 +199,10 @@ namespace _Scripts.Tank.Turrets.Particles
 
         #region Damage
 
-        void Damage(TankHealth enemy)
+        void Damage(TankHealth.TankHealth enemy)
         {
             // enemy.photonView.RPC("TakeDamage", enemy.GetComponent<PhotonView>().Owner, damage);
-            enemy.TakeDamage(damage);
+            enemy.TakeDamage(damage, _myTankHealth.fid.actorNumber);
             if (isFlameThrower)
             {
                 enemy.photonView.RPC(nameof(enemy.SetColorFromFlameThrower),

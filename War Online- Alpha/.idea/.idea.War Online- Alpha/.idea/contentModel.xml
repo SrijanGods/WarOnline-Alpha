@@ -679,6 +679,49 @@
             </e>
           </e>
         </e>
+        <e p="Bakery" t="Include">
+          <e p="BakeryAlwaysRender.cs" t="Include" />
+          <e p="BakeryDirectLight.cs" t="Include" />
+          <e p="BakeryLightmapGroup.cs" t="Include" />
+          <e p="BakeryLightmapGroupSelector.cs" t="Include" />
+          <e p="BakeryLightmappedPrefab.cs" t="Include" />
+          <e p="BakeryLightMesh.cs" t="Include" />
+          <e p="BakeryMetaPass.cginc" t="Include" />
+          <e p="BakeryPackAsSingleSquare.cs" t="Include" />
+          <e p="BakeryPointLight.cs" t="Include" />
+          <e p="BakeryRuntimeAssembly.asmdef" t="Include" />
+          <e p="BakerySkyLight.cs" t="Include" />
+          <e p="Examples" t="Include">
+            <e p="Shaders" t="Include">
+              <e p="Baked_Normal_Maps_meta.shader" t="Include" />
+              <e p="Baked_Normal_Maps_terrain_meta.shader" t="Include" />
+            </e>
+          </e>
+          <e p="ftBlack.shader" t="Include" />
+          <e p="ftCubemap2Strip.shader" t="Include" />
+          <e p="ftDilate.shader" t="Include" />
+          <e p="ftGlobalStorage.cs" t="Include" />
+          <e p="ftLight.shader" t="Include" />
+          <e p="ftLightmaps.cs" t="Include" />
+          <e p="ftLightmapsStorage.cs" t="Include" />
+          <e p="ftLocalStorage.cs" t="Include" />
+          <e p="ftMultiply.shader" t="Include" />
+          <e p="ftOverlapTest.shader" t="Include" />
+          <e p="ftRGBM2Half.shader" t="Include" />
+          <e p="ftSimpleVertexLM.shader" t="Include" />
+          <e p="ftSkybox.shader" t="Include" />
+          <e p="ftUniqueIDRegistry.cs" t="Include" />
+          <e p="ftUnlitTerrain.shader" t="Include" />
+          <e p="ftUVNormalMap.shader" t="Include" />
+          <e p="shader" t="Include">
+            <e p="Bakery.cginc" t="Include" />
+            <e p="BakeryStandard.shader" t="Include" />
+            <e p="BakeryStandardSpecular.shader" t="Include" />
+            <e p="Editor" t="Include">
+              <e p="BakeryShaderGUI.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="Bullet UI" t="Include">
           <e p="Changelog.txt" t="Include" />
           <e p="Digital Glitch Effect" t="Include">
@@ -954,6 +997,49 @@
           </e>
           <e p="FMODMigrationUtil.cs" t="Include" />
           <e p="GarbageCleaner.cs" t="Include" />
+          <e p="x64" t="Include">
+            <e p="Bakery" t="Include">
+              <e p="ftChecker.shader" t="Include" />
+              <e p="Scripts" t="Include">
+                <e p="BakeryEditorAssembly.asmdef" t="Include" />
+                <e p="ftBuildGraphics.cs" t="Include" />
+                <e p="ftBuildLights.cs" t="Include" />
+                <e p="ftClearMenu.cs" t="Include" />
+                <e p="ftClient.cs" t="Include" />
+                <e p="ftCreateMenu.cs" t="Include" />
+                <e p="ftDDS.cs" t="Include" />
+                <e p="ftDefine.cs" t="Include" />
+                <e p="ftDirectLightInspector.cs" t="Include" />
+                <e p="ftErrorCodes.cs" t="Include" />
+                <e p="ftLightingDataGen.cs" t="Include" />
+                <e p="ftLightmappedPrefabInspector.cs" t="Include" />
+                <e p="ftLightmapsStorageInspector.cs" t="Include" />
+                <e p="ftLightMeshInspector.cs" t="Include" />
+                <e p="ftLMGroupInspector.cs" t="Include" />
+                <e p="ftLMGroupSelectorInspector.cs" t="Include" />
+                <e p="ftModelPostProcessor.cs" t="Include" />
+                <e p="ftPointLightInspector.cs" t="Include" />
+                <e p="ftRenderLightmap.cs" t="Include" />
+                <e p="ftRestorePaddingMenu.cs" t="Include" />
+                <e p="ftSavedPadding2.cs" t="Include" />
+                <e p="ftSavePadding.cs" t="Include" />
+                <e p="ftSaveSettingsMenu.cs" t="Include" />
+                <e p="ftSceneView.cs" t="Include" />
+                <e p="ftShaderTweaks.cs" t="Include" />
+                <e p="ftSkyLightInspector.cs" t="Include" />
+                <e p="ftTextureProcessor.cs" t="Include" />
+                <e p="ftUVGBufferGen.cs" t="Include" />
+                <e p="xatlas" t="Include">
+                  <e p="xatlas-license.txt" t="Include" />
+                  <e p="xatlas.cs" t="Include" />
+                  <e p="xatlasEnable.cs" t="Include" />
+                </e>
+              </e>
+              <e p="shaderSrc" t="Include">
+                <e p="ftrace.cginc" t="Include" />
+              </e>
+            </e>
+          </e>
         </e>
         <e p="Editor Default Resources" t="Include">
           <e p="nu Assets" t="Include">
@@ -969,6 +1055,11 @@
             </e>
           </e>
         </e>
+        <e p="ExternalDependencyManager" t="Include">
+          <e p="Editor" t="Include">
+            <e p="external-dependency-manager_version-1.2.157_manifest.txt" t="Include" />
+          </e>
+        </e>
         <e p="FacebookSDK" t="Include">
           <e p="link.xml" t="Include" />
           <e p="Plugins" t="Include">
@@ -977,6 +1068,116 @@
             </e>
           </e>
         </e>
+        <e p="GooglePlayGames" t="Include">
+          <e p="BasicApi" t="Include">
+            <e p="Achievement.cs" t="Include" />
+            <e p="CommonStatusCodes.cs" t="Include" />
+            <e p="CommonTypes.cs" t="Include" />
+            <e p="DummyClient.cs" t="Include" />
+            <e p="Events" t="Include">
+              <e p="Event.cs" t="Include" />
+              <e p="IEvent.cs" t="Include" />
+              <e p="IEventsClient.cs" t="Include" />
+            </e>
+            <e p="IPlayGamesClient.cs" t="Include" />
+            <e p="LeaderboardScoreData.cs" t="Include" />
+            <e p="Nearby" t="Include">
+              <e p="AdvertisingResult.cs" t="Include" />
+              <e p="ConnectionRequest.cs" t="Include" />
+              <e p="ConnectionResponse.cs" t="Include" />
+              <e p="DummyNearbyConnectionClient.cs" t="Include" />
+              <e p="EndpointDetails.cs" t="Include" />
+              <e p="INearbyConnectionClient.cs" t="Include" />
+              <e p="NearbyConnectionConfiguration.cs" t="Include" />
+            </e>
+            <e p="Player.cs" t="Include" />
+            <e p="PlayerProfile.cs" t="Include" />
+            <e p="PlayerStats.cs" t="Include" />
+            <e p="PlayGamesClientConfiguration.cs" t="Include" />
+            <e p="SavedGame" t="Include">
+              <e p="ISavedGameClient.cs" t="Include" />
+              <e p="ISavedGameMetadata.cs" t="Include" />
+              <e p="SavedGameMetadataUpdate.cs" t="Include" />
+            </e>
+            <e p="ScorePageToken.cs" t="Include" />
+            <e p="SignInHelper.cs" t="Include" />
+            <e p="SignInInteractivity.cs" t="Include" />
+            <e p="SignInStatus.cs" t="Include" />
+            <e p="Video" t="Include">
+              <e p="CaptureOverlayStateListener.cs" t="Include" />
+              <e p="IVideoClient.cs" t="Include" />
+              <e p="VideoCapabilities.cs" t="Include" />
+              <e p="VideoCaptureState.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Editor" t="Include">
+            <e p="GooglePlayGamesPluginDependencies.xml" t="Include" />
+            <e p="GPGSAndroidSetupUI.cs" t="Include" />
+            <e p="GPGSDocsUI.cs" t="Include" />
+            <e p="GPGSPostBuild.cs" t="Include" />
+            <e p="GPGSProjectSettings.cs" t="Include" />
+            <e p="GPGSStrings.cs" t="Include" />
+            <e p="GPGSUpgrader.cs" t="Include" />
+            <e p="GPGSUtil.cs" t="Include" />
+            <e p="m2repository" t="Include">
+              <e p="com" t="Include">
+                <e p="google" t="Include">
+                  <e p="games" t="Include">
+                    <e p="gpgs-plugin-support" t="Include">
+                      <e p="maven-metadata.xml" t="Include" />
+                    </e>
+                  </e>
+                </e>
+              </e>
+            </e>
+            <e p="NearbyConnectionUI.cs" t="Include" />
+            <e p="template-AndroidManifest.txt" t="Include" />
+            <e p="template-Constants.txt" t="Include" />
+            <e p="template-GameInfo.txt" t="Include" />
+          </e>
+          <e p="GameInfo.cs" t="Include" />
+          <e p="ISocialPlatform" t="Include">
+            <e p="PlayGamesAchievement.cs" t="Include" />
+            <e p="PlayGamesLeaderboard.cs" t="Include" />
+            <e p="PlayGamesLocalUser.cs" t="Include" />
+            <e p="PlayGamesPlatform.cs" t="Include" />
+            <e p="PlayGamesScore.cs" t="Include" />
+            <e p="PlayGamesUserProfile.cs" t="Include" />
+          </e>
+          <e p="OurUtils" t="Include">
+            <e p="Logger.cs" t="Include" />
+            <e p="Misc.cs" t="Include" />
+            <e p="NearbyHelperObject.cs" t="Include" />
+            <e p="PlatformUtils.cs" t="Include" />
+            <e p="PlayGamesHelperObject.cs" t="Include" />
+          </e>
+          <e p="Platforms" t="Include">
+            <e p="Android" t="Include">
+              <e p="AndroidClient.cs" t="Include" />
+              <e p="AndroidEventsClient.cs" t="Include" />
+              <e p="AndroidHelperFragment.cs" t="Include" />
+              <e p="AndroidJavaConverter.cs" t="Include" />
+              <e p="AndroidNearbyConnectionClient.cs" t="Include" />
+              <e p="AndroidSavedGameClient.cs" t="Include" />
+              <e p="AndroidSnapshotMetadata.cs" t="Include" />
+              <e p="AndroidTaskUtils.cs" t="Include" />
+              <e p="AndroidTokenClient.cs" t="Include" />
+              <e p="AndroidVideoClient.cs" t="Include" />
+            </e>
+            <e p="NearbyConnectionClientFactory.cs" t="Include" />
+            <e p="PlayGamesClientFactory.cs" t="Include" />
+            <e p="TokenClient.cs" t="Include" />
+          </e>
+          <e p="Plugins" t="Include">
+            <e p="Android" t="Include">
+              <e p="GooglePlayGamesManifest.plugin" t="Include">
+                <e p="AndroidManifest.xml" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="PluginVersion.cs" t="Include" />
+        </e>
+        <e p="GPGSIds.cs" t="Include" />
         <e p="Joystick Pack" t="Include">
           <e p="Examples" t="Include">
             <e p="JoystickPlayerExample.cs" t="Include" />
@@ -1195,6 +1396,14 @@
         <e p="Plugins" t="Include">
           <e p="Android" t="Include">
             <e p="AndroidManifest.xml" t="Include" />
+            <e p="BaseGameUtils" t="Include">
+              <e p="AndroidManifest.xml" t="Include" />
+              <e p="res" t="Include">
+                <e p="values" t="Include">
+                  <e p="gamehelper_strings.xml" t="Include" />
+                </e>
+              </e>
+            </e>
             <e p="Firebase" t="Include">
               <e p="AndroidManifest.xml" t="Include" />
               <e p="res" t="Include">
@@ -1754,6 +1963,8 @@
           </e>
         </e>
       </e>
+      <e p="BakeryEditorAssembly.csproj" t="IncludeRecursive" />
+      <e p="BakeryRuntimeAssembly.csproj" t="IncludeRecursive" />
       <e p="BulletUI-Scripts.csproj" t="IncludeRecursive" />
       <e p="BulletUI-Scripts.Editor.csproj" t="IncludeRecursive" />
       <e p="FMOD-Studio.csproj" t="IncludeRecursive" />

@@ -30,7 +30,7 @@ namespace _Scripts.Tank.Turrets.MissileLauncher
         private float _heldTime, _shootCount;
 
         private Slider _coolDownSlider;
-        private TankHealth _myTankHealth;
+        private TankHealth.TankHealth _myTankHealth;
         private int _myTeamID;
         private Transform _enemy;
 
@@ -46,7 +46,7 @@ namespace _Scripts.Tank.Turrets.MissileLauncher
                 myCamera.gameObject.SetActive(false);
             }
 
-            _myTankHealth = GetComponentInParent<TankHealth>();
+            _myTankHealth = GetComponentInParent<TankHealth.TankHealth>();
             _coolDownSlider = _myTankHealth.attackCooldown;
             _coolDownSlider.maxValue = maxLaunchCount;
             _coolDownSlider.minValue = 0f;
@@ -117,7 +117,7 @@ namespace _Scripts.Tank.Turrets.MissileLauncher
 
         private void GetClosestEnemy()
         {
-            var tankHealths = FindObjectsOfType<TankHealth>();
+            var tankHealths = FindObjectsOfType<TankHealth.TankHealth>();
 
             var closest = float.PositiveInfinity;
 
@@ -173,6 +173,8 @@ namespace _Scripts.Tank.Turrets.MissileLauncher
                 g.transform.localScale = Vector3.one;
 
                 tp.turretParent = this;
+                tp.pvw = photonView;
+                tp.Ready();
 
                 _shootEv.start();
 

@@ -35,7 +35,7 @@ namespace _Scripts.Tank.Turrets.Blaster
         private float ammoReload;
         private float timeForBar;
 
-        private TankHealth _myTankHealth;
+        private TankHealth.TankHealth _myTankHealth;
         private Slider _coolDownSlider;
         private Animator animator;
         private bool camMove = false;
@@ -59,7 +59,7 @@ namespace _Scripts.Tank.Turrets.Blaster
             barrelFlash.Stop(true);
 
             //Interface
-            _myTankHealth = GetComponentInParent<TankHealth>();
+            _myTankHealth = GetComponentInParent<TankHealth.TankHealth>();
             _coolDownSlider = _myTankHealth.attackCooldown;
             _coolDownSlider.maxValue = 1f;
             _coolDownSlider.minValue = 0f;
@@ -103,7 +103,7 @@ namespace _Scripts.Tank.Turrets.Blaster
             if (!Physics.Raycast(firePoint.position, firePoint.forward, out target, range, shootObjectslayer))
                 yield break;
 
-            TankHealth targetHealth = target.transform.gameObject.GetComponent<TankHealth>();
+            TankHealth.TankHealth targetHealth = target.transform.gameObject.GetComponent<TankHealth.TankHealth>();
 
             // Damage if hit any tank
             if (targetHealth && _myTankHealth.photonView.IsMine)
@@ -115,7 +115,7 @@ namespace _Scripts.Tank.Turrets.Blaster
                 {
                     if (fID.myAccID != myID.myAccID)
                     {
-                        targetHealth.TakeDamage(damage);
+                        targetHealth.TakeDamage(damage, myID.actorNumber);
                     }
                 }
             }

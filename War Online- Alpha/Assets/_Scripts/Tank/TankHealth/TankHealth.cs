@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using _Scripts.Photon.Game;
 using _Scripts.Photon.Room;
 using _Scripts.Tank.DOTS;
 using Photon.Pun;
@@ -6,20 +7,24 @@ using Unity.Entities;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Scripts.Tank
+namespace _Scripts.Tank.TankHealth
 {
     public class TankHealth : MonoBehaviourPun
     {
         [Header("Prefab")] public GameObject entityPrefab;
 
-        [Header("Health")] public float m_StartingHealth = 100f;
+        [Header("Health")] public float startingHealth = 100f;
         public Color m_FullHealthColor;
         public Color m_ZeroHealthColor;
-        public float m_CurrentHealth;
+        public float currentHealth;
 
         [Header("UI Stuff")] public GameObject warCanvas, rtcCanvas;
         [Header("UI Stuff")] public Image health;
         [Header("UI Stuff")] public Slider attackCooldown;
+
+        [Header("Teams & Enemy UI")] public GameObject othersCanvass;
+        public Slider otherShownHealth;
+        public Text otherShownName;
 
         [Header("GameObjects")] public GameObject actualHull, actualTurret, destroyedHull, destroyedTurret;
 
@@ -28,20 +33,24 @@ namespace _Scripts.Tank
         private bool spawnCalled;
         [HideInInspector] public int myTeam;
         [HideInInspector] public FactionID fid;
-        private string playerTankName;
+        private string _playerTankName;
         private AudioSource m_ExplosionAudio;
         private ParticleSystem m_ExplosionParticles;
         private bool m_Dead;
-        private GameManager photonScript;
-        private bool destroyCalled;
+        private GameManager _photonScript;
+        private bool _destroyCalled;
 
         private BlobAssetStore _blobAssetStore;
         private EntityManager _entityManager;
 
         private Entity _instantiatedEntity;
 
+        private GameSession _session;
+
         private void OnEnable()
         {
+            _session = FindObjectOfType<GameSession>();
+
             // ECS
 
             _blobAssetStore = new BlobAssetStore();
@@ -62,7 +71,7 @@ namespace _Scripts.Tank
 
             _entityManager.AddComponentData(_instantiatedEntity, new TankBody
             {
-                teamID = myTeam
+                TeamID = myTeam
             });
 
             _entityManager.AddComponentData(_instantiatedEntity, new SyncEntity
@@ -75,50 +84,66 @@ namespace _Scripts.Tank
 
             // fields
 
-            destroyCalled = false;
+            _destroyCalled = false;
 
             m_Dead = false;
 
             fid = GetComponent<FactionID>();
             myTeam = fid.teamIndex;
 
-            m_CurrentHealth = m_StartingHealth;
-            photonScript = FindObjectOfType<GameManager>();
+            currentHealth = startingHealth;
+            _photonScript = FindObjectOfType<GameManager>();
 
-            if (photonView.IsMine || !PhotonNetwork.IsConnected) return;
+            otherShownHealth.maxValue = startingHealth;
+            otherShownHealth.value = currentHealth;
 
-            rtcCanvas.SetActive(false);
-            warCanvas.SetActive(false);
-
-            //getting destroyed tank prefabs
-            if (!destroyedHull) destroyedHull = gameObject.transform.Find(actualHull.name + "_D").gameObject;
+            if (photonView.IsMine || !PhotonNetwork.IsConnected)
+            {
+                rtcCanvas.SetActive(true);
+                warCanvas.SetActive(true);
+                othersCanvass.SetActive(false);
+            }
+            else
+            {
+                rtcCanvas.SetActive(false);
+                warCanvas.SetActive(false);
+                othersCanvass.SetActive(true);
+            }
         }
 
         [PunRPC]
-        public void UpdateHealth(float healthVal)
+        public void UpdateHealth(float healthVal, int lastAttackedBy)
         {
-            m_CurrentHealth = healthVal;
+            currentHealth = healthVal;
 
-            SetHealthUI(m_CurrentHealth);
+            SetHealthUI(currentHealth);
 
-            if (m_CurrentHealth <= 0)
+            if (currentHealth <= 0)
             {
+                if (photonView.IsMine)
+                    _session.photonView.RPC(nameof(_session.OnPlayerDieRPC), RpcTarget.All,
+                        fid.actorNumber, lastAttackedBy);
+
                 OnDeath();
             }
         }
 
-        public void TakeDamage(float damage)
+        public void TakeDamage(float damage, int lastAttackedBy)
         {
             // Adjust the tank's current health, update the UI based on the new health and check whether or not the tank is dead.
 
-            m_CurrentHealth -= damage;
+            currentHealth -= damage;
 
-            SetHealthUI(m_CurrentHealth);
+            SetHealthUI(currentHealth);
 
-            photonView.RPC(nameof(UpdateHealth), RpcTarget.Others, m_CurrentHealth);
+            photonView.RPC(nameof(UpdateHealth), RpcTarget.Others, currentHealth, lastAttackedBy);
 
-            if (m_CurrentHealth <= 0)
+            if (currentHealth <= 0)
             {
+                if (photonView.IsMine)
+                    _session.photonView.RPC(nameof(_session.OnPlayerDieRPC), RpcTarget.All,
+                        fid.actorNumber, lastAttackedBy);
+
                 OnDeath();
             }
         }
@@ -127,7 +152,9 @@ namespace _Scripts.Tank
         {
             // Adjust the value and colour of the slider.
 
-            this.health.fillAmount = healthVal;
+            health.fillAmount = healthVal;
+
+            otherShownHealth.value = healthVal;
 
             if (healthVal < .05f)
             {
@@ -139,7 +166,7 @@ namespace _Scripts.Tank
             }
             else
             {
-                health.color = Color.Lerp(m_ZeroHealthColor, m_FullHealthColor, healthVal / m_StartingHealth);
+                health.color = Color.Lerp(m_ZeroHealthColor, m_FullHealthColor, healthVal / startingHealth);
             }
         }
 
@@ -159,14 +186,6 @@ namespace _Scripts.Tank
             }
         }
 
-        /*[PunRPC]
-    private void UIComponentsSet(int teamNo)
-    {
-        if (teamNo != myTeam || teamNo == 1)
-        {
-        }
-    }*/
-
         void OnDeath()
         {
             // Play the effects for the death of the tank and deactivate it.
@@ -174,14 +193,14 @@ namespace _Scripts.Tank
             m_Dead = true;
 
 
-            if (!destroyCalled)
+            if (!_destroyCalled)
             {
                 actualHull.SetActive(false);
                 actualTurret.SetActive(false);
 
                 destroyedTurret.SetActive(true);
                 destroyedHull.SetActive(true);
-                destroyCalled = true;
+                _destroyCalled = true;
                 RTC_TankController tankController = gameObject.GetComponent<RTC_TankController>();
                 tankController.engineRunning = false;
             }

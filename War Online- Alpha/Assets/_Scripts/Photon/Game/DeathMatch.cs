@@ -51,9 +51,12 @@ namespace _Scripts.Photon.Game
         {
             base.OnPlayerDie(dyingPlayerID, killerID);
 
+            if (!PlayersScoresByActorID.ContainsKey(killerID)) PlayersScoresByActorID[killerID] = 0;
+            PlayersScoresByActorID[killerID] += 5;
+
             if (GlobalValues.Session == GameSessionType.Teams)
             {
-                var tn = GlobalValues.TeamNames[playersTeamIndexByActorID[killerID]];
+                var tn = GlobalValues.TeamNames[PlayersTeamIndexByActorID[killerID]];
 
                 _sb.ss[tn].tss.Score = (int.Parse(_sb.ss[tn].tss.Score) + 1).ToString();
             }

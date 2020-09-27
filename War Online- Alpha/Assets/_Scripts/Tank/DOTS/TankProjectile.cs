@@ -11,7 +11,7 @@ namespace _Scripts.Tank.DOTS
     public struct TankProjectile : IComponentData
     {
         public bool DamageAllies;
-        public int TeamID, HitCount, MAXHitCount;
+        public int TeamID, HitCount, MAXHitCount, OwnerActorNumber;
         public float Damage;
     }
 
@@ -53,11 +53,12 @@ namespace _Scripts.Tank.DOTS
 
                 // If we can damage ally then proceed else check if the tank hit is enemy then proceed
                 // Also damage tank if it is in test mode teamid -1
-                if ((c.TeamID == -1 && ct.teamID == -1) || (c.DamageAllies || c.TeamID != ct.teamID))
+                if ((c.TeamID == -1 && ct.TeamID == -1) || (c.DamageAllies || c.TeamID != ct.TeamID))
                 {
                     if (c.HitCount <= c.MAXHitCount)
                     {
-                        ct.deltaHealth -= c.Damage;
+                        ct.DeltaHealth -= c.Damage;
+                        ct.LastAttackedBy = c.OwnerActorNumber;
                     }
                 }
 

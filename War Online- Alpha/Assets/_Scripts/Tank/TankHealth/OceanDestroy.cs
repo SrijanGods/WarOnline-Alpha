@@ -1,4 +1,5 @@
 ﻿using _Scripts.Tank;
+using _Scripts.Tank.TankHealth;
 using UnityEngine;
 
 public class OceanDestroy : MonoBehaviour
@@ -7,7 +8,7 @@ public class OceanDestroy : MonoBehaviour
     {
         if (collision.gameObject.GetComponentInParent<TankHealth>() != null)
         {
-            collision.gameObject.GetComponentInParent<TankHealth>().m_CurrentHealth = 0f;
+            collision.gameObject.GetComponentInParent<TankHealth>().currentHealth = 0f;
         }
     }
 }

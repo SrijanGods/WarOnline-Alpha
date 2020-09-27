@@ -12,7 +12,11 @@ namespace _Scripts.Photon.Game
         public GameMap map;
 
         protected List<global::Photon.Realtime.Player> AllPlayers;
-        protected Dictionary<int, int> playersTeamIndexByActorID = new Dictionary<int, int>();
+
+        protected readonly Dictionary<int, int> PlayersTeamIndexByActorID = new Dictionary<int, int>(),
+            PlayersKillsByActorID = new Dictionary<int, int>(),
+            PlayersDeathsByActorID = new Dictionary<int, int>(),
+            PlayersScoresByActorID = new Dictionary<int, int>();
 
         protected int NextSpawnTurn;
 
@@ -102,7 +106,7 @@ namespace _Scripts.Photon.Game
 
         public virtual void OnPlayerSpawn(int playerActorID, int teamIndex, int ffaColorIndex)
         {
-            playersTeamIndexByActorID.Add(playerActorID, teamIndex);
+            PlayersTeamIndexByActorID.Add(playerActorID, teamIndex);
 
             if (!PhotonNetwork.IsMasterClient) return;
 
@@ -134,6 +138,11 @@ namespace _Scripts.Photon.Game
 
         public virtual void OnPlayerDie(int dyingPlayerID, int killerID)
         {
+            if (!PlayersKillsByActorID.ContainsKey(killerID)) PlayersKillsByActorID[killerID] = 0;
+            PlayersKillsByActorID[killerID] += 1;
+
+            if (!PlayersDeathsByActorID.ContainsKey(dyingPlayerID)) PlayersDeathsByActorID[dyingPlayerID] = 0;
+            PlayersDeathsByActorID[dyingPlayerID] += 1;
         }
 
         public virtual void StartGame(float t)

@@ -54,7 +54,7 @@ namespace _Scripts.Tank.Turrets.Sniper
         [SerializeField] private ParticleSystem barrelFlash;
         private RaycastHit target;
 
-        private TankHealth _myTankHealth;
+        private TankHealth.TankHealth _myTankHealth;
         private Slider _coolDownSlider;
         private Animator animator;
         private bool camMove = false;
@@ -99,7 +99,7 @@ namespace _Scripts.Tank.Turrets.Sniper
             //sniperShootEv.start();
 
             //Interface
-            _myTankHealth = GetComponentInParent<TankHealth>();
+            _myTankHealth = GetComponentInParent<TankHealth.TankHealth>();
             _coolDownSlider = _myTankHealth.attackCooldown;
             _coolDownSlider.maxValue = 30f;
             _coolDownSlider.minValue = 0f;
@@ -273,7 +273,7 @@ namespace _Scripts.Tank.Turrets.Sniper
         private void Shoot(float currDamage)
         {
             barrelFlash.Play(true);
-            TankHealth targetHealth = target.transform.GetComponent<TankHealth>();
+            TankHealth.TankHealth targetHealth = target.transform.GetComponent<TankHealth.TankHealth>();
 
             inZoomMode = false;
 
@@ -288,11 +288,11 @@ namespace _Scripts.Tank.Turrets.Sniper
                     {
                         if (Math.Abs(currDamage - damage) < .005f)
                         {
-                            targetHealth.TakeDamage(currDamage - damageToLess);
+                            targetHealth.TakeDamage(currDamage - damageToLess, myID.actorNumber);
                         }
                         else
                         {
-                            targetHealth.TakeDamage(currDamage);
+                            targetHealth.TakeDamage(currDamage, myID.actorNumber);
                         }
                     }
                 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿/*
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -37,7 +38,7 @@ public class MissileDamageActivator : MonoBehaviour {
             }
             Destroy(this.gameObject);
         }
-    }*/
+    }#1#
 
     void OnTriggerEnter(Collider other)
     {
@@ -67,3 +68,4 @@ public class MissileDamageActivator : MonoBehaviour {
     }
 
 }
+*/

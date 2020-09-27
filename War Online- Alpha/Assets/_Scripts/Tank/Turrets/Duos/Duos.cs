@@ -32,7 +32,7 @@ namespace _Scripts.Tank.Turrets.Duos
         private bool _right = true, _left;
 
         private Slider _coolDownSlider;
-        private TankHealth _myTankHealth;
+        private TankHealth.TankHealth _myTankHealth;
 
         // private int myTeamID;
         private bool _reload;
@@ -56,7 +56,7 @@ namespace _Scripts.Tank.Turrets.Duos
             autoAim = false;
 
             // tP = GetComponentInParent<TouchProcessor>();
-            _myTankHealth = GetComponentInParent<TankHealth>();
+            _myTankHealth = GetComponentInParent<TankHealth.TankHealth>();
             _coolDownSlider = _myTankHealth.attackCooldown;
             _coolDownSlider.maxValue = 1f;
             _coolDownSlider.minValue = 0f;

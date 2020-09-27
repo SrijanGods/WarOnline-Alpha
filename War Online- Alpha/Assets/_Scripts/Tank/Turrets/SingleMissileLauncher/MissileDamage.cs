@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿/*
+using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Tank;
 using UnityEngine;
@@ -48,7 +49,7 @@ public class MissileDamage : MonoBehaviour {
             missile.GetComponent<MissileDamageActivator>().enemyList.Remove(other.gameObject.GetComponent<Player>());
             Debug.LogWarning("Player Object " + other.gameObject.name + " exits the hitbox. (enemyList count: " + missile.GetComponent<MissileDamageActivator>().enemyList.Count + ")");
         }
-    }*/
+    }#1#
 
     public void missileDamage(bool perfect)
     {
@@ -115,3 +116,4 @@ public class MissileDamage : MonoBehaviour {
 
 
 }
+*/

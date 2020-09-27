@@ -1359,15 +1359,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45a335734b1572644a6a5d09d87adc65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _SceneAsset: {fileID: 102900000, guid: 44814334693a20d4da2675fff6c20c55, type: 3}
+  _SceneAsset: {fileID: 102900000, guid: c8529c3f5cc2fd84c841a60a633e03ee, type: 3}
   _HierarchyColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   AutoLoadScene: 1
   _SceneGUID:
     Value:
-      x: 0
-      y: 0
-      z: 0
-      w: 0
+      x: 4090045836
+      y: 1222585541
+      z: 2691306636
+      w: 3996181302
 --- !u!4 &1169147740
 Transform:
   m_ObjectHideFlags: 0

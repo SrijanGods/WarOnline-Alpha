@@ -1,11 +1,12 @@
-﻿using Photon.Pun;
+﻿using _Scripts.Tank.TankHealth;
+using Photon.Pun;
 using UnityEngine;
 
 namespace _Scripts.Photon.Room
 {
     public class FactionID : MonoBehaviourPun
     {
-        public int teamIndex = -1;
+        public int teamIndex = -1, actorNumber;
         public string myAccID;
         public Color myColor;
 
@@ -14,27 +15,37 @@ namespace _Scripts.Photon.Room
             if (photonView.IsMine)
             {
                 myAccID = PhotonNetwork.AuthValues.UserId;
-                photonView.RPC(nameof(SyncID), RpcTarget.Others, teamIndex, myAccID, 0, 0, 0);
+                actorNumber = PhotonNetwork.LocalPlayer.ActorNumber;
+                photonView.RPC(nameof(SyncSelfID), RpcTarget.Others, actorNumber, myAccID,
+                    PhotonNetwork.LocalPlayer.NickName);
             }
         }
 
         public void SetTeam(int t)
         {
             var c = GlobalValues.TeamColors[t];
-            photonView.RPC(nameof(SyncID), RpcTarget.All, t, myAccID, c.r, c.g, c.b);
+            photonView.RPC(nameof(SyncTeamID), RpcTarget.All, t, c.r, c.g, c.b);
         }
 
         public void SetFFA(int t, Color c)
         {
-            photonView.RPC(nameof(SyncID), RpcTarget.All, t, myAccID, c.r, c.g, c.b);
+            photonView.RPC(nameof(SyncTeamID), RpcTarget.All, t, c.r, c.g, c.b);
         }
 
         [PunRPC]
-        public void SyncID(int t, string a, float r, float g, float b)
+        public void SyncSelfID(int an, string acc, string nickname)
+        {
+            actorNumber = an;
+            myAccID = acc;
+            GetComponent<TankHealth>().otherShownName.text = nickname;
+        }
+
+        [PunRPC]
+        public void SyncTeamID(int t, float r, float g, float b)
         {
             teamIndex = t;
-            myAccID = a;
             myColor = new Color(r, g, b);
+            GetComponent<TankHealth>().otherShownName.color = myColor;
         }
     }
 }

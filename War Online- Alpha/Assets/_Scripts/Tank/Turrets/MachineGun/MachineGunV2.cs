@@ -29,7 +29,7 @@ namespace _Scripts.Tank.Turrets.MachineGun
 
         FMOD.Studio.EventInstance _mgShootEv;
 
-        private TankHealth _myTankHealth;
+        private TankHealth.TankHealth _myTankHealth;
 
         private Slider _coolDownSlider;
         // private bool _neededZero;
@@ -59,7 +59,7 @@ namespace _Scripts.Tank.Turrets.MachineGun
 
             _ammo = actualAmmo;
 
-            _myTankHealth = GetComponentInParent<TankHealth>();
+            _myTankHealth = GetComponentInParent<TankHealth.TankHealth>();
             _coolDownSlider = _myTankHealth.attackCooldown;
             _coolDownSlider.minValue = 0f;
             _coolDownSlider.maxValue = actualAmmo;
@@ -165,8 +165,8 @@ namespace _Scripts.Tank.Turrets.MachineGun
 
         private void HitDamage(RaycastHit hit)
         {
-            var th = hit.transform.GetComponent<TankHealth>();
-            if (!th) th = hit.transform.GetComponentInParent<TankHealth>();
+            var th = hit.transform.GetComponent<TankHealth.TankHealth>();
+            if (!th) th = hit.transform.GetComponentInParent<TankHealth.TankHealth>();
 
             if (th)
             {
@@ -177,7 +177,7 @@ namespace _Scripts.Tank.Turrets.MachineGun
                 {
                     if (fID.myAccID != myID.myAccID)
                     {
-                        th.TakeDamage(damage);
+                        th.TakeDamage(damage, myID.actorNumber);
                     }
                 }
             }
