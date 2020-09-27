@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b331d475c9159e4998db018316215b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cams: []
 --- !u!114 &2726989631542910827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,8 +218,9 @@ MonoBehaviour:
   controllerEnabled: 0
   controllerInvertY: 1
   mouseInvertY: 0
-  lockMouseCursor: 1
+  lockMouseCursor: 0
   mouseSensitivity: {x: 1.5, y: 1}
   controllerSensitivity: {x: 1, y: 0.7}
   x: 0
   y: 0
+  disableInputs: 1

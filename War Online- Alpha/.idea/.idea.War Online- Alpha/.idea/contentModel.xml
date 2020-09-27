@@ -1055,11 +1055,6 @@
             </e>
           </e>
         </e>
-        <e p="ExternalDependencyManager" t="Include">
-          <e p="Editor" t="Include">
-            <e p="external-dependency-manager_version-1.2.157_manifest.txt" t="Include" />
-          </e>
-        </e>
         <e p="FacebookSDK" t="Include">
           <e p="link.xml" t="Include" />
           <e p="Plugins" t="Include">
@@ -1111,6 +1106,7 @@
             </e>
           </e>
           <e p="Editor" t="Include">
+            <e p="GooglePlayGames.Editor.asmdef" t="Include" />
             <e p="GooglePlayGamesPluginDependencies.xml" t="Include" />
             <e p="GPGSAndroidSetupUI.cs" t="Include" />
             <e p="GPGSDocsUI.cs" t="Include" />
@@ -1136,6 +1132,7 @@
             <e p="template-GameInfo.txt" t="Include" />
           </e>
           <e p="GameInfo.cs" t="Include" />
+          <e p="GooglePlayGames.asmdef" t="Include" />
           <e p="ISocialPlatform" t="Include">
             <e p="PlayGamesAchievement.cs" t="Include" />
             <e p="PlayGamesLeaderboard.cs" t="Include" />
@@ -1969,6 +1966,8 @@
       <e p="BulletUI-Scripts.Editor.csproj" t="IncludeRecursive" />
       <e p="FMOD-Studio.csproj" t="IncludeRecursive" />
       <e p="FMOD-Studio.Editor.csproj" t="IncludeRecursive" />
+      <e p="GooglePlayGames.csproj" t="IncludeRecursive" />
+      <e p="GooglePlayGames.Editor.csproj" t="IncludeRecursive" />
       <e p="InputControls.csproj" t="IncludeRecursive" />
       <e p="JoystickPack-Editor.csproj" t="IncludeRecursive" />
       <e p="JoysticksPack.csproj" t="IncludeRecursive" />

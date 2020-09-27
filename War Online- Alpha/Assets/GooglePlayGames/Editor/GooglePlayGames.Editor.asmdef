@@ -1,0 +1,17 @@
+{
+    "name": "GooglePlayGames.Editor",
+    "references": [
+        "GUID:b200ff7e66885664086d8ed418107e8a"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

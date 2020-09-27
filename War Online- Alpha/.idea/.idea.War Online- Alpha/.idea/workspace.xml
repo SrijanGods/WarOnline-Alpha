@@ -23,66 +23,195 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.War Online- Alpha/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.War Online- Alpha/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.War Online- Alpha/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.War Online- Alpha/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.War Online- Alpha/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.War Online- Alpha/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bakery/shader/Bakery_ShaderGraphHDRP.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bakery/shader/Bakery_ShaderGraphLWRP.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/Firebase/res/values/google-services.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/Firebase/res/values/google-services.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/CHANGELOG.md.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/Google.IOSResolver_v1.2.157.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/Google.IOSResolver_v1.2.157.dll.mdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/Google.IOSResolver_v1.2.157.dll.mdb.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/Google.IOSResolver_v1.2.157.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/Google.JarResolver_v1.2.157.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/Google.JarResolver_v1.2.157.dll.mdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/Google.JarResolver_v1.2.157.dll.mdb.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/Google.JarResolver_v1.2.157.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/Google.PackageManagerResolver_v1.2.157.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/Google.PackageManagerResolver_v1.2.157.dll.mdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/Google.PackageManagerResolver_v1.2.157.dll.mdb.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/Google.PackageManagerResolver_v1.2.157.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/Google.VersionHandlerImpl_v1.2.157.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/Google.VersionHandlerImpl_v1.2.157.dll.mdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/Google.VersionHandlerImpl_v1.2.157.dll.mdb.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/Google.VersionHandlerImpl_v1.2.157.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/README.md.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/external-dependency-manager_version-1.2.157_manifest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/external-dependency-manager_version-1.2.157_manifest.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Achievement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Achievement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Achievement.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Achievement.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/CommonStatusCodes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/CommonStatusCodes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/CommonStatusCodes.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/CommonStatusCodes.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/CommonTypes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/CommonTypes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/CommonTypes.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/CommonTypes.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/DummyClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/DummyClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/DummyClient.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/DummyClient.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Events/Event.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Events/Event.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Events/Event.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Events/Event.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Events/IEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Events/IEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Events/IEvent.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Events/IEvent.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Events/IEventsClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Events/IEventsClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Events/IEventsClient.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Events/IEventsClient.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/IPlayGamesClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/IPlayGamesClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/IPlayGamesClient.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/IPlayGamesClient.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/LeaderboardScoreData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/LeaderboardScoreData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/LeaderboardScoreData.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/LeaderboardScoreData.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/AdvertisingResult.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/AdvertisingResult.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/AdvertisingResult.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/AdvertisingResult.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/ConnectionRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/ConnectionRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/ConnectionRequest.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/ConnectionRequest.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/ConnectionResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/ConnectionResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/ConnectionResponse.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/ConnectionResponse.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/DummyNearbyConnectionClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/DummyNearbyConnectionClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/DummyNearbyConnectionClient.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/DummyNearbyConnectionClient.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/EndpointDetails.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/EndpointDetails.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/EndpointDetails.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/EndpointDetails.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/INearbyConnectionClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/INearbyConnectionClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/INearbyConnectionClient.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/INearbyConnectionClient.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/NearbyConnectionConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/NearbyConnectionConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/NearbyConnectionConfiguration.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Nearby/NearbyConnectionConfiguration.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/PlayGamesClientConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/PlayGamesClientConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/PlayGamesClientConfiguration.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/PlayGamesClientConfiguration.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Player.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Player.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/PlayerProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/PlayerProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/PlayerProfile.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/PlayerProfile.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/PlayerStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/PlayerStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/PlayerStats.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/PlayerStats.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/SavedGame/ISavedGameClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/SavedGame/ISavedGameClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/SavedGame/ISavedGameClient.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/SavedGame/ISavedGameClient.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/SavedGame/ISavedGameMetadata.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/SavedGame/ISavedGameMetadata.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/SavedGame/ISavedGameMetadata.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/SavedGame/ISavedGameMetadata.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/SavedGame/SavedGameMetadataUpdate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/SavedGame/SavedGameMetadataUpdate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/SavedGame/SavedGameMetadataUpdate.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/SavedGame/SavedGameMetadataUpdate.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/ScorePageToken.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/ScorePageToken.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/ScorePageToken.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/ScorePageToken.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/SignInHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/SignInHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/SignInHelper.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/SignInHelper.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/SignInInteractivity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/SignInInteractivity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/SignInInteractivity.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/SignInInteractivity.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/SignInStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/SignInStatus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/SignInStatus.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/SignInStatus.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Video/CaptureOverlayStateListener.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Video/CaptureOverlayStateListener.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Video/CaptureOverlayStateListener.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Video/CaptureOverlayStateListener.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Video/IVideoClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Video/IVideoClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Video/IVideoClient.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Video/IVideoClient.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Video/VideoCapabilities.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Video/VideoCapabilities.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Video/VideoCapabilities.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Video/VideoCapabilities.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Video/VideoCaptureState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Video/VideoCaptureState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Video/VideoCaptureState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/BasicApi/Video/VideoCaptureState.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSAndroidSetupUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSAndroidSetupUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSAndroidSetupUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSAndroidSetupUI.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSDocsUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSDocsUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSDocsUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSDocsUI.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSPostBuild.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSPostBuild.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSPostBuild.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSPostBuild.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSProjectSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSProjectSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSProjectSettings.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSProjectSettings.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSStrings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSStrings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSStrings.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSStrings.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSUpgrader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSUpgrader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSUpgrader.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSUpgrader.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSUtil.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSUtil.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSUtil.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GPGSUtil.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GooglePlayGamesPluginDependencies.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GooglePlayGamesPluginDependencies.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GooglePlayGamesPluginDependencies.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GooglePlayGamesPluginDependencies.xml.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GooglePlayGamesPlugin_v0.10.11.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GooglePlayGamesPlugin_v0.10.11.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GooglePlayGamesPlugin_v0.10.11.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/GooglePlayGamesPlugin_v0.10.11.txt.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/NearbyConnectionUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/NearbyConnectionUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/NearbyConnectionUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/NearbyConnectionUI.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/0.10.11.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/0.10.11.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/0.10.11/gpgs-plugin-support-0.10.11.pom" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/0.10.11/gpgs-plugin-support-0.10.11.pom" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/0.10.11/gpgs-plugin-support-0.10.11.pom.md5.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/0.10.11/gpgs-plugin-support-0.10.11.pom.md5.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/0.10.11/gpgs-plugin-support-0.10.11.pom.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/0.10.11/gpgs-plugin-support-0.10.11.pom.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/0.10.11/gpgs-plugin-support-0.10.11.pom.sha1.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/0.10.11/gpgs-plugin-support-0.10.11.pom.sha1.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/0.10.11/gpgs-plugin-support-0.10.11.srcaar.md5.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/0.10.11/gpgs-plugin-support-0.10.11.srcaar.md5.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/0.10.11/gpgs-plugin-support-0.10.11.srcaar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/0.10.11/gpgs-plugin-support-0.10.11.srcaar.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/0.10.11/gpgs-plugin-support-0.10.11.srcaar.sha1.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/0.10.11/gpgs-plugin-support-0.10.11.srcaar.sha1.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/maven-metadata.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/maven-metadata.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/maven-metadata.xml.md5.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/maven-metadata.xml.md5.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/maven-metadata.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/maven-metadata.xml.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/maven-metadata.xml.sha1.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/m2repository/com/google/games/gpgs-plugin-support/maven-metadata.xml.sha1.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/template-AndroidManifest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/template-AndroidManifest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/template-AndroidManifest.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/template-AndroidManifest.txt.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/template-Constants.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/template-Constants.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/template-Constants.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/template-Constants.txt.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/template-GameInfo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/template-GameInfo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/template-GameInfo.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Editor/template-GameInfo.txt.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/GameInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/GameInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/GameInfo.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/GameInfo.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/ISocialPlatform/PlayGamesAchievement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/ISocialPlatform/PlayGamesAchievement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/ISocialPlatform/PlayGamesAchievement.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/ISocialPlatform/PlayGamesAchievement.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/ISocialPlatform/PlayGamesLeaderboard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/ISocialPlatform/PlayGamesLeaderboard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/ISocialPlatform/PlayGamesLeaderboard.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/ISocialPlatform/PlayGamesLeaderboard.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/ISocialPlatform/PlayGamesLocalUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/ISocialPlatform/PlayGamesLocalUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/ISocialPlatform/PlayGamesLocalUser.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/ISocialPlatform/PlayGamesLocalUser.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/ISocialPlatform/PlayGamesPlatform.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/ISocialPlatform/PlayGamesPlatform.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/ISocialPlatform/PlayGamesPlatform.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/ISocialPlatform/PlayGamesPlatform.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/ISocialPlatform/PlayGamesScore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/ISocialPlatform/PlayGamesScore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/ISocialPlatform/PlayGamesScore.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/ISocialPlatform/PlayGamesScore.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/ISocialPlatform/PlayGamesUserProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/ISocialPlatform/PlayGamesUserProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/ISocialPlatform/PlayGamesUserProfile.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/ISocialPlatform/PlayGamesUserProfile.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/OurUtils/Logger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/OurUtils/Logger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/OurUtils/Logger.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/OurUtils/Logger.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/OurUtils/Misc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/OurUtils/Misc.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/OurUtils/Misc.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/OurUtils/Misc.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/OurUtils/NearbyHelperObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/OurUtils/NearbyHelperObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/OurUtils/NearbyHelperObject.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/OurUtils/NearbyHelperObject.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/OurUtils/PlatformUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/OurUtils/PlatformUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/OurUtils/PlatformUtils.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/OurUtils/PlatformUtils.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/OurUtils/PlayGamesHelperObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/OurUtils/PlayGamesHelperObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/OurUtils/PlayGamesHelperObject.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/OurUtils/PlayGamesHelperObject.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidClient.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidClient.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidEventsClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidEventsClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidEventsClient.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidEventsClient.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidHelperFragment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidHelperFragment.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidHelperFragment.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidHelperFragment.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidJavaConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidJavaConverter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidJavaConverter.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidJavaConverter.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidNearbyConnectionClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidNearbyConnectionClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidNearbyConnectionClient.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidNearbyConnectionClient.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidSavedGameClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidSavedGameClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidSavedGameClient.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidSavedGameClient.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidSnapshotMetadata.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidSnapshotMetadata.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidSnapshotMetadata.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidSnapshotMetadata.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidTaskUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidTaskUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidTaskUtils.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidTaskUtils.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidTokenClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidTokenClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidTokenClient.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidTokenClient.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidVideoClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidVideoClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidVideoClient.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/Android/AndroidVideoClient.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/NearbyConnectionClientFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/NearbyConnectionClientFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/NearbyConnectionClientFactory.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/NearbyConnectionClientFactory.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/PlayGamesClientFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/PlayGamesClientFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/PlayGamesClientFactory.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/PlayGamesClientFactory.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/TokenClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/TokenClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/TokenClient.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Platforms/TokenClient.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/PluginVersion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/PluginVersion.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/PluginVersion.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/PluginVersion.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Plugins/Android/GooglePlayGamesManifest.plugin.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Plugins/Android/GooglePlayGamesManifest.plugin.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Plugins/Android/GooglePlayGamesManifest.plugin/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Plugins/Android/GooglePlayGamesManifest.plugin/project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GooglePlayGames/Plugins/Android/GooglePlayGamesManifest.plugin/project.properties.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/Plugins/Android/GooglePlayGamesManifest.plugin/project.properties.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.facebook.android.facebook-common-6.5.1.aar" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.facebook.android.facebook-common-6.5.1.aar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.facebook.android.facebook-core-6.5.1.aar" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.facebook.android.facebook-core-6.5.1.aar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-auth-18.1.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-auth-18.1.0.aar.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-auth-api-phone-17.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-auth-api-phone-17.0.0.aar.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-auth-base-17.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-auth-base-17.0.0.aar.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-base-17.1.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-base-17.1.0.aar.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-basement-17.1.1.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-basement-17.1.1.aar.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-drive-17.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-drive-17.0.0.aar.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-games-20.0.1.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-games-20.0.1.aar.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-nearby-17.0.0.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-nearby-17.0.0.aar.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-analytics-unity-6.15.2.aar" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-analytics-unity-6.15.2.aar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-app-unity-6.15.2.aar" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-app-unity-6.15.2.aar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-common-19.3.0.aar" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-common-19.3.0.aar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-messaging-unity-6.15.2.aar" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.firebase.firebase-messaging-unity-6.15.2.aar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.games.gpgs-plugin-support-0.10.11.aar.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.games.gpgs-plugin-support-0.10.11.aar.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/GitHub/Editor/GitHub.Api.45.pdb.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/GitHub/Editor/GitHub.Api.pdb.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/GitHub/Editor/GitHub.Logging.pdb.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/GitHub/Editor/GitHub.Unity.45.pdb.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/GitHub/Editor/GitHub.Unity.pdb.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/GitHub/Editor/GitHub.UnityShim.pdb.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Photon/PhotonLibs/Metro/Photon3Unity3D.pdb.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master Bank.bank" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master Bank.bank.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master Bank.strings.bank" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Master Bank.strings.bank.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/google-services-desktop.json.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/google-services-desktop.json.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Dominator.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Dominator.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Falcon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Falcon.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Panzer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Panzer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Scorpion.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Scorpion.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Trapper.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Hulls/Trapper.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Turrets/MachineGun.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Completed_Tanks_Prefabs/Turrets/MachineGun.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Test/WarTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Test/WarTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/EntitiesHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/EntitiesHelper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Photon/Game/DeathMatch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Photon/Game/DeathMatch.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Photon/Game/GameSession.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Photon/Game/GameSession.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Photon/Room/FactionID.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Photon/Room/FactionID.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Tank/DOTS/TankBody.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Tank/DOTS/TankBody.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Tank/DOTS/TankProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Tank/DOTS/TankProjectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Tank/Projectile/TankProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Tank/Projectile/TankProjectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Tank/TankHealth/OceanDestroy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Tank/TankHealth/OceanDestroy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Tank/TankHealth/TankHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Tank/TankHealth/TankHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/Blaster/OneShot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/Blaster/OneShot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/Duos/Duos.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/Duos/Duos.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/MachineGun/MachineGunV2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/MachineGun/MachineGunV2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/MissileLauncher/MissileLauncher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/MissileLauncher/MissileLauncher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/Particles/ParticleEmitter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/Particles/ParticleEmitter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/SingleMissileLauncher/MissileDamage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/SingleMissileLauncher/MissileDamage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/SingleMissileLauncher/MissileDamageActivator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/SingleMissileLauncher/MissileDamageActivator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/Sniper/Sniper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/Sniper/Sniper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/Sniper/snipershooting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/Sniper/snipershooting.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Tank_Controllers/RealisticTankController/For BoneCracker Games Shared Assets/BoneCracker Games Shared Assets.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/WarOnline.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/WarOnline.asmdef" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +238,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/Sniper/snipershooting.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Garage/Selection/TankChange.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/FactionID.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/ProjectileShooter.cs" />
@@ -158,8 +286,9 @@
         <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/Sniper/Sniper.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/Turrets/Sniper/SniperShooting.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/Projectile/TankProjectile.cs" />
-        <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/TankHealth/TankHealth.cs" />
         <option value="$PROJECT_DIR$/Assets/_Scripts/Photon/Room/FactionID.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/Tank/TankHealth/TankHealth.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Scripts/MoventShip.cs" />
       </list>
     </option>
   </component>
@@ -269,7 +398,9 @@
       <workItem from="1601109561885" duration="4369000" />
       <workItem from="1601162960655" duration="2032000" />
       <workItem from="1601166852041" duration="878000" />
-      <workItem from="1601170131055" duration="3303000" />
+      <workItem from="1601170131055" duration="4032000" />
+      <workItem from="1601181356211" duration="99000" />
+      <workItem from="1601209785191" duration="194000" />
     </task>
     <servers />
   </component>
