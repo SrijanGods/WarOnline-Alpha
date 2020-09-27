@@ -400,7 +400,23 @@ MonoBehaviour:
   assetList:
   - Assets/Bakery/examples/content/sponza/bush.FBX
   - Assets/Bakery/examples/content/floor_lamp.FBX
-  uvOverlapAssetList: 00000000ffffffff
+  - Assets/MeshBaker/Examples/Assets/ModelPrefabs/fence.fbx
+  - Assets/MeshBaker/Examples/Assets/ModelPrefabs/bigBridge.fbx
+  - Assets/MeshBaker/Examples/Assets/ModelPrefabs/mediumPlatform.fbx
+  - Assets/MeshBaker/Examples/Assets/ModelPrefabs/floatingPlatform.fbx
+  - Assets/MeshBaker/Examples/Assets/ModelPrefabs/littleBridge.fbx
+  - Assets/MeshBaker/Examples/Assets/ModelPrefabs/ConstructionDude/Worker.FBX
+  - Assets/MeshBaker/Examples/Assets/ModelPrefabs/bigPlatform.fbx
+  - Assets/MeshBaker/Examples/Assets/ModelPrefabs/wallJumpShort.fbx
+  - Assets/MeshBaker/Examples/Assets/ModelPrefabs/wallJumpTall.fbx
+  - Assets/MeshBaker/Examples/Assets/ModelPrefabs/crate.fbx
+  - Assets/MeshBaker/Examples/Assets/ModelPrefabs/wallJumpSided.fbx
+  - Assets/MeshBaker/Examples/Assets/ModelPrefabs/platformWallJump.fbx
+  - Assets/MeshBaker/Examples/Assets/ModelPrefabs/lightPost.fbx
+  - Assets/MeshBaker/Examples/Assets/ModelPrefabs/launchPad.fbx
+  - Assets/MeshBaker/Examples/Assets/ModelPrefabs/tree.fbx
+  - Assets/MeshBaker/Examples/Assets/ModelPrefabs/stepPlatform.fbx
+  uvOverlapAssetList: 00000000ffffffff01010000010100000101000001010000010100000101000001010000010100000101000001010000010100000101000001010000010100000101000001010000
   xatlasWarningShown: 0
   checkerPreviewOn: 0
   rtSceneViewPreviewOn: 0

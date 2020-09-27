@@ -118,7 +118,7 @@ public class GateKeeper : MonoBehaviour
                     {
                         if(resP.PlayerProfile.AvatarUrl != null && resP.PlayerProfile.DisplayName != null)
                         {
-                            print("Hmm");
+                           
                             FBUserName = resP.PlayerProfile.DisplayName;
                             StartCoroutine(DownloadImage(resP.PlayerProfile.AvatarUrl));
                         }
@@ -128,7 +128,7 @@ public class GateKeeper : MonoBehaviour
                         print(errP.Error);
                     });
                 }
-                
+                print("Hmm");
                 RequestPhotonToken(res);
 
             },
@@ -233,7 +233,7 @@ public class GateKeeper : MonoBehaviour
         // PhotonNetwork.ConnectUsingSettings();
 
         PlayfabConnected = true;
-        print("PlayFab authenticated with Photo ");
+        print("PlayFab authenticated with Photon");
 
         GlobalValues.Instance.loggedIn = true;
     }
@@ -245,6 +245,7 @@ public class GateKeeper : MonoBehaviour
 
     public void LogMessage(string message)
     {
+        print(message);
     }
 
 
