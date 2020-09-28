@@ -14,6 +14,11 @@ public class InventorySelection : MonoBehaviour
     public bool[] tActive;
     public string[] tID;
     public string[] turretDisplayName;
+    public float[] tReload;
+    public float[] tDamage;
+    public float[] tDist;
+    public float[] tImpact;
+    public float[] tRotation;
 
     [Header("HullList")]
     public GameObject[] hullList;
@@ -22,6 +27,11 @@ public class InventorySelection : MonoBehaviour
     public bool[] hActive;
     public string[] hID;
     public string[] hullDisplayName;
+    public float[] hHealth;
+    public float[] hSpeed;
+    public float[] hTurn;
+    public float[] hAcc;
+    public float[] hDeacc;
 
     [Header("Gameobjects")]
     public GameObject loadingPanel;
