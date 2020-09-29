@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using PlayFab;
 using PlayFab.ClientModels;
+using System.ComponentModel;
 
 public class InventorySelection : MonoBehaviour
 {
@@ -33,7 +34,17 @@ public class InventorySelection : MonoBehaviour
     public float[] hAcc;
     public float[] hDeacc;
 
-    [Header("Gameobjects")]
+    [Header("Paint")]
+    public string[] matteName;
+    public Color[] color1;
+    public Color[] color2;
+    public int[] matteCost;
+    public bool[] matteActive;
+
+    //public GameObject[] camouflage;
+    //public GameObject gold;
+
+    [Header("UI Panels")]
     public GameObject loadingPanel;
     public GameObject buyPanel;
 
@@ -58,6 +69,9 @@ public class InventorySelection : MonoBehaviour
         tID = new string[turretno];
         turretLevel = new float[turretno];
         turretDisplayName = new string[hullno];
+
+        matteActive = new bool[8];
+        matteCost = new int[8];
     }
 
     private void Start()
@@ -120,6 +134,25 @@ public class InventorySelection : MonoBehaviour
                                 }
                            }
 
+                        }
+                    }
+                    else if(item.ItemClass == "Paint")
+                    {
+                        if(item.Tags[0] == "Matte")
+                        {
+                            foreach(string mat in matteName)
+                            {
+                                if(mat == item.ItemId)
+                                {
+                                    for(int i = 0; i < matteName.Length; i++)
+                                    {
+                                        int mattno = System.Array.IndexOf(matteName, mat);
+                                        matteCost.SetValue((int)cost, mattno);
+                                        print(cost);
+                                        ++mattno;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -247,6 +280,21 @@ public class InventorySelection : MonoBehaviour
                                             hullLevel.SetValue(float.Parse(lvl), hno);
                                         }
                                         ++hno;
+                                    }
+                                }
+                            }
+                        }
+                        if(item.ItemClass == "Paint")
+                        {
+                            foreach(string matte in matteName)
+                            {
+                                if(matte == item.ItemId)
+                                {
+                                    for(int i = 0; i < matteName.Length; i++)
+                                    {
+                                        int pno = System.Array.IndexOf(matteName, matte);
+                                        matteActive.SetValue(true, pno);
+                                        pno++;
                                     }
                                 }
                             }

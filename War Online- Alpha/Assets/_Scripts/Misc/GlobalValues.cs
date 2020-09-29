@@ -17,6 +17,20 @@ public class GlobalValues : MonoBehaviour
             {Color.red, Color.blue},
         FfaColors = {Color.black, Color.blue, Color.green, Color.magenta, Color.red, Color.yellow};
 
+    [Header("Turret")]
+    public float Reload;
+    public float Damage;
+    public float Dist;
+    public float Impact;
+    public float Rotation;
+
+    [Header("Hull")]
+    public float Health;
+    public float Speed;
+    public float Turn;
+    public float Acc;
+    public float Deacc;
+
     public static string PlayerPrefab
     {
         get

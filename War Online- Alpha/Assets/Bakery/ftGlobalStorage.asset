@@ -416,7 +416,10 @@ MonoBehaviour:
   - Assets/MeshBaker/Examples/Assets/ModelPrefabs/launchPad.fbx
   - Assets/MeshBaker/Examples/Assets/ModelPrefabs/tree.fbx
   - Assets/MeshBaker/Examples/Assets/ModelPrefabs/stepPlatform.fbx
-  uvOverlapAssetList: 00000000ffffffff01010000010100000101000001010000010100000101000001010000010100000101000001010000010100000101000001010000010100000101000001010000
+  - Assets/^Painter_Files/Tanks/Turrets/Mesh/Missile_Launcher/MissileLauncher.obj
+  - Assets/^Painter_Files/Tanks/Turrets/Mesh/MachineGun/MachineGun.obj
+  - Assets/^Painter_Files/Tanks/Turrets/Mesh/Sniper/Sniper.obj
+  uvOverlapAssetList: 00000000ffffffff01010000010100000101000001010000010100000101000001010000010100000101000001010000010100000101000001010000010100000101000001010000010100000101000001010000
   xatlasWarningShown: 0
   checkerPreviewOn: 0
   rtSceneViewPreviewOn: 0

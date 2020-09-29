@@ -75,6 +75,15 @@ public class ItemManager : MonoBehaviour
                         {
                             equippedBtn.SetActive(true);
                             equipBtn.SetActive(false);
+
+                            GlobalValues.Instance.Reload = inventory.tReload[i];
+                            GlobalValues.Instance.Damage = inventory.tDamage[i];
+                            GlobalValues.Instance.Dist = inventory.tDist[i];
+                            GlobalValues.Instance.Impact = inventory.tImpact[i];
+                            GlobalValues.Instance.Rotation = inventory.tRotation[i];
+
+                            damage.text = inventory.tDamage[i].ToString();
+                            reload.text = inventory.tReload[i].ToString();
                         }
                     }
                 }
@@ -97,6 +106,14 @@ public class ItemManager : MonoBehaviour
                         {
                             equippedBtn.SetActive(true);
                             equipBtn.SetActive(false);
+
+                            GlobalValues.Instance.Health = inventory.hHealth[i];
+                            GlobalValues.Instance.Speed = inventory.hSpeed[i];
+                            GlobalValues.Instance.Turn = inventory.hTurn[i];
+                            GlobalValues.Instance.Acc = inventory.hAcc[i];
+                            GlobalValues.Instance.Deacc = inventory.hDeacc[i];
+
+
                         }
                     }
                 }
