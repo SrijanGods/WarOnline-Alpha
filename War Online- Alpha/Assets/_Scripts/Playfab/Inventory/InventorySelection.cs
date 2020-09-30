@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using PlayFab;
 using PlayFab.ClientModels;
+using Substance;
 using System.ComponentModel;
+using Substance.Game;
 
 public class InventorySelection : MonoBehaviour
 {
@@ -34,7 +36,8 @@ public class InventorySelection : MonoBehaviour
     public float[] hAcc;
     public float[] hDeacc;
 
-    [Header("Paint")]
+    [Header("Matte Paint")]
+    public SubstanceGraph matte;
     public string[] matteName;
     public Color[] color1;
     public Color[] color2;
@@ -148,7 +151,6 @@ public class InventorySelection : MonoBehaviour
                                     {
                                         int mattno = System.Array.IndexOf(matteName, mat);
                                         matteCost.SetValue((int)cost, mattno);
-                                        print(cost);
                                         ++mattno;
                                     }
                                 }

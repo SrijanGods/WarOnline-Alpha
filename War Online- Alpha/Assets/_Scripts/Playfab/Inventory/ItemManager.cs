@@ -8,6 +8,7 @@ public class ItemManager : MonoBehaviour
 {
     public bool hull;
     public bool turret;
+    public bool typePaints;
 
     private InventorySelection inventory;
 
@@ -17,24 +18,37 @@ public class ItemManager : MonoBehaviour
     private GameObject equipBtn;
     private GameObject equippedBtn;
 
+    private GameObject previewBtn;
+
     private void Start()
     {
-        damage = transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        reload = transform.GetChild(0).transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-        buyBtn = transform.GetChild(1).gameObject;
-        equipBtn = transform.GetChild(2).gameObject;
-        equippedBtn = transform.GetChild(3).gameObject;
-
-        if (turret)
+        if (turret || hull)
         {
-            equipBtn.GetComponent<Button>().onClick.AddListener(SetTurretState);
-        }
-        if (hull)
-        {
-            equipBtn.GetComponent<Button>().onClick.AddListener(SetHullState);
-        }
-        buyBtn.GetComponent<Button>().onClick.AddListener(BuyFlow);
+            damage = transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+            reload = transform.GetChild(0).transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+            buyBtn = transform.GetChild(1).gameObject;
+            equipBtn = transform.GetChild(2).gameObject;
+            equippedBtn = transform.GetChild(3).gameObject;
 
+            if (turret)
+            {
+                equipBtn.GetComponent<Button>().onClick.AddListener(SetTurretState);
+            }
+            if (hull)
+            {
+                equipBtn.GetComponent<Button>().onClick.AddListener(SetHullState);
+            }
+            buyBtn.GetComponent<Button>().onClick.AddListener(BuyFlow);
+        }
+        if (typePaints)
+        {
+            buyBtn = transform.GetChild(0).gameObject;
+            previewBtn = transform.GetChild(1).gameObject;
+            equipBtn = transform.GetChild(2).gameObject;
+            equippedBtn = transform.GetChild(3).gameObject;
+
+            equipBtn.GetComponent<Button>().onClick.AddListener(SetPaintState);
+        }
         inventory = GameObject.FindGameObjectWithTag("GameController").GetComponent<InventorySelection>();
 
         StartCoroutine(StartSync());
@@ -112,8 +126,31 @@ public class ItemManager : MonoBehaviour
                             GlobalValues.Instance.Turn = inventory.hTurn[i];
                             GlobalValues.Instance.Acc = inventory.hAcc[i];
                             GlobalValues.Instance.Deacc = inventory.hDeacc[i];
+                        }
+                    }
+                }
+            }
+        }
 
+        if (typePaints)
+        {
+            if(gameObject.name.StartsWith("Matte") == true)
+            {
+                for (int i = 0; i < inventory.matteName.Length; i++)
+                {
+                    if (inventory.matteName[i] == gameObject.name)
+                    {
+                        if (inventory.matteActive[i] == true)
+                        {
+                            buyBtn.SetActive(false);
+                            equipBtn.SetActive(true);
+                            equippedBtn.SetActive(false);
 
+                            if (GlobalValues.colour == gameObject.name)
+                            {
+                                equippedBtn.SetActive(true);
+                                equipBtn.SetActive(false);
+                            }
                         }
                     }
                 }
@@ -136,6 +173,16 @@ public class ItemManager : MonoBehaviour
         GlobalValues.hull = gameObject.name;
         PlayerPrefs.DeleteKey("CurrentHull");
         PlayerPrefs.SetString("CurrentHull", gameObject.name);
+
+        equipBtn.SetActive(false);
+        equippedBtn.SetActive(true);
+    }
+
+    private void SetPaintState()
+    {
+        GlobalValues.colour = gameObject.name;
+        PlayerPrefs.DeleteKey("CurrentColour");
+        PlayerPrefs.SetString("CurrentColour", gameObject.name);
 
         equipBtn.SetActive(false);
         equippedBtn.SetActive(true);

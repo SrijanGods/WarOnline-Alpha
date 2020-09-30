@@ -140,7 +140,6 @@ GameObject:
   - component: {fileID: 7641743098996859231}
   - component: {fileID: 2502969538768219132}
   - component: {fileID: 529879236206838011}
-  - component: {fileID: 7752367427108724501}
   - component: {fileID: 7752414117287859965}
   - component: {fileID: 7390543762284054386}
   - component: {fileID: 2957766657390336948}
@@ -217,36 +216,6 @@ MonoBehaviour:
   zoomSpeed: 0
   zoomRotateSpeed: 0.8
   hitEffect: {fileID: 1000011190285628, guid: beb3acff7ab73944fb8f470f24d74ed3, type: 3}
-  tanksAndObjectsLayer:
-    serializedVersion: 2
-    m_Bits: 257
-  damage: 1000
-  tempDamage: 370
-  totalAmmo: 3
-  sniperShootSfx: event:/Sniper
-  laser: {fileID: 7757659778930562261}
-  barrelFlash: {fileID: 1110048946148568568}
---- !u!114 &7752367427108724501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7639588166470598177}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15f00221cd0eb4448ac3c44af8680b27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 2596530064141854431}
-  scope: {fileID: 7643283744938320517}
-  scopeImage: {fileID: 3881389478661915826}
-  cameraTransitionTime: 1
-  zoomCamFov: 38
-  initCamFov: 64
-  zoomSpeed: 0
-  zoomRotateSpeed: 0.8
-  hitEffect: {fileID: 1110048946162824344}
   tanksAndObjectsLayer:
     serializedVersion: 2
     m_Bits: 257
@@ -639,11 +608,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -5765444581725255310, guid: 3050430c6419bc64489d78b140f59e94,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7776a663a70628440b033c5afd621fe6, type: 2}
     - target: {fileID: -3855335175272487014, guid: 3050430c6419bc64489d78b140f59e94,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 6228444426056637770, guid: 2c8cc0cf50d20d9499f8669bfc6ec051,
+      objectReference: {fileID: 5906865169990786143, guid: 2c8cc0cf50d20d9499f8669bfc6ec051,
         type: 3}
     - target: {fileID: 919132149155446097, guid: 3050430c6419bc64489d78b140f59e94,
         type: 3}
@@ -825,12 +799,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 384150f122550bc4cb80c3b0775762e9, type: 3}
---- !u!1 &1110048946162824344 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100004, guid: 384150f122550bc4cb80c3b0775762e9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1110048946162856508}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &1110048946148568568 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 19800004, guid: 384150f122550bc4cb80c3b0775762e9,
@@ -932,15 +900,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc6482b5e92605742ba897023420bce7, type: 3}
---- !u!4 &2616076425252087845 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3627830885813591543, guid: cc6482b5e92605742ba897023420bce7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1591617151246054866}
-  m_PrefabAsset: {fileID: 0}
 --- !u!20 &2596530064141854431 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 3611382276312306445, guid: cc6482b5e92605742ba897023420bce7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1591617151246054866}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2616076425252087845 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3627830885813591543, guid: cc6482b5e92605742ba897023420bce7,
     type: 3}
   m_PrefabInstance: {fileID: 1591617151246054866}
   m_PrefabAsset: {fileID: 0}

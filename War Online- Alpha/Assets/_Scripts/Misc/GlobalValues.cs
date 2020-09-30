@@ -5,7 +5,7 @@ public class GlobalValues : MonoBehaviour
 {
     public static GlobalValues Instance;
 
-    public static string turret = "FlameThrower", hull = "Dominator";
+    public static string turret = "FlameThrower", hull = "Dominator", colour = "MatteGreen";
 
     public static GameSessionType Session;
 
@@ -15,7 +15,8 @@ public class GlobalValues : MonoBehaviour
 
     public static Color[] TeamColors =
             {Color.red, Color.blue},
-        FfaColors = {Color.black, Color.blue, Color.green, Color.magenta, Color.red, Color.yellow};
+        FfaColors = {Color.black, Color.blue, Color.green, Color.magenta, Color.red, Color.yellow},
+        tankCol;
 
     [Header("Turret")]
     public float Reload;
@@ -87,7 +88,7 @@ public class GlobalValues : MonoBehaviour
         }
 
         turret = PlayerPrefs.GetString("CurrentTurret", "FlameThrower");
-
+        colour = PlayerPrefs.GetString("CurrentColour", "MatteGreen");
         hull = PlayerPrefs.GetString("CurrentHull", "Dominator");
     }
 }

@@ -7,6 +7,7 @@ public class TurretChange : MonoBehaviour
 {
     public int selection;
     public GameObject[] turrets;
+    public GameObject turret;
 
     void Start()
     {
@@ -20,7 +21,8 @@ public class TurretChange : MonoBehaviour
         DisableAll();
         // int selection = Array.FindIndex(turrets, g => g.name == GlobalValues.turret);
         // turrets[selection].SetActive(true);
-        Array.Find(turrets, g => g.name == GlobalValues.turret).SetActive(true);
+        turret = Array.Find(turrets, g => g.name == GlobalValues.turret);
+        turret.SetActive(true);
     }
     void DisableAll()
     {
