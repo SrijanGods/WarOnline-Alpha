@@ -25,6 +25,7 @@ public class HullChange : MonoBehaviour {
         DisableAll();
         // int selection = Array.FindIndex(hulls, g => g.name == GlobalValues.hull);
         // hulls[selection].SetActive(true);
+
         hull = Array.Find(hulls, g => g.name == GlobalValues.hull);
         hull.SetActive(true);
 
@@ -37,6 +38,8 @@ public class HullChange : MonoBehaviour {
             SubstanceGraph gr = inventory.matte;
             gr.SetInputColor("Color1", inventory.color1[i]);
             gr.SetInputColor("Color2", inventory.color2[i]);
+            gr.QueueForRender();
+            Substance.Game.Substance.RenderSubstancesAsync();
             mat = gr.material;
         }
     }

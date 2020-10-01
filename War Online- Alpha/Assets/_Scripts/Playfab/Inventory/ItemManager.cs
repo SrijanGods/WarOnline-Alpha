@@ -24,8 +24,6 @@ public class ItemManager : MonoBehaviour
     {
         if (turret || hull)
         {
-            damage = transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-            reload = transform.GetChild(0).transform.GetChild(1).GetComponent<TextMeshProUGUI>();
             buyBtn = transform.GetChild(1).gameObject;
             equipBtn = transform.GetChild(2).gameObject;
             equippedBtn = transform.GetChild(3).gameObject;
@@ -33,6 +31,9 @@ public class ItemManager : MonoBehaviour
             if (turret)
             {
                 equipBtn.GetComponent<Button>().onClick.AddListener(SetTurretState);
+                damage = transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+                reload = transform.GetChild(0).transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+                print(damage);
             }
             if (hull)
             {
@@ -48,6 +49,7 @@ public class ItemManager : MonoBehaviour
             equippedBtn = transform.GetChild(3).gameObject;
 
             equipBtn.GetComponent<Button>().onClick.AddListener(SetPaintState);
+            buyBtn.GetComponent<Button>().onClick.AddListener(BuyFlow);
         }
         inventory = GameObject.FindGameObjectWithTag("GameController").GetComponent<InventorySelection>();
 
@@ -202,6 +204,14 @@ public class ItemManager : MonoBehaviour
         {
             int i = System.Array.FindIndex(inventory.hullDisplayName, s => s == gameObject.name);
             buyP.GetComponent<BuyManager>().GetOrder(gameObject.name, inventory.hullCost[i], "GB");
+        }
+        if(typePaints)
+        {
+            if (gameObject.name.StartsWith("Matte"))
+            {
+                int i = System.Array.FindIndex(inventory.matteName, s => s == gameObject.name);
+                buyP.GetComponent<BuyManager>().GetOrder(gameObject.name, inventory.matteCost[i], "GB");
+            }
         }
     }
 }
