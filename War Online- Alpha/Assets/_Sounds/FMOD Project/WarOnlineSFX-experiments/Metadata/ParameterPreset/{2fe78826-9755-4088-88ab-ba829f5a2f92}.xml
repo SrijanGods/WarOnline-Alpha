@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{2fe78826-9755-4088-88ab-ba829f5a2f92}">
+		<property name="name">
+			<value>ImpactTank</value>
+		</property>
+		<relationship name="folder">
+			<destination>{ed1497fc-2dd9-4bab-9216-41ed4bab1b9a}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{61715bbb-13c5-40ff-8aa6-116e4ea16a66}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{61715bbb-13c5-40ff-8aa6-116e4ea16a66}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

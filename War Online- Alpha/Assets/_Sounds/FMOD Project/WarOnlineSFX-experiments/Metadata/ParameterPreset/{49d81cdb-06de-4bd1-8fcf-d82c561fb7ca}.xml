@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{49d81cdb-06de-4bd1-8fcf-d82c561fb7ca}">
+		<property name="name">
+			<value>Scoping2</value>
+		</property>
+		<relationship name="folder">
+			<destination>{ed1497fc-2dd9-4bab-9216-41ed4bab1b9a}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{c8a881da-5f96-421e-a6cb-7e71203d9150}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{c8a881da-5f96-421e-a6cb-7e71203d9150}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
