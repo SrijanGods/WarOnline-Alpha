@@ -35,9 +35,8 @@ namespace _Scripts.Tank.Turrets.Blaster
         private float ammoReload;
         private float timeForBar;
 
-        private TankHealth.TankHealth _myTankHealth;
+        public TankHealth.TankHealth myTankHealth;
         private Slider _coolDownSlider;
-        private Animator animator;
         private bool camMove = false;
         private float currentReloadValue;
         private float expectedReloadValue;
@@ -59,8 +58,7 @@ namespace _Scripts.Tank.Turrets.Blaster
             barrelFlash.Stop(true);
 
             //Interface
-            _myTankHealth = GetComponentInParent<TankHealth.TankHealth>();
-            _coolDownSlider = _myTankHealth.attackCooldown;
+            _coolDownSlider = myTankHealth.attackCooldown;
             _coolDownSlider.maxValue = 1f;
             _coolDownSlider.minValue = 0f;
             _coolDownSlider.value = 1f;
@@ -106,10 +104,10 @@ namespace _Scripts.Tank.Turrets.Blaster
             TankHealth.TankHealth targetHealth = target.transform.gameObject.GetComponent<TankHealth.TankHealth>();
 
             // Damage if hit any tank
-            if (targetHealth && _myTankHealth.photonView.IsMine)
+            if (targetHealth && myTankHealth.photonView.IsMine)
             {
                 FactionID fID = targetHealth.fid;
-                FactionID myID = _myTankHealth.fid;
+                FactionID myID = myTankHealth.fid;
 
                 if (fID.teamIndex != myID.teamIndex)
                 {

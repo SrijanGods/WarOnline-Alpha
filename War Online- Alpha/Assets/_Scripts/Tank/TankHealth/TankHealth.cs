@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using _Scripts.Photon.Game;
 using _Scripts.Photon.Room;
 using _Scripts.Tank.DOTS;
@@ -29,10 +30,11 @@ namespace _Scripts.Tank.TankHealth
         [Header("GameObjects")] public GameObject actualHull, actualTurret, destroyedHull, destroyedTurret;
 
         //public GameObject m_ExplosionPrefab;
+        [Header("Components")]
+        public FactionID fid;
 
         private bool spawnCalled;
-        [HideInInspector] public int myTeam;
-        [HideInInspector] public FactionID fid;
+        [NonSerialized] public int myTeam;
         private string _playerTankName;
         private AudioSource m_ExplosionAudio;
         private ParticleSystem m_ExplosionParticles;
@@ -46,6 +48,8 @@ namespace _Scripts.Tank.TankHealth
         private Entity _instantiatedEntity;
 
         private GameSession _session;
+
+        public MeshRenderer[] hullRenderers;
 
         private void OnEnable()
         {
@@ -88,7 +92,6 @@ namespace _Scripts.Tank.TankHealth
 
             m_Dead = false;
 
-            fid = GetComponent<FactionID>();
             myTeam = fid.teamIndex;
 
             currentHealth = startingHealth;
@@ -173,16 +176,19 @@ namespace _Scripts.Tank.TankHealth
         [PunRPC]
         public void SetColorFromFlameThrower(bool isthrowing, Color color)
         {
-            if (isthrowing)
+            foreach (var hullRenderer in hullRenderers)
             {
-                actualHull.GetComponent<MeshRenderer>().material.color =
-                    Color.Lerp(Color.white, color, Time.deltaTime * 2f);
-            }
-            else if (actualHull.GetComponentInChildren<MeshRenderer>().material.color != Color.white)
-            {
-                var currentColor = actualHull.GetComponent<MeshRenderer>().material.color;
-                actualHull.GetComponent<MeshRenderer>().material.color =
-                    Color.Lerp(currentColor, Color.white, Time.deltaTime * 2f);
+                if (isthrowing)
+                {
+                    hullRenderer.material.color =
+                        Color.Lerp(Color.white, color, Time.deltaTime * 2f);
+                }
+                else if (hullRenderer.material.color != Color.white)
+                {
+                    var currentColor = hullRenderer.material.color;
+                    hullRenderer.material.color =
+                        Color.Lerp(currentColor, Color.white, Time.deltaTime * 2f);
+                }
             }
         }
 

@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 219014312201062757, guid: 2b17a866042f78c43a137c4439c929cc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 363748623525801695, guid: 2b17a866042f78c43a137c4439c929cc,
         type: 3}
       propertyPath: m_Name
@@ -135,6 +140,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7195562030187715069}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9001769044191598329 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2249390553483792132, guid: 2b17a866042f78c43a137c4439c929cc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7195562030187715069}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e960091f6ec452548ad45071bcdb9e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9204106204115032015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -142,6 +159,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7410548911228482460}
     m_Modifications:
+    - target: {fileID: 529879236206838011, guid: 3ff9df13a59ad3e4c935757f615a4d19,
+        type: 3}
+      propertyPath: myTankHealth
+      value: 
+      objectReference: {fileID: 9001769044191598329}
     - target: {fileID: 7639588166470598177, guid: 3ff9df13a59ad3e4c935757f615a4d19,
         type: 3}
       propertyPath: m_Name

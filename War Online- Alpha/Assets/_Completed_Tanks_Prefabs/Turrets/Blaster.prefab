@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &8130502942056854608
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2550658045130873315}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0365996, y: 0.60401154, z: 1.2700365}
+  m_Center: {x: -0.39426738, y: -0.07597936, z: 0}
 --- !u!1 &2669067078535130054
 GameObject:
   m_ObjectHideFlags: 0
@@ -28,66 +41,21 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 670572832407526923}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!1 &6233672534262670602
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1575242774166453090}
-  - component: {fileID: 4338675805601838691}
-  - component: {fileID: 6883551636195814349}
-  m_Layer: 0
-  m_Name: Colliders
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1575242774166453090
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6233672534262670602}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 670572832407526923}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4338675805601838691
+--- !u!65 &6439790563268280399
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6233672534262670602}
+  m_GameObject: {fileID: 3902254288126410259}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.506652, y: 0.84826756, z: 0.9999998}
-  m_Center: {x: -0.6139838, y: -0.10829185, z: -0.00000016214348}
---- !u!65 &6883551636195814349
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6233672534262670602}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.3488026, y: 0.48039582, z: 0.28944033}
-  m_Center: {x: -3.5639067, y: -0.06786791, z: 0.0060604936}
+  m_Size: {x: 2.90867, y: 0.5396956, z: 0.84154564}
+  m_Center: {x: -2.6294112, y: 0.019099325, z: 0.017458677}
 --- !u!1 &7076232554262656255
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +118,6 @@ Transform:
   m_Children:
   - {fileID: 3114740154413417824}
   - {fileID: 8492976990340658790}
-  - {fileID: 1575242774166453090}
   - {fileID: 1904993902708330389}
   - {fileID: 2778679521744204318}
   - {fileID: 1697476104216696439}
@@ -203,6 +170,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 257
   sniperShootSfx: event:/Sniper
+  myTankHealth: {fileID: 0}
 --- !u!114 &7183523162501384186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,7 +252,7 @@ PrefabInstance:
     - target: {fileID: 3627830885813591543, guid: cc6482b5e92605742ba897023420bce7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3627830885813591543, guid: cc6482b5e92605742ba897023420bce7,
         type: 3}
@@ -361,7 +329,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 943c5733cebaf234992fa569efc9978d, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 943c5733cebaf234992fa569efc9978d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -530,17 +498,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f4214e2808fd2e148b3483797e0029fc,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f4214e2808fd2e148b3483797e0029fc,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f4214e2808fd2e148b3483797e0029fc,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f4214e2808fd2e148b3483797e0029fc,
         type: 3}
@@ -555,7 +523,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f4214e2808fd2e148b3483797e0029fc,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f4214e2808fd2e148b3483797e0029fc,
         type: 3}
@@ -583,6 +551,18 @@ PrefabInstance:
 --- !u!4 &8492976990340658790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f4214e2808fd2e148b3483797e0029fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 8239235386689147277}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2550658045130873315 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3372522033569347474, guid: f4214e2808fd2e148b3483797e0029fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 8239235386689147277}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3902254288126410259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4291873855075799138, guid: f4214e2808fd2e148b3483797e0029fc,
     type: 3}
   m_PrefabInstance: {fileID: 8239235386689147277}
   m_PrefabAsset: {fileID: 0}

@@ -29,14 +29,14 @@ namespace _Scripts.Tank.Turrets.MachineGun
 
         FMOD.Studio.EventInstance _mgShootEv;
 
-        private TankHealth.TankHealth _myTankHealth;
+        public TankHealth.TankHealth myTankHealth;
 
         private Slider _coolDownSlider;
         // private bool _neededZero;
 
         private bool _attack;
         private bool _timer;
-        private float _ammo, _ammoRunning, _ammoReload, _selfDamage;
+        private float _ammo, _ammoRunning, _selfDamage;
 
         private void Start()
         {
@@ -59,8 +59,7 @@ namespace _Scripts.Tank.Turrets.MachineGun
 
             _ammo = actualAmmo;
 
-            _myTankHealth = GetComponentInParent<TankHealth.TankHealth>();
-            _coolDownSlider = _myTankHealth.attackCooldown;
+            _coolDownSlider = myTankHealth.attackCooldown;
             _coolDownSlider.minValue = 0f;
             _coolDownSlider.maxValue = actualAmmo;
             _coolDownSlider.value = actualAmmo;
@@ -146,12 +145,7 @@ namespace _Scripts.Tank.Turrets.MachineGun
 
                 if (_ammo < actualAmmo)
                 {
-                    _ammoReload += Time.fixedDeltaTime;
-                    if (_ammoReload >= 1)
-                    {
-                        _ammo++;
-                        _ammoReload = 0;
-                    }
+                    _ammo += Time.fixedDeltaTime;
                 }
             }
 
@@ -170,7 +164,7 @@ namespace _Scripts.Tank.Turrets.MachineGun
 
             if (th)
             {
-                FactionID fID = th.fid, myID = _myTankHealth.fid;
+                FactionID fID = th.fid, myID = myTankHealth.fid;
 
                 if ((fID == null && myID == null) || (fID.teamIndex == -1 || myID.teamIndex == -1) ||
                     fID.teamIndex != myID.teamIndex)

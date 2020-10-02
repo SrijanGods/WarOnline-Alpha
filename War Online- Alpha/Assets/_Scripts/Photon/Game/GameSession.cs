@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Photon.Room;
 using _Scripts.Tank;
@@ -11,12 +12,14 @@ namespace _Scripts.Photon.Game
     {
         public GameMap map;
 
-        protected List<global::Photon.Realtime.Player> AllPlayers;
+        [NonSerialized] public List<global::Photon.Realtime.Player> AllPlayers;
 
-        protected readonly Dictionary<int, int> PlayersTeamIndexByActorID = new Dictionary<int, int>(),
+        [NonSerialized] public readonly Dictionary<int, int> PlayersTeamIndexByActorID = new Dictionary<int, int>(),
             PlayersKillsByActorID = new Dictionary<int, int>(),
-            PlayersDeathsByActorID = new Dictionary<int, int>(),
-            PlayersScoresByActorID = new Dictionary<int, int>();
+            PlayersDeathsByActorID = new Dictionary<int, int>();
+
+        [NonSerialized] public readonly Dictionary<int, float>
+            PlayersScoresByActorID = new Dictionary<int, float>();
 
         protected int NextSpawnTurn;
 
@@ -25,6 +28,8 @@ namespace _Scripts.Photon.Game
         protected bool AllSpawned, MatchStarted;
 
         protected TankAddOn LocalTank;
+
+        protected float MatchEndTime;
 
         public virtual void StartSession()
         {
@@ -73,6 +78,12 @@ namespace _Scripts.Photon.Game
         public void StartGameRPC(float t)
         {
             StartGame(t);
+        }
+
+        [PunRPC]
+        public void OnGameEndRPC()
+        {
+            OnGameEnd();
         }
 
         public virtual void SpawnPlayer(int playerActor, int pointIndex, int teamIndex, int ffaColorIndex)
@@ -164,6 +175,35 @@ namespace _Scripts.Photon.Game
             map.matchStarting.SetActive(false);
             MatchStarted = true;
             LocalTank.enabled = true;
+
+            StartCoroutine(nameof(MatchRunning));
+        }
+
+        protected virtual IEnumerator MatchRunning()
+        {
+            map.matchRunning.SetActive(true);
+
+            float counter = MatchEndTime;
+
+            while (counter > 0)
+            {
+                yield return new WaitForEndOfFrame();
+                counter -= Time.deltaTime;
+                var mins = (int) (counter / 60);
+                var secs = (int) (counter % 60);
+                map.matchTimeCounter.text = mins + "m " + secs + "s";
+            }
+
+            if (PhotonNetwork.IsMasterClient || !PhotonNetwork.IsConnected)
+            {
+                photonView.RPC(nameof(OnGameEndRPC), RpcTarget.All);
+            }
+        }
+
+        protected virtual void OnGameEnd()
+        {
+            LocalTank.enabled = false;
+            map.leaderboard.gameObject.SetActive(true);
         }
     }
 }

@@ -9,6 +9,7 @@ namespace _Scripts.Photon.Game
 
         public override void StartSession()
         {
+            MatchEndTime = GlobalValues.Session == GameSessionType.Teams ? 450 : 600;
             base.StartSession();
             _sb = FindObjectOfType<ScoreBoard>();
 

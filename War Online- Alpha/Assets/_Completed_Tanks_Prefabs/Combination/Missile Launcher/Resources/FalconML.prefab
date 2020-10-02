@@ -112,6 +112,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5608734340229452694, guid: 6bdc9fb4a02a2ff41a93c16fa41f8e84,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 7193913544782389346, guid: 6bdc9fb4a02a2ff41a93c16fa41f8e84,
         type: 3}
       propertyPath: actualTurret
@@ -125,6 +130,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6025393734868965011}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3480039980252444401 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7193913544782389346, guid: 6bdc9fb4a02a2ff41a93c16fa41f8e84,
+    type: 3}
+  m_PrefabInstance: {fileID: 6025393734868965011}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e960091f6ec452548ad45071bcdb9e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9048422190218554249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -207,6 +224,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 3815612189215383349, guid: 7629de34a3915f5469810537b5153765,
+        type: 3}
+      propertyPath: myTankHealth
+      value: 
+      objectReference: {fileID: 3480039980252444401}
     m_RemovedComponents:
     - {fileID: 7716758566959492214, guid: 7629de34a3915f5469810537b5153765, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7629de34a3915f5469810537b5153765, type: 3}

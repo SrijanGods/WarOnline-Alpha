@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4819210512144297503}
     m_Modifications:
+    - target: {fileID: 4258157531671384246, guid: fd9a554dc215ee2459a6ed9381922e86,
+        type: 3}
+      propertyPath: myTankHealth
+      value: 
+      objectReference: {fileID: 4186169958300516834}
     - target: {fileID: 5035726932360925783, guid: fd9a554dc215ee2459a6ed9381922e86,
         type: 3}
       propertyPath: m_Name
@@ -188,6 +193,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5608734340229452694, guid: 6bdc9fb4a02a2ff41a93c16fa41f8e84,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 7193913544782389346, guid: 6bdc9fb4a02a2ff41a93c16fa41f8e84,
         type: 3}
       propertyPath: actualTurret
@@ -201,3 +211,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6471014215179706752}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4186169958300516834 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7193913544782389346, guid: 6bdc9fb4a02a2ff41a93c16fa41f8e84,
+    type: 3}
+  m_PrefabInstance: {fileID: 6471014215179706752}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e960091f6ec452548ad45071bcdb9e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

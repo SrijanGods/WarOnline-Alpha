@@ -15,12 +15,12 @@ PrefabInstance:
     - target: {fileID: 670572832407526923, guid: 723dc1894a2afa14cb71bcc93be88733,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.285
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 670572832407526923, guid: 723dc1894a2afa14cb71bcc93be88733,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.857
+      value: 0.978
       objectReference: {fileID: 0}
     - target: {fileID: 670572832407526923, guid: 723dc1894a2afa14cb71bcc93be88733,
         type: 3}
@@ -47,6 +47,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0364001
       objectReference: {fileID: 0}
+    - target: {fileID: 5625429084593411297, guid: 723dc1894a2afa14cb71bcc93be88733,
+        type: 3}
+      propertyPath: myTankHealth
+      value: 
+      objectReference: {fileID: 4520627945260841877}
     - target: {fileID: 9179417699941674133, guid: 723dc1894a2afa14cb71bcc93be88733,
         type: 3}
       propertyPath: m_Name
@@ -157,6 +162,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5608734340229452694, guid: 6bdc9fb4a02a2ff41a93c16fa41f8e84,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 7193913544782389346, guid: 6bdc9fb4a02a2ff41a93c16fa41f8e84,
         type: 3}
       propertyPath: actualTurret
@@ -170,3 +180,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6731075405737483255}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4520627945260841877 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7193913544782389346, guid: 6bdc9fb4a02a2ff41a93c16fa41f8e84,
+    type: 3}
+  m_PrefabInstance: {fileID: 6731075405737483255}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e960091f6ec452548ad45071bcdb9e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

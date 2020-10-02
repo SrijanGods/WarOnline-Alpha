@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using _Scripts.Photon.Game;
+using _Scripts.Photon.Game.Leaderboard;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,9 +19,10 @@ namespace _Scripts.Photon.Room
     {
         public Transform[] ffaSpawnPoints;
         public List<SpawnPoints> teamSpawnPoints;
-        public GameObject gettingReady, matchStarting;
-        public Text matchStartCounter;
-        private GameSession _sessionObject;
+        public GameObject gettingReady, matchStarting, matchRunning;
+        public Text matchStartCounter, matchTimeCounter;
+        public Leaderboard leaderboard;
+        [NonSerialized] public GameSession SessionObject;
 
         private void Start()
         {
@@ -28,6 +30,7 @@ namespace _Scripts.Photon.Room
             {
                 case GameMode.DeathMatch:
                     var i = gameObject.AddComponent<DeathMatch>();
+                    SessionObject = i;
                     i.map = this;
                     i.StartSession();
                     break;

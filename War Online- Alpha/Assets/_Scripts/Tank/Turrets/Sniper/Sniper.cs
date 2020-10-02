@@ -54,7 +54,7 @@ namespace _Scripts.Tank.Turrets.Sniper
         [SerializeField] private ParticleSystem barrelFlash;
         private RaycastHit target;
 
-        private TankHealth.TankHealth _myTankHealth;
+        public TankHealth.TankHealth myTankHealth;
         private Slider _coolDownSlider;
         private Animator animator;
         private bool camMove = false;
@@ -99,8 +99,7 @@ namespace _Scripts.Tank.Turrets.Sniper
             //sniperShootEv.start();
 
             //Interface
-            _myTankHealth = GetComponentInParent<TankHealth.TankHealth>();
-            _coolDownSlider = _myTankHealth.attackCooldown;
+            _coolDownSlider = myTankHealth.attackCooldown;
             _coolDownSlider.maxValue = 30f;
             _coolDownSlider.minValue = 0f;
             _coolDownSlider.value = 30f;
@@ -280,7 +279,7 @@ namespace _Scripts.Tank.Turrets.Sniper
             if (targetHealth)
             {
                 FactionID fID = targetHealth.fid;
-                FactionID myID = _myTankHealth.fid;
+                FactionID myID = myTankHealth.fid;
 
                 if ((fID.teamIndex == -1 && myID.teamIndex == -1) || fID.teamIndex != myID.teamIndex)
                 {

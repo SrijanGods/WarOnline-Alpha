@@ -43,7 +43,7 @@ public class MainScript : MonoBehaviourPunCallbacks
 
     public void JoinLobby()
     {
-        _xp = _playfabLogin.GetComponent<RankManager>().xpInInt;
+        _xp = _playfabLogin.GetComponent<RankManager>().XpInInt;
 
         string lobbyName = "Advanced";
 

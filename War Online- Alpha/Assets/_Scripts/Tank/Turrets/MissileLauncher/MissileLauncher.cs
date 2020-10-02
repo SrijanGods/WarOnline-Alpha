@@ -30,7 +30,7 @@ namespace _Scripts.Tank.Turrets.MissileLauncher
         private float _heldTime, _shootCount;
 
         private Slider _coolDownSlider;
-        private TankHealth.TankHealth _myTankHealth;
+        public TankHealth.TankHealth myTankHealth;
         private int _myTeamID;
         private Transform _enemy;
 
@@ -46,22 +46,11 @@ namespace _Scripts.Tank.Turrets.MissileLauncher
                 myCamera.gameObject.SetActive(false);
             }
 
-            _myTankHealth = GetComponentInParent<TankHealth.TankHealth>();
-            _coolDownSlider = _myTankHealth.attackCooldown;
+            _coolDownSlider = myTankHealth.attackCooldown;
             _coolDownSlider.maxValue = maxLaunchCount;
             _coolDownSlider.minValue = 0f;
             _coolDownSlider.value = maxLaunchCount;
             // GameObject coolDown = coolDownUI.transform.Find("CoolDown").gameObject;
-
-            // Projectiles init
-            /*for (int i = 0; i < maxProjectilesCount; i++)
-            {
-                var p = projectilesParents[i % projectilesParents.Length];
-                var g = Instantiate(projectilePrefab, p, false);
-                var c = g.GetComponent<TankProjectile>();
-
-                InactiveProjectiles.Add(c);
-            }*/
 
             _myTeamID = GetComponentInParent<FactionID>().teamIndex;
 

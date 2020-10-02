@@ -32,13 +32,9 @@ namespace _Scripts.Tank.Turrets.Particles
 
         //private variables
         private bool isFiring;
-        private TankHealth.TankHealth _myTankHealth;
+        public TankHealth.TankHealth myTankHealth;
         private Slider _coolDownSlider;
         private float barTime;
-
-        //reload functions
-        // [SerializeField] private float ammoRunning = 0.0f;
-        [SerializeField] private float ammoReload = 0.0f;
 
         private float UIseti;
         private float UIsetd;
@@ -63,8 +59,7 @@ namespace _Scripts.Tank.Turrets.Particles
             particleSmoke.SetParent(particleFire.transform, true);
             particleFire.Stop(true);
 
-            _myTankHealth = GetComponentInParent<TankHealth.TankHealth>();
-            _coolDownSlider = _myTankHealth.attackCooldown;
+            _coolDownSlider = myTankHealth.attackCooldown;
             if (!isFlameThrower)
             {
                 _coolDownSlider.maxValue = 13f;
@@ -150,7 +145,7 @@ namespace _Scripts.Tank.Turrets.Particles
                     if (targetHealth)
                     {
                         FactionID fID = targetHealth.fid;
-                        FactionID myID = _myTankHealth.fid;
+                        FactionID myID = myTankHealth.fid;
 
                         if ((fID.teamIndex != -1 || myID.teamIndex != -1) && fID.teamIndex == myID.teamIndex) continue;
 
@@ -178,12 +173,7 @@ namespace _Scripts.Tank.Turrets.Particles
 
                 if (ammo < 10f)
                 {
-                    ammoReload += Time.deltaTime;
-                    if (ammoReload > 1f)
-                    {
-                        ammo++;
-                        ammoReload = 0f;
-                    }
+                    ammo += Time.deltaTime;
 
                     flameThrowerEv.setParameterByName("ReloadFull", 0f);
                 }
@@ -202,7 +192,7 @@ namespace _Scripts.Tank.Turrets.Particles
         void Damage(TankHealth.TankHealth enemy)
         {
             // enemy.photonView.RPC("TakeDamage", enemy.GetComponent<PhotonView>().Owner, damage);
-            enemy.TakeDamage(damage, _myTankHealth.fid.actorNumber);
+            enemy.TakeDamage(damage, myTankHealth.fid.actorNumber);
             if (isFlameThrower)
             {
                 enemy.photonView.RPC(nameof(enemy.SetColorFromFlameThrower),

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,8 +12,8 @@ public class RankManager : MonoBehaviour
     public string currentRank;
     public int currentExp, rankL, rankH;
 
-    [HideInInspector]
-    public int xpInInt;
+    [NonSerialized]
+    public int XpInInt;
 
     public void AssignRank()
     {
@@ -21,7 +22,7 @@ public class RankManager : MonoBehaviour
             currentRankImage.sprite = rankImage[0];
             currentRank = rankName[0];
             rankL = 0; rankH = 99;
-            xpInInt = 1;
+            XpInInt = 1;
         }
         else if(currentExp >= 100 && currentExp < 500)
         {
@@ -29,7 +30,7 @@ public class RankManager : MonoBehaviour
             currentRank = rankName[1];
             rankL = 100; rankH = 499;
 
-            xpInInt = 2;
+            XpInInt = 2;
         }
         else if (currentExp >= 500 && currentExp < 1500)
         {
@@ -37,7 +38,7 @@ public class RankManager : MonoBehaviour
             currentRank = rankName[2];
             rankL = 500; rankH = 1499;
 
-            xpInInt = 3;
+            XpInInt = 3;
         }
         else if (currentExp >= 1500 && currentExp < 3000)
         {
@@ -45,7 +46,7 @@ public class RankManager : MonoBehaviour
             currentRank = rankName[3];
             rankL = 1500; rankH = 2999;
 
-            xpInInt = 4;
+            XpInInt = 4;
         }
         else if (currentExp >= 3000 && currentExp < 5500)
         {
@@ -53,7 +54,7 @@ public class RankManager : MonoBehaviour
             currentRank = rankName[4];
             rankL = 3000; rankH = 5499;
 
-            xpInInt = 5;
+            XpInInt = 5;
         }
         else if (currentExp >= 5500 && currentExp < 8000)
         {
@@ -61,7 +62,7 @@ public class RankManager : MonoBehaviour
             currentRank = rankName[5];
             rankL = 5500; rankH = 7999;
 
-            xpInInt = 6;
+            XpInInt = 6;
         }
         else if (currentExp >= 8000 && currentExp < 12000)
         {
@@ -69,7 +70,7 @@ public class RankManager : MonoBehaviour
             currentRank = rankName[6];
             rankL = 8000; rankH = 11999;
 
-            xpInInt = 7;
+            XpInInt = 7;
         }
         else if (currentExp >= 12000 && currentExp < 16500)
         {
@@ -77,7 +78,7 @@ public class RankManager : MonoBehaviour
             currentRank = rankName[7];
             rankL = 12000; rankH = 16499;
 
-            xpInInt = 8;
+            XpInInt = 8;
         }
         else if (currentExp >= 16500 && currentExp <20500)
         {
@@ -85,7 +86,7 @@ public class RankManager : MonoBehaviour
             currentRank = rankName[8];
             rankL = 16500; rankH = 20499;
 
-            xpInInt = 9;
+            XpInInt = 9;
         }
         else if (currentExp >= 20500 && currentExp < 35000)
         {
@@ -93,7 +94,7 @@ public class RankManager : MonoBehaviour
             currentRank = rankName[9];
             rankL = 20500; rankH = 35999;
 
-            xpInInt = 10;
+            XpInInt = 10;
         }
         else if (currentExp >= 35000)
         {
@@ -101,7 +102,7 @@ public class RankManager : MonoBehaviour
             currentRank = rankName[10];
             rankL = 35000; rankH = 100000;
 
-            xpInInt = 11;
+            XpInInt = 11;
         }
 
         int intTofloat = currentExp;

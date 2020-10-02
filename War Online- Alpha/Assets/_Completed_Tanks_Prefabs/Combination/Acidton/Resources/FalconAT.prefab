@@ -82,6 +82,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 5059715437059321050, guid: 3fd6b68543c03094b920bcea0594e606,
+        type: 3}
+      propertyPath: myTankHealth
+      value: 
+      objectReference: {fileID: 6163756845148182743}
     m_RemovedComponents:
     - {fileID: 1607058546696962469, guid: 3fd6b68543c03094b920bcea0594e606, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3fd6b68543c03094b920bcea0594e606, type: 3}
@@ -103,10 +108,20 @@ PrefabInstance:
       propertyPath: actualTurret
       value: 
       objectReference: {fileID: 392052847684824450}
+    - target: {fileID: 1715047827929176052, guid: 6bdc9fb4a02a2ff41a93c16fa41f8e84,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1958203037537159969, guid: 6bdc9fb4a02a2ff41a93c16fa41f8e84,
         type: 3}
       propertyPath: m_Name
       value: FalconAT
+      objectReference: {fileID: 0}
+    - target: {fileID: 2637161325007089674, guid: 6bdc9fb4a02a2ff41a93c16fa41f8e84,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3085894103016808407, guid: 6bdc9fb4a02a2ff41a93c16fa41f8e84,
         type: 3}
@@ -188,6 +203,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5608734340229452694, guid: 6bdc9fb4a02a2ff41a93c16fa41f8e84,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 7193913544782389346, guid: 6bdc9fb4a02a2ff41a93c16fa41f8e84,
         type: 3}
       propertyPath: actualTurret
@@ -201,3 +221,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3918125562216888501}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6163756845148182743 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7193913544782389346, guid: 6bdc9fb4a02a2ff41a93c16fa41f8e84,
+    type: 3}
+  m_PrefabInstance: {fileID: 3918125562216888501}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e960091f6ec452548ad45071bcdb9e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

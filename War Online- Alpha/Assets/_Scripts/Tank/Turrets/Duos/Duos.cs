@@ -32,7 +32,7 @@ namespace _Scripts.Tank.Turrets.Duos
         private bool _right = true, _left;
 
         private Slider _coolDownSlider;
-        private TankHealth.TankHealth _myTankHealth;
+        public TankHealth.TankHealth myTankHealth;
 
         // private int myTeamID;
         private bool _reload;
@@ -56,19 +56,16 @@ namespace _Scripts.Tank.Turrets.Duos
             autoAim = false;
 
             // tP = GetComponentInParent<TouchProcessor>();
-            _myTankHealth = GetComponentInParent<TankHealth.TankHealth>();
-            _coolDownSlider = _myTankHealth.attackCooldown;
+            _coolDownSlider = myTankHealth.attackCooldown;
             _coolDownSlider.maxValue = 1f;
             _coolDownSlider.minValue = 0f;
             _coolDownSlider.value = 1f;
 
             //SFX initialize here
             _duosReloadEv = FMODUnity.RuntimeManager.CreateInstance(duosReloadSfx);
-            FMODUnity.RuntimeManager.AttachInstanceToGameObject(_duosReloadEv, GetComponent<Transform>(),
-                GetComponent<Rigidbody>());
+            FMODUnity.RuntimeManager.AttachInstanceToGameObject(_duosReloadEv, transform, myTankHealth.GetComponent<Rigidbody>());
             _duosShootEv = FMODUnity.RuntimeManager.CreateInstance(duosShootSfx);
-            FMODUnity.RuntimeManager.AttachInstanceToGameObject(_duosShootEv, GetComponent<Transform>(),
-                GetComponent<Rigidbody>());
+            FMODUnity.RuntimeManager.AttachInstanceToGameObject(_duosShootEv, transform, myTankHealth.GetComponent<Rigidbody>());
         }
 
         void FixedUpdate()
@@ -146,7 +143,7 @@ namespace _Scripts.Tank.Turrets.Duos
             g.transform.localScale = Vector3.one;
 
             tp.turretParent = this;
-            tp.pvw = _myTankHealth.photonView;
+            tp.pvw = myTankHealth.photonView;
             tp.Ready();
 
             // duosShootEv.start();
@@ -203,7 +200,7 @@ namespace _Scripts.Tank.Turrets.Duos
             g.transform.localScale = Vector3.one;
 
             tp.turretParent = this;
-            tp.pvw = _myTankHealth.photonView;
+            tp.pvw = myTankHealth.photonView;
             tp.Ready();
 
             _duosShootEv.start();
