@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PanelsAnimation : MonoBehaviour
 {
     [SerializeField] bool listContent = false;
@@ -11,12 +11,11 @@ public class PanelsAnimation : MonoBehaviour
     public bool startScreen = false;
     public bool onScreen = false;
     CanvasGroup cG;
-
     private void Start()
     {
         cG = GetComponent<CanvasGroup>();
         if (startScreen) { DisplayTrue(); };
-        
+
     }
 
     public void DisplayTrue()
@@ -47,8 +46,9 @@ public class PanelsAnimation : MonoBehaviour
     public void DisplayFalse()
     {
         GetComponent<Animator>().SetBool("display", false);
+        CanvasGroupDisplayFalse();
     }
-    
+
     public bool IsListContent()
     {
         return listContent;
@@ -87,20 +87,20 @@ public class PanelsAnimation : MonoBehaviour
 
         }
     }
-    
+
     public void BackButton()
     {
-        foreach(PanelsAnimation pA in panelsAnimations)
+        foreach (PanelsAnimation pA in panelsAnimations)
         {
-                    pA.DisplayFalse();
+            pA.DisplayFalse();
         }
     }
 
     public void DisplayTrue2()
     {
         GetComponent<Animator>().SetBool("display2", true);
-    } 
-    
+    }
+
     public void DisplayFalse2()
     {
         GetComponent<Animator>().SetBool("display2", false);
@@ -108,12 +108,46 @@ public class PanelsAnimation : MonoBehaviour
 
     public void ScrollBarSelection()
     {
-        foreach(PanelsAnimation pA in panelsAnimations)
+        foreach (PanelsAnimation pA in panelsAnimations)
         {
-            if (scrollbar && IsOnScreen()) 
+            if (scrollbar && IsOnScreen())
             {
-                Debug.Log("t");
                 pA.DisplayFalse();
+            }
+        }
+    }
+
+    public void CurrentHullPanel()
+    {
+        string hull = GlobalValues.hull;
+        foreach (PanelsAnimation pA in panelsAnimations)
+        {
+            if (pA.name == hull)
+            {
+                pA.DisplayTrue();
+            }
+        }
+    }
+
+    public void CurrentTurrentPanel()
+    {
+        string turrent = GlobalValues.turret;
+        foreach (PanelsAnimation pA in panelsAnimations)
+        {
+            if (pA.name == turrent)
+            {
+                pA.DisplayTrue();
+            }
+        }
+    }
+    public void CurrentPaintPanel()
+    {
+        string paint = GlobalValues.colour;
+        foreach (PanelsAnimation pA in panelsAnimations)
+        {
+            if (pA.name == paint)
+            {
+                pA.DisplayTrue();
             }
         }
     }
