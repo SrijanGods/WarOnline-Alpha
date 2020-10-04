@@ -8,6 +8,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using Photon.Pun;
+using GooglePlayGames;
+using GooglePlayGames.BasicApi;
 
 public class GateKeeper : MonoBehaviour
 {
@@ -24,19 +26,39 @@ public class GateKeeper : MonoBehaviour
     private string FBurl;
 
     [Header("Play Game Login")]
-    public Button Google;
+    public Button GoogleLogin;
 
+    [Space]
+    public bool inDev;
     [HideInInspector]
     public bool PlayfabConnected;
 
     private void Awake()
     {
         FB.Init(() => FB.ActivateApp());
+
+        PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
+        .AddOauthScope("profile")
+        .RequestServerAuthCode(false)
+        .Build();
+        PlayGamesPlatform.InitializeInstance(config);
+
+        // recommended for debugging:
+        PlayGamesPlatform.DebugLogEnabled = true;
+
+        // Activate the Google Play Games platform
+        PlayGamesPlatform.Activate();
     }
 
     private void Start()
     {
+        if (inDev)
+        {
+            PlayerPrefs.DeleteAll();
+        }
+
         FBLogin.onClick.AddListener(OnFacebookInitialized);
+        GoogleLogin.onClick.AddListener(GoogleSignIn);
 
         if (PlayerPrefs.HasKey("LoggedInWithFB"))
         {
@@ -192,6 +214,38 @@ public class GateKeeper : MonoBehaviour
             result.GetType(), result.Cancelled, result.Error, Facebook.MiniJSON.Json.Serialize(result.ResultDictionary)));
 
         return false;
+
+    }
+
+    #endregion
+
+    #region Google
+
+    private void GoogleSignIn()
+    {
+        Social.localUser.Authenticate((bool success) => {
+
+            if (success)
+            {
+                print("Google Signing In");
+                var serverAuthCode = PlayGamesPlatform.Instance.GetServerAuthCode();
+                Debug.Log("Server Auth Code: " + serverAuthCode);
+
+                PlayFabClientAPI.LoginWithGoogleAccount(new LoginWithGoogleAccountRequest()
+                {
+                    TitleId = PlayFabSettings.TitleId,
+                    ServerAuthCode = serverAuthCode,
+                    CreateAccount = true
+                }, (result) =>
+                {
+                }, OnPlayFabError);
+            }
+            else
+            {
+                print("Google Failed to Authorize your login");
+            }
+
+        });
 
     }
 

@@ -28,6 +28,7 @@ public class ImageUpdater : MonoBehaviour
         hullText.text = GlobalValues.hull;
 
         int i = Array.FindIndex(hullImages, g => g.name == hullText.text);
+        //print(i + " " + hullText.text);
         currHull.sprite = hullImages[i];
     }
 
