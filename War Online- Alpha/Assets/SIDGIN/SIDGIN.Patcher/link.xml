@@ -1,0 +1,42 @@
+<linker>
+ <!--<assembly fullname="SIDGIN.Patcher.Unity">	
+    <type fullname="SIDGIN.Patcher.Client.ApplicationData" preserve="all"/>
+    <type fullname="SIDGIN.Patcher.Client.ApplicationRemoteData" preserve="all"/>	
+	<type fullname="SIDGIN.Patcher.Client.ClientSettings" preserve="all"/>
+	<type fullname="SIDGIN.Patcher.Client.Consts" preserve="all"/>
+	<type fullname="SIDGIN.Patcher.Client.ConvertExtensions" preserve="all"/>
+	<type fullname="SIDGIN.Patcher.Client.DownloadProgress" preserve="all"/>
+	<type fullname="SIDGIN.Patcher.Client.EntryType" preserve="all"/>
+	<type fullname="SIDGIN.Patcher.Client.FileEntry" preserve="all"/>
+	<type fullname="SIDGIN.Patcher.Client.FileEntryExtensions" preserve="all"/>
+	<type fullname="SIDGIN.Patcher.Client.FileHashesDontMatch" preserve="all"/>
+	<type fullname="SIDGIN.Patcher.Client.HashFileInfo" preserve="all"/>
+	<type fullname="SIDGIN.Patcher.Client.InternalSGResources" preserve="all"/>
+    <type fullname="SIDGIN.Patcher.Client.LocalizationDefault" preserve="all"/>
+	<type fullname="SIDGIN.Patcher.Client.Localize" preserve="all"/>
+    <type fullname="SIDGIN.Patcher.Client.LocalizeSheet" preserve="all"/>
+	<type fullname="SIDGIN.Patcher.Client.PackageData" preserve="all"/>
+	<type fullname="SIDGIN.Patcher.Client.PackageInfo" preserve="all"/>
+	<type fullname="SIDGIN.Patcher.Client.PackageManager" preserve="all"/>
+	<type fullname="SIDGIN.Patcher.Client.PackageTask" preserve="all"/>
+	<type fullname="SIDGIN.Patcher.Client.PatcherClient" preserve="all"/>
+	<type fullname="SIDGIN.Patcher.Client.PatchEntry" preserve="all"/>
+	<type fullname="SIDGIN.Patcher.Client.PatcherProgress" preserve="all"/>
+	<type fullname="SIDGIN.Patcher.Client.PatchMeta" preserve="all"/>
+	<type fullname="SIDGIN.Patcher.Client.RuntimeData" preserve="all"/>
+	<type fullname="SIDGIN.Patcher.Client.SceneData" preserve="all"/>
+    <type fullname="SIDGIN.Patcher.Client.SGAsyncOperation" preserve="all"/>
+    <type fullname="SIDGIN.Patcher.Client.SGDispatcher" preserve="all"/>
+    <type fullname="SIDGIN.Patcher.Client.SGPatcher" preserve="all"/>
+	<type fullname="SIDGIN.Patcher.Client.UpdateMetaData" preserve="all"/>
+	<type fullname="SIDGIN.Patcher.Client.UpdateStatus" preserve="all"/>
+    <type fullname="SIDGIN.Patcher.Client.Version" preserve="all"/>
+    <type fullname="SIDGIN.Patcher.Client.Version" preserve="all"/>
+	<type fullname="SIDGIN.Patcher.Client.VersionExtensions" preserve="all"/>
+			
+ </assembly>-->
+
+  <assembly fullname="SIDGIN.Patcher.Unity" preserve="all"/>
+  <assembly fullname="SIDGIN.Patcher.Unity.Editors" preserve="all"/>
+  <assembly fullname="SIDGIN.Patcher.Unity.Zip" preserve="all"/>
+</linker>
