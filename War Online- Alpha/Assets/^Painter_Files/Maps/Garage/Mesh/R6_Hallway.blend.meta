@@ -54,7 +54,8 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    extraUserProperties: []
+    extraUserProperties:
+    - '#BAKERY{"meshName":["WalkBridge","UCX_R6_Hallway","Pipes.007","Pipes.006","Pipes.005","Pipes.004","Pipes.003","Pipes.002","Pipes.001","Pipes","Base"],"padding":[41,20,44,44,45,45,44,44,45,45,6],"unwrapper":[0,0,0,0,0,0,0,0,0,0,0]}'
     clipAnimations: []
     isReadable: 0
   meshes:
