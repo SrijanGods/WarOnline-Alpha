@@ -18,8 +18,7 @@ ScriptedImporter:
     generateMipMaps: 1
     preset: " <sbspreset pkgurl=\"pkg://Matte_green_modular\" label=\"\" >\n  <presetinput
       identifier=\"$outputsize\" uid=\"3550122055\" type=\"8\" value=\"9,9\" />\n 
-      <presetinput identifier=\"Color1\" uid=\"3146957170\" type=\"3\" value=\"0.658824,0.658824,0.658824,0\"
-      />\n  <presetinput identifier=\"Color2\" uid=\"3146956821\" type=\"3\" value=\"0.8,0.776471,0.776471,0\"
+      <presetinput identifier=\"scratchs_number\" uid=\"3146929868\" type=\"4\" value=\"96\"
       />\n </sbspreset>\n"
     shaderName: Universal Render Pipeline/Lit
     materialProperties:
