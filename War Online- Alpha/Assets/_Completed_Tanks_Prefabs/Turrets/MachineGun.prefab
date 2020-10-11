@@ -115,6 +115,7 @@ MonoBehaviour:
   barrelRollAxis: {x: 0, y: 0, z: 1}
   barrelRollSpeed: 1
   mgShootSfx: event:/MachineGun
+  myTankHealth: {fileID: 0}
 --- !u!114 &7912891880434564934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,7 +492,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0921118c8b68db540ab32331b81ea687, type: 2}
+      objectReference: {fileID: 5906865169990786143, guid: 2c8cc0cf50d20d9499f8669bfc6ec051,
+        type: 3}
     - target: {fileID: -5215299815803115452, guid: 40a9dabdbb178b64a81219d20ab37373,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -502,6 +504,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MachineGun
       objectReference: {fileID: 0}
+    - target: {fileID: 7567357070224965470, guid: 40a9dabdbb178b64a81219d20ab37373,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0921118c8b68db540ab32331b81ea687, type: 2}
     - target: {fileID: 7656133893474853100, guid: 40a9dabdbb178b64a81219d20ab37373,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
