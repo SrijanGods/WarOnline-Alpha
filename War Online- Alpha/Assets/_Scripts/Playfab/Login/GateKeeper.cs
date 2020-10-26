@@ -104,9 +104,32 @@ public class GateKeeper : MonoBehaviour
                 PlayerPrefs.SetString("LoggedInWithFB", "Yes");
                 if (res.NewlyCreated)
                 {
-                    FB.API("/me", HttpMethod.GET, resultCallback =>
+                    FB.API("me?fields=name", HttpMethod.GET, resultCallback =>
                     {
                         FBUserName = resultCallback.ResultDictionary["name"].ToString();
+
+                        if (FBUserName.Length > 20)
+                        {
+                            string hold = FBUserName.Substring(0, 24);
+                            FBUserName = hold;
+                        }
+                        if (FBUserName.Length < 3)
+                        {
+                            FBUserName = "000" + FBUserName;
+                        }
+                        PlayFabClientAPI.UpdateUserTitleDisplayName(new UpdateUserTitleDisplayNameRequest
+                        {
+                            DisplayName = FBUserName.ToString()
+                        },
+                        r =>
+                        {
+                            print("Name Updated Successfully");
+                        },
+                        e =>
+                        {
+                            print(e.Error);
+                        });
+
                     });
 
                     GetFacebookUserPictureFromUrl("me", 150, 150, resI =>
@@ -114,16 +137,6 @@ public class GateKeeper : MonoBehaviour
                         StartCoroutine(GetTextureFromGraphResult(resI));
                     });
 
-                    PlayFabClientAPI.UpdateUserTitleDisplayName(new UpdateUserTitleDisplayNameRequest
-                    {
-                        DisplayName = FBUserName
-                    },
-                    r =>
-                    {
-                    },
-                    e =>
-                    {
-                    });
                 }
                 else
                 {
@@ -140,7 +153,6 @@ public class GateKeeper : MonoBehaviour
                     {
                         if(resP.PlayerProfile.AvatarUrl != null && resP.PlayerProfile.DisplayName != null)
                         {
-                           
                             FBUserName = resP.PlayerProfile.DisplayName;
                             StartCoroutine(DownloadImage(resP.PlayerProfile.AvatarUrl));
                         }
@@ -156,7 +168,7 @@ public class GateKeeper : MonoBehaviour
             },
             err =>
             {
-
+                print(err.Error);
             });
         }
         else
@@ -325,9 +337,11 @@ public class GateKeeper : MonoBehaviour
         },
         res =>
         {
+            print("Image Successfully Updated");
         },
         err =>
         {
+            print(err.Error);
         });
     }
 
