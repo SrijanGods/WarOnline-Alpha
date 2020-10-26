@@ -50,5 +50,6 @@ public class ImageUpdater : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         StartCoroutine(SyncHull());
+        StartCoroutine(SyncTurret());
     }
 }
