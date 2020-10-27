@@ -35,7 +35,7 @@ public class GateKeeper : MonoBehaviour
 
     private void Awake()
     {
-        FB.Init(() => FB.ActivateApp());
+        FB.Init();
 
         PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
         .AddOauthScope("profile")
@@ -162,7 +162,6 @@ public class GateKeeper : MonoBehaviour
                         print(errP.Error);
                     });
                 }
-                print("Hmm");
                 RequestPhotonToken(res);
 
             },
@@ -299,7 +298,6 @@ public class GateKeeper : MonoBehaviour
         // PhotonNetwork.ConnectUsingSettings();
 
         PlayfabConnected = true;
-        print("PlayFab authenticated with Photon");
 
         GlobalValues.Instance.loggedIn = true;
     }

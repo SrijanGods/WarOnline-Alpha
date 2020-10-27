@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using PlayFab;
 using PlayFab.ClientModels;
-using Substance;
-using System.ComponentModel;
 using Substance.Game;
 
 public class InventorySelection : MonoBehaviour
 {
-
+    public GameObject hullListOBJ;
+    public GameObject turretListOBJ;
     [Header("TurretList")]
     public GameObject[] turretList;
     public int[] turretCost;

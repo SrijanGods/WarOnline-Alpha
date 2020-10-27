@@ -41,6 +41,7 @@ public class BuyManager : MonoBehaviour
             }
             else
             {
+                buyPanel.SetActive(false);
                 lessPanel.SetActive(true);
             }
         }
@@ -54,6 +55,7 @@ public class BuyManager : MonoBehaviour
             }
             else
             {
+                buyPanel.SetActive(false);
                 lessPanel.SetActive(true);
             }
         }

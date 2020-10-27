@@ -1,8 +1,9 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Substance.Game;
 
 public class ItemManager : MonoBehaviour
 {
@@ -33,7 +34,6 @@ public class ItemManager : MonoBehaviour
                 equipBtn.GetComponent<Button>().onClick.AddListener(SetTurretState);
                 damage = transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
                 reload = transform.GetChild(0).transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-                print(damage);
             }
             if (hull)
             {
@@ -50,6 +50,7 @@ public class ItemManager : MonoBehaviour
 
             equipBtn.GetComponent<Button>().onClick.AddListener(SetPaintState);
             buyBtn.GetComponent<Button>().onClick.AddListener(BuyFlow);
+            previewBtn.GetComponent<Button>().onClick.AddListener(PaintCall);
         }
         inventory = GameObject.FindGameObjectWithTag("GameController").GetComponent<InventorySelection>();
 
@@ -188,6 +189,47 @@ public class ItemManager : MonoBehaviour
 
         equipBtn.SetActive(false);
         equippedBtn.SetActive(true);
+    }
+
+    private void PaintCall()
+    {
+        StartCoroutine(SetPaintPreview());
+        StartCoroutine(SetPaintPreview());
+    }
+
+    private IEnumerator SetPaintPreview()
+    {
+        inventory.hullListOBJ.GetComponent<HullChange>().now = false;
+        inventory.turretListOBJ.GetComponent<TurretChange>().now = false;
+
+        if (gameObject.name.StartsWith("Matte") == true)
+        {
+            int i1 = Array.FindIndex(inventory.matteName, g => g == gameObject.name);
+            GameObject bodyH = inventory.hullListOBJ.GetComponent<HullChange>().hull.transform.GetChild(0).GetChild(0).gameObject;
+            bodyH.GetComponent<Renderer>().material = inventory.matte.material;
+            Material mat1 = bodyH.GetComponent<MeshRenderer>().sharedMaterial;
+            SubstanceGraph gr1 = inventory.matte;
+            gr1.SetInputColor("Color1", inventory.color1[i1]);
+            gr1.SetInputColor("Color2", inventory.color2[i1]);
+            gr1.QueueForRender();
+            Substance.Game.Substance.RenderSubstancesAsync();
+            mat1 = gr1.material;
+
+            int i2 = Array.FindIndex(inventory.matteName, g => g == gameObject.name);
+            GameObject bodyT = inventory.turretListOBJ.GetComponent<TurretChange>().turret.transform.GetChild(0).gameObject;
+            bodyT.GetComponent<Renderer>().material = inventory.matte.material;
+            Material mat2 = bodyT.GetComponent<MeshRenderer>().sharedMaterial;
+            SubstanceGraph gr2 = inventory.matte;
+            gr2.SetInputColor("Color1", inventory.color1[i2]);
+            gr2.SetInputColor("Color2", inventory.color2[i2]);
+            gr2.QueueForRender();
+            Substance.Game.Substance.RenderSubstancesAsync();
+            mat2 = gr2.material;
+        }
+        yield return new WaitForSeconds(5f);
+
+        inventory.hullListOBJ.GetComponent<HullChange>().now = true;
+        inventory.turretListOBJ.GetComponent<TurretChange>().now = true;
     }
 
     private void BuyFlow()
