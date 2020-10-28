@@ -70,7 +70,7 @@ public class InventorySelection : MonoBehaviour
         tActive = new bool[turretno];
         tID = new string[turretno];
         turretLevel = new float[turretno];
-        turretDisplayName = new string[hullno];
+        turretDisplayName = new string[turretno];
 
         matteActive = new bool[8];
         matteCost = new int[8];
@@ -107,7 +107,6 @@ public class InventorySelection : MonoBehaviour
                     {
                         foreach (GameObject turret in turretList)
                         {
-                            
                             if (turret.name == item.ItemId)
                             {
                                 for (int i = 0; i < turretList.Length; i++)

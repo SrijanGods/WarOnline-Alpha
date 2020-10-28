@@ -23,7 +23,6 @@ public class TurretChange : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         yield return new WaitUntil(() => GlobalValues.turret != null);
-        yield return new WaitUntil(() => now);
         DisableAll();
         // int selection = Array.FindIndex(turrets, g => g.name == GlobalValues.turret);
         // turrets[selection].SetActive(true);
@@ -31,7 +30,7 @@ public class TurretChange : MonoBehaviour
         turret.SetActive(true);
 
         string paint = GlobalValues.colour;
-        if (paint.StartsWith("Matte") == true)
+        if (paint.StartsWith("Matte") == true && now)
         {
             int i = Array.FindIndex(inventory.matteName, g => g == GlobalValues.colour);
             GameObject body = turret.transform.GetChild(0).gameObject;
@@ -55,6 +54,9 @@ public class TurretChange : MonoBehaviour
     }
     private void Update()
     {
-        StartCoroutine(UpdateTurret());
+        if (now)
+        {
+            StartCoroutine(UpdateTurret());
+        }
     }
 }

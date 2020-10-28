@@ -23,7 +23,6 @@ public class HullChange : MonoBehaviour {
     {
         yield return new WaitForSeconds(2f);
         yield return new WaitUntil(() => GlobalValues.hull != null);
-        yield return new WaitUntil(() => now);
         DisableAll();
         // int selection = Array.FindIndex(hulls, g => g.name == GlobalValues.hull);
         // hulls[selection].SetActive(true);
@@ -32,7 +31,7 @@ public class HullChange : MonoBehaviour {
         hull.SetActive(true);
 
         string paint = GlobalValues.colour;
-        if(paint.StartsWith("Matte") == true)
+        if(paint.StartsWith("Matte") == true && now)
         {
             int i = Array.FindIndex(inventory.matteName, g => g == GlobalValues.colour);
             GameObject body = hull.transform.GetChild(0).GetChild(0).gameObject;
@@ -49,7 +48,10 @@ public class HullChange : MonoBehaviour {
 
     private void Update()
     {
-        StartCoroutine(UpdateHull());
+        if (now)
+        {
+            StartCoroutine(UpdateHull());
+        }
     }
 
     void DisableAll()

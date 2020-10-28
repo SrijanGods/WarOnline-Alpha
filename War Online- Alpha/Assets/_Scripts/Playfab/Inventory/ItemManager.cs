@@ -148,6 +148,7 @@ public class ItemManager : MonoBehaviour
                             buyBtn.SetActive(false);
                             equipBtn.SetActive(true);
                             equippedBtn.SetActive(false);
+                            previewBtn.SetActive(false);
 
                             if (GlobalValues.colour == gameObject.name)
                             {
@@ -194,7 +195,6 @@ public class ItemManager : MonoBehaviour
     private void PaintCall()
     {
         StartCoroutine(SetPaintPreview());
-        StartCoroutine(SetPaintPreview());
     }
 
     private IEnumerator SetPaintPreview()
@@ -226,8 +226,9 @@ public class ItemManager : MonoBehaviour
             Substance.Game.Substance.RenderSubstancesAsync();
             mat2 = gr2.material;
         }
+        print("Called now");
         yield return new WaitForSeconds(5f);
-
+        print("Result");
         inventory.hullListOBJ.GetComponent<HullChange>().now = true;
         inventory.turretListOBJ.GetComponent<TurretChange>().now = true;
     }
