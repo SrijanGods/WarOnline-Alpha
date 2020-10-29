@@ -211,6 +211,7 @@ public class ItemManager : MonoBehaviour
             SubstanceGraph gr1 = inventory.matte;
             gr1.SetInputColor("Color1", inventory.color1[i1]);
             gr1.SetInputColor("Color2", inventory.color2[i1]);
+            gr1.SetInputInt("$randomseed", UnityEngine.Random.Range(0, 10));
             gr1.QueueForRender();
             Substance.Game.Substance.RenderSubstancesAsync();
             mat1 = gr1.material;
@@ -222,6 +223,7 @@ public class ItemManager : MonoBehaviour
             SubstanceGraph gr2 = inventory.matte;
             gr2.SetInputColor("Color1", inventory.color1[i2]);
             gr2.SetInputColor("Color2", inventory.color2[i2]);
+            gr2.SetInputInt("$randomseed", UnityEngine.Random.Range(0, 10));
             gr2.QueueForRender();
             Substance.Game.Substance.RenderSubstancesAsync();
             mat2 = gr2.material;
