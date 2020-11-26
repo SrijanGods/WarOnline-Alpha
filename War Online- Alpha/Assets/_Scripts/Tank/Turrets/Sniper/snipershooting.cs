@@ -249,11 +249,11 @@ namespace _Scripts.Tank.Turrets.Sniper
                            {
                                gameObject.transform.Rotate(Vector3.up * Time.deltaTime * 5);
                            }*/
-                turretRotation.SniperCamVerticalRotation(true);
+                turretRotation.SniperCamVerticalRotation();
             }
             else
             {
-                turretRotation.SniperCamVerticalRotation(false);
+                turretRotation.SniperCamVerticalRotation();
             }
 
             if (totalAmmo < 3 && inZoomMode == false)

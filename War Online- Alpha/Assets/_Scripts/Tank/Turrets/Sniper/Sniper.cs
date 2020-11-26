@@ -330,8 +330,7 @@ namespace _Scripts.Tank.Turrets.Sniper
                     Scope_Ended_Time = Time.time;
                     State = States.THIRD_PERSON_CAMERA;
                     DBG.LogTransition("START -> THIRD_PERSON_CAMERA");
-                    Debug.Assert(GameObject.Find("PowerUps") != null);
-                    GameObject.Find("DBG").AddComponent<Text>();
+                    Debug.Assert(GameObject.Find("DBG") != null);
                     break;
                 case States.THIRD_PERSON_CAMERA://Default state of turret rotation.
                     ScopeZoomTimeElapsed = Mathf.Clamp(Time.time - Scope_Ended_Time, .01f, TimeToReturnToNormalZoom);//Transition from zoomed to unzoomed is 1f sconds
@@ -352,6 +351,8 @@ namespace _Scripts.Tank.Turrets.Sniper
                         cam.cullingMask = ~(1 << 11);
 
                         GameObject.FindObjectOfType<RTC_UIDragController>().transform.position = GameObject.Find("LeftHand Aim Drag Position").transform.position;
+                        //Stop pressing joystick and deactivate
+                        OuterReticle.GetComponentInChildren<RTC_UIJoystickController>().ResetJoystick();
                         OuterReticle.SetActive(false);
 
                         State = States.SCOPING;

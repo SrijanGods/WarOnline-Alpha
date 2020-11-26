@@ -180,6 +180,16 @@ public class RTC_UIJoystickController : MonoBehaviour, IPointerDownHandler, IPoi
         SimulatedInput.SimulateInput(verticalAxis, false);
     }
 
+    public void ResetJoystick()
+    {
+        pressing = false;
+        transform.position = m_StartPos;
+        UpdateVirtualAxes(m_StartPos);
+
+        SimulatedInput.SimulateInput(horizontalAxis, false);
+        SimulatedInput.SimulateInput(verticalAxis, false);
+    }
+
 
     public void OnPointerDown(PointerEventData data)
     {

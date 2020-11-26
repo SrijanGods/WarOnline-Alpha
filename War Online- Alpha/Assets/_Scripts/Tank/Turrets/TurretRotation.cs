@@ -131,7 +131,7 @@ public class TurretRotation : MonoBehaviourPun, IPunObservable
         xaw = Mathf.Clamp(xaw, -sniperrotateSpeed, sniperrotateSpeed);
 
 
-        Debug.Log("ConvertToAngle180(transform.eulerAngles.x):  " + ConvertToAngle180(transform.eulerAngles.x));
+        //Debug.Log("ConvertToAngle180(transform.eulerAngles.x):  " + ConvertToAngle180(transform.eulerAngles.x));
 
         //xaw < 0 means turret rotates up
         if (xaw < 0 && ConvertToAngle180(transform.eulerAngles.x) > -20)//Prevents rotating up to -20 degrees in X axis
