@@ -77,12 +77,15 @@ public class RTC_UIDragController : MonoBehaviour, IDragHandler
 
     public void OnDrag(PointerEventData data)
     {
+        //Debug.Log("OnDrag");
+
         verticalInput = -data.delta.y * sensitivity * .02f;
         horizontal = -data.delta.x * sensitivity * .02f;
     }
 
     public void OnBeginDrag(PointerEventData data)
     {
+        Debug.Log("OnBeginDrag");
         pressing = true;
 
         SimulatedInput.SimulateInput(horizontalAxis, true);
@@ -92,6 +95,8 @@ public class RTC_UIDragController : MonoBehaviour, IDragHandler
 
     public void OnEndDrag(PointerEventData data)
     {
+        Debug.Log("OnEndDrag");
+
         pressing = false;
 
         SimulatedInput.SimulateInput(horizontalAxis, false);

@@ -311,6 +311,7 @@ MonoBehaviour:
   matchStartCounter: {fileID: 744713268}
   matchTimeCounter: {fileID: 824515102}
   leaderboard: {fileID: 0}
+  StartSession_Token: 0
 --- !u!114 &138831186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2630,6 +2631,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1491759109}
   m_CullTransparentMesh: 0
+--- !u!1 &1502072342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1502072343}
+  - component: {fileID: 1502072344}
+  m_Layer: 0
+  m_Name: PUN2Connection (Alexander Z.)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1502072343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502072342}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.7084732, y: -46.41141, z: 35.19397}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1502072344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502072342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3439152d8c3eb98458933657066f46a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OfflineMode: 1
+  Connect_To_Master_Token: 1
+  Disconnected_From_Master_Token: 0
+  Disconnect_From_Master_Token: 0
+  Create_Room_Token: 1
+  Create_Room_Failed_Token: 0
+  Leave_Room_Token: 0
+  Go_Online: 0
+  state: 0
+  Connected_To_Master: 0
+  Join_Random_Room: 0
+  Joined_Room: 0
+  Join_Random_Room_Fail: 0
+  Left_Room: 0
 --- !u!1 &1510360856
 GameObject:
   m_ObjectHideFlags: 0
@@ -3526,7 +3584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2031869960
 RectTransform:
   m_ObjectHideFlags: 0

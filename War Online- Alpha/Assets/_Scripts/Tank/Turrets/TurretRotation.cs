@@ -18,7 +18,7 @@ public class TurretRotation : MonoBehaviourPun, IPunObservable
     private float maxAngle = 60f;
 
     //exclusively for sniper
-    private float sniperrotateSpeed = 0.3f;
+    private float sniperrotateSpeed = 6f;
     private Transform dummyScope;
     private float xaw;
 
@@ -28,7 +28,7 @@ public class TurretRotation : MonoBehaviourPun, IPunObservable
     // private TouchProcessor tP;
 
     public float recenterSpeed;
-
+    Vector3 InitialRotation;
     void Start()
     {
         // tP = GetComponentInParent<TouchProcessor>();
@@ -38,7 +38,10 @@ public class TurretRotation : MonoBehaviourPun, IPunObservable
         if (transform.name == "Sniper")
         {
             dummyScope = gameObject.GetComponent<Sniper>().scope;
+            //dummyScope.parent = dummyScope.parent.parent;
         }
+
+        InitialRotation = transform.forward;
     }
 
     void FixedUpdate()
@@ -60,28 +63,32 @@ public class TurretRotation : MonoBehaviourPun, IPunObservable
 
         yaw = Mathf.Clamp(yaw, -rotateSpeed, rotateSpeed);
 
-        transform.Rotate(Vector3.up, yaw);
-
-        if (transform.localEulerAngles.y > maxAngle || transform.localEulerAngles.y < minAngle)
-        {
-            if (transform.localEulerAngles.y < minAngle)
-            {
-                Vector3 tempVec = new Vector3(0f, minAngle, 0f);
-                transform.localEulerAngles = tempVec;
-            }
-            else
-            {
-                Vector3 tempVec = new Vector3(0f, maxAngle, 0f);
-                transform.localEulerAngles = tempVec;
-            }
-        }
+        transform.Rotate(xaw, yaw, 0f, Space.World);
+        //DBG.Log("Turret Rotation : " + yaw);
+        //if (transform.localEulerAngles.y > maxAngle || transform.localEulerAngles.y < minAngle)
+        //{
+        //    if (transform.localEulerAngles.y <    minAngle)
+        //    {
+        //        Vector3 tempVec = new Vector3(0f, minAngle, 0f);
+        //        transform.localEulerAngles = tempVec;
+        //    }
+        //    else
+        //    {
+        //        Vector3 tempVec = new Vector3(0f, maxAngle, 0f);
+        //        transform.localEulerAngles = tempVec;
+        //    }
+        //}
 
         yaw = 0f;
 
         if (!SimulatedInput.GetButton(InputCodes.Recenter)) return;
+ 
+        if (transform.localEulerAngles.magnitude < 10) 
+            transform.localRotation = Quaternion.identity;
+        else 
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.identity, recenterSpeed);
 
-        if (transform.localEulerAngles.magnitude < 10) transform.localRotation = Quaternion.identity;
-        else transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.identity, recenterSpeed);
+ 
     }
 
     void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -90,40 +97,53 @@ public class TurretRotation : MonoBehaviourPun, IPunObservable
         else transform.rotation = (Quaternion) stream.ReceiveNext();
     }
 
-    public void SniperCamRotation(bool running)
+    /// <summary>
+    /// This method magically transforms the x rotation into a continuous numberline, thater than: 359, 360, 0, 1, 2, 3, 4, 5
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    public static float ConvertToAngle180(float input)
     {
-        if (running)
+        while (input > 360)
         {
-            var y = SimulatedInput.GetAxis(InputCodes.MouseLookY);
-            if (Math.Abs(y) > .05f)
-            {
-                xaw += sniperrotateSpeed * y;
-            }
-
-            /*if (Input.GetAxis("Vertical") != 0f)
-            {
-                xaw += sniperrotateSpeed * -Input.GetAxis("Vertical");
-            }*/
-
-            xaw = Mathf.Clamp(xaw, -sniperrotateSpeed, sniperrotateSpeed);
-
-            dummyScope.Rotate(Vector3.right, xaw);
-
-            if (dummyScope.localEulerAngles.x > maxXAngle && dummyScope.localEulerAngles.x < minXAngle)
-            {
-                if (xaw < 0f)
-                {
-                    Vector3 tempVec2 = new Vector3(minXAngle, 0f, 0f);
-                    dummyScope.localEulerAngles = tempVec2;
-                }
-                else
-                {
-                    Vector3 tempVec2 = new Vector3(maxXAngle, 0f, 0f);
-                    dummyScope.localEulerAngles = tempVec2;
-                }
-            }
-
-            xaw = 0f;
+            input = input - 360;
         }
+        while (input < -360)
+        {
+            input = input + 360;
+        }
+        if (input > 180)
+        {
+            input = input - 360;
+        }
+        if (input < -180)
+            input = 360 + input;
+        return input;
+    }
+    public void SniperCamVerticalRotation()
+    {
+        //DBG.BeginMethod("SniperCamVerticalRotation");
+
+        var lookY = SimulatedInput.GetAxis(InputCodes.MouseLookY);
+        if (Math.Abs(lookY) > .05f)
+            xaw += sniperrotateSpeed * lookY;
+
+        xaw = Mathf.Clamp(xaw, -sniperrotateSpeed, sniperrotateSpeed);
+
+
+        Debug.Log("ConvertToAngle180(transform.eulerAngles.x):  " + ConvertToAngle180(transform.eulerAngles.x));
+
+        //xaw < 0 means turret rotates up
+        if (xaw < 0 && ConvertToAngle180(transform.eulerAngles.x) > -20)//Prevents rotating up to -20 degrees in X axis
+            transform.Rotate(xaw, 0f, 0f, Space.Self);
+
+        //xaw > 0 means turret rotates up
+        if (xaw > 0 && ConvertToAngle180(transform.eulerAngles.x) < 10)//Prevents rotating down below 10 degrees in X axis
+            transform.Rotate(xaw, 0f, 0f, Space.Self);
+
+    
+        xaw = 0f;
+        //DBG.EndMethod("SniperCamVerticalRotation");
+
     }
 }

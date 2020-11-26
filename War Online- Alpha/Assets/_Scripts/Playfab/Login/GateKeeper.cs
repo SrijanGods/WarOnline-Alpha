@@ -282,7 +282,7 @@ public class GateKeeper : MonoBehaviour
 
     private void AuthenticateWithPhoton(GetPhotonAuthenticationTokenResult obj)
     {
-
+        DBG.Log("AuthenticateWithPhoton");
         //We set AuthType to custom, meaning we bring our own, PlayFab authentication procedure.
         var customAuth = new Photon.Realtime.AuthenticationValues { AuthType = Photon.Realtime.CustomAuthenticationType.Custom };
 
@@ -293,6 +293,7 @@ public class GateKeeper : MonoBehaviour
         customAuth.AddAuthParameter("token", obj.PhotonCustomAuthenticationToken);
 
         PhotonNetwork.AuthValues = customAuth;
+
 
         // PhotonNetwork will be connected to later in MainScript
         // PhotonNetwork.ConnectUsingSettings();

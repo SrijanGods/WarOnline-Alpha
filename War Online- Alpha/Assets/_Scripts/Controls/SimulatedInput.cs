@@ -42,6 +42,7 @@ namespace _Scripts.Controls
 
         public static void SetAxis(InputCodes name, float value, bool simulated)
         {
+           // Debug.Log("SetAxis name, value: " + name.ToString() + ", " + value ); 
             if (Simulated.ContainsKey(name))
             {
                 if (Simulated[name] && !simulated) return;
@@ -101,6 +102,7 @@ namespace _Scripts.Controls
         public void OnMove(InputAction.CallbackContext context)
         {
             var v = context.ReadValue<Vector2>();
+            Debug.Log("OnMove v:" + v);
 
             SetAxis(InputCodes.TankMoveX, v.x, false);
             SetAxis(InputCodes.TankMoveY, v.y, false);

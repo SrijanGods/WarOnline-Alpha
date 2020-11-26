@@ -4,6 +4,9 @@ using _Scripts.Photon.Room;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
+using Unity.Jobs;
+using Unity.Collections;
+
 
 namespace _Scripts.Tank.Turrets.Sniper
 {
@@ -70,6 +73,7 @@ namespace _Scripts.Tank.Turrets.Sniper
 
         private void Start()
         {
+            DBG.BeginMethod("Sniper.Start");
             if (photonView.IsMine || !PhotonNetwork.IsConnected)
             {
                 myCamera.gameObject.SetActive(true);
@@ -79,7 +83,7 @@ namespace _Scripts.Tank.Turrets.Sniper
             {
                 myCamera.gameObject.SetActive(false);
             }
-
+            DBG.Log("T1");
             inZoomMode = false;
             required = false;
             //Laser
@@ -88,10 +92,12 @@ namespace _Scripts.Tank.Turrets.Sniper
             //Scope
             scopeImage.enabled = false;
             cameraScopePos = scope.localPosition;
+            DBG.Log("T2");
 
             //Rotation
             turretRotation = GetComponent<TurretRotation>();
             initRotateSpeed = turretRotation.rotateSpeed;
+            DBG.Log("T3");
 
             //sfx
             //sniperShootEv = FMODUnity.RuntimeManager.CreateInstance(sniperShootSfx);
@@ -103,10 +109,20 @@ namespace _Scripts.Tank.Turrets.Sniper
             _coolDownSlider.maxValue = 30f;
             _coolDownSlider.minValue = 0f;
             _coolDownSlider.value = 30f;
+            DBG.Log("T4");
+
             animator = cam.GetComponent<Animator>();
-            animator.enabled = false;
+            if(animator != null)
+                animator.enabled = false;
+
+            Original_Camera_FieldOfView = cam.fieldOfView;
+
+            OuterReticle = GameObject.Find("OuterReticle");
+
 
             //Reload System
+            DBG.EndMethod("Sniper.Start");
+
         }
 
         #endregion Start
@@ -114,6 +130,16 @@ namespace _Scripts.Tank.Turrets.Sniper
         #region Update
 
         private void Update()
+        {
+            // GodsTheGuy_Sniper();
+
+                Sniper_Controller();
+        }
+
+        #endregion Update
+
+
+        void GodsTheGuy_Sniper()
         {
             if (!photonView.IsMine && PhotonNetwork.IsConnected) return;
 
@@ -149,13 +175,16 @@ namespace _Scripts.Tank.Turrets.Sniper
 
             if (zoomHeld)
             {
+                DBG.Log("zoomHeld");
                 sniperShootEv.setParameterByName("ReloadFull", 0f);
 
                 required = true;
                 //Transition
-                animator.enabled = true;
-                animator.SetBool(Scoped, true);
-
+                if (animator != null)
+                {
+                    animator.enabled = true;
+                    animator.SetBool(Scoped, true);
+                }
                 sniperShootEv.setParameterByName("Scoping", 1f);
 
                 camMove = true;
@@ -188,6 +217,8 @@ namespace _Scripts.Tank.Turrets.Sniper
 
             if (camMove)
             {
+                DBG.Log("camMove");
+
                 //Scope
                 scopeTime += Time.deltaTime;
                 if (scopeTime > zoomSpeed && cam.fieldOfView > zoomCamFov)
@@ -205,6 +236,8 @@ namespace _Scripts.Tank.Turrets.Sniper
 
             if (zoomReleased && required)
             {
+                DBG.Log("zoomReleased  && required");
+
                 damageToLess = 700f;
                 inZoomMode = false;
                 required = false;
@@ -217,8 +250,11 @@ namespace _Scripts.Tank.Turrets.Sniper
                 sniperShootEv.setParameterByName("Firing", 1f);
 
                 //Deactivating Animator
-                animator.enabled = false;
-                animator.SetBool(Scoped, false);
+                if (animator != null)
+                {
+                    animator.enabled = false;
+                    animator.SetBool(Scoped, false);
+                }
 
                 //Unzoom
                 CameraTransition(zoomHeld);
@@ -237,7 +273,9 @@ namespace _Scripts.Tank.Turrets.Sniper
                 }
             }
 
-            turretRotation.SniperCamRotation(camMove);
+            DBG.Log("can move: " + camMove);
+
+            turretRotation.SniperCamVerticalRotation();
 
             if (totalAmmo < 3 && inZoomMode == false)
             {
@@ -265,63 +303,218 @@ namespace _Scripts.Tank.Turrets.Sniper
             }
         }
 
-        #endregion Update
+        [ReadOnly]
+        public float Original_Camera_FieldOfView; // set on start
+        public float ScopeZoomTimeElapsed = 0.1f;
+        public float TimeToReachFullZoom = 4;
+        public float TimeToReturnToNormalZoom = 4;
+        public bool Scope_Token = false;
+        public bool Cancel_Scope_Token = false;
+        public bool Shoot_Token = false;
+        float Scope_Start_Time = 0;
+        float Scope_Ended_Time = 0;
+
+        GameObject OuterReticle;
+
+        public enum States { START, THIRD_PERSON_CAMERA, SCOPING, SHOOT}
+        public States State = States.START;
+        /// <summary>
+        /// This controller uses a Finite State Machine each case is a State. See provided Visual Automaton. by Alexander Z.
+        /// </summary>
+        public void Sniper_Controller()
+        {
+            DBG.BeginFSM("Network_Controller");
+            switch (State) {
+                case States.START:
+                   // ScopeZoomTimeElapsed = TimeToReturnToNormalZoom;
+                    Scope_Ended_Time = Time.time;
+                    State = States.THIRD_PERSON_CAMERA;
+                    DBG.LogTransition("START -> THIRD_PERSON_CAMERA");
+                    Debug.Assert(GameObject.Find("PowerUps") != null);
+                    GameObject.Find("DBG").AddComponent<Text>();
+                    break;
+                case States.THIRD_PERSON_CAMERA://Default state of turret rotation.
+                    ScopeZoomTimeElapsed = Mathf.Clamp(Time.time - Scope_Ended_Time, .01f, TimeToReturnToNormalZoom);//Transition from zoomed to unzoomed is 1f sconds
+                    cam.fieldOfView = Mathf.Lerp(Original_Camera_FieldOfView -10, Original_Camera_FieldOfView  , ScopeZoomTimeElapsed/ TimeToReturnToNormalZoom);//Transition from zoomed to unzoomed is TimeToReturnToNormalZoom sconds
+                    //ScopeZoomTimeElapsed += Time.deltaTime;
+                    if (SimulatedInput.GetButtonDown(InputCodes.TankFire) || Input.GetKey(KeyCode.Z))
+                    {
+                        Scope_Token = true;
+                    }
+                    if (Scope_Token.ConsumeToken())
+                    {
+                        ScopeZoomTimeElapsed = 0.01f;// we gonna zoom from this point in time so we reset to TimeElapsed, not to 0 because we would be divinding by zero
+                        Scope_Start_Time = Time.time;//Because we are going from "THIRD_PERSON_CAMERA -> SCOPING" We save time to start counting to meassure damage %
+                        scopeImage.enabled = true;
+                        Debug.Assert(laser != null);
+
+                        laser.enabled = true;
+                        cam.cullingMask = ~(1 << 11);
+
+                        GameObject.FindObjectOfType<RTC_UIDragController>().transform.position = GameObject.Find("LeftHand Aim Drag Position").transform.position;
+                        OuterReticle.SetActive(false);
+
+                        State = States.SCOPING;
+                        DBG.LogTransition("THIRD_PERSON_CAMERA -> SCOPING");
+                        GameObject.Find("DBG").GetComponent<Text>().text = "THIRD_PERSON_CAMERA -> SCOPING";
+
+                    }
+                    _coolDownSlider.value += (_coolDownSlider.value < _coolDownSlider.maxValue) ? 0.15f : 0;// If cooldown not full increase by
+                    break;
+                case States.SCOPING:
+                    turretRotation.SniperCamVerticalRotation();
+                    //turretRotation.DoMovements();
+                    // var y = SimulatedInput.GetAxis(InputCodes.MouseLookY);
+
+                    //This gradually zooms
+                    ScopeZoomTimeElapsed = Mathf.Clamp(Time.time - Scope_Start_Time, .01f, TimeToReachFullZoom);//Transition from unzoomed to zoomed is [TimeToReachFullZoom]
+                    cam.fieldOfView = Mathf.Lerp(Original_Camera_FieldOfView, Original_Camera_FieldOfView - 10f, ScopeZoomTimeElapsed / TimeToReachFullZoom);//Transition from unzoomed to zoomed is [TimeToReachFullZoom]
+                   // ScopeZoomTimeElapsed += Time.deltaTime;
+
+                    //lazer
+                    var position = scope.position;
+                    laser.SetPosition(0, position);
+                    laser.SetPosition(1, position + scope.forward * range);
+
+                    if (SimulatedInput.GetButtonUp(InputCodes.TankFire) && Input.GetKey(KeyCode.Z) == false)
+                    {
+                        Shoot_Token = true;
+                        GameObject.Find("DBG").GetComponent<Text>().text += "Shoot_Token: " + Shoot_Token; 
+                    }
+
+                    if (Cancel_Scope_Token.ConsumeToken())
+                    {
+                        ScopeZoomTimeElapsed = 0.1f;// we gonna unzoom from this point in time so we reset to TimeElapsed, not to 0 because we would be divinding by zero
+                        scopeImage.enabled = false;
+                        Scope_Ended_Time = Time.time;
+                        GameObject.FindObjectOfType<RTC_UIDragController>().transform.position = GameObject.Find("RightHand Aim Drag Position").transform.position;
+
+                        State = States.THIRD_PERSON_CAMERA;
+                        DBG.LogTransition("SCOPING -> THIRD_PERSON_CAMERA");
+                        GameObject.Find("DBG").GetComponent<Text>().text = "SCOPING -> THIRD_PERSON_CAMERA";
+                    } else if (Shoot_Token.ConsumeToken())
+                    {
+                        ScopeZoomTimeElapsed = 0.01f;// we gonna unzoom from this point in time so we reset to TimeElapsed, not to 0 because we would be divinding by zero
+                        scopeImage.enabled = false;
+                        Scope_Ended_Time = Time.time;
+                        GameObject.FindObjectOfType<RTC_UIDragController>().transform.position = GameObject.Find("RightHand Aim Drag Position").transform.position;
+                        OuterReticle.SetActive(true);
+
+                        State = States.SHOOT;
+                        DBG.LogTransition("SCOPING -> SHOOT");
+                        GameObject.Find("DBG").GetComponent<Text>().text = "SCOPING -> SHOOT";
+
+                    }
+                    break;
+                case States.SHOOT:
+                    //sniperShootEv.setParameterByName("Scoping", 0f);
+                    //sniperShootEv.setParameterByName("Firing", 1f);
+
+                    if (Time.time - Scope_Start_Time >= 4)
+                        Shoot(damage);//full damage if scoped full time
+                    else
+                        Shoot(damage * (Time.time - Scope_Start_Time) / 4);//fraction of damage, depending on how many seconds of scoping
+
+                    //Unzoom
+                    scopeImage.enabled = false;
+                    laser.enabled = false;
+                    cam.cullingMask = ~0;
+                    //cam.fieldOfView = initCamFov;
+                    //cam.GetComponent<Pro3DCamera.CameraControl>().enabled = true;
+
+                    //Rotation
+                    turretRotation.rotateSpeed = initRotateSpeed;
+                    scopeTime = 0;
+
+                    _coolDownSlider.value = 0;
+
+                    State = States.THIRD_PERSON_CAMERA;
+                    DBG.LogTransition("SHOOT -> THIRD_PERSON_CAMERA");
+                    GameObject.Find("DBG").GetComponent<Text>().text = "SHOOT -> THIRD_PERSON_CAMERA";
+
+                    break;
+                default:
+                    Debug.LogError("Invalid State, Assign Sniper.State");
+                    break;
+
+            }
+            DBG.EndFSM();
+        }
 
         #region Shoot
 
         private void Shoot(float currDamage)
         {
             barrelFlash.Play(true);
-            TankHealth.TankHealth targetHealth = target.transform.GetComponent<TankHealth.TankHealth>();
 
-            inZoomMode = false;
-
-            if (targetHealth)
+            if (Physics.Raycast(scope.position, scope.forward, out var hit, range, tanksAndObjectsLayer))
             {
-                FactionID fID = targetHealth.fid;
-                FactionID myID = myTankHealth.fid;
+                laser.SetPosition(1, hit.point);
 
-                if ((fID.teamIndex == -1 && myID.teamIndex == -1) || fID.teamIndex != myID.teamIndex)
+                //Set hit point to target
+                target = hit;
+                //cam.GetComponent<Pro3DCamera.CameraControl>().enabled = false;
+
+                //Zoom
+                scopeImage.enabled = true;
+                cam.cullingMask = ~(1 << 11);
+                cam.transform.LookAt(hit.point);
+          
+
+                if (target.transform.GetComponent<TankHealth.TankHealth>() == null)//Catch if we dont hit a tank
+                    return;
+
+                TankHealth.TankHealth targetHealth = target.transform.GetComponent<TankHealth.TankHealth>();
+
+                inZoomMode = false;
+
+                if (targetHealth)
                 {
-                    if (fID.myAccID != myID.myAccID)
+                    FactionID fID = targetHealth.fid;
+                    FactionID myID = myTankHealth.fid;
+
+                    if ((fID.teamIndex == -1 && myID.teamIndex == -1) || fID.teamIndex != myID.teamIndex)
                     {
-                        if (Math.Abs(currDamage - damage) < .005f)
+                        if (fID.myAccID != myID.myAccID)
                         {
-                            targetHealth.TakeDamage(currDamage - damageToLess, myID.actorNumber);
-                        }
-                        else
-                        {
-                            targetHealth.TakeDamage(currDamage, myID.actorNumber);
+                            if (Math.Abs(currDamage - damage) < .005f)
+                            {
+                                targetHealth.TakeDamage(currDamage - damageToLess, myID.actorNumber);
+                            }
+                            else
+                            {
+                                targetHealth.TakeDamage(currDamage, myID.actorNumber);
+                            }
                         }
                     }
                 }
-            }
-            else
-            {
-                if (target.transform)
+                else
                 {
-                    photonView.RPC(nameof(HitEffect), RpcTarget.All, target.point, target.normal);
+                    if (target.transform)
+                    {
+                        photonView.RPC(nameof(HitEffect), RpcTarget.All, target.point, target.normal);
+                    }
                 }
+
+                // sniperShootEv.setParameterByName("Firing", 0f);
+
+                if (Math.Abs(currDamage - damage) < .001f)
+                {
+                    totalAmmo = 0;
+                }
+
+                if (Math.Abs(currDamage - tempDamage) < .001f)
+                {
+                    totalAmmo = 1.0f;
+                }
+
+                if (Math.Abs(currDamage - (tempDamage - tempDamage / 8)) < .001f)
+                {
+                    totalAmmo = 0f;
+                }
+
+                damageToLess = 700f;
             }
-
-            // sniperShootEv.setParameterByName("Firing", 0f);
-
-            if (Math.Abs(currDamage - damage) < .001f)
-            {
-                totalAmmo = 0;
-            }
-
-            if (Math.Abs(currDamage - tempDamage) < .001f)
-            {
-                totalAmmo = 1.0f;
-            }
-
-            if (Math.Abs(currDamage - (tempDamage - tempDamage / 8)) < .001f)
-            {
-                totalAmmo = 0f;
-            }
-
-            damageToLess = 700f;
         }
 
         [PunRPC]
@@ -338,6 +531,7 @@ namespace _Scripts.Tank.Turrets.Sniper
 
         private void CameraTransition(bool isZoom)
         {
+            DBG.BeginMethod("CameraTransition");
             if (isZoom)
             {
                 if (!cameraMode)
@@ -354,6 +548,7 @@ namespace _Scripts.Tank.Turrets.Sniper
             {
                 cameraMode = false;
             }
+            DBG.EndMethod("CameraTransition");
         }
 
         private void Scope()

@@ -12,6 +12,11 @@ namespace _Scripts.Photon.Room
 
         private void OnEnable()
         {
+     
+        }
+
+        public void Start()
+        {
             if (photonView.IsMine)
             {
                 myAccID = PhotonNetwork.AuthValues.UserId;

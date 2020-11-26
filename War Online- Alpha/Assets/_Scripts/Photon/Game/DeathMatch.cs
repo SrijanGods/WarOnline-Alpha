@@ -9,8 +9,8 @@ namespace _Scripts.Photon.Game
 
         public override void StartSession()
         {
+            DBG.BeginMethod("StartSession");
             MatchEndTime = GlobalValues.Session == GameSessionType.Teams ? 450 : 600;
-            base.StartSession();
             _sb = FindObjectOfType<ScoreBoard>();
 
             _sb.scoreType = ScoreType.Text;
@@ -34,10 +34,13 @@ namespace _Scripts.Photon.Game
 
                 Debug.Log(nameof(base.OnPlayerDie));
             }
+            base.StartSession();
+            DBG.EndMethod("StartSession");
         }
 
         public override void OnPlayerSpawn(int playerActorID, int teamIndex, int ffaColorIndex)
         {
+            DBG.BeginMethod("OnPlayerSpawn");
             base.OnPlayerSpawn(playerActorID, teamIndex, ffaColorIndex);
 
             if (GlobalValues.Session == GameSessionType.Teams) return;
@@ -46,6 +49,7 @@ namespace _Scripts.Photon.Game
             s.Init(AllPlayers.Find((player => player.ActorNumber == playerActorID)).NickName,
                 GlobalValues.FfaColors[ffaColorIndex], Color.white);
             s.tss.Score = "0";
+            DBG.EndMethod("OnPlayerSpawn");
         }
 
         public override void OnPlayerDie(int dyingPlayerID, int killerID)

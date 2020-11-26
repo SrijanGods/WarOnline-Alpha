@@ -24,9 +24,16 @@ namespace _Scripts.Photon.Game.Scoring
 
         public ScoreSet CreateScore(string key)
         {
-            var s = Instantiate(scorePrefab, setParent).GetComponent<ScoreSet>();
-            ss.Add(key, s);
-            return s;
+            DBG.BeginMethod("CreateScore");
+            GameObject ScoreSet_object = Instantiate(scorePrefab, setParent);
+            DBG.Log("scorePrefab.name: " + scorePrefab.name);
+            DBG.Log("ScoreSet_object.name: " + ScoreSet_object.name);
+
+            ScoreSet ScoreSet_component = ScoreSet_object.GetComponent<ScoreSet>();
+            ss.Add(key, ScoreSet_component);
+
+            DBG.EndMethod("CreateScore");
+            return ScoreSet_component;
         }
     }
 }

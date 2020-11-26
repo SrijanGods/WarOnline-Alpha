@@ -5,7 +5,7 @@ public class GlobalValues : MonoBehaviour
 {
     public static GlobalValues Instance;
 
-    public static string turret = "FlameThrower", hull = "Dominator", colour = "MatteGreen";
+    public static string turret = "Sniper", hull = "Dominator", colour = "MatteGreen";
 
     public static GameSessionType Session;
 

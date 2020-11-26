@@ -33,16 +33,25 @@ namespace _Scripts.Photon.Game
 
         public virtual void StartSession()
         {
+            DBG.BeginMethod("StartSession");
             map.gettingReady.SetActive(true);
-
+  
             AllPlayers = new List<global::Photon.Realtime.Player>(PhotonNetwork.PlayerList);
 
-            if (!PhotonNetwork.IsMasterClient && PhotonNetwork.IsConnected) return;
+            if (!PhotonNetwork.IsMasterClient && PhotonNetwork.IsConnected)
+            {//Only master client may instantiate players
+                Debug.Log("!PhotonNetwork.IsMasterClient && PhotonNetwork.IsConnected");
+                return;
+            }
+            //Debug.Log("PhotonNetwork.IsConnected");
+            Debug.Assert(PhotonNetwork.IsConnected != false);
+            Debug.Assert(AllPlayers.Count > 0, "");
 
             NextSpawnTurn = AllPlayers[0].ActorNumber;
 
             photonView.RPC(nameof(SpawnPlayerRPC), RpcTarget.All, NextSpawnTurn, NextSpawnPointIndex, NextTeamIndex,
                 NextFfaColorIndex);
+            DBG.EndMethod("StartSession");
         }
 
         public override void OnPlayerEnteredRoom(global::Photon.Realtime.Player newPlayer)
@@ -58,7 +67,9 @@ namespace _Scripts.Photon.Game
         [PunRPC]
         public void SpawnPlayerRPC(int playerActor, int pointIndex, int teamIndex, int ffaColorIndex)
         {
+            DBG.BeginMethod("SpawnPlayerRPC");
             SpawnPlayer(playerActor, pointIndex, teamIndex, ffaColorIndex);
+            DBG.EndMethod("SpawnPlayerRPC");
         }
 
         [PunRPC]
@@ -88,14 +99,25 @@ namespace _Scripts.Photon.Game
 
         public virtual void SpawnPlayer(int playerActor, int pointIndex, int teamIndex, int ffaColorIndex)
         {
-            if (PhotonNetwork.LocalPlayer.ActorNumber != playerActor) return;
+            DBG.BeginMethod("OnPlayerSpawn");
+            //if (PhotonNetwork.LocalPlayer.ActorNumber != playerActor)
+            //{
+            //    DBG.EndMethod("OnPlayerSpawn");
+            //    return;
+            //}
+            DBG.Log("T0");
 
             var p = GlobalValues.Session == GameSessionType.Ffa
                 ? map.ffaSpawnPoints[pointIndex]
                 : map.teamSpawnPoints[teamIndex].points[pointIndex];
 
-            LocalTank = PhotonNetwork.Instantiate(GlobalValues.PlayerPrefab, p.position, p.rotation)
-                .GetComponent<TankAddOn>();
+            DBG.Log("T.5");
+
+
+            Debug.LogWarning("Dominator TankHealth yields warnings when instantiated, possibly in OnEnabled");
+
+            GameObject Tank = PhotonNetwork.Instantiate(GlobalValues.PlayerPrefab, p.position, p.rotation);
+            LocalTank = Tank.GetComponent<TankAddOn>();
             LocalTank.enabled = false;
 
             switch (GlobalValues.Session)
@@ -110,22 +132,34 @@ namespace _Scripts.Photon.Game
                     NextSpawnPointIndex = (pointIndex + 1) % map.teamSpawnPoints[NextTeamIndex].points.Length;
                     break;
             }
-
+            DBG.Log("T1");
             photonView.RPC(nameof(OnPlayerSpawnRPC), RpcTarget.All, playerActor,
                 LocalTank.GetComponent<FactionID>().teamIndex, ffaColorIndex);
+            DBG.Log("T4");
+
+            DBG.EndMethod("OnPlayerSpawn");
+
         }
 
         public virtual void OnPlayerSpawn(int playerActorID, int teamIndex, int ffaColorIndex)
         {
+            DBG.BeginMethod("OnPlayerSpawn");
             PlayersTeamIndexByActorID.Add(playerActorID, teamIndex);
 
-            if (!PhotonNetwork.IsMasterClient) return;
+            if (!PhotonNetwork.IsMasterClient)
+            {
+                DBG.EndMethod("OnPlayerSpawn");
+                return;
+            }
+
 
             var i = AllPlayers.FindIndex((player => player.ActorNumber == playerActorID));
             if (i == AllPlayers.Count - 1)
             {
                 AllSpawned = true;
-                photonView.RPC(nameof(StartGameRPC), RpcTarget.All, Time.time + 10);
+                float wait_time = (PUN2Connection.Instance.OfflineMode) ? 0 : 10;
+                photonView.RPC(nameof(StartGameRPC), RpcTarget.All, Time.time + wait_time);
+                DBG.EndMethod("OnPlayerSpawn");
                 return;
             }
 
@@ -145,6 +179,8 @@ namespace _Scripts.Photon.Game
             NextFfaColorIndex = (ffaColorIndex + 1) % GlobalValues.FfaColors.Length;
             photonView.RPC(nameof(SpawnPlayerRPC), RpcTarget.Others, NextSpawnTurn, NextSpawnPointIndex, NextTeamIndex,
                 NextFfaColorIndex);
+
+            DBG.EndMethod("OnPlayerSpawn");
         }
 
         public virtual void OnPlayerDie(int dyingPlayerID, int killerID)

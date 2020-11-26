@@ -28,6 +28,7 @@ public class MainScript : MonoBehaviourPunCallbacks
 
     IEnumerator InitialiseConnection()
     {
+        DBG.Log("InitialiseConnection");
         yield return new WaitUntil(() => _playfabLogin.PlayfabConnected);
 
         PhotonNetwork.AutomaticallySyncScene = true;

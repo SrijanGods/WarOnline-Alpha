@@ -26,6 +26,9 @@ namespace _Scripts.Photon.Game.Leaderboard
             // var playerIDsSortedDescendingByScores = from entry in Session.PlayersScoresByActorID
             //     orderby entry.Value descending
             //     select entry.Key;
+            DBG.Log("LeaderBoard Enabled");
+            Debug.Assert(Session != null);
+            Debug.Assert(Session.PlayersScoresByActorID != null);
 
             var playerSortedDescendingByScores = Session.PlayersScoresByActorID.OrderByDescending(key => key.Value);
 
