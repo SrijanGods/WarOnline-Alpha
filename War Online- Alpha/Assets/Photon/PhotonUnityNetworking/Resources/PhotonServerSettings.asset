@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PhotonServerSettings
   m_EditorClassIdentifier: 
   AppSettings:
-    AppIdRealtime: a4c4b250-ed44-4ee2-a266-39143977a09f
+    AppIdRealtime: 
     AppIdChat: 
     AppIdVoice: 
     AppVersion: 
@@ -35,13 +35,13 @@ MonoBehaviour:
   - DestroyRpc
   - DestroySpaceship
   - Fire
+  - RespawnSpaceship
   - HitEffect
   - HitImpact
   - KillProjectile
   - OnGameEndRPC
   - OnPlayerDieRPC
   - OnPlayerSpawnRPC
-  - RespawnSpaceship
   - SetColorFromFlameThrower
   - Shoot
   - SpawnPlayerRPC

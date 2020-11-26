@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modifiedAssetPathList:
   - Assets/Bakery/examples/content/sponza/sponza.FBX
-  modifiedAssetPaddingHash: d6a958ff
+  - Assets/^Painter_Files/Maps/Garage/Mesh/R6_Bridge.blend
+  - Assets/^Painter_Files/Maps/Garage/Mesh/R6_HallwayDW.fbx
+  - Assets/^Painter_Files/Maps/Garage/Mesh/R6_Hallway.blend
+  modifiedAssetPaddingHash: d6a958ff471a878eaf67e2a8c670c1bd
