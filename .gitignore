@@ -58,7 +58,7 @@ ehthumbs.db
 Thumbs.db
 
 *.log
-War Online- Alpha/ProjectSettings/ProjectSettings.asset
-War Online- Alpha/ProjectSettings/EditorBuildSettings.asset
-War Online- Alpha/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset
-War Online- Alpha/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset.meta
+*ProjectSettings.asset
+*EditorBuildSettings.asset
+*PhotonServerSettings.asset
+*PhotonServerSettings.asset.meta

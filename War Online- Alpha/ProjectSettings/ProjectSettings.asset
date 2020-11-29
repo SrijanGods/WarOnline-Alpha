@@ -156,6 +156,17 @@ PlayerSettings:
   - {fileID: 11400000, guid: 7432bcbdfc32d7d478a7a8c158975c4a, type: 2}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -277,8 +288,8 @@ PlayerSettings:
   AndroidTargetArchitectures: 1
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: '{inproject}: waronline.keystore'
-  AndroidKeyaliasName: waronlinekey
+  AndroidKeystoreName: D:/Users/Alexander Zapata/source/Workspaces/clientkeystore.keystore
+  AndroidKeyaliasName: client
   AndroidBuildApkPerCpuArchitecture: 1
   AndroidTVCompatibility: 0
   AndroidIsGame: 1

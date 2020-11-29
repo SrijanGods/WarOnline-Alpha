@@ -14,7 +14,8 @@ namespace _Scripts.Tank.Turrets.Sniper
     {
         public Camera myCamera;
 
-        [Header("Scope")] [SerializeField] private Camera cam;
+        [Header("Scope")] 
+        [SerializeField] private Camera cam;
         [SerializeField] public Transform scope;
         [SerializeField] private Image scopeImage;
         [SerializeField] private float cameraTransitionTime = 1f;
@@ -48,23 +49,42 @@ namespace _Scripts.Tank.Turrets.Sniper
         private float scopeTime;
         private bool inZoomMode;
 
-        [Header("Sound System")] [FMODUnity.EventRef]
+        [Header("Sound System COMMENTED OUT")]
+        [FMODUnity.EventRef]
         public string sniperShootSfx = "event:/Sniper";
 
         FMOD.Studio.EventInstance sniperShootEv;
 
-        [Header("Others")] [SerializeField] private LineRenderer laser;
+        [Header("Others")] 
+        [SerializeField] private LineRenderer laser;
         [SerializeField] private ParticleSystem barrelFlash;
         private RaycastHit target;
 
         public TankHealth.TankHealth myTankHealth;
         private Slider _coolDownSlider;
-        private Animator animator;
         private bool camMove = false;
         private float currentReloadValue;
         private float expectedReloadValue;
         private float sfxValue;
 
+        [Header("Inspector set Values for Sniper_Controller() Alexander Z.")] [SerializeField]  
+
+        private Animator camera_sniper_animator;
+
+        public GameObject Tank_Reference ;//Set in the inspector
+        public MeshRenderer Body1;
+        public MeshRenderer Parts1;
+        public MeshRenderer SniperBody1;
+        public MeshRenderer SniperParts7;
+
+
+        private Material OriginalBodyMatte;
+        private Material OriginalPartsBase;
+        public Material TranslucentBodyMatte;
+        public Material TranslucentPartsBase;
+
+        public float NormalizedPercent_ShootConsumption = .5f; //Can be overwritten in the inspector
+        //float ScopeZoomingDuration= 10;///You need to set zoomduration in the sniper animator Transition.
 
         private static readonly int Scoped = Animator.StringToHash("Scoped");
 
@@ -100,9 +120,9 @@ namespace _Scripts.Tank.Turrets.Sniper
             DBG.Log("T3");
 
             //sfx
-            //sniperShootEv = FMODUnity.RuntimeManager.CreateInstance(sniperShootSfx);
-            //FMODUnity.RuntimeManager.AttachInstanceToGameObject(sniperShootEv, GetComponent<Transform>(), GetComponent<Rigidbody>());
-            //sniperShootEv.start();
+            sniperShootEv = FMODUnity.RuntimeManager.CreateInstance(sniperShootSfx);
+            FMODUnity.RuntimeManager.AttachInstanceToGameObject(sniperShootEv, GetComponent<Transform>(), GetComponent<Rigidbody>());
+            sniperShootEv.start();
 
             //Interface
             _coolDownSlider = myTankHealth.attackCooldown;
@@ -111,15 +131,19 @@ namespace _Scripts.Tank.Turrets.Sniper
             _coolDownSlider.value = 30f;
             DBG.Log("T4");
 
-            animator = cam.GetComponent<Animator>();
-            if(animator != null)
-                animator.enabled = false;
+            camera_sniper_animator = cam.GetComponent<Animator>(); //This is because the Camera is child of SniperTurret
+            //ChangeTransitionDuration("THIRD_PERSON_CAMERA", "SCOPE_ZOOMING", 0, ScopeZoomingDuration, camera_sniper_animator);
+            //if(animator != null)
+            //    animator.enabled = false;
 
             Original_Camera_FieldOfView = cam.fieldOfView;
 
             OuterReticle = GameObject.Find("OuterReticle");
 
-
+            //We save up original materials so that we may swap for translucent when scoping. And back to it.
+            OriginalBodyMatte = Body1.material;
+            OriginalPartsBase = Parts1.material;
+            //OriginalSniperBodyMatte = SniperBody1.material;
             //Reload System
             DBG.EndMethod("Sniper.Start");
 
@@ -154,7 +178,7 @@ namespace _Scripts.Tank.Turrets.Sniper
             if (SimulatedInput.GetButtonDown(InputCodes.TankFire))
             {
                 sniperShootEv.setParameterByName("Firing", 0f);
-
+                //
                 if (totalAmmo >= 3)
                 {
                     zoomHeld = true;
@@ -180,10 +204,10 @@ namespace _Scripts.Tank.Turrets.Sniper
 
                 required = true;
                 //Transition
-                if (animator != null)
+                if (camera_sniper_animator != null)
                 {
-                    animator.enabled = true;
-                    animator.SetBool(Scoped, true);
+                    camera_sniper_animator.enabled = true;
+                    camera_sniper_animator.SetBool(Scoped, true);
                 }
                 sniperShootEv.setParameterByName("Scoping", 1f);
 
@@ -250,10 +274,10 @@ namespace _Scripts.Tank.Turrets.Sniper
                 sniperShootEv.setParameterByName("Firing", 1f);
 
                 //Deactivating Animator
-                if (animator != null)
+                if (camera_sniper_animator != null)
                 {
-                    animator.enabled = false;
-                    animator.SetBool(Scoped, false);
+                    camera_sniper_animator.enabled = false;
+                    camera_sniper_animator.SetBool(Scoped, false);
                 }
 
                 //Unzoom
@@ -305,18 +329,17 @@ namespace _Scripts.Tank.Turrets.Sniper
 
         [ReadOnly]
         public float Original_Camera_FieldOfView; // set on start
-        public float ScopeZoomTimeElapsed = 0.1f;
         public float TimeToReachFullZoom = 4;
         public float TimeToReturnToNormalZoom = 4;
         public bool Scope_Token = false;
         public bool Cancel_Scope_Token = false;
         public bool Shoot_Token = false;
-        float Scope_Start_Time = 0;
-        float Scope_Ended_Time = 0;
+        //float Scope_Start_Time = 0;
+        //float Scope_Ended_Time = 0;
 
         GameObject OuterReticle;
 
-        public enum States { START, THIRD_PERSON_CAMERA, SCOPING, SHOOT}
+        public enum States { START, THIRD_PERSON_CAMERA, SCOPE_ZOOMING, SCOPE_FULL_ZOOM, SHOOT}
         public States State = States.START;
         /// <summary>
         /// This controller uses a Finite State Machine each case is a State. See provided Visual Automaton. by Alexander Z.
@@ -326,100 +349,144 @@ namespace _Scripts.Tank.Turrets.Sniper
             DBG.BeginFSM("Network_Controller");
             switch (State) {
                 case States.START:
-                   // ScopeZoomTimeElapsed = TimeToReturnToNormalZoom;
-                    Scope_Ended_Time = Time.time;
                     State = States.THIRD_PERSON_CAMERA;
                     DBG.LogTransition("START -> THIRD_PERSON_CAMERA");
                     Debug.Assert(GameObject.Find("DBG") != null);
                     break;
                 case States.THIRD_PERSON_CAMERA://Default state of turret rotation.
-                    ScopeZoomTimeElapsed = Mathf.Clamp(Time.time - Scope_Ended_Time, .01f, TimeToReturnToNormalZoom);//Transition from zoomed to unzoomed is 1f sconds
-                    cam.fieldOfView = Mathf.Lerp(Original_Camera_FieldOfView -10, Original_Camera_FieldOfView  , ScopeZoomTimeElapsed/ TimeToReturnToNormalZoom);//Transition from zoomed to unzoomed is TimeToReturnToNormalZoom sconds
-                    //ScopeZoomTimeElapsed += Time.deltaTime;
+                    _coolDownSlider.value += (_coolDownSlider.value < _coolDownSlider.maxValue) ? 0.15f : 0;// If cooldown not full increase by
+
                     if (SimulatedInput.GetButtonDown(InputCodes.TankFire) || Input.GetKey(KeyCode.Z))
                     {
+                       // Debug.Log(" >>>Scope_Token = true");
                         Scope_Token = true;
                     }
-                    if (Scope_Token.ConsumeToken())
+
+                    if (_coolDownSlider.value == _coolDownSlider.maxValue && Scope_Token.ConsumeToken() )
                     {
-                        ScopeZoomTimeElapsed = 0.01f;// we gonna zoom from this point in time so we reset to TimeElapsed, not to 0 because we would be divinding by zero
-                        Scope_Start_Time = Time.time;//Because we are going from "THIRD_PERSON_CAMERA -> SCOPING" We save time to start counting to meassure damage %
                         scopeImage.enabled = true;
-                        Debug.Assert(laser != null);
-
                         laser.enabled = true;
-                        cam.cullingMask = ~(1 << 11);
 
-                        GameObject.FindObjectOfType<RTC_UIDragController>().transform.position = GameObject.Find("LeftHand Aim Drag Position").transform.position;
+                        //MainCamera
+                        camera_sniper_animator.SetBool("Scope", true);
+
+                        //Make tank translucent
+                        Body1.material = TranslucentBodyMatte;
+                        SniperBody1.material = TranslucentBodyMatte;
+                        Parts1.material = TranslucentPartsBase;
+                        SniperParts7.material = TranslucentPartsBase;
+
+                        GameObject.FindObjectOfType<RTC_UIDragController>().transform.position = GameObject.Find("LeftHand Aim Drag Position").transform.position;// This repositions the Drag Area to the Leftt hand positin
                         //Stop pressing joystick and deactivate
                         OuterReticle.GetComponentInChildren<RTC_UIJoystickController>().ResetJoystick();
                         OuterReticle.SetActive(false);
 
-                        State = States.SCOPING;
-                        DBG.LogTransition("THIRD_PERSON_CAMERA -> SCOPING");
-                        GameObject.Find("DBG").GetComponent<Text>().text = "THIRD_PERSON_CAMERA -> SCOPING";
+                        State = States.SCOPE_ZOOMING;
+                        DBG.LogTransition("THIRD_PERSON_CAMERA -> SCOPE_ZOOMING");
+                        GameObject.Find("DBG").GetComponent<Text>().text = "THIRD_PERSON_CAMERA -> SCOPE_ZOOMING";
 
                     }
-                    _coolDownSlider.value += (_coolDownSlider.value < _coolDownSlider.maxValue) ? 0.15f : 0;// If cooldown not full increase by
+                    else if(SimulatedInput.GetButtonUp(InputCodes.TankFire) && Input.GetKey(KeyCode.Z) == false && Scope_Token.ConsumeToken())
+                    {
+                        State = States.SHOOT;
+                        DBG.LogTransition("THIRD_PERSON_CAMERA -> SHOOT");
+                        GameObject.Find("DBG").GetComponent<Text>().text = "THIRD_PERSON_CAMERA -> SHOOT";
+                    }
                     break;
-                case States.SCOPING:
+
+                case States.SCOPE_ZOOMING:
                     turretRotation.SniperCamVerticalRotation();
-                    //turretRotation.DoMovements();
-                    // var y = SimulatedInput.GetAxis(InputCodes.MouseLookY);
 
-                    //This gradually zooms
-                    ScopeZoomTimeElapsed = Mathf.Clamp(Time.time - Scope_Start_Time, .01f, TimeToReachFullZoom);//Transition from unzoomed to zoomed is [TimeToReachFullZoom]
-                    cam.fieldOfView = Mathf.Lerp(Original_Camera_FieldOfView, Original_Camera_FieldOfView - 10f, ScopeZoomTimeElapsed / TimeToReachFullZoom);//Transition from unzoomed to zoomed is [TimeToReachFullZoom]
-                   // ScopeZoomTimeElapsed += Time.deltaTime;
+                    //Set laser
+                    laser.SetPosition(0, scope.position);
+                    laser.SetPosition(1, scope.position + scope.forward * range);
 
-                    //lazer
-                    var position = scope.position;
-                    laser.SetPosition(0, position);
-                    laser.SetPosition(1, position + scope.forward * range);
 
                     if (SimulatedInput.GetButtonUp(InputCodes.TankFire) && Input.GetKey(KeyCode.Z) == false)
                     {
                         Shoot_Token = true;
-                        GameObject.Find("DBG").GetComponent<Text>().text += "Shoot_Token: " + Shoot_Token; 
+                        GameObject.Find("DBG").GetComponent<Text>().text += "Shoot_Token: " + Shoot_Token;
                     }
-
-                    if (Cancel_Scope_Token.ConsumeToken())
+                    if (Shoot_Token.ConsumeToken())
                     {
-                        ScopeZoomTimeElapsed = 0.1f;// we gonna unzoom from this point in time so we reset to TimeElapsed, not to 0 because we would be divinding by zero
                         scopeImage.enabled = false;
-                        Scope_Ended_Time = Time.time;
-                        GameObject.FindObjectOfType<RTC_UIDragController>().transform.position = GameObject.Find("RightHand Aim Drag Position").transform.position;
-
-                        State = States.THIRD_PERSON_CAMERA;
-                        DBG.LogTransition("SCOPING -> THIRD_PERSON_CAMERA");
-                        GameObject.Find("DBG").GetComponent<Text>().text = "SCOPING -> THIRD_PERSON_CAMERA";
-                    } else if (Shoot_Token.ConsumeToken())
-                    {
-                        ScopeZoomTimeElapsed = 0.01f;// we gonna unzoom from this point in time so we reset to TimeElapsed, not to 0 because we would be divinding by zero
-                        scopeImage.enabled = false;
-                        Scope_Ended_Time = Time.time;
                         GameObject.FindObjectOfType<RTC_UIDragController>().transform.position = GameObject.Find("RightHand Aim Drag Position").transform.position;
                         OuterReticle.SetActive(true);
 
+                        Body1.material = OriginalBodyMatte;
+                        SniperBody1.material = OriginalBodyMatte;
+                        Parts1.material = OriginalPartsBase;
+                        SniperParts7.material = OriginalPartsBase;
+
+                        camera_sniper_animator.SetBool("Scope", false);
+                        DBG.Log("Scope? " + camera_sniper_animator.GetBool("Scope"));
+
                         State = States.SHOOT;
-                        DBG.LogTransition("SCOPING -> SHOOT");
-                        GameObject.Find("DBG").GetComponent<Text>().text = "SCOPING -> SHOOT";
+                        DBG.LogTransition("SCOPE_ZOOMING -> SHOOT");
+                        GameObject.Find("DBG").GetComponent<Text>().text = "SCOPE_ZOOMING -> SHOOT";
+                    }
+                    else if (camera_sniper_animator.GetCurrentAnimatorStateInfo(0).IsName("SCOPING"))
+                    {
+                        State = States.SCOPE_FULL_ZOOM;
+                        DBG.LogTransition("SCOPE_ZOOMING -> SCOPE_FULL_ZOOM");
+                        GameObject.Find("DBG").GetComponent<Text>().text = "SCOPE_ZOOMING -> SCOPE_FULL_ZOOM";
+                    }
+                    else
+                    {
+                        //When you transition normalizedTime==0, so only execute this or bar will go back to Full. Right when you Transition to FULL ZOOM
+                        AnimatorTransitionInfo transitioninfo = camera_sniper_animator.GetAnimatorTransitionInfo(0);
+                        _coolDownSlider.value = _coolDownSlider.maxValue * (1 - transitioninfo.normalizedTime);
+                    }
+                    break;
+                case States.SCOPE_FULL_ZOOM:
+                    turretRotation.SniperCamVerticalRotation();
+
+                      //lazer
+                    laser.SetPosition(0, scope.position);
+                    laser.SetPosition(1, scope.position + scope.forward * range);
+
+                    if (SimulatedInput.GetButtonUp(InputCodes.TankFire) && Input.GetKey(KeyCode.Z) == false)
+                    {
+                        Shoot_Token = true;
+                        GameObject.Find("DBG").GetComponent<Text>().text += "Shoot_Token: " + Shoot_Token;
+                    }
+
+                    if (Shoot_Token.ConsumeToken())
+                    {
+                        //ScopeZoomTimeElapsed = 0.01f;// we gonna unzoom from this point in time so we reset to TimeElapsed, not to 0 because we would be divinding by zero
+                        scopeImage.enabled = false;
+                        GameObject.FindObjectOfType<RTC_UIDragController>().transform.position = GameObject.Find("RightHand Aim Drag Position").transform.position;
+                        OuterReticle.SetActive(true);
+
+                        Body1.material = OriginalBodyMatte;
+                        SniperBody1.material = OriginalBodyMatte;
+                        Parts1.material = OriginalPartsBase;
+                        SniperParts7.material = OriginalPartsBase;
+
+                        camera_sniper_animator.SetBool("Scope", false);
+
+                        State = States.SHOOT;
+                        DBG.LogTransition("SCOPE_FULL_ZOOM -> SHOOT");
+                        GameObject.Find("DBG").GetComponent<Text>().text = "SCOPE_FULL_ZOOM -> SHOOT";
 
                     }
                     break;
+
                 case States.SHOOT:
                     //sniperShootEv.setParameterByName("Scoping", 0f);
                     //sniperShootEv.setParameterByName("Firing", 1f);
 
-                    if (Time.time - Scope_Start_Time >= 4)
-                        Shoot(damage);//full damage if scoped full time
-                    else
-                        Shoot(damage * (Time.time - Scope_Start_Time) / 4);//fraction of damage, depending on how many seconds of scoping
+                    Shoot(damage * _coolDownSlider.value/_coolDownSlider.maxValue);//fraction of damage, depending on how many seconds of scoping
+                    //DBG.Log("_coolDownSlider.value: " + _coolDownSlider.value);
+                    //DBG.Log("_coolDownSlider.maxValue/2: " + _coolDownSlider.maxValue * NormalizedPercent_ShootConsumption);
+
+                    _coolDownSlider.value = _coolDownSlider.value - _coolDownSlider.maxValue * NormalizedPercent_ShootConsumption;
+                    //DBG.Log("_coolDownSlider.value: " + _coolDownSlider.value);
 
                     //Unzoom
                     scopeImage.enabled = false;
                     laser.enabled = false;
-                    cam.cullingMask = ~0;
+                    //cam.cullingMask = ~0;
                     //cam.fieldOfView = initCamFov;
                     //cam.GetComponent<Pro3DCamera.CameraControl>().enabled = true;
 
@@ -427,7 +494,6 @@ namespace _Scripts.Tank.Turrets.Sniper
                     turretRotation.rotateSpeed = initRotateSpeed;
                     scopeTime = 0;
 
-                    _coolDownSlider.value = 0;
 
                     State = States.THIRD_PERSON_CAMERA;
                     DBG.LogTransition("SHOOT -> THIRD_PERSON_CAMERA");
@@ -443,6 +509,41 @@ namespace _Scripts.Tank.Turrets.Sniper
         }
 
         #region Shoot
+
+
+
+        //public static void ChangeTransitionDuration(string stateName, string transitionName, int layerIndex, float desiredDuration, Animator animator)
+        //{
+        //    // Get a reference to the Animator Controller
+        //    UnityEditor.Animations.AnimatorController ac = animator.runtimeAnimatorController as UnityEditor.Animations.AnimatorController;
+
+        //    int layerCount = ac.layers.Length;
+        //    if (layerCount <= layerIndex)  // Error chek
+        //    {
+        //        Debug.Log("The layer index does not exist");
+        //       return;
+        //    }
+
+ 
+        //    UnityEditor.Animations.AnimatorStateMachine sm = ac.layers[layerIndex].stateMachine;
+        //    UnityEditor.Animations.ChildAnimatorState[] states = sm.states;
+        //    foreach (UnityEditor.Animations.ChildAnimatorState s in states)
+        //    {
+        //        //Debug.Log(string.Format("State: {0}", s.state.name));
+        //        if (s.state.name == stateName)
+        //        {
+        //            foreach (UnityEditor.Animations.AnimatorStateTransition t in s.state.transitions)
+        //            {
+        //                if (t.name == transitionName)
+        //                {
+        //                    Debug.Log(string.Format("Changing {0} duration value", transitionName));
+        //                    t.duration = desiredDuration;
+        //                }
+        //                //Debug.Log(string.Format("{0} transtion: {1}", s.state.name,t.name));
+        //            }
+        //        }
+        //    }
+        //}
 
         private void Shoot(float currDamage)
         {
@@ -497,7 +598,7 @@ namespace _Scripts.Tank.Turrets.Sniper
                     }
                 }
 
-                // sniperShootEv.setParameterByName("Firing", 0f);
+                sniperShootEv.setParameterByName("Firing", 0f);
 
                 if (Math.Abs(currDamage - damage) < .001f)
                 {
@@ -532,7 +633,7 @@ namespace _Scripts.Tank.Turrets.Sniper
 
         private void CameraTransition(bool isZoom)
         {
-            DBG.BeginMethod("CameraTransition");
+            //DBG.BeginMethod("CameraTransition");
             if (isZoom)
             {
                 if (!cameraMode)
@@ -543,13 +644,18 @@ namespace _Scripts.Tank.Turrets.Sniper
 
                 float speed = (Vector3.Distance(cameraDefaultPos, cameraScopePos) / cameraTransitionTime) *
                               Time.deltaTime;
+                DBG.Log("cameraDefaultPos: "  + cameraDefaultPos);
+                DBG.Log("cameraScopePos: " + cameraScopePos);
+                DBG.Log("cameraTransitionTime: " + cameraTransitionTime);
+
+
                 cam.transform.localPosition = Vector3.Lerp(cam.transform.localPosition, cameraScopePos, speed);
             }
             else
             {
                 cameraMode = false;
             }
-            DBG.EndMethod("CameraTransition");
+            //DBG.EndMethod("CameraTransition");
         }
 
         private void Scope()

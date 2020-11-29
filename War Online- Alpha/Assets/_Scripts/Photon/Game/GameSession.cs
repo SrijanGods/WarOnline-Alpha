@@ -40,7 +40,7 @@ namespace _Scripts.Photon.Game
 
             if (!PhotonNetwork.IsMasterClient && PhotonNetwork.IsConnected)
             {//Only master client may instantiate players
-                Debug.Log("!PhotonNetwork.IsMasterClient && PhotonNetwork.IsConnected");
+                Debug.Log("!PhotonNetwork.IsMasterClient && PhotonNetwork.IsConnected ");
                 return;
             }
             //Debug.Log("PhotonNetwork.IsConnected");
@@ -114,7 +114,7 @@ namespace _Scripts.Photon.Game
             DBG.Log("T.5");
 
 
-            Debug.LogWarning("Dominator TankHealth yields warnings when instantiated, possibly in OnEnabled");
+            Debug.LogWarning("Dominator TankHealth yields warnings when instantiated, possibly in OnEnabled ");
 
             GameObject Tank = PhotonNetwork.Instantiate(GlobalValues.PlayerPrefab, p.position, p.rotation);
             LocalTank = Tank.GetComponent<TankAddOn>();

@@ -1,8 +1,6 @@
-using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System;
+using UnityEngine;
 
 namespace ThirdPersonCamera
 {
@@ -379,6 +377,45 @@ namespace ThirdPersonCamera
             Vector3 tmpEuler = transform.rotation.eulerAngles;
             tmpEuler.x = startingY;
             transform.rotation = Quaternion.Euler(tmpEuler);
+        }
+
+        public void OnCollisionEnter(Collision col)
+        {
+            if (col.transform.name == "Sniper")
+            {
+                col.transform.Find("Sniper").Find("Body1").GetComponent<Renderer>().enabled = false;//.HandleCollision(gameObject, col);
+                col.transform.Find("Sniper").Find("Parts7").GetComponent<Renderer>().enabled = false;//.HandleCollision(gameObject, col);
+            }
+        }
+
+        public void OnCollisionExit(Collision col)
+        {
+            if (col.transform.name == "Sniper")
+            {
+                col.transform.Find("Sniper").Find("Body1").GetComponent<Renderer>().enabled = true;//.HandleCollision(gameObject, col);
+                col.transform.Find("Sniper").Find("Parts7").GetComponent<Renderer>().enabled = true;//.HandleCollision(gameObject, col);
+            }
+        }
+
+        public void OnTriggerEnter(Collider other)
+        {
+            Debug.Log("Camera collision trigger enter");
+            if (other.transform.name == "Sniper")
+            {
+                other.transform.Find("Sniper").Find("Body1").GetComponent<Renderer>().enabled = false;//.HandleCollision(gameObject, col);
+                other.transform.Find("Sniper").Find("Parts7").GetComponent<Renderer>().enabled = false;//.HandleCollision(gameObject, col);
+            }
+        }
+
+        public void OnTriggerExit(Collider other)
+        {
+            Debug.Log("Camera collision trigger exit");
+
+            if (other.transform.name == "Sniper")
+            {
+                other.transform.Find("Sniper").Find("Body1").GetComponent<Renderer>().enabled = true;//.HandleCollision(gameObject, col);
+                other.transform.Find("Sniper").Find("Parts7").GetComponent<Renderer>().enabled = true;//.HandleCollision(gameObject, col);
+            }
         }
     }
 }

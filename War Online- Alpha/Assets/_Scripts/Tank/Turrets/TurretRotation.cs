@@ -120,6 +120,10 @@ public class TurretRotation : MonoBehaviourPun, IPunObservable
             input = 360 + input;
         return input;
     }
+
+    /// <summary>
+    /// This allowes you to rotate camera up and down via the Input Drag element in WarCanvas.
+    /// </summary>
     public void SniperCamVerticalRotation()
     {
         //DBG.BeginMethod("SniperCamVerticalRotation");
