@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
-
+using UnityEngine.UI;
 namespace _Scripts.Controls
 {
     public class SimulatedInput : UserInputs.ITankActions
@@ -77,6 +77,8 @@ namespace _Scripts.Controls
 
         public static bool GetButtonDown(InputCodes name)
         {
+            //GameObject.Find("DBG").GetComponent<Text>().text = "BtnValues.ContainsKey(name): " + "\nBtnValues[name].down: "+ BtnValues[name].down;
+
             return BtnValues.ContainsKey(name) && BtnValues[name].down;
         }
 

@@ -120,9 +120,9 @@ namespace _Scripts.Tank.Turrets.Sniper
             DBG.Log("T3");
 
             //sfx
-            sniperShootEv = FMODUnity.RuntimeManager.CreateInstance(sniperShootSfx);
-            FMODUnity.RuntimeManager.AttachInstanceToGameObject(sniperShootEv, GetComponent<Transform>(), GetComponent<Rigidbody>());
-            sniperShootEv.start();
+            //sniperShootEv = FMODUnity.RuntimeManager.CreateInstance(sniperShootSfx);
+            //FMODUnity.RuntimeManager.AttachInstanceToGameObject(sniperShootEv, GetComponent<Transform>(), GetComponent<Rigidbody>());
+            //sniperShootEv.start();
 
             //Interface
             _coolDownSlider = myTankHealth.attackCooldown;
@@ -144,25 +144,50 @@ namespace _Scripts.Tank.Turrets.Sniper
             OriginalBodyMatte = Body1.material;
             OriginalPartsBase = Parts1.material;
             //OriginalSniperBodyMatte = SniperBody1.material;
+
+           // fire_button = new CustomButton();
+           // fire_button.Anchor = 1;
+            
+           // fire_button.Dimensions = new Vector2(10, 10);
+           // fire_button.enabled = true;
+           // fire_button.name = "firebutton";
+           //// fire_button.image = new Texture2D(10, 10);
+           // fire_button.Position = new Vector2(-9, -10);
+           //     fire_button.visible_enabled();
+           // fire_button.IsVisible = true;
+           // fire_button.image = button;
+           // fire_button.OnPress += AH;
+
+           // fire_button.Start();
             //Reload System
             DBG.EndMethod("Sniper.Start");
 
         }
-
+        //CustomButton fire_button; //AUXILIARY CUSTOM BUTTON BECAUSE ROCKETGAMES INPUT FAILED
+        //public Texture2D button;
         #endregion Start
-
+        //public void AH()
+        //{
+        //    Shoot_Token = true;
+        //    Debug.Log("HAHAHA");
+        //}
         #region Update
 
         private void Update()
         {
             // GodsTheGuy_Sniper();
-
-                Sniper_Controller();
+            Sniper_Controller_v3();
+            //     Sniper_Controller();
         }
 
         #endregion Update
 
+        //private void OnGUI()
+        //{
+        //    fire_button.OnGUI();
 
+
+        //}
         void GodsTheGuy_Sniper()
         {
             if (!photonView.IsMine && PhotonNetwork.IsConnected) return;
@@ -339,14 +364,14 @@ namespace _Scripts.Tank.Turrets.Sniper
 
         GameObject OuterReticle;
 
-        public enum States { START, THIRD_PERSON_CAMERA, SCOPE_ZOOMING, SCOPE_FULL_ZOOM, SHOOT}
+        public enum States { START, THIRD_PERSON_CAMERA, SCOPE_ZOOMING, SCOPE_FULL_ZOOM, SHOOT, MOUNTING_SCOPE,SCOPE_MOUNTED, SCOPE_FULLY_ZOOMED, SHOOT_DELAY}
         public States State = States.START;
         /// <summary>
         /// This controller uses a Finite State Machine each case is a State. See provided Visual Automaton. by Alexander Z.
         /// </summary>
         public void Sniper_Controller()
         {
-            DBG.BeginFSM("Network_Controller");
+            DBG.BeginFSM("Sniper_Controller");
             switch (State) {
                 case States.START:
                     State = States.THIRD_PERSON_CAMERA;
@@ -471,7 +496,6 @@ namespace _Scripts.Tank.Turrets.Sniper
 
                     }
                     break;
-
                 case States.SHOOT:
                     //sniperShootEv.setParameterByName("Scoping", 0f);
                     //sniperShootEv.setParameterByName("Firing", 1f);
@@ -508,6 +532,224 @@ namespace _Scripts.Tank.Turrets.Sniper
             DBG.EndFSM();
         }
 
+        public float MinimumShotingCooldown_Normalized = .40f;
+        void PointerDownInShootAuxilary() {
+            Shoot_Token = true;
+        }
+        public Button ShootAuxilaryButton;
+        private float start_shoot_delay = 0;
+        public float Shoot_Delay = 1;
+        public void Sniper_Controller_v3()
+        {
+            DBG.BeginFSM("Sniper_Controller_v3");
+            switch (State)
+            {
+                case States.START:
+                    State = States.THIRD_PERSON_CAMERA;
+                     
+                    DBG.LogTransition("START -> THIRD_PERSON_CAMERA");
+                    Debug.Assert(GameObject.Find("DBG") != null);
+                    GameObject.Find("DBG").GetComponent<Text>().text = "START -> THIRD_PERSON_CAMERA";
+                    break;
+                case States.THIRD_PERSON_CAMERA://Default state of turret rotation.
+                   // GameObject.Find("DBG").GetComponent<Text>().text = "_coolDownSlider == null? " + (_coolDownSlider== null);
+
+                    _coolDownSlider.value += (_coolDownSlider.value < _coolDownSlider.maxValue) ? 0.15f : 0;// If cooldown not full increase by
+
+                    if (camera_sniper_animator.GetCurrentAnimatorStateInfo(0).IsName("THIRD_PERSON_CAMERA"))
+                    {
+                        if (_coolDownSlider.value > _coolDownSlider.maxValue * MinimumShotingCooldown_Normalized)//Only shoot is you got more than a percentage of the max cooldown slider. Normalized means the value is betwoo
+                        {
+                            if (SimulatedInput.GetButtonDown(InputCodes.TankFire))
+                            {
+                                Shoot_Token = true;
+                            }
+
+                            if (_coolDownSlider.value == _coolDownSlider.maxValue && Shoot_Token.ConsumeToken() || Input.GetKey(KeyCode.Z))
+                            {
+                                scopeImage.enabled = true;
+                                laser.enabled = true;
+
+                                //MainCamera
+                                camera_sniper_animator.SetBool("Shoot", true);
+
+                                Body1.material = TranslucentBodyMatte;
+                                SniperBody1.material = TranslucentBodyMatte;
+                                Parts1.material = TranslucentPartsBase;
+                                SniperParts7.material = TranslucentPartsBase;
+
+                                GameObject.FindObjectOfType<RTC_UIDragController>().transform.position = GameObject.Find("LeftHand Aim Drag Position").transform.position;// This repositions the Drag Area to the Leftt hand positin
+
+                                OuterReticle.GetComponentInChildren<RTC_UIJoystickController>().ResetJoystick();//Stops pressing joystick and deactivates it
+                                OuterReticle.SetActive(false);
+
+                                State = States.MOUNTING_SCOPE;
+                                DBG.LogTransition("THIRD_PERSON_CAMERA -> MOUNTING_SCOPE");
+                                GameObject.Find("DBG").GetComponent<Text>().text = "THIRD_PERSON_CAMERA -> MOUNTING_SCOPE";
+                            }
+                            else if (SimulatedInput.GetButtonUp(InputCodes.TankFire) && Input.GetKey(KeyCode.Z) == false && Shoot_Token.ConsumeToken())//Has pressed down. And is now releasing.
+                            {
+                                camera_sniper_animator.SetBool("Shoot", false);
+
+                                State = States.SHOOT;
+                                DBG.LogTransition("THIRD_PERSON_CAMERA -> SHOOT");
+                            }
+                        }
+                    }
+                    break;
+                case States.MOUNTING_SCOPE:
+                    turretRotation.SniperCamVerticalRotation();
+
+                    //Set laser
+                    laser.SetPosition(0, scope.position);
+                    laser.SetPosition(1, scope.position + scope.forward * range);
+
+                    if (SimulatedInput.GetButtonUp(InputCodes.TankFire) && Input.GetKey(KeyCode.Z) == false)
+                    {
+                        scopeImage.enabled = false;
+                        GameObject.FindObjectOfType<RTC_UIDragController>().transform.position = GameObject.Find("RightHand Aim Drag Position").transform.position;
+                        OuterReticle.SetActive(true);
+
+                        Body1.material = OriginalBodyMatte;
+                        SniperBody1.material = OriginalBodyMatte;
+                        Parts1.material = OriginalPartsBase;
+                        SniperParts7.material = OriginalPartsBase;
+
+                        //camera_sniper_animator.SetBool("Shoot", false);
+                        //DBG.Log("Scope? " + camera_sniper_animator.GetBool("Scope"));
+
+                        State = States.SHOOT;
+                        DBG.LogTransition("MOUNTING_SCOPE -> SHOOT");
+                        GameObject.Find("DBG").GetComponent<Text>().text = "MOUNTING_SCOPE -> SHOOT";
+                    }
+                    else if (camera_sniper_animator.GetCurrentAnimatorStateInfo(0).IsName("SCOPING"))
+                    {
+                        State = States.SCOPE_MOUNTED;
+                        DBG.LogTransition("MOUNTING_SCOPE -> SCOPE_MOUNTED");
+                        GameObject.Find("DBG").GetComponent<Text>().text = "MOUNTING_SCOPE -> SCOPE_MOUNTED";
+                    }
+                    break;
+                case States.SCOPE_MOUNTED:
+                    transform.localEulerAngles = new Vector3(0f, transform.localEulerAngles.y, transform.localEulerAngles.z);//Set rotation around the X axis to neutral/ straight. Facing the horizon.
+                    State = States.SCOPE_ZOOMING;
+                    DBG.LogTransition("SCOPE_MOUNTED -> SCOPE_ZOOMING");
+                    GameObject.Find("DBG").GetComponent<Text>().text = "SCOPE_MOUNTED -> SCOPE_ZOOMING";
+ 
+                    break;
+                case States.SCOPE_ZOOMING:
+                    turretRotation.SniperCamVerticalRotation();
+
+                    //Set laser
+                    laser.SetPosition(0, scope.position);
+                    laser.SetPosition(1, scope.position + scope.forward * range);
+
+                    if (SimulatedInput.GetButtonUp(InputCodes.TankFire) && Input.GetKey(KeyCode.Z) == false)
+                    {
+                        scopeImage.enabled = false;
+                        GameObject.FindObjectOfType<RTC_UIDragController>().transform.position = GameObject.Find("RightHand Aim Drag Position").transform.position;
+                        OuterReticle.SetActive(true);
+
+                        Body1.material = OriginalBodyMatte;
+                        SniperBody1.material = OriginalBodyMatte;
+                        Parts1.material = OriginalPartsBase;
+                        SniperParts7.material = OriginalPartsBase;
+
+                        //camera_sniper_animator.SetBool("Shoot", false);
+
+                        State = States.SHOOT;
+                        DBG.LogTransition("SCOPE_ZOOMING -> SHOOT");
+                        GameObject.Find("DBG").GetComponent<Text>().text = "SCOPE_ZOOMING -> SHOOT";
+                    }
+                    else if (camera_sniper_animator.GetCurrentAnimatorStateInfo(0).IsName("ZOOMING"))
+                    {
+                        State = States.SCOPE_FULL_ZOOM;
+                        DBG.LogTransition("SCOPE_ZOOMING -> SCOPE_FULL_ZOOM");
+                        GameObject.Find("DBG").GetComponent<Text>().text = "SCOPE_ZOOMING -> SCOPE_FULL_ZOOM";
+                    }
+                    else
+                    {
+                        //When you transition normalizedTime==0, so only execute this or bar will go back to Full. Right when you Transition to FULL ZOOM
+                        AnimatorTransitionInfo transitioninfo = camera_sniper_animator.GetAnimatorTransitionInfo(0);
+                        _coolDownSlider.value = _coolDownSlider.maxValue * (1 - transitioninfo.normalizedTime);
+                    }
+                    break;
+                case States.SCOPE_FULL_ZOOM:
+
+                    turretRotation.SniperCamVerticalRotation();
+
+                    //lazer
+                    laser.SetPosition(0, scope.position);
+                    laser.SetPosition(1, scope.position + scope.forward * range);
+
+                    if (SimulatedInput.GetButtonUp(InputCodes.TankFire))
+                    {
+                        //ScopeZoomTimeElapsed = 0.01f;// we gonna unzoom from this point in time so we reset to TimeElapsed, not to 0 because we would be divinding by zero
+                        scopeImage.enabled = false;
+                        GameObject.FindObjectOfType<RTC_UIDragController>().transform.position = GameObject.Find("RightHand Aim Drag Position").transform.position;
+                        OuterReticle.SetActive(true);
+
+                        Body1.material = OriginalBodyMatte;
+                        SniperBody1.material = OriginalBodyMatte;
+                        Parts1.material = OriginalPartsBase;
+                        SniperParts7.material = OriginalPartsBase;
+
+                        //camera_sniper_animator.SetBool("Shoot", false);
+
+                        State = States.SHOOT;
+                        DBG.LogTransition("SCOPE_FULL_ZOOM -> SHOOT");
+                        GameObject.Find("DBG").GetComponent<Text>().text = "SCOPE_FULL_ZOOM -> SHOOT";
+
+                    }
+
+                    break;
+                case States.SHOOT:
+                    //sniperShootEv.setParameterByName("Scoping", 0f);
+                    //sniperShootEv.setParameterByName("Firing", 1f);
+
+                    Shoot(damage * _coolDownSlider.value / _coolDownSlider.maxValue);//fraction of damage, depending on how many seconds of scoping
+                    DBG.Log("_coolDownSlider.value: " + _coolDownSlider.value);
+                    DBG.Log("_coolDownSlider.maxValue*NormalizedPercent_ShootConsumption " + _coolDownSlider.maxValue * NormalizedPercent_ShootConsumption);
+
+                    _coolDownSlider.value = _coolDownSlider.value - _coolDownSlider.maxValue * NormalizedPercent_ShootConsumption;
+                    DBG.Log("_coolDownSlider.value: " + _coolDownSlider.value);
+
+                    //Unzoom
+                    scopeImage.enabled = false;
+                    laser.enabled = false;
+                    //cam.cullingMask = ~0;
+                    //cam.fieldOfView = initCamFov;
+                    //cam.GetComponent<Pro3DCamera.CameraControl>().enabled = true;
+                    camera_sniper_animator.SetBool("Shoot", false);
+
+                    //Rotation
+                    turretRotation.rotateSpeed = initRotateSpeed;
+                    scopeTime = 0;
+
+                    start_shoot_delay = Time.time;
+                    State = States.SHOOT_DELAY;
+                    DBG.LogTransition("SHOOT -> SHOOT_DELAY");
+                    GameObject.Find("DBG").GetComponent<Text>().text = "SHOOT -> SHOOT_DELAY";
+                    break;
+                case States.SHOOT_DELAY:
+                    transform.localEulerAngles = new Vector3(0f, transform.localEulerAngles.y, transform.localEulerAngles.z);//Set rotation around the X axis to neutral/ straight. Facing the horizon.
+
+                    _coolDownSlider.value += (_coolDownSlider.value < _coolDownSlider.maxValue) ? 0.15f : 0;// If cooldown not full increase by
+ 
+                    if (Time.time - start_shoot_delay >= Shoot_Delay)
+                    {
+                        State = States.THIRD_PERSON_CAMERA;
+                        DBG.LogTransition("SHOOT_DELAY -> THIRD_PERSON_CAMERA");
+                        GameObject.Find("DBG").GetComponent<Text>().text = "SHOOT_DELAY -> THIRD_PERSON_CAMERA";
+                    }
+                    break;
+                default:
+                    Debug.LogError("Invalid State, Assign Sniper.State");
+                    break;
+
+            }
+            DBG.EndFSM();
+        }
+
         #region Shoot
 
 
@@ -524,7 +766,7 @@ namespace _Scripts.Tank.Turrets.Sniper
         //       return;
         //    }
 
- 
+
         //    UnityEditor.Animations.AnimatorStateMachine sm = ac.layers[layerIndex].stateMachine;
         //    UnityEditor.Animations.ChildAnimatorState[] states = sm.states;
         //    foreach (UnityEditor.Animations.ChildAnimatorState s in states)
