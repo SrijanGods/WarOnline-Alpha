@@ -190,7 +190,7 @@ namespace _Scripts.Tank.Projectile
 
                 _entityManager.SetEnabled(_instantiatedEntity, true);
 
-                ComponentExtensions.ApplyLinearImpulse(ref pv, in pm, dir * force);
+                //ComponentExtensions.ApplyLinearImpulse(ref pv, in pm, dir * force);
 
                 _entityManager.SetComponentData(_instantiatedEntity, pv);
 

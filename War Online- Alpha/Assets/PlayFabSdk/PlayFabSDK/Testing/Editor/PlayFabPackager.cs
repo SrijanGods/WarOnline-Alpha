@@ -295,7 +295,6 @@ namespace PlayFab.Internal
         {
             Setup();
 #if UNITY_2017_1_OR_NEWER
-            EditorUserBuildSettings.wsaBuildAndRunDeployTarget = WSABuildAndRunDeployTarget.WindowsPhone;
             EditorUserBuildSettings.wsaSubtarget = WSASubtarget.AnyDevice;
 #if !UNITY_2019_1_OR_NEWER
             EditorUserBuildSettings.wsaGenerateReferenceProjects = true;

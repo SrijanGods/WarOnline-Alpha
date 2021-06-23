@@ -452,7 +452,102 @@ MonoBehaviour:
   - Assets/_Tank_Controllers/Physics Based Tank Controller/Models/Tank.FBX
   - Assets/_Tank_Controllers/Physics Based Tank Controller/Models/wheel tank.fbx
   - Assets/_Tank_Controllers/RealisticTankController/Models/RTC_Tank .FBX
-  uvOverlapAssetList: 00000000ffffffff0101000001010000010100000101000001010000010100000101000001010000010100000101000001010000010100000101000001010000010100000101000001010000010100000101000001010000010100000101000000000000
+  - Packages/com.unity.physics/Tests/PlayModeTests/HullGeneration/Meshes/teapot.fbx
+  - Packages/com.unity.physics/Tests/PlayModeTests/HullGeneration/Meshes/stanford-bunny.fbx
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/Shared Assets/Animations/Robot
+    Kyle@Running Right Turn.fbx
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/Shared Assets/Animations/xbot@Jumping.fbx
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/Shared Assets/Animations/xbot@Idle.fbx
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/Shared Assets/Animations/Robot
+    Kyle@Running.fbx
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Racing
+    Kit/Models/roadRampLongCurvedWall.fbx
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/DemoAsteroids/Models/Asteroid01.fbx
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Racing
+    Kit/Models/rail.fbx
+  - Assets/_Temprary/turret.fbx
+  - Assets/Bakery/examples/content/logolight.FBX
+  - Assets/_Particles/ModernGunEffects/Models/rocket.FBX
+  - Assets/_Etcectra(Imp_Trash_Bin)/turret.fbx
+  - Assets/_Enviroment/Ceto Ocean Add-Ons/Mesh/Ship.3DS
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/Shared Assets/Models/Robot
+    Kyle.fbx
+  - Assets/^Painter_Files/Maps/Common_Objects/Mesh/Base/Floor_1.obj
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Stylized
+    city/Models/tree_1.FBX
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Racing
+    Kit/Models/flagGreen.fbx
+  - Assets/^Painter_Files/Tanks/Hulls/Mesh/Falcon/Falcon.obj
+  - Assets/_Enviroment/Foliage Free/models/pine2a.fbx
+  - Assets/_Enviroment/Foliage Free/models/pine1b.fbx
+  - Assets/^Painter_Files/Maps/Common_Objects/Mesh/Barrier/Barrier.obj
+  - Assets/_Tank_Controllers/RealisticTankController/Models/RTC_DestroyableWall.FBX
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Racing
+    Kit/Models/roadCornerSmallBorder.fbx
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Racing
+    Kit/Models/roadStraightBridgeStart.fbx
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Stylized
+    city/Models/car_4.FBX
+  - Assets/^Painter_Files/Maps/Garage/Mesh/OldGarage/TrackSet_low.FBX
+  - Assets/^Painter_Files/AddOns/Mesh/Double_Damage.fbx
+  - Assets/^Painter_Files/Maps/Common_Objects/Mesh/Barrier/Concret_barrier_low.fbx
+  - Assets/_Particles/ModernGunEffects/Models/MGcartridge.FBX
+  - Assets/_Enviroment/Foliage Free/models/pine1a.fbx
+  - Assets/_Particles/ModernGunEffects/Models/shotgunCartridge.FBX
+  - Assets/^Painter_Files/AddOns/Mesh/Power_Box_4.fbx
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Stylized
+    city/Models/tree_6.FBX
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/DemoAsteroids/Models/Spaceship.fbx
+  - Assets/_Particles/ModernGunEffects/Models/singlePlane.FBX
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/DemoAsteroids/Models/FlyerAsteroidB.fbx
+  - Assets/^Painter_Files/Maps/Garage/Mesh/Base/tech_pedestal.fbx
+  - Assets/^Painter_Files/Maps/Common_Objects/Mesh/Barrier/Barrier_2_Complete.obj
+  - Assets/_Particles/ModernGunEffects/Models/tower.FBX
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Racing
+    Kit/Models/roadStartPositions.fbx
+  - Assets/_Enviroment/Day Night Cycle/Artwork/InsideOutSphere.fbx
+  - Assets/^Painter_Files/Tanks/Extras/Ammunition/WPN_cal_308.FBX
+  - Assets/^Painter_Files/AddOns/Mesh/Health_Box.fbx
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Racing
+    Kit/Models/billboardLower.fbx
+  - Assets/^Painter_Files/Tanks/Turrets/Mesh/Acidton/Acidton.fbx
+  - Assets/^Painter_Files/Tanks/Hulls/Mesh/Panzer/Panzer.obj
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Stylized
+    city/Models/bush1.FBX
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Racing
+    Kit/Models/roadCornerSmall.fbx
+  - Assets/^Painter_Files/Tanks/Hulls/Mesh/Dominator/DominatorBody.fbx
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Stylized
+    city/Models/car_3.FBX
+  - Assets/^Painter_Files/Tanks/Turrets/Mesh/Duos/Duos.fbx
+  - Assets/^Painter_Files/Maps/Garage/Mesh/OldGarage/Crate_low.FBX
+  - Assets/^Painter_Files/Maps/Garage/Mesh/OldGarage/ToolBox_low.FBX
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Racing
+    Kit/Models/roadStart.fbx
+  - Assets/_Enviroment/Foliage Free/models/pine2b.fbx
+  - Assets/^Painter_Files/Tanks/Hulls/Mesh/Trapper/Trapper.obj
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Racing
+    Kit/Models/roadStraight.fbx
+  - Assets/_Enviroment/Foliage Free/models/ferns.fbx
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/Shared Assets/Models/Pointer.fbx
+  - Assets/^Painter_Files/Tanks/Turrets/Mesh/WindChill/WindChill.obj
+  - Assets/_Etcectra(Imp_Trash_Bin)/Trapper.fbx
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Stylized
+    city/Models/hamvee.FBX
+  - Assets/^Painter_Files/Tanks/Hulls/Mesh/Scorpion/Scorpion.obj
+  - Assets/_Enviroment/Day Night Cycle/Artwork/NormalSphere.fbx
+  - Assets/_Particles/ModernGunEffects/Models/pistolCartridge.FBX
+  - Assets/_Particles/ModernGunEffects/Models/S_ScaleFigure.FBX
+  - Assets/^Painter_Files/Maps/Common_Objects/Mesh/Base/Floor_2.obj
+  - Assets/_Tank_Controllers/Physics Based Tank Controller/Models/DestroyableWall.FBX
+  - Assets/_Enviroment/Tree9/Tree9_Leaf.fbx
+  - Assets/^Painter_Files/Tanks/Turrets/Mesh/FlameThrower/Flamethrower.obj
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Stylized
+    city/Models/car_1.FBX
+  - Assets/^Painter_Files/AddOns/Mesh/Speed_box.fbx
+  - Assets/^Painter_Files/Maps/Garage/Mesh/OldGarage/Garage.fbx
+  - Assets/Plugins/Photon/PhotonUnityNetworking/Demos/DemoAsteroids/Models/LaserBolt.fbx
+  uvOverlapAssetList: 0000000000000000010100000101000001010000010100000101000001010000010100000101000001010000010100000101000001010000010100000101000001010000010100000101000001010000010100000101000001010000010100000000000000000000010100000000000000000000000000000000000001010000ffffffff01010000010100000000000000000000000000000101000000000000000000000101000001010000010100000101000001010000000000000101000001010000010100000101000001010000010100000101000000000000010100000000000000000000010100000101000000000000010100000101000001010000010100000101000000000000000000000101000001010000010100000101000001010000010100000000000001010000010100000000000000000000010100000101000001010000010100000101000000000000010100000000000001010000010100000000000000000000000000000000000001010000010100000101000001010000010100000101000001010000
   xatlasWarningShown: 0
   checkerPreviewOn: 0
   rtSceneViewPreviewOn: 0
@@ -529,5 +624,5 @@ MonoBehaviour:
   renderSettingsRTPVSceneView: 0
   renderSettingsRTPVWidth: 640
   renderSettingsRTPVHeight: 360
-  modifiedMeshPaddingArray: 29000000140000002c0000002c0000002d0000002d0000002c0000002c0000002d0000002d00000006000000
-  modifiedMeshUnwrapperArray: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  modifiedMeshPaddingArray: 0b000000
+  modifiedMeshUnwrapperArray: 00000000
